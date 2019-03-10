@@ -8,8 +8,10 @@
     "@types/react": "16.8.7",
     "@types/react-dom": "16.8.2",
     "react": "^16.8.4",
+    "react-ace": "^6.4.0",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
+    "scpl": "^1.2.0",
     "typescript": "3.3.3333"
   },
   "scripts": {
@@ -26,5 +28,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
+    "eslint": "^5.15.1"
+  }
 }
