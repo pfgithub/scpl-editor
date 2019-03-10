@@ -17,3 +17,7 @@
 .scroll{
 	overflow:scroll;
 }
+
+.error {
+	background-color:#960000 !important;
+}

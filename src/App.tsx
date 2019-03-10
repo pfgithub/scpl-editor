@@ -1,23 +1,24 @@
 import React, { Component } from "react";
-import {parse} from "scpl";
+import {parse, PositionedError} from "scpl";
 import logo from "./logo.svg";
 import "./App.css";
 
 import testshortcut from "./testshortcut.json";
 
-import brace from "brace";
+import ace from "brace";
 import "./ace/mode-scpl";
 import AceEditor from "react-ace";
 
 import ShortcutPreview from "shortcut-preview";
 
-class App extends Component<{}, { fileValue: string, shortcutData: any }> {
+console.log(ace, ace.Range);
+
+class App extends Component<{}, { fileValue: string, shortcutData: any, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}> }> {
 	constructor(props: Readonly<{}>) {
 		super(props);
-		this.state = {fileValue: "text \"hello world\"", shortcutData: testshortcut};
+		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, annotations: [], markers: []};
 	}
 	render() {
-		console.log("SHORTCUT DATA IS ", this.state.shortcutData);
 		return (
 			<div className="App">
 				<div className="split">
@@ -29,11 +30,13 @@ class App extends Component<{}, { fileValue: string, shortcutData: any }> {
 							name="ace_editor"
 							editorProps={{$blockScrolling: true}}
 							value={this.state.fileValue || ""}
+							annotations={this.state.annotations}
+							markers={this.state.markers}
 						/>
 					</div>
 					<div className="splitItem scroll">
 						<div>{this.state.shortcutData[0].WFWorkflowActions.length} actions</div>
-						<ShortcutPreview data={this.state.shortcutData} key={Math.floor(Math.random() * 1000)} />
+						<ShortcutPreview data={this.state.shortcutData} />
 					</div>
 				</div>
 			</div>
@@ -46,10 +49,25 @@ class App extends Component<{}, { fileValue: string, shortcutData: any }> {
 			output = parse(text, { make: ["shortcutjson", "shortcutplist"] });
 		}catch(er) {
 			console.log(er.message);
+			if(!(er instanceof PositionedError)) {throw new Error("Not positioned");}
+			this.setState({
+				fileValue: text,
+				annotations: [{
+					row: er.start[0] - 1,
+					column: er.start[1] - 1,
+					text: er.message, // Or the Json reply from the parser
+					type: "error" // also warning and information
+				}], markers: [{
+					startRow: er.start[0] - 1,
+					endRow: er.end[0] - 1,
+					startCol: er.start[1] - 1,
+					endCol: er.end[1] - 1,
+					className: "ace_active-line error", type: "background"
+				}]});
 			return;
 		}
 		const {shortcutjson, shortcutplist} = output;
-		this.setState({shortcutData: shortcutjson, fileValue: text});
+		this.setState({fileValue: text, shortcutData: shortcutjson, annotations: [], markers: []});
 	}
 }
 
