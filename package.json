@@ -12,6 +12,7 @@
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
     "scpl": "^1.2.0",
+    "shortcut-preview": "xAlien95/shortcut-preview",
     "typescript": "3.3.3333"
   },
   "scripts": {
@@ -31,7 +32,6 @@
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.4.2",
-    "@typescript-eslint/parser": "^1.4.2",
-    "eslint": "^5.15.1"
+    "@typescript-eslint/parser": "^1.4.2"
   }
 }
