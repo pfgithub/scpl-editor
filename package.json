@@ -12,7 +12,7 @@
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
     "scpl": "^1.2.0",
-    "shortcut-preview": "xAlien95/shortcut-preview",
+    "shortcut-preview": "^0.1.2",
     "typescript": "3.3.3333"
   },
   "scripts": {

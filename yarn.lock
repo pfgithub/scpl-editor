@@ -9050,9 +9050,10 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
-shortcut-preview@xAlien95/shortcut-preview:
-  version "0.1.0"
-  resolved "https://codeload.github.com/xAlien95/shortcut-preview/tar.gz/de3a93154a4c496785de1a4f22148c5c6b1eeef6"
+shortcut-preview@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/shortcut-preview/-/shortcut-preview-0.1.2.tgz#1874e91ceab1050f4c38a3ee17bca75e96a746b1"
+  integrity sha512-lx6ANWi8/B9VdDN5Na/Ak4NAD7j7Uh7+0xwVjNDF9pLUykONl4+34yKE1Ku3ojtPeqbkaqQO4yG0q8M5UU2DBA==
   dependencies:
     "@types/jest" "24.0.9"
     "@types/node" "11.10.4"
