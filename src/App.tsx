@@ -3,7 +3,7 @@ import {parse} from "scpl";
 import logo from "./logo.svg";
 import "./App.css";
 
-import * as testshortcut from "./testshortcut.json";
+import testshortcut from "./testshortcut.json";
 
 import brace from "brace";
 import "./ace/mode-scpl";
@@ -17,17 +17,25 @@ class App extends Component<{}, { fileValue: string, shortcutData: any }> {
 		this.state = {fileValue: "text \"hello world\"", shortcutData: testshortcut};
 	}
 	render() {
+		console.log("SHORTCUT DATA IS ", this.state.shortcutData);
 		return (
 			<div className="App">
-				<AceEditor
-					mode="scpl"
-					theme="github"
-					onChange={this.onChange.bind(this)}
-					name="ace_editor"
-					editorProps={{$blockScrolling: true}}
-					value={this.state.fileValue || ""}
-				/>
-				<ShortcutPreview data={this.state.shortcutData} />
+				<div className="split">
+					<div className="splitItem">
+						<AceEditor
+							mode="scpl"
+							theme="github"
+							onChange={this.onChange.bind(this)}
+							name="ace_editor"
+							editorProps={{$blockScrolling: true}}
+							value={this.state.fileValue || ""}
+						/>
+					</div>
+					<div className="splitItem scroll">
+						<div>{this.state.shortcutData[0].WFWorkflowActions.length} actions</div>
+						<ShortcutPreview data={this.state.shortcutData} key={Math.floor(Math.random() * 1000)} />
+					</div>
+				</div>
 			</div>
 		);
 	}
