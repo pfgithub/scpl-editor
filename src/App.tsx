@@ -13,6 +13,8 @@ import ShortcutPreview from "shortcut-preview";
 
 console.log(ace, ace.Range);
 
+let timeout: NodeJS.Timeout;
+
 class App extends Component<{}, { fileValue: string, shortcutData: any, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}> }> {
 	constructor(props: Readonly<{}>) {
 		super(props);
@@ -43,6 +45,10 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 		);
 	}
 	onChange(text: string) {
+		if(timeout) {clearTimeout(timeout);}
+		timeout = setTimeout(() => this.onChangeLimited(text), 100);
+	}
+	onChangeLimited(text: string) {
 		// parse
 		let output: {shortcutjson: any, shortcutplist: Buffer};
 		try{
@@ -67,7 +73,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 			return;
 		}
 		const {shortcutjson, shortcutplist} = output;
-		this.setState({fileValue: text, shortcutData: shortcutjson, annotations: [], markers: []});
+		this.setState({fileValue: text, shortcutData: shortcutjson, annotations: [], markers: []});	
 	}
 }
 
