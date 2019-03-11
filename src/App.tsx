@@ -11,14 +11,16 @@ import AceEditor from "react-ace";
 
 import ShortcutPreview from "shortcut-preview";
 
-console.log(ace, ace.Range);
-
 let timeout: NodeJS.Timeout;
 
+const Range = ace.acequire("ace/range").Range;
+
 class App extends Component<{}, { fileValue: string, shortcutData: any, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}> }> {
+	reactAceComponentRef: React.RefObject<AceEditor>;
 	constructor(props: Readonly<{}>) {
 		super(props);
 		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, annotations: [], markers: []};
+		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	render() {
 		return (
@@ -34,28 +36,46 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 							value={this.state.fileValue || ""}
 							annotations={this.state.annotations}
 							markers={this.state.markers}
+							ref={this.reactAceComponentRef}
 						/>
 					</div>
 					<div className="splitItem scroll">
 						<div>{this.state.shortcutData[0].WFWorkflowActions.length} actions</div>
-						<ShortcutPreview data={this.state.shortcutData} />
+						<ShortcutPreview debug onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} />
 					</div>
 				</div>
 			</div>
 		);
 	}
+	onActionSelect(data: {type: "action" | "parameter", actionData: any}) {
+		console.log("OnActionSelect", data.actionData);
+		if(data.actionData["SCPLData"]) {
+			console.log("Contains SCPLData");
+			const scpldata = data.actionData.SCPLData;
+			
+			const reactAceComponent = this.reactAceComponentRef.current;
+			if(!reactAceComponent) {console.log("reactacecomponent is not yet defined"); return;}
+			const editor = (reactAceComponent as any).editor as ace.Editor;
+			// .Position.start|end
+			const line = scpldata.Position.start[0];
+			const col = scpldata.Position.start[1] - 1;
+			console.log("Scrolling to line", line, col);
+			editor.gotoLine(line, col, true);
+			editor.selection.setRange(new Range(scpldata.Position.start[0] - 1, scpldata.Position.start[1] - 1, scpldata.Position.end[0] - 1, scpldata.Position.end[1] - 1), true);
+		}
+	}
 	onChange(text: string) {
 		if(timeout) {clearTimeout(timeout);}
-		timeout = setTimeout(() => this.onChangeLimited(text), 100);
+		timeout = setTimeout(() => this.onChangeLimited(text), 1000);
 	}
 	onChangeLimited(text: string) {
 		// parse
 		let output: {shortcutjson: any, shortcutplist: Buffer};
 		try{
-			output = parse(text, { make: ["shortcutjson", "shortcutplist"] });
+			output = parse(text, { make: ["shortcutjson"] });
 		}catch(er) {
 			console.log(er.message);
-			if(!(er instanceof PositionedError)) {throw new Error("Not positioned");}
+			if(!(er instanceof PositionedError)) {throw er;}
 			this.setState({
 				fileValue: text,
 				annotations: [{

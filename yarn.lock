@@ -8863,10 +8863,10 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-scpl@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.2.1.tgz#0ab5b39e37a4c4591a28451c16c1811b62b3bfb0"
-  integrity sha512-6PCRVSXaptbMip5Ugelx8fNKvU18evZ5ZyxFJJ41AEjoMq2zK4xjB2iaFIZrLlA1uCVNbmnnKffL1gn/r7sg3g==
+scpl@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.3.0.tgz#9e550b1ad263e9b50a97c3dbbb080886f0fb6aca"
+  integrity sha512-2lNmX20gJ87gJAaXdpokjOk6dpSSxS6dfTNuPELtM9MtLr5EekdDwmPjqfP/UQBhXMwARGyWWeea9zVkb34xaQ==
   dependencies:
     "@types/node" "^11.9.5"
     "@types/uuid" "^3.4.4"
@@ -9050,15 +9050,16 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
-shortcut-preview@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/shortcut-preview/-/shortcut-preview-0.1.3.tgz#17f7113e97df67e9819b6aece055f4b2ae5e2233"
-  integrity sha512-vV/4X46+EGwW+BkDUpVgBhLX/AeHAoYHh0QrcalpAjBYQX1vUwCLl71kwGLKvfNcvOAzpLfTKlymWGvQ1kJdZw==
+shortcut-preview@pfgithub/shortcut-preview:
+  version "0.1.4"
+  resolved "https://codeload.github.com/pfgithub/shortcut-preview/tar.gz/044b5491d616341704476e69df88bb06a128f88a"
   dependencies:
     "@types/jest" "24.0.9"
     "@types/node" "11.10.4"
     "@types/react" "16.8.6"
     "@types/react-dom" "16.8.2"
+    "@typescript-eslint/eslint-plugin" "^1.4.2"
+    "@typescript-eslint/parser" "^1.4.2"
     node-sass "^4.11.0"
     react "^16.8.3"
     react-dom "^16.8.3"

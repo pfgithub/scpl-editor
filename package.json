@@ -11,8 +11,8 @@
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
-    "scpl": "^1.2.0",
-    "shortcut-preview": "^0.1.3",
+    "scpl": "^1.3.0",
+    "shortcut-preview": "pfgithub/shortcut-preview",
     "typescript": "3.3.3333"
   },
   "scripts": {
