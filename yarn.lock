@@ -9052,7 +9052,7 @@ shellwords@^0.1.1:
 
 shortcut-preview@pfgithub/shortcut-preview:
   version "0.1.4"
-  resolved "https://codeload.github.com/pfgithub/shortcut-preview/tar.gz/044b5491d616341704476e69df88bb06a128f88a"
+  resolved "https://codeload.github.com/pfgithub/shortcut-preview/tar.gz/cda4f58427c9e24a07f02c1b687905a7d358e9ef"
   dependencies:
     "@types/jest" "24.0.9"
     "@types/node" "11.10.4"

@@ -50,7 +50,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 					</div>
 					<div className={`splitItem scroll${this.state.loading ? " loading" : ""}`}>
 						<div>{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"} in {this.state.took} ms.</div>
-						<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview debug onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
+						<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
 					</div>
 				</div>
 			</div>
