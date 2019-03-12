@@ -15,11 +15,20 @@ let timeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
 
-class App extends Component<{}, { fileValue: string, shortcutData: any, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}> }> {
+class MaybeUpdate extends Component<{shouldUpdate: boolean}, {}> {
+	shouldComponentUpdate(nextProps: {shouldUpdate: boolean}) {
+		return nextProps.shouldUpdate;
+	}
+	render() {
+		return this.props.children;
+	}
+}
+
+class App extends Component<{}, { fileValue: string, shortcutData: any, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}>, loading: boolean, took: number, fullUpdate: boolean }> {
 	reactAceComponentRef: React.RefObject<AceEditor>;
 	constructor(props: Readonly<{}>) {
 		super(props);
-		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, annotations: [], markers: []};
+		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, annotations: [], markers: [], loading: false, took: 0, fullUpdate: true};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	render() {
@@ -39,18 +48,16 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 							ref={this.reactAceComponentRef}
 						/>
 					</div>
-					<div className="splitItem scroll">
-						<div>{this.state.shortcutData[0].WFWorkflowActions.length} actions</div>
-						<ShortcutPreview debug onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} />
+					<div className={`splitItem scroll${this.state.loading ? " loading" : ""}`}>
+						<div>{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"} in {this.state.took} ms.</div>
+						<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview debug onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
 					</div>
 				</div>
 			</div>
 		);
 	}
 	onActionSelect(data: {type: "action" | "parameter", actionData: any}) {
-		console.log("OnActionSelect", data.actionData);
-		if(data.actionData["SCPLData"]) {
-			console.log("Contains SCPLData");
+		if(data.actionData.SCPLData) {
 			const scpldata = data.actionData.SCPLData;
 			
 			const reactAceComponent = this.reactAceComponentRef.current;
@@ -65,12 +72,14 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 		}
 	}
 	onChange(text: string) {
+		if(!this.state.loading) {this.setState({fileValue: text, loading: true, fullUpdate: false});}
 		if(timeout) {clearTimeout(timeout);}
-		timeout = setTimeout(() => this.onChangeLimited(text), 1000);
+		timeout = setTimeout(() => this.onChangeLimited(text), Math.max(this.state.took * 4, 100));
 	}
 	onChangeLimited(text: string) {
 		// parse
 		let output: {shortcutjson: any, shortcutplist: Buffer};
+		const startTime = (new Date()).getTime();
 		try{
 			output = parse(text, { make: ["shortcutjson"] });
 		}catch(er) {
@@ -78,6 +87,9 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 			if(!(er instanceof PositionedError)) {throw er;}
 			this.setState({
 				fileValue: text,
+				loading: false,
+				took: (new Date()).getTime() - startTime,
+				fullUpdate: true,
 				annotations: [{
 					row: er.start[0] - 1,
 					column: er.start[1] - 1,
@@ -93,7 +105,11 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 			return;
 		}
 		const {shortcutjson, shortcutplist} = output;
-		this.setState({fileValue: text, shortcutData: shortcutjson, annotations: [], markers: []});	
+		this.setState({
+			fileValue: text,
+			took: (new Date()).getTime() - startTime,
+			loading: false, fullUpdate: true, shortcutData: shortcutjson, annotations: [], markers: []
+		});	
 	}
 }
 

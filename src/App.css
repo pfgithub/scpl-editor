@@ -13,6 +13,7 @@
 }
 .splitItem{
 	flex: 1;
+	transition: 0.1s opacity;
 }
 .scroll{
 	overflow:scroll;
@@ -20,4 +21,9 @@
 
 .error {
 	background-color:#ffdddd !important;
+}
+
+.loading{
+    opacity: 0.5;
+	pointer-events: none;
 }
