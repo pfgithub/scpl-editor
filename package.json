@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rm -rf docs && mv build docs",
+    "build": "react-scripts build && rm -rf docs && mv build docs && echo \"scpl.dev\" > docs/CNAME",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
