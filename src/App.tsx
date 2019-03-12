@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {parse, PositionedError} from "scpl";
-import logo from "./logo.svg";
+import logo from "./logo.svg"; //
 import "./App.css";
 
 import testshortcut from "./testshortcut.json";
