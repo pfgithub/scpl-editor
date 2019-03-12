@@ -24,11 +24,63 @@ class MaybeUpdate extends Component<{shouldUpdate: boolean}, {}> {
 	}
 }
 
-class App extends Component<{}, { fileValue: string, shortcutData: any, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}>, loading: boolean, took: number, fullUpdate: boolean }> {
+class DownloadButton extends Component<{filename: string, file: Buffer | undefined}, {}> { // from https://github.com/axetroy/react-download
+	render() {
+		return <button onClick={(e) => this.onClick(e)}>Download .shortcut</button>;
+	}
+	fakeClick(obj: HTMLAnchorElement) {
+		const ev = document.createEvent("MouseEvents");
+		ev.initMouseEvent(
+			"click",
+			true,
+			false,
+			window,
+			0,
+			0,
+			0,
+			0,
+			0,
+			false,
+			false,
+			false,
+			false,
+			0,
+			null
+		);
+		obj.dispatchEvent(ev);
+	}
+	exportRaw(name: string, data: Buffer) {
+		const urlObject = window.URL || (window as any).webkitURL || window;
+		const export_blob = new Blob([data]);
+
+		if ("msSaveBlob" in navigator) {
+			// Prefer msSaveBlob if available - Edge supports a[download] but
+			// ignores the filename provided, using the blob UUID instead.
+			// msSaveBlob will respect the provided filename
+			navigator.msSaveBlob(export_blob, name);
+		} else if ("download" in HTMLAnchorElement.prototype) {
+			const save_link = document.createElementNS(
+				"http://www.w3.org/1999/xhtml",
+				"a"
+			) as HTMLAnchorElement;
+			save_link.href = urlObject.createObjectURL(export_blob);
+			save_link.download = name;
+			this.fakeClick(save_link);
+		} else {
+			alert("Downloading shortcuts is not available on this browser.");
+		}
+	}
+	onClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+		if(!this.props.file) {return;}
+		this.exportRaw(this.props.filename, this.props.file);
+	}
+}
+
+class App extends Component<{}, { fileValue: string, shortcutData: any, shortcutDownload: Buffer | undefined, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}>, loading: boolean, took: number, fullUpdate: boolean }> {
 	reactAceComponentRef: React.RefObject<AceEditor>;
 	constructor(props: Readonly<{}>) {
 		super(props);
-		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, annotations: [], markers: [], loading: false, took: 0, fullUpdate: true};
+		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, shortcutDownload: undefined, annotations: [], markers: [], loading: false, took: 0, fullUpdate: true};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	render() {
@@ -50,6 +102,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 					</div>
 					<div className={`splitItem scroll${this.state.loading ? " loading" : ""}`}>
 						<div>{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"} in {this.state.took} ms.</div>
+						<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload} />
 						<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
 					</div>
 				</div>
@@ -81,13 +134,14 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 		let output: {shortcutjson: any, shortcutplist: Buffer};
 		const startTime = (new Date()).getTime();
 		try{
-			output = parse(text, { make: ["shortcutjson"] });
+			output = parse(text, { make: ["shortcutjson", "shortcutplist"] });
 		}catch(er) {
 			console.log(er.message);
 			if(!(er instanceof PositionedError)) {throw er;}
 			this.setState({
 				fileValue: text,
 				loading: false,
+				shortcutDownload: undefined,
 				took: (new Date()).getTime() - startTime,
 				fullUpdate: true,
 				annotations: [{
@@ -108,7 +162,8 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, annotati
 		this.setState({
 			fileValue: text,
 			took: (new Date()).getTime() - startTime,
-			loading: false, fullUpdate: true, shortcutData: shortcutjson, annotations: [], markers: []
+			loading: false, fullUpdate: true, shortcutData: shortcutjson, annotations: [], markers: [],
+			shortcutDownload: shortcutplist
 		});	
 	}
 }
