@@ -9,436 +9,504 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	const TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 	/* --------------------- START ----------------------------- */
 	const ScplHighlightRules = function() {
-		// @ts-ignore
+	//@ts-ignore
 		this.$rules = {
 			start: [
-				{
-					token: "punctuation.operator",
-					regex: "(\\\")",
-					push: "string__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(^\\s*\\|\\s*)",
-					push: "barlist__1"
-				},
-				{
-					token: "variable",
-					regex: "(:([A-Za-z0-9@._]+))"
-				},
-				{
-					token: "keyword",
-					regex: "([A-Za-z0-9@._]+)"
-				},
-				{
-					token: "comment",
-					regex: "(/\\*)",
-					push: "multi_line_comment__1"
-				},
-				{
-					token: "comment",
-					regex: "(--\\[)",
-					push: "multi_line_comment__2"
-				},
-				{
-					token: "comment",
-					regex: "(--.*)"
-				},
-				{
-					token: "comment",
-					regex: "(#.*)"
-				},
-				{
-					token: "comment",
-					regex: "(//.*)"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\()",
-					push: "action__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\[)",
-					push: "action__2"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "({)",
-					push: "action__3"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "([\"\\:,;^\\->=])"
-				},
-				{
-					token: "invalid",
-					regex: "([^\\s])"
-				},
-				{
-					defaultToken: "text",
-				}
+	   {
+	      token: "punctuation",
+	      regex: "(\\\")",
+	      push: "string__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\')",
+	      push: "string__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(^\\s*\\|\\s*)",
+	      push: "barlist__1"
+	   },
+	   {
+	      token: "variable",
+	      regex: "(:([A-Za-z0-9@._]+))"
+	   },
+	   {
+	      token: "support.constant",
+	      regex: "(@(([A-Za-z0-9@._]+))?)"
+	   },
+	   {
+	      token: "keyword",
+	      regex: "([A-Za-z0-9@._]+)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(/\\*)",
+	      push: "multi_line_comment__1"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--\\[)",
+	      push: "multi_line_comment__2"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(#.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(//.*)"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\()",
+	      push: "action__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\[)",
+	      push: "action__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "({)",
+	      push: "action__3"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "([\"\\:,;^\\->=])"
+	   },
+	   {
+	      token: "invalid",
+	      regex: "([^\\s])"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
 			],
 			action__1: [
-				{
-					token: "punctuation.operator",
-					regex: "(\\))",
-					next: "pop"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\\")",
-					push: "string__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(^\\s*\\|\\s*)",
-					push: "barlist__1"
-				},
-				{
-					token: "variable",
-					regex: "(:([A-Za-z0-9@._]+))"
-				},
-				{
-					token: "keyword",
-					regex: "([A-Za-z0-9@._]+)"
-				},
-				{
-					token: "comment",
-					regex: "(/\\*)",
-					push: "multi_line_comment__1"
-				},
-				{
-					token: "comment",
-					regex: "(--\\[)",
-					push: "multi_line_comment__2"
-				},
-				{
-					token: "comment",
-					regex: "(--.*)"
-				},
-				{
-					token: "comment",
-					regex: "(#.*)"
-				},
-				{
-					token: "comment",
-					regex: "(//.*)"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\()",
-					push: "action__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\[)",
-					push: "action__2"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "({)",
-					push: "action__3"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "([\"\\:,;^\\->=])"
-				},
-				{
-					token: "invalid",
-					regex: "([^\\s])"
-				},
-				{
-					defaultToken: "text",
-				}
+	   {
+	      token: "punctuation",
+	      regex: "(\\))",
+	      next: "pop"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\\")",
+	      push: "string__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\')",
+	      push: "string__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(^\\s*\\|\\s*)",
+	      push: "barlist__1"
+	   },
+	   {
+	      token: "variable",
+	      regex: "(:([A-Za-z0-9@._]+))"
+	   },
+	   {
+	      token: "support.constant",
+	      regex: "(@(([A-Za-z0-9@._]+))?)"
+	   },
+	   {
+	      token: "keyword",
+	      regex: "([A-Za-z0-9@._]+)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(/\\*)",
+	      push: "multi_line_comment__1"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--\\[)",
+	      push: "multi_line_comment__2"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(#.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(//.*)"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\()",
+	      push: "action__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\[)",
+	      push: "action__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "({)",
+	      push: "action__3"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "([\"\\:,;^\\->=])"
+	   },
+	   {
+	      token: "invalid",
+	      regex: "([^\\s])"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
 			],
 			action__2: [
-				{
-					token: "punctuation.operator",
-					regex: "(\\])",
-					next: "pop"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\\")",
-					push: "string__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(^\\s*\\|\\s*)",
-					push: "barlist__1"
-				},
-				{
-					token: "variable",
-					regex: "(:([A-Za-z0-9@._]+))"
-				},
-				{
-					token: "keyword",
-					regex: "([A-Za-z0-9@._]+)"
-				},
-				{
-					token: "comment",
-					regex: "(/\\*)",
-					push: "multi_line_comment__1"
-				},
-				{
-					token: "comment",
-					regex: "(--\\[)",
-					push: "multi_line_comment__2"
-				},
-				{
-					token: "comment",
-					regex: "(--.*)"
-				},
-				{
-					token: "comment",
-					regex: "(#.*)"
-				},
-				{
-					token: "comment",
-					regex: "(//.*)"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\()",
-					push: "action__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\[)",
-					push: "action__2"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "({)",
-					push: "action__3"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "([\"\\:,;^\\->=])"
-				},
-				{
-					token: "invalid",
-					regex: "([^\\s])"
-				},
-				{
-					defaultToken: "text",
-				}
+	   {
+	      token: "punctuation",
+	      regex: "(\\])",
+	      next: "pop"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\\")",
+	      push: "string__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\')",
+	      push: "string__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(^\\s*\\|\\s*)",
+	      push: "barlist__1"
+	   },
+	   {
+	      token: "variable",
+	      regex: "(:([A-Za-z0-9@._]+))"
+	   },
+	   {
+	      token: "support.constant",
+	      regex: "(@(([A-Za-z0-9@._]+))?)"
+	   },
+	   {
+	      token: "keyword",
+	      regex: "([A-Za-z0-9@._]+)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(/\\*)",
+	      push: "multi_line_comment__1"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--\\[)",
+	      push: "multi_line_comment__2"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(#.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(//.*)"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\()",
+	      push: "action__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\[)",
+	      push: "action__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "({)",
+	      push: "action__3"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "([\"\\:,;^\\->=])"
+	   },
+	   {
+	      token: "invalid",
+	      regex: "([^\\s])"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
 			],
 			action__3: [
-				{
-					token: "punctuation.operator",
-					regex: "(})",
-					next: "pop"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\\")",
-					push: "string__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(^\\s*\\|\\s*)",
-					push: "barlist__1"
-				},
-				{
-					token: "variable",
-					regex: "(:([A-Za-z0-9@._]+))"
-				},
-				{
-					token: "keyword",
-					regex: "([A-Za-z0-9@._]+)"
-				},
-				{
-					token: "comment",
-					regex: "(/\\*)",
-					push: "multi_line_comment__1"
-				},
-				{
-					token: "comment",
-					regex: "(--\\[)",
-					push: "multi_line_comment__2"
-				},
-				{
-					token: "comment",
-					regex: "(--.*)"
-				},
-				{
-					token: "comment",
-					regex: "(#.*)"
-				},
-				{
-					token: "comment",
-					regex: "(//.*)"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\()",
-					push: "action__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\[)",
-					push: "action__2"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "({)",
-					push: "action__3"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "([\"\\:,;^\\->=])"
-				},
-				{
-					token: "invalid",
-					regex: "([^\\s])"
-				},
-				{
-					defaultToken: "text",
-				}
+	   {
+	      token: "punctuation",
+	      regex: "(})",
+	      next: "pop"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\\")",
+	      push: "string__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\')",
+	      push: "string__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(^\\s*\\|\\s*)",
+	      push: "barlist__1"
+	   },
+	   {
+	      token: "variable",
+	      regex: "(:([A-Za-z0-9@._]+))"
+	   },
+	   {
+	      token: "support.constant",
+	      regex: "(@(([A-Za-z0-9@._]+))?)"
+	   },
+	   {
+	      token: "keyword",
+	      regex: "([A-Za-z0-9@._]+)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(/\\*)",
+	      push: "multi_line_comment__1"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--\\[)",
+	      push: "multi_line_comment__2"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(#.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(//.*)"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\()",
+	      push: "action__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\[)",
+	      push: "action__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "({)",
+	      push: "action__3"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "([\"\\:,;^\\->=])"
+	   },
+	   {
+	      token: "invalid",
+	      regex: "([^\\s])"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
 			],
 			barlist__1: [
-				{
-					token: "punctuation.operator",
-					regex: "($)",
-					next: "pop"
-				},
-				{
-					token: "constant.language.escape",
-					regex: "(\\\\[\"'\\\\n])"
-				},
-				{
-					token: "constant.language.escape",
-					regex: "(\\\\\\()",
-					push: "escape__1"
-				},
-				{
-					token: "string",
-					regex: "([^\\\\]+)"
-				},
-				{
-					defaultToken: "text",
-				}
+	   {
+	      token: "punctuation",
+	      regex: "($)",
+	      next: "pop"
+	   },
+	   {
+	      token: "escape",
+	      regex: "(\\\\[\"'\\\\n])"
+	   },
+	   {
+	      token: "escape",
+	      regex: "(\\\\\\()",
+	      push: "escape__1"
+	   },
+	   {
+	      token: "string",
+	      regex: "([^\\\\]+)"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
 			],
 			escape__1: [
-				{
-					token: "constant.language.escape",
-					regex: "(\\))",
-					next: "pop"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\\")",
-					push: "string__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(^\\s*\\|\\s*)",
-					push: "barlist__1"
-				},
-				{
-					token: "variable",
-					regex: "(:([A-Za-z0-9@._]+))"
-				},
-				{
-					token: "keyword",
-					regex: "([A-Za-z0-9@._]+)"
-				},
-				{
-					token: "comment",
-					regex: "(/\\*)",
-					push: "multi_line_comment__1"
-				},
-				{
-					token: "comment",
-					regex: "(--\\[)",
-					push: "multi_line_comment__2"
-				},
-				{
-					token: "comment",
-					regex: "(--.*)"
-				},
-				{
-					token: "comment",
-					regex: "(#.*)"
-				},
-				{
-					token: "comment",
-					regex: "(//.*)"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\()",
-					push: "action__1"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "(\\[)",
-					push: "action__2"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "({)",
-					push: "action__3"
-				},
-				{
-					token: "punctuation.operator",
-					regex: "([\"\\:,;^\\->=])"
-				},
-				{
-					token: "invalid",
-					regex: "([^\\s])"
-				},
-				{
-					defaultToken: "text",
-				}
+	   {
+	      token: "escape",
+	      regex: "(\\))",
+	      next: "pop"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\\")",
+	      push: "string__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\')",
+	      push: "string__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(^\\s*\\|\\s*)",
+	      push: "barlist__1"
+	   },
+	   {
+	      token: "variable",
+	      regex: "(:([A-Za-z0-9@._]+))"
+	   },
+	   {
+	      token: "support.constant",
+	      regex: "(@(([A-Za-z0-9@._]+))?)"
+	   },
+	   {
+	      token: "keyword",
+	      regex: "([A-Za-z0-9@._]+)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(/\\*)",
+	      push: "multi_line_comment__1"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--\\[)",
+	      push: "multi_line_comment__2"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(--.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(#.*)"
+	   },
+	   {
+	      token: "comment",
+	      regex: "(//.*)"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\()",
+	      push: "action__1"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "(\\[)",
+	      push: "action__2"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "({)",
+	      push: "action__3"
+	   },
+	   {
+	      token: "punctuation",
+	      regex: "([\"\\:,;^\\->=])"
+	   },
+	   {
+	      token: "invalid",
+	      regex: "([^\\s])"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
 			],
 			multi_line_comment__1: [
-				{
-					token: "comment",
-					regex: "(\\*/)",
-					next: "pop"
-				},
-				{
-					defaultToken: "comment",
-				}
+	   {
+	      token: "comment",
+	      regex: "(\\*/)",
+	      next: "pop"
+	   },
+	   {
+	      defaultToken: "comment",
+	   }
 			],
 			multi_line_comment__2: [
-				{
-					token: "comment",
-					regex: "(--\\])",
-					next: "pop"
-				},
-				{
-					defaultToken: "comment",
-				}
+	   {
+	      token: "comment",
+	      regex: "(--\\])",
+	      next: "pop"
+	   },
+	   {
+	      defaultToken: "comment",
+	   }
 			],
 			string__1: [
-				{
-					token: "punctuation.operator",
-					regex: "(\\\")",
-					next: "pop"
-				},
-				{
-					token: "constant.language.escape",
-					regex: "(\\\\[\"'\\\\n])"
-				},
-				{
-					token: "constant.language.escape",
-					regex: "(\\\\\\()",
-					push: "escape__1"
-				},
-				{
-					token: "string",
-					regex: "([^\"\\\\]+)"
-				},
-				{
-					defaultToken: "text",
-				}
+	   {
+	      token: "punctuation",
+	      regex: "(\\\")",
+	      next: "pop"
+	   },
+	   {
+	      token: "escape",
+	      regex: "(\\\\[\"'\\\\n])"
+	   },
+	   {
+	      token: "escape",
+	      regex: "(\\\\\\()",
+	      push: "escape__1"
+	   },
+	   {
+	      token: "string",
+	      regex: "([^\"\\\\]+)"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
+			],
+			string__2: [
+	   {
+	      token: "punctuation",
+	      regex: "(\\')",
+	      next: "pop"
+	   },
+	   {
+	      token: "escape",
+	      regex: "(\\\\[\"'\\\\n])"
+	   },
+	   {
+	      token: "escape",
+	      regex: "(\\\\\\()",
+	      push: "escape__1"
+	   },
+	   {
+	      token: "string",
+	      regex: "([^'\\\\]+)"
+	   },
+	   {
+	      defaultToken: "text",
+	   }
 			]
 		};
-		// @ts-ignore
+		//@ts-ignore
 		this.normalizeRules();
 	};
 	/* ------------------------ END ------------------------------ */
