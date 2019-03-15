@@ -989,10 +989,10 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/node@*", "@types/node@^11.9.5":
-  version "11.11.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.11.1.tgz#9ee55ffce20f72e141863b0036a6e51c6fc09a1f"
-  integrity sha512-2azXFP9n4aA2QNLkKm/F9pzKxgYj1SMawZ5Eh9iC21RH3XNcFsivLVU2NhpMgQm7YobSByvIol4c42ZFusXFHQ==
+"@types/node@*":
+  version "11.11.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.11.3.tgz#7c6b0f8eaf16ae530795de2ad1b85d34bf2f5c58"
+  integrity sha512-wp6IOGu1lxsfnrD+5mX6qwSwWuqsdkKKxTN4aQc4wByHAKZJf9/D4KXPQ1POUjEbnCP5LMggB0OEFNY9OTsMqg==
 
 "@types/node@11.10.4":
   version "11.10.4"
@@ -1047,13 +1047,6 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
-"@types/uuid@^3.4.4":
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.4.tgz#7af69360fa65ef0decb41fd150bf4ca5c0cefdf5"
-  integrity sha512-tPIgT0GUmdJQNSHxp0X2jnpQfBSTfGxUMc/2CXBU2mnyTFVYVa2ojpoQ74w0U2yn2vw3jnC640+77lkFFpdVDw==
-  dependencies:
-    "@types/node" "*"
-
 "@types/vfile-message@*":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/vfile-message/-/vfile-message-1.0.1.tgz#e1e9895cc6b36c462d4244e64e6d0b6eaf65355a"
@@ -1070,11 +1063,6 @@
     "@types/node" "*"
     "@types/unist" "*"
     "@types/vfile-message" "*"
-
-"@types/yargs@^12.0.9":
-  version "12.0.9"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.9.tgz#693e76a52f61a2f1e7fb48c0eef167b95ea4ffd0"
-  integrity sha512-sCZy4SxP9rN2w30Hlmg5dtdRwgYQfYRiLo9usw8X9cxlf+H4FqM1xX7+sNH7NNKVdbXMJWqva7iyy+fxh/V7fA==
 
 "@typescript-eslint/eslint-plugin@^1.4.2":
   version "1.4.2"
@@ -2492,11 +2480,6 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
-
-codemirror@^5.44.0:
-  version "5.44.0"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.44.0.tgz#80dc2a231eeb7aab25ec2405cdca37e693ccf9cc"
-  integrity sha512-3l42syTNakCdCQuYeZJXTyxina6Y9i4V0ighSJXNCQtRbaCN76smKKLu1ZHPHQon3rnzC7l4i/0r4gp809K1wg==
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -6287,12 +6270,12 @@ mem@^1.1.0:
     mimic-fn "^1.0.0"
 
 mem@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/mem/-/mem-4.1.0.tgz#aeb9be2d21f47e78af29e4ac5978e8afa2ca5b8a"
-  integrity sha512-I5u6Q1x7wxO0kdOpYBB28xueHADYps5uty/zg936CiG8NTe5sJL8EjrCuLneuDW3PlMdZBGDIn8BirEVdovZvg==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/mem/-/mem-4.2.0.tgz#5ee057680ed9cb8dad8a78d820f9a8897a102025"
+  integrity sha512-5fJxa68urlY0Ir8ijatKa3eRz5lwXnRCTvo9+TbTGAuTFJOwpGcY0X05moBd0nW45965Njt4CDI2GFQoG8DvqA==
   dependencies:
     map-age-cleaner "^0.1.1"
-    mimic-fn "^1.0.0"
+    mimic-fn "^2.0.0"
     p-is-promise "^2.0.0"
 
 memory-fs@^0.4.0, memory-fs@~0.4.1:
@@ -6427,6 +6410,11 @@ mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
   integrity sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
+
+mimic-fn@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.0.0.tgz#0913ff0b121db44ef5848242c38bbb35d44cabde"
+  integrity sha512-jbex9Yd/3lmICXwYT6gA/j2mNQGU48wCh/VzRd+/Y/PjYQtlg1gLMdZqvu9s/xH7qKvngxRObl56XZR609IMbA==
 
 mini-css-extract-plugin@0.5.0:
   version "0.5.0"
@@ -8867,17 +8855,13 @@ schema-utils@^1.0.0:
     ajv-keywords "^3.1.0"
 
 scpl@^1.3.0:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.3.1.tgz#2500206e5d743cbf54afd09354590ad636e70c67"
-  integrity sha512-QmUBnwzskXbi1gqNpiSodRFAnWx7Ks+7M6Gqtk5FeQgwA6RWzn1WMwBvTz5QAgzdEgb/4z4h09zt51Xy1mfesg==
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.4.0.tgz#d64fbca02490cdbc544a1833798cdefb24ccd7b2"
+  integrity sha512-vz5F+q2nsDaA53Sf5SCqO2x8GhpAj/l2FV1hg1r8S60hS1+mwcXcEV1BX04/m3KwSqQhJhrl17URGHHFuibfYw==
   dependencies:
-    "@types/node" "^11.9.5"
-    "@types/uuid" "^3.4.4"
-    "@types/yargs" "^12.0.9"
     bplist-creator "^0.0.7"
     bplist-parser "^0.1.1"
     chalk "^2.4.2"
-    codemirror "^5.44.0"
     plist "^3.0.1"
     uuid "^3.3.2"
     yargs "^13.2.1"
@@ -9055,7 +9039,7 @@ shellwords@^0.1.1:
 
 shortcut-preview@pfgithub/shortcut-preview:
   version "0.1.4"
-  resolved "https://codeload.github.com/pfgithub/shortcut-preview/tar.gz/cda4f58427c9e24a07f02c1b687905a7d358e9ef"
+  resolved "https://codeload.github.com/pfgithub/shortcut-preview/tar.gz/ce15f4cbe816fb6c0d935e97cbed34cbb3ca729e"
   dependencies:
     "@types/jest" "24.0.9"
     "@types/node" "11.10.4"
