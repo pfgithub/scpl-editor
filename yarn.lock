@@ -8840,9 +8840,9 @@ schema-utils@^1.0.0:
     ajv-keywords "^3.1.0"
 
 scpl@^1.3.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.4.0.tgz#d64fbca02490cdbc544a1833798cdefb24ccd7b2"
-  integrity sha512-vz5F+q2nsDaA53Sf5SCqO2x8GhpAj/l2FV1hg1r8S60hS1+mwcXcEV1BX04/m3KwSqQhJhrl17URGHHFuibfYw==
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.5.0.tgz#b3dbf5e2c98cf9267dc7570d54b3d6f6f7887293"
+  integrity sha512-2G8unwUfa9TLorANGtMpt6XYFXx1ZmO2Do37IYKF5myRatd8cP8SYF8H1WeAiIKQdpvAGx7sjnN2qLAX1+3/aA==
   dependencies:
     bplist-creator "^0.0.7"
     bplist-parser "^0.1.1"
