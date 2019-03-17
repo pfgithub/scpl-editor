@@ -26,7 +26,7 @@ class MaybeUpdate extends Component<{shouldUpdate: boolean}, {}> {
 
 class DownloadButton extends Component<{filename: string, file: Buffer | undefined}, {}> { // from https://github.com/axetroy/react-download
 	render() {
-		return <button onClick={(e) => this.onClick(e)}>Download .shortcut</button>;
+		return <a href="#" className="editor-btn primary-btn" onClick={(e) => this.onClick(e)}>Download (.shortcut)</a>;
 	}
 	fakeClick(obj: HTMLAnchorElement) {
 		const ev = document.createEvent("MouseEvents");
@@ -67,10 +67,10 @@ class DownloadButton extends Component<{filename: string, file: Buffer | undefin
 			save_link.download = name;
 			this.fakeClick(save_link);
 		} else {
-			alert("Downloading shortcuts is not available on this browser.");
+			alert("Downloading shortcuts is not available on this browser yet :(\nIt should be implemented within a few days.");
 		}
 	}
-	onClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+	onClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
 		if(!this.props.file) {return;}
 		this.exportRaw(this.props.filename, this.props.file);
 	}
@@ -85,9 +85,25 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 	}
 	render() {
 		return (
-			<div className="App">
-				<div className="split">
-					<div className="splitItem">
+			<div className="editor-window">
+				<div className="editor-navigation">
+					<div>
+						<div className="editor-title">ScPL Try-It Editor</div>
+						<a className="editor-btn" href="https://docs.scpl.dev/gettingstarted" target="_blank">Getting Started</a>
+						<a className="editor-btn" href="https://docs.scpl.dev" target="_blank">Documentation</a>
+					</div>
+					<div>
+						<div className="result-details">
+							<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
+						</div>
+						<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload} />
+						<div className="download-or"> or </div>
+						<a href="#" className="editor-btn" onClick={() => alert("Downloading through QR codes is not implemented yet :(\nIt should be implemented within a few days.")}>Download via QR Code</a>
+					</div>
+				</div>
+				<div className="editor-container">
+					<div className="code-pane">
+  
 						<AceEditor
 							mode="scpl"
 							theme="github"
@@ -100,9 +116,8 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 							ref={this.reactAceComponentRef}
 						/>
 					</div>
-					<div className={`splitItem scroll${this.state.loading ? " loading" : ""}`}>
-						<div>{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"} in {this.state.took} ms.</div>
-						<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload} />
+					<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
+						<div className="result-text">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"} in {this.state.took} ms.</div>
 						<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
 					</div>
 				</div>
