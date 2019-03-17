@@ -61,16 +61,16 @@ bottom: 0;
   padding: 15px;
   display: inline-block;
   cursor: pointer;
+  transition: 0.1s opacity;
   text-decoration: none;
-  border: none;
 }
 .editor-btn.primary-btn {
   font-weight: bold;
 }
 .editor-btn:hover {
   opacity: .8;
-
-}.editor-btn:active {
+}
+.editor-btn:active {
   opacity: .5
 }
 .download-or {

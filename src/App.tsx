@@ -97,8 +97,10 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 							<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
 						</div>
 						<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload} />
-						<div className="download-or"> or </div>
-						<a href="#" className="editor-btn" onClick={() => alert("Downloading through QR codes is not implemented yet :(\nIt should be implemented within a few days.")}>Download via QR Code</a>
+						{
+						// <div className="download-or"> or </div>
+						// <a href="#" className="editor-btn" onClick={() => alert("Downloading through QR codes is not implemented yet :(\nIt should be implemented within a few days.")}>Download via QR Code</a>
+						}
 					</div>
 				</div>
 				<div className="editor-container">
