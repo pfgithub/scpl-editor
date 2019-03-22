@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import {parse, PositionedError} from "scpl";
-import logo from "./logo.svg"; //
 import "./App.css";
+// import {Helmet} from "react-helmet";
+
+import shortcutDownloadPreviewIcon from "./img/scpl_icon3.png";
 
 import testshortcut from "./testshortcut.json";
 
@@ -26,7 +28,7 @@ class MaybeUpdate extends Component<{shouldUpdate: boolean}, {}> {
 
 class DownloadButton extends Component<{filename: string, file: Buffer | undefined}, {}> { // from https://github.com/axetroy/react-download
 	render() {
-		return <a href="#" className="editor-btn primary-btn" onClick={(e) => this.onClick(e)}>Download (.shortcut)</a>;
+		return <a href="#" id="download-shortcut-link" onClick={(e) => this.onClick(e)}>{this.props.children}</a>;
 	}
 	fakeClick(obj: HTMLAnchorElement) {
 		const ev = document.createEvent("MouseEvents");
@@ -67,45 +69,73 @@ class DownloadButton extends Component<{filename: string, file: Buffer | undefin
 			save_link.download = name;
 			this.fakeClick(save_link);
 		} else {
-			alert("Downloading shortcuts is not available on this browser yet :(\nIt should be implemented within a few days.");
+			alert("Downloading shortcuts is not available on this browser yet :(\nIt should be implemented within a few days from a few days from a while from now.");
 		}
 	}
-	onClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+	onClick(_e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
 		if(!this.props.file) {return;}
 		this.exportRaw(this.props.filename, this.props.file);
 	}
 }
 
-class App extends Component<{}, { fileValue: string, shortcutData: any, shortcutDownload: Buffer | undefined, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}>, loading: boolean, took: number, fullUpdate: boolean }> {
+class App extends Component<{}, { fileValue: string, shortcutData: any, shortcutDownload: Buffer | undefined, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}>, loading: boolean, took: {waitedFor:number, convertedIn:number}, fullUpdate: boolean, mobileFilemenu: boolean, openDownload: boolean }> {
 	reactAceComponentRef: React.RefObject<AceEditor>;
 	constructor(props: Readonly<{}>) {
 		super(props);
-		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, shortcutDownload: undefined, annotations: [], markers: [], loading: false, took: 0, fullUpdate: true};
+		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, shortcutDownload: undefined, annotations: [], markers: [], loading: false, took: {waitedFor: 0, convertedIn: 0}, fullUpdate: true, mobileFilemenu: false, openDownload: false};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	render() {
-		return (
+		return (<div>
+			<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
+			<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
+				<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
+					<h1>Download Export</h1>
+					<div className="download-grid">
+						<div>
+							<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload}>
+								<img src={shortcutDownloadPreviewIcon} width={130} />
+								<div className="shortcut-filename">download.shortcut</div>
+								<div className="shortcut-filedetails">5 KB</div>
+							</DownloadButton>
+						</div>
+						<div>
+							<p>Add to your library via QR Code:</p>
+							<div id="qr-result">Not available yet :(</div>
+							<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your phone.</p>
+						</div>
+					</div>
+					<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
+				</div>
+			</div>
+			<div className="modal" id="search-actions" />
 			<div className="editor-window">
 				<div className="editor-navigation">
+					<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
 					<div>
 						<div className="editor-title">ScPL Try-It Editor</div>
-						<a className="editor-btn" href="https://docs.scpl.dev/gettingstarted" target="_blank">Getting Started</a>
-						<a className="editor-btn" href="https://docs.scpl.dev" target="_blank">Documentation</a>
+						<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
+						<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
 					</div>
 					<div>
 						<div className="result-details">
 							<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
 						</div>
-						<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload} />
-						{
-						// <div className="download-or"> or </div>
-						// <a href="#" className="editor-btn" onClick={() => alert("Downloading through QR codes is not implemented yet :(\nIt should be implemented within a few days.")}>Download via QR Code</a>
-						}
+						<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="#">Download</a></div>
 					</div>
 				</div>
 				<div className="editor-container">
+					<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
+						<h2>Files</h2>
+						<input type="search" className="search-input" placeholder="Search" />
+						<button type="button" className="large-btn upload-btn">Upload Shortcut</button>
+						<div className="file-list">
+							<ul>
+								<li><div className="name-container">WIP.scpl</div></li>
+							</ul>
+						</div>
+					</div>
 					<div className="code-pane">
-  
 						<AceEditor
 							mode="scpl"
 							theme="github"
@@ -116,14 +146,17 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 							annotations={this.state.annotations}
 							markers={this.state.markers}
 							ref={this.reactAceComponentRef}
+							showPrintMargin={false}
 						/>
 					</div>
 					<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
-						<div className="result-text">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"} in {this.state.took} ms.</div>
+						<div className="result-text">Waited for {this.state.took.waitedFor}ms and then converted in {this.state.took.convertedIn} ms.</div>
 						<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
+						<div className="loading-result-progress"><div className="load"></div></div>
 					</div>
 				</div>
 			</div>
+		</div>
 		);
 	}
 	onActionSelect(data: {type: "action" | "parameter", actionData: any}) {
@@ -131,35 +164,35 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 			const scpldata = data.actionData.SCPLData;
 			
 			const reactAceComponent = this.reactAceComponentRef.current;
-			if(!reactAceComponent) {console.log("reactacecomponent is not yet defined"); return;}
+			if(!reactAceComponent) {console.log("reactacecomponent is not yet defined"); return;} //eslint-disable-line no-console
 			const editor = (reactAceComponent as any).editor as ace.Editor;
 			// .Position.start|end
 			const line = scpldata.Position.start[0];
 			const col = scpldata.Position.start[1] - 1;
-			console.log("Scrolling to line", line, col);
 			editor.gotoLine(line, col, true);
 			editor.selection.setRange(new Range(scpldata.Position.start[0] - 1, scpldata.Position.start[1] - 1, scpldata.Position.end[0] - 1, scpldata.Position.end[1] - 1), true);
 		}
 	}
 	onChange(text: string) {
+		const willWaitFor = Math.max(this.state.took.convertedIn * 4, 100);
 		if(!this.state.loading) {this.setState({fileValue: text, loading: true, fullUpdate: false});}
 		if(timeout) {clearTimeout(timeout);}
-		timeout = setTimeout(() => this.onChangeLimited(text), Math.max(this.state.took * 4, 100));
+		timeout = setTimeout(() => this.onChangeLimited(text, willWaitFor), willWaitFor);
 	}
-	onChangeLimited(text: string) {
+	onChangeLimited(text: string, waitedFor: number) {
 		// parse
 		let output: {shortcutjson: any, shortcutplist: Buffer};
 		const startTime = (new Date()).getTime();
 		try{
 			output = parse(text, { make: ["shortcutjson", "shortcutplist"] });
 		}catch(er) {
-			console.log(er.message);
+			console.log(er.message); //eslint-disable-line no-console
 			if(!(er instanceof PositionedError)) {throw er;}
 			this.setState({
 				fileValue: text,
 				loading: false,
 				shortcutDownload: undefined,
-				took: (new Date()).getTime() - startTime,
+				took: {waitedFor: waitedFor, convertedIn: (new Date()).getTime() - startTime},
 				fullUpdate: true,
 				annotations: [{
 					row: er.start[0] - 1,
@@ -178,7 +211,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 		const {shortcutjson, shortcutplist} = output;
 		this.setState({
 			fileValue: text,
-			took: (new Date()).getTime() - startTime,
+			took: {waitedFor: waitedFor, convertedIn: (new Date()).getTime() - startTime},
 			loading: false, fullUpdate: true, shortcutData: shortcutjson, annotations: [], markers: [],
 			shortcutDownload: shortcutplist
 		});	

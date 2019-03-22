@@ -159,6 +159,10 @@ action : context {
       styles []       = .punctuation;
    }
    : pattern {
+      regex          \= (\?\?.+?\?\?)
+      styles []       = .illegal;
+   }
+   : pattern {
       regex          \= ([^\s])
       styles []       = .illegal;
    }

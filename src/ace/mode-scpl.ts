@@ -82,12 +82,16 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   },
 	   {
 	      token: "invalid",
+	      regex: "(\\?\\?.+?\\?\\?)"
+	   },
+	   {
+	      token: "invalid",
 	      regex: "([^\\s])"
 	   },
 	   {
 	      defaultToken: "text",
 	   }
-			],
+			], 
 			action__1: [
 	   {
 	      token: "punctuation",
@@ -164,12 +168,16 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   },
 	   {
 	      token: "invalid",
+	      regex: "(\\?\\?.+?\\?\\?)"
+	   },
+	   {
+	      token: "invalid",
 	      regex: "([^\\s])"
 	   },
 	   {
 	      defaultToken: "text",
 	   }
-			],
+			], 
 			action__2: [
 	   {
 	      token: "punctuation",
@@ -246,12 +254,16 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   },
 	   {
 	      token: "invalid",
+	      regex: "(\\?\\?.+?\\?\\?)"
+	   },
+	   {
+	      token: "invalid",
 	      regex: "([^\\s])"
 	   },
 	   {
 	      defaultToken: "text",
 	   }
-			],
+			], 
 			action__3: [
 	   {
 	      token: "punctuation",
@@ -328,12 +340,16 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   },
 	   {
 	      token: "invalid",
+	      regex: "(\\?\\?.+?\\?\\?)"
+	   },
+	   {
+	      token: "invalid",
 	      regex: "([^\\s])"
 	   },
 	   {
 	      defaultToken: "text",
 	   }
-			],
+			], 
 			barlist__1: [
 	   {
 	      token: "punctuation",
@@ -356,7 +372,7 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   {
 	      defaultToken: "text",
 	   }
-			],
+			], 
 			escape__1: [
 	   {
 	      token: "escape",
@@ -433,12 +449,16 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   },
 	   {
 	      token: "invalid",
+	      regex: "(\\?\\?.+?\\?\\?)"
+	   },
+	   {
+	      token: "invalid",
 	      regex: "([^\\s])"
 	   },
 	   {
 	      defaultToken: "text",
 	   }
-			],
+			], 
 			multi_line_comment__1: [
 	   {
 	      token: "comment",
@@ -448,7 +468,7 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   {
 	      defaultToken: "comment",
 	   }
-			],
+			], 
 			multi_line_comment__2: [
 	   {
 	      token: "comment",
@@ -458,7 +478,7 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   {
 	      defaultToken: "comment",
 	   }
-			],
+			], 
 			string__1: [
 	   {
 	      token: "punctuation",
@@ -481,7 +501,7 @@ ace.define("ace/mode/scpl_highlight_rules", function(require: any, exports: any,
 	   {
 	      defaultToken: "text",
 	   }
-			],
+			], 
 			string__2: [
 	   {
 	      token: "punctuation",
