@@ -124,8 +124,8 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								<div className="search-container">
 									<input className="search-input" placeholder="Search Actions"/>
 									<div className="search-action-results">
-										<div className="action-item action-item-copy-to-clipboard">
-											<div className="action-item-title">Copy to Clipboard<div className="action-item-code">getclipboard</div></div>
+										<div className="action-item action-item-get-clipboard">
+											<div className="action-item-title">Get Clipboard<div className="action-item-code">getclipboard</div></div>
 											<div className="action-item-description">Passes the contents of the clipboard to the next action.</div>
 											<div className="action-item-usage">getclipboard</div>
 										</div>
