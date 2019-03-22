@@ -121,6 +121,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 									<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
 									<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
 								</div>
+
 								<div>
 									<div className="result-details">
 										<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
@@ -157,7 +158,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
 									<div className="result-text">Waited for {this.state.took.waitedFor}ms and then converted in {this.state.took.convertedIn} ms.</div>
 									<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
-									<div className="loading-result-progress"><div className="load"></div></div>
+									<div className="loading-result-progress"><div><div className="load"></div></div></div>
 								</div>
 							</div>
 						</div>
