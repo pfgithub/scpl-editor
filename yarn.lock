@@ -1921,9 +1921,9 @@ bfj@6.1.1:
     tryer "^1.0.0"
 
 big-integer@^1.6.7:
-  version "1.6.42"
-  resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.42.tgz#91623ae5ceeff9a47416c56c9440a66f12f534f1"
-  integrity sha512-3UQFKcRMx+5Z+IK5vYTMYK2jzLRJkt+XqyDdacgWgtMjjuifKpKTFneJLEgeBElOE2/lXZ1LcMcb5s8pwG2U8Q==
+  version "1.6.43"
+  resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.43.tgz#8ac15bf13e93e509500859061233e19d8d0d99d1"
+  integrity sha512-9dULc9jsKmXl0Aeunug8wbF+58n+hQoFjqClN7WeZwGLh0XJUWyJJ9Ee+Ep+Ql/J9fRsTVaeThp8MhiCCrY0Jg==
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -8893,9 +8893,9 @@ schema-utils@^1.0.0:
     ajv-keywords "^3.1.0"
 
 scpl@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.6.1.tgz#9072bd95134119f600dd5da52ddca696aee9b8b8"
-  integrity sha512-9VLFSiyMBP4YwGIaNaTO+jOLn/dU9F2ElyblagOkw3KRrfSUyhUEdFkd+xy9bdR7zLet9i/IkHrm+jrFz0ieyg==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.6.2.tgz#789f69a8552c96f20fb2c5c4942ee891a6bd3cf1"
+  integrity sha512-ecrpPqWiiM2ke8mOEjtyBhlsxwRwi08F5ED+5btov0iCCzkdJ/+R5Zq6zf2tqBy0LyEHVTCvo2GpfSI5fwz2qA==
   dependencies:
     bplist-creator "^0.0.7"
     bplist-parser "^0.1.1"
