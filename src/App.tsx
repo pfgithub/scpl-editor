@@ -29,7 +29,7 @@ class MaybeUpdate extends Component<{shouldUpdate: boolean}, {}> {
 
 class DownloadButton extends Component<{filename: string, file: Buffer | undefined}, {}> { // from https://github.com/axetroy/react-download
 	render() {
-		return <a href="#" id="download-shortcut-link" onClick={(e) => this.onClick(e)}>{this.props.children}</a>;
+		return <a href="javascript:;" id="download-shortcut-link" onClick={(e) => this.onClick(e)}>{this.props.children}</a>;
 	}
 	fakeClick(obj: HTMLAnchorElement) {
 		const ev = document.createEvent("MouseEvents");
