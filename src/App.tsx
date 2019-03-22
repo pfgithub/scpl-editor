@@ -106,7 +106,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 									<div>
 										<p>Add to your library via QR Code:</p>
 										<div id="qr-result">Not available yet :(</div>
-										<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your phone.</p>
+										<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your device.</p>
 									</div>
 								</div>
 								<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
