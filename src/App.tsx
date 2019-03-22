@@ -125,7 +125,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 									<div className="result-details">
 										<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
 									</div>
-									<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="#">Download</a></div>
+									<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="javascript:;">Download</a></div>
 								</div>
 							</div>
 							<div className="editor-container">
