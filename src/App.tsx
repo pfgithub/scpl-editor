@@ -121,7 +121,22 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 									<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
 									<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
 								</div>
+								<div className="search-container">
+									<input className="search-input" placeholder="Search Actions"/>
+									<div className="search-action-results">
+										<div className="action-item action-item-copy-to-clipboard">
+											<div className="action-item-title">Copy to Clipboard<div className="action-item-code">getclipboard</div></div>
+											<div className="action-item-description">Passes the contents of the clipboard to the next action.</div>
+											<div className="action-item-usage">getclipboard</div>
+										</div>
 
+										<div className="action-item action-item-count">
+											<div className="action-item-title">Count<div className="action-item-code">count</div></div>
+											<div className="action-item-description">Counts the number of items, characters, words, sentences, or lines passed as input.</div>
+											<div className="action-item-usage">count count=("Items" | "Characters" | "Words" | "Sentences" | "Lines")</div>
+										</div>
+										</div>
+								</div>
 								<div>
 									<div className="result-details">
 										<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>

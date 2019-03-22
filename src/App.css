@@ -168,7 +168,7 @@ hr {
     background-color: #fff;
     border-bottom: 0.5px solid #c7c7cc;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .editor-navigation > div:last-child {
     text-align: right;
