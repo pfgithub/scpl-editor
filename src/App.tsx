@@ -4,7 +4,7 @@ import "./App.css";
 import Dropzone, {DropEvent} from "react-dropzone";
 // import {Helmet} from "react-helmet";
 
-import shortcutDownloadPreviewIcon from "./img/scpl_icon3.png";
+import shortcutDownloadPreviewIcon from "./img/shortcut-file.png";
 
 import testshortcut from "./testshortcut.json";
 
@@ -132,7 +132,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
 									<h2>Files</h2>
 									<input type="search" className="search-input" placeholder="Search" />
-														
+
 									<div className="large-btn upload-btn" {...getRootProps()}><input {...getInputProps()} />Upload Shortcut</div>
 									<div className="file-list">
 										<ul>
@@ -182,7 +182,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 	onActionSelect(data: {type: "action" | "parameter", actionData: any}) {
 		if(data.actionData.SCPLData) {
 			const scpldata = data.actionData.SCPLData;
-			
+
 			const reactAceComponent = this.reactAceComponentRef.current;
 			if(!reactAceComponent) {console.log("reactacecomponent is not yet defined"); return;} //eslint-disable-line no-console
 			const editor = (reactAceComponent as any).editor as ace.Editor;
@@ -234,7 +234,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 			took: {waitedFor: waitedFor, convertedIn: (new Date()).getTime() - startTime},
 			loading: false, fullUpdate: true, shortcutData: shortcutjson, annotations: [], markers: [],
 			shortcutDownload: shortcutplist
-		});	
+		});
 	}
 }
 
