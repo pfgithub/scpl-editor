@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import {parse, PositionedError} from "scpl";
+import {parse, inverse, PositionedError} from "scpl";
 import "./App.css";
+import Dropzone, {DropEvent} from "react-dropzone";
 // import {Helmet} from "react-helmet";
 
 import shortcutDownloadPreviewIcon from "./img/scpl_icon3.png";
@@ -86,78 +87,97 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	render() {
-		return (<div>
-			<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
-			<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
-				<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
-					<h1>Download Export</h1>
-					<div className="download-grid">
-						<div>
-							<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload}>
-								<img src={shortcutDownloadPreviewIcon} width={130} />
-								<div className="shortcut-filename">download.shortcut</div>
-								<div className="shortcut-filedetails">5 KB</div>
-							</DownloadButton>
-						</div>
-						<div>
-							<p>Add to your library via QR Code:</p>
-							<div id="qr-result">Not available yet :(</div>
-							<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your phone.</p>
-						</div>
-					</div>
-					<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
-				</div>
-			</div>
-			<div className="modal" id="search-actions" />
-			<div className="editor-window">
-				<div className="editor-navigation">
-					<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
+		return (
+			<Dropzone onDrop={this.onDrop.bind(this)}>
+				{({getRootProps, getInputProps}) => (
 					<div>
-						<div className="editor-title">ScPL Try-It Editor</div>
-						<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
-						<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
-					</div>
-					<div>
-						<div className="result-details">
-							<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
+						<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
+						<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
+							<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
+								<h1>Download Export</h1>
+								<div className="download-grid">
+									<div>
+										<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload}>
+											<img src={shortcutDownloadPreviewIcon} width={130} />
+											<div className="shortcut-filename">download.shortcut</div>
+											<div className="shortcut-filedetails">5 KB</div>
+										</DownloadButton>
+									</div>
+									<div>
+										<p>Add to your library via QR Code:</p>
+										<div id="qr-result">Not available yet :(</div>
+										<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your phone.</p>
+									</div>
+								</div>
+								<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
+							</div>
 						</div>
-						<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="#">Download</a></div>
-					</div>
-				</div>
-				<div className="editor-container">
-					<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
-						<h2>Files</h2>
-						<input type="search" className="search-input" placeholder="Search" />
-						<button type="button" className="large-btn upload-btn">Upload Shortcut</button>
-						<div className="file-list">
-							<ul>
-								<li><div className="name-container">WIP.scpl</div></li>
-							</ul>
+						<div className="modal" id="search-actions" />
+						<div className="editor-window">
+							<div className="editor-navigation">
+								<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
+								<div>
+									<div className="editor-title">ScPL Try-It Editor</div>
+									<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
+									<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
+								</div>
+								<div>
+									<div className="result-details">
+										<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
+									</div>
+									<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="#">Download</a></div>
+								</div>
+							</div>
+							<div className="editor-container">
+								<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
+									<h2>Files</h2>
+									<input type="search" className="search-input" placeholder="Search" />
+														
+									<div className="large-btn upload-btn" {...getRootProps()}><input {...getInputProps()} />Upload Shortcut</div>
+									<div className="file-list">
+										<ul>
+											<li><div className="name-container">Files are not done yet</div></li>
+										</ul>
+									</div>
+								</div>
+								<div className="code-pane">
+									<AceEditor
+										mode="scpl"
+										theme="github"
+										onChange={this.onChange.bind(this)}
+										name="ace_editor"
+										editorProps={{$blockScrolling: true}}
+										value={this.state.fileValue || ""}
+										annotations={this.state.annotations}
+										markers={this.state.markers}
+										ref={this.reactAceComponentRef}
+										showPrintMargin={false}
+									/>
+								</div>
+								<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
+									<div className="result-text">Waited for {this.state.took.waitedFor}ms and then converted in {this.state.took.convertedIn} ms.</div>
+									<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
+									<div className="loading-result-progress"><div className="load"></div></div>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div className="code-pane">
-						<AceEditor
-							mode="scpl"
-							theme="github"
-							onChange={this.onChange.bind(this)}
-							name="ace_editor"
-							editorProps={{$blockScrolling: true}}
-							value={this.state.fileValue || ""}
-							annotations={this.state.annotations}
-							markers={this.state.markers}
-							ref={this.reactAceComponentRef}
-							showPrintMargin={false}
-						/>
-					</div>
-					<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
-						<div className="result-text">Waited for {this.state.took.waitedFor}ms and then converted in {this.state.took.convertedIn} ms.</div>
-						<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
-						<div className="loading-result-progress"><div className="load"></div></div>
-					</div>
-				</div>
-			</div>
-		</div>
+				)}
+			</Dropzone>
 		);
+	}
+	onDrop(acceptedFiles: File[], _rejectedFiles: File[], _event: DropEvent) {
+		const reader = new FileReader();
+
+		reader.onabort = () => alert("file reading was aborted");
+		reader.onerror = () => alert("file reading has failed");
+		reader.onload = () => {
+			// Do whatever you want with the file contents
+			const binaryStr = new Buffer(reader.result as ArrayBuffer);
+			this.onChange(inverse(binaryStr));
+		};
+
+		acceptedFiles.forEach(file => reader.readAsArrayBuffer(file));
 	}
 	onActionSelect(data: {type: "action" | "parameter", actionData: any}) {
 		if(data.actionData.SCPLData) {

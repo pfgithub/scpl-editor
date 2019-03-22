@@ -7,6 +7,7 @@
     "react": "^16.8.4",
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.4",
+    "react-dropzone": "^10.0.5",
     "react-helmet": "^5.2.0",
     "react-scripts": "2.1.8",
     "scpl": "^1.6.1",
