@@ -112,7 +112,6 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
 							</div>
 						</div>
-						<div className="modal" id="search-actions" />
 						<div className="editor-window">
 							<div className="editor-navigation">
 								<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
