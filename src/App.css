@@ -312,14 +312,26 @@ hr {
   padding-bottom: 20px;
   box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.23);
 }
+.file-list li {
+  padding: 8px 10px;
+  padding-left: 25px;
+  cursor: pointer;
+  user-select: none;
+}
+.file-list li:hover:not(.open-folder) {
+  background-color: #efefef !important;
+}
+.file-list li:active:not(.open-folder) {
+  background-color: #eaeaea !important;
+}
+.file-list li.open-folder > ul > li {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 .file-list ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-.file-list ul li {
-  padding: 8px 10px;
-  padding-left: 25px;
 }
 .file-list ul ul {
   border-left: 1px solid #ddd;
@@ -329,31 +341,23 @@ hr {
   padding-left: 27px;
   font-size: 14px;
 }
+/* File items */
 .list-item-file > div {
   background: url(img/file.png) left center / 18px no-repeat;
-}
-.file-list li:hover {
-  background-color: #eee;
-}
-.file-list li:active {
-  background-color: #ddd;
 }
 .file-list li.list-item-file.active {
   background-color: #007aff20;
   font-weight: 500;
-  border-radius: 5px;
 }
 .file-list li.list-item-file.active > div {
   background-image: url(img/file_active.png);
 }
+/* Folder items */
 .list-item-folder > div {
   background: url(img/folder.png) left center / 20px no-repeat;
 }
 .file-list li.list-item-folder > ul {
   display: none;
-}
-.file-list li.list-item-folder.open-folder > ul {
-  display: block;
 }
 .file-list li.list-item-folder {
   background: url(img/right.svg) 10px 11px / 10px no-repeat;
@@ -361,19 +365,23 @@ hr {
 .file-list li.list-item-folder.open-folder {
   background: url(img/down.svg) 10px 11px / 10px no-repeat;
 }
+.file-list li.list-item-folder.open-folder > ul {
+  display: block;
+}
 .list-item-folder.open-folder > div {
   font-weight: 500;
 }
+/* Configure and delete btns */
 .file-list li > div .edit-btn, .file-list li > div .delete-btn {
   background: url() center / 20px no-repeat;
   padding: 15px;
   float: right;
-  margin-top: -7px;
+  margin-top: -6px;
   border-radius: 3px;
   cursor: pointer;
 }
-.file-list li > div > div:hover {
-  background-color: #eee;
+.file-list li > div > div:active {
+  background-color: #007aff20;
 }
 .file-list li > div .edit-btn {
   background-image: url(img/edit.png);
@@ -381,9 +389,6 @@ hr {
 .file-list li > div .delete-btn {
   background-image: url(img/delete.png);
   margin-left: 3px;
-}
-#desktop-download-btns {
-    display: inline-block;
 }
 /* editor + result panes */
 .editor-container {
