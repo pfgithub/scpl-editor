@@ -111,8 +111,51 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								</div>
 								<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
 							</div>
+							<div className="modal" id="new-shortcut">
+								<h1>Create New Shortcut</h1>
+								<div className="input-label">Name</div>
+								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
+
+								<div className="input-label">Icon</div>
+								<div className="icons-select">
+									<div className="radio glyph-radio">
+										<label htmlFor="glyph-car"></label>
+										<input type="radio" name="icon" id="glyph-car"/>
+									</div>
+								</div>
+
+								<div className="input-label">Color</div>
+								<div className="color-select">
+									<div className="radio color-radio">
+										<label htmlFor="color-red"></label>
+										<input type="radio" name="color" id="color-red"/>
+									</div>
+								</div>
+								<div className="large-btn" id="close-new">Create</div>
+							</div>
+							<div className="modal" id="edit-shortcut">
+								<h1>Edit Shortcut</h1>
+								<div className="input-label">Name</div>
+								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
+
+								<div className="input-label">Icon</div>
+								<div className="icons-select">
+									<div className="radio glyph-radio">
+										<label htmlFor="glyph-car"></label>
+										<input type="radio" name="icon" id="glyph-car"/>
+									</div>
+								</div>
+
+								<div className="input-label">Color</div>
+								<div className="color-select">
+									<div className="radio color-radio">
+										<label htmlFor="color-red"></label>
+										<input type="radio" name="color" id="color-red"/>
+									</div>
+								</div>
+								<div className="large-btn" id="close-new">Save Changes</div>
+							</div>
 						</div>
-						<div className="modal" id="search-actions" />
 						<div className="editor-window">
 							<div className="editor-navigation">
 								<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
@@ -146,13 +189,53 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 							</div>
 							<div className="editor-container">
 								<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
+								<div className="files-header">
 									<h2>Files</h2>
 									<input type="search" className="search-input" placeholder="Search" />
-
-									<div className="large-btn upload-btn" {...getRootProps()}><input {...getInputProps()} />Upload Shortcut</div>
+									<div className="file-btns">
+										<div className="large-btn file-btn upload-btn" {...getRootProps()}><input {...getInputProps()} /></div>
+										<div className="large-btn file-btn new-btn"></div>
+										<div className="large-btn file-btn newf-btn"></div>
+									</div>
+								</div>
 									<div className="file-list">
 										<ul>
-											<li><div className="name-container">Files are not done yet</div></li>
+											<li className="list-item-file"><div>Converted.scpl</div></li>
+											<li className="list-item-folder"><div>Shortcuts Folder</div>
+												<ul>
+													<li className="list-item-file"><div>Folder Item.scpl</div></li>
+													<li className="list-item-folder"><div>Shortcuts Folder</div>
+														<ul>
+															<li className="list-item-file"><div>Folder Item.scpl</div></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li className="list-item-folder"><div>Shortcuts Folder 2</div>
+												<ul>
+													<li className="list-item-file"><div>Folder Item.scpl</div></li>
+													<li className="list-item-folder"><div>Shortcuts Folder</div>
+														<ul>
+															<li className="list-item-file"><div>Folder Item.scpl</div></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li className="list-item-file"><div>Something.scpl</div></li>
+											<li className="list-item-file"><div>New File.scpl</div></li>
+											<li className="list-item-folder"><div>Shortcuts Folder 3</div>
+												<ul>
+													<li className="list-item-file"><div>Folder Item.scpl</div></li>
+													<li className="list-item-folder"><div>Shortcuts Folder</div>
+														<ul>
+															<li className="list-item-file"><div>Folder Item.scpl</div></li>
+															<li className="list-item-file"><div>Folder Item 2.scpl</div></li>
+															<li className="list-item-file"><div>Folder Item 3.scpl</div></li>
+															<li className="list-item-file"><div>Folder Item 4.scpl</div></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
 										</ul>
 									</div>
 								</div>
