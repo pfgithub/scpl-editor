@@ -20,8 +20,12 @@
   .editor-container {
       display: block !important;
   }
-  .code-pane, .result-pane {
+  .code-pane {
       height: 50vh;
+      border: none !important;
+  }
+  .result-pane {
+      height: 44vh;
       border: none !important;
   }
   .loading-result-progress {
@@ -67,7 +71,15 @@
     display: block !important;
 }
 .code-pane, .result-pane {
+    height: 44vh;
+    border: none !important;
+}
+.code-pane {
     height: 50vh;
+    border: none !important;
+}
+.result-pane {
+    height: 44vh;
     border: none !important;
 }
 }
@@ -420,6 +432,7 @@ hr {
     bottom: 0;
     width: 100% !important;
     height: 100% !important;
+    padding-bottom: 101%;
 }
 /* download modal */
 #qr-result {
