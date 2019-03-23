@@ -285,54 +285,6 @@ hr {
 .file-pane h2 {
     margin: 20px 15px;
 }
-/* .file-list {
-}
-.file-list ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-.file-list ul li {
-    background: #fff url(img/scpl_icon1.png) 8px center / 25px no-repeat;
-}
-.file-list ul li:active {
-    background-color: #eee;
-}
-.file-list ul li.active {
-    background-color: #007aff38;
-}
-.file-list ul li.active .name-container {
-    border-bottom: none;
-}
-.file-list ul li.active:last-child .name-container {
-    border-top: none;
-}
-.file-list ul li:first-child {
-    border-top: 0.5px solid #c7c7cc;
-}
-.file-list ul li:last-child {
-    border-bottom: 0.5px solid #c7c7cc;
-}
-.file-list ul li .name-container {
-    margin-left: 40px;
-    border-bottom: 0.5px solid #c7c7cc;
-    width: 190px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-right: 22px !important;
-}
-.file-list ul li .name-container {
-    padding: 13px 0;
-    font-size: 14px;
-}
-.file-list ul li:first-child .name-container {
-    border-bottom: 0.5px solid #c7c7cc;
-    border-top: none;
-}
-.file-list ul li:last-child .name-container {
-    border-bottom: none;
-} */
 .file-btns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -360,6 +312,31 @@ hr {
 .file-list ul li {
   padding: 10px;
   padding-left: 25px;
+}
+/* .file-list li.list-item-file > div > div {
+  display: none;
+}
+.file-list li.list-item-file:hover > div > div {
+  display: block;
+} */
+.file-list li.list-item-file > div > div:hover {
+  background-color: #eee;
+}
+.file-list li > div .edit-btn, .file-list li > div .delete-btn {
+  background: url() center / 20px no-repeat;
+  padding: 15px;
+  float: right;
+  margin-top: -5px;
+  border-radius: 3px;
+  /* background-color: #eee; */
+  cursor: pointer;
+}
+.file-list li > div .edit-btn {
+  background-image: url(img/edit.png);
+}
+.file-list li > div .delete-btn {
+  background-image: url(img/delete.png);
+  margin-left: 10px;
 }
 .file-list ul ul {
   border-left: 1px solid #ddd;
@@ -432,7 +409,6 @@ hr {
     bottom: 0;
     width: 100% !important;
     height: 100% !important;
-    padding-bottom: 101%;
 }
 /* download modal */
 #qr-result {
