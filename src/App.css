@@ -349,6 +349,12 @@ hr {
   background-color: #007aff20;
   font-weight: 500;
 }
+.file-list li.list-item-file.active:hover {
+  background-color: #007aff35 !important;
+}
+.file-list li.list-item-file.active:active {
+  background-color: #007aff50 !important;
+}
 .file-list li.list-item-file.active > div {
   background-image: url(img/file_active.png);
 }
