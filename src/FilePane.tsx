@@ -34,7 +34,7 @@ export class FilePane extends Component<{onActiveFileChanged: (fileContents: str
 					<div>
 						<div className="files-header">
 							<h2>Files</h2>
-							<input type="search" className="search-input" placeholder="Search" />
+							<input type="search" className="search-input" placeholder="Search Files" />
 							<div className="file-btns">
 								<div className="large-btn file-btn upload-btn" {...getRootProps()}><input {...getInputProps()} /></div>
 								<div className="large-btn file-btn new-btn"></div>
