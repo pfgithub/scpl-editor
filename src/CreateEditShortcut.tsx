@@ -19,52 +19,52 @@ export class CreateEditShortcut extends Component<{}> {
 				<br/>
 				<div className="glyphs-container">
 
-				<div className="glyph-cat" id="gc-objects">
-					<div className="glyph-header">Objects</div>
+					<div className="glyph-cat" id="gc-objects">
+						<div className="glyph-header">Objects</div>
 
-					<div className="radio glyph-radio">
-						<input type="radio" name="glyph" id="glyph-car" defaultChecked/>
-						<label htmlFor="glyph-car"></label>
+						<div className="radio glyph-radio">
+							<input type="radio" name="glyph" id="glyph-car" defaultChecked/>
+							<label htmlFor="glyph-car"></label>
+						</div>
+
+						{
+							["amb", "house", "cart", "forkknife", "sun", "cloud", "tree", "footprints", "compass", "photo", "camera", "videomarker", "calendar", "comment", "paperairplane", "creditcard", "smartphone", "emptykeyboard", "printer", "database", "cube", "puzzle", "speaker", "bookmark", "mask", "dice", "soccer", "lifesaver", "chess", "stopwatch", "platter", "trophy", "flag", "hourglass", "battery", "paintbrush", "scissors", "colorpicker", "hammerwrench", "screwdriver", "trashcan", "soupbowl", "fish", "wineglass", "oven", "showerhead", "pillbottle", "scope", "beaker", "pawprint", "gift", "stairs", "bus", "plane", "hospital", "purse", "gaspump", "moon", "rain", "flower", "signs", "earth", "film", "videocamera", "playbutton-one", "message", "letter", "suitcase", "watch", "laptop", "calculator", "harddrive", "servers", "television", "headphones", "books", "emptyglasses", "ticket", "baseball", "tennisball", "telescope", "clock", "volume", "heart", "lightbulb", "tag", "locked", "magicwand", "pencil", "magnify", "tool", "gears", "hand", "teardrop", "apple", "cake", "hanger", "shirt", "pill", "bandaid", "needle", "cat", "like", "alien", "rocket", "motorcycle", "boat", "city", "stand", "temp", "snow", "umbrella", "fire", "binoculars", "mountain", "filmfull", "microphone", "clipboard", "messages", "openletter", "folder", "phone", "keyboard", "stats", "serverset", "inbox", "controller", "musicnote", "book", "glasses", "masks", "basketball", "football", "microscope", "alarmclock", "bell", "star", "lightning", "key", "unlocked", "magicstar", "paperclip", "link", "wrench", "hammer", "privacy", "cup", "carrot", "bottle", "laundry", "bath", "pills", "inhaler", "atom", "dog", "cap", "bed"].map(id =>
+								<div className="radio glyph-radio">
+									<input type="radio" name="glyph" id={`glyph-${id}`}/>
+									<label htmlFor={`glyph-${id}`}></label>
+								</div>
+							)
+						}
+
 					</div>
 
-					{
-  					["amb","house","cart","forkknife","sun","cloud","tree","footprints","compass","photo","camera","videomarker","calendar","comment","paperairplane","creditcard","smartphone","emptykeyboard","printer","database","cube","puzzle","speaker","bookmark","mask","dice","soccer","lifesaver","chess","stopwatch","platter","trophy","flag","hourglass","battery","paintbrush","scissors","colorpicker","hammerwrench","screwdriver","trashcan","soupbowl","fish","wineglass","oven","showerhead","pillbottle","scope","beaker","pawprint","gift","stairs","bus","plane","hospital","purse","gaspump","moon","rain","flower","signs","earth","film","videocamera","playbutton-one","message","letter","suitcase","watch","laptop","calculator","harddrive","servers","television","headphones","books","emptyglasses","ticket","baseball","tennisball","telescope","clock","volume","heart","lightbulb","tag","locked","magicwand","pencil","magnify","tool","gears","hand","teardrop","apple","cake","hanger","shirt","pill","bandaid","needle","cat","like","alien","rocket","motorcycle","boat","city","stand","temp","snow","umbrella","fire","binoculars","mountain","filmfull","microphone","clipboard","messages","openletter","folder","phone","keyboard","stats","serverset","inbox","controller","musicnote","book","glasses","masks","basketball","football","microscope","alarmclock","bell","star","lightning","key","unlocked","magicstar","paperclip","link","wrench","hammer","privacy","cup","carrot","bottle","laundry","bath","pills","inhaler","atom","dog","cap","bed"].map(id =>
-    					<div className="radio glyph-radio">
-      					<input type="radio" name="glyph" id={"glyph-"+id}/>
-      					<label htmlFor={"glyph-"+id}></label>
-    					</div>
-  					)
-					}
+					<div className="glyph-cat" id="gc-objects">
+						<div className="glyph-header">People</div>
 
-				</div>
+						{
+							["girlbaby", "mansymbol", "user", "accessibility", "dance", "snowboard", "activity", "boybaby", "womansymbol", "users", "podium", "gym", "swim", "sprint", "person", "handicap", "group", "handraised", "hike", "hiking", "cane"].map(id =>
+								<div className="radio glyph-radio">
+									<input type="radio" name="glyph" id={`glyph-${id}`}/>
+									<label htmlFor={`glyph-${id}`}></label>
+								</div>
+							)
+						}
 
-				<div className="glyph-cat" id="gc-objects">
-					<div className="glyph-header">People</div>
+					</div>
 
-					{
-  					["girlbaby","mansymbol","user","accessibility","dance","snowboard","activity","boybaby","womansymbol","users","podium","gym","swim","sprint","person","handicap","group","handraised","hike","hiking","cane"].map(id =>
-    					<div className="radio glyph-radio">
-      					<input type="radio" name="glyph" id={"glyph-"+id}/>
-      					<label htmlFor={"glyph-"+id}></label>
-    					</div>
-  					)
-					}
+					<div className="glyph-cat" id="gc-objects">
+						<div className="glyph-header">Symbols</div>
 
-				</div>
+						{
+							["alert", "bookmarkthis", "stopfilled", "left", "up", "play", "stop", "checked", "moneysign", "yensign", "info", "money", "yen", "filefilled", "list", "more", "share", "spinner", "target", "location", "crop", "move", "playsolo", "rss", "quotes", "text", "shareleft", "barcode", "frame", "right", "down", "prev", "next", "plus", "eurosign", "bitcoinsign", "smile", "euro", "bitcoin", "file", "document", "listitems", "infinite", "loading", "podcasts", "mapmarker", "exit", "repeat", "shuffle", "signal", "peace", "cloudservice", "shareright", "qrcode", "sizes", "download", "upload", "power", "help", "xfilled", "pounds", "pi", "cssfile", "poundsign", "asterisk", "filedoc", "fourgrid", "sixgrid", "recycle", "playvideo", "bigtarget", "squarep", "resize", "sync", "settings", "wifi", "nuclear"].map(id =>
+								<div className="radio glyph-radio">
+									<input type="radio" name="glyph" id={`glyph-${id}`}/>
+									<label htmlFor={`glyph-${id}`}></label>
+								</div>
+							)
+						}
 
-				<div className="glyph-cat" id="gc-objects">
-					<div className="glyph-header">Symbols</div>
-
-					{
-  					["alert","bookmarkthis","stopfilled","left","up","play","stop","checked","moneysign","yensign","info","money","yen","filefilled","list","more","share","spinner","target","location","crop","move","playsolo","rss","quotes","text","shareleft","barcode","frame","right","down","prev","next","plus","eurosign","bitcoinsign","smile","euro","bitcoin","file","document","listitems","infinite","loading","podcasts","mapmarker","exit","repeat","shuffle","signal","peace","cloudservice","shareright","qrcode","sizes","download","upload","power","help","xfilled","pounds","pi","cssfile","poundsign","asterisk","filedoc","fourgrid","sixgrid","recycle","playvideo","bigtarget","squarep","resize","sync","settings","wifi","nuclear"].map(id =>
-    					<div className="radio glyph-radio">
-      					<input type="radio" name="glyph" id={"glyph-"+id}/>
-      					<label htmlFor={"glyph-"+id}></label>
-    					</div>
-  					)
-					}
-
-				</div>
+					</div>
 
 				</div>
 

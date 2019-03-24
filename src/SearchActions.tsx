@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 import "./SearchActions.css";
 
-
-
 export class SearchActions extends Component<{}> {
 	render() {
 		return (

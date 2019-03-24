@@ -4,8 +4,6 @@ import { inverse } from "scpl";
 
 import "./FilePane.css";
 
-
-
 export class FilePane extends Component<{onActiveFileChanged: (fileContents: string) => void}> {
 	onDrop(acceptedFiles: File[], _rejectedFiles: File[], _event: DropEvent) {
 		const reader = new FileReader();
