@@ -42,7 +42,7 @@ export class CreateEditShortcut extends Component<{}> {
 					<div className="glyph-header">People</div>
 
 					{
-  					["amb", "id2", "id3"].map(id =>
+  					["girlbaby","mansymbol","user","accessibility","dance","snowboard","activity","boybaby","womansymbol","users","podium","gym","swim","sprint","person","handicap","group","handraised","hike","hiking","cane"].map(id =>
     					<div className="radio glyph-radio">
       					<input type="radio" name="glyph" id={"glyph-"+id}/>
       					<label htmlFor={"glyph-"+id}></label>
@@ -56,7 +56,7 @@ export class CreateEditShortcut extends Component<{}> {
 					<div className="glyph-header">Symbols</div>
 
 					{
-  					["amb", "id2", "id3"].map(id =>
+  					["alert","bookmarkthis","stop","left","up","play","stop","checked","moneysign","yensign","info","money","yen","filefilled","list","more","share","spinner","target","location","crop","move","playsolo","rss","quotes","text","shareleft","barcode","frame","right","down","prev","next","plus","eurosign","bitcoinsign","smile","euro","bitcoin","file","document","listitems","infinite","loading","podcasts","mapmarker","exit","repeat","shuffle","signal","peace","cloudservice","shareright","qrcode","sizes","download","upload","power","help","xfilled","pounds","pi","cssfile","poundsign","asterisk","filedoc","fourgrid","sixgrid","recycle","playvideo","bigtarget","squarep","resize","sync","settings","wifi","nuclear"].map(id =>
     					<div className="radio glyph-radio">
       					<input type="radio" name="glyph" id={"glyph-"+id}/>
       					<label htmlFor={"glyph-"+id}></label>
