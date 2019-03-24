@@ -91,180 +91,176 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 	render() {
 		return (
 			<div>
-				<div>
-					<div>
-						<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
-						<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}}  onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
-							<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
-								<h1>Download Export</h1>
-								<div className="download-grid">
-									<div>
-										<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload}>
-											<img src={shortcutDownloadPreviewIcon} width={130} />
-											<div className="shortcut-filename">download.shortcut</div>
-											<div className="shortcut-filedetails">5 KB</div>
-										</DownloadButton>
-									</div>
-									<div>
-										<p>Add to your library via QR Code:</p>
-										<div id="qr-result">Not available yet :(</div>
-										<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your device.</p>
-									</div>
-								</div>
-								<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
+				<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
+				<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}}  onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
+					<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
+						<h1>Download Export</h1>
+						<div className="download-grid">
+							<div>
+								<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload}>
+									<img src={shortcutDownloadPreviewIcon} width={130} />
+									<div className="shortcut-filename">download.shortcut</div>
+									<div className="shortcut-filedetails">5 KB</div>
+								</DownloadButton>
 							</div>
-
-							<div className="modal" id="create-edit-shortcut">
-								<h1>New Shortcut</h1>
-								<div className="input-label">Name</div>
-								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
-
-								<br/><br/>
-
-								<div className="input-label">Icon</div>
-								<div className="icons-select">
-									<div className="radio glyph-radio">
-										<label htmlFor="glyph-car">Car</label>
-										<input type="radio" name="icon" id="glyph-car"/>
-									</div>
-								</div>
-
-								<br/><br/>
-
-								<div className="input-label">Color</div>
-								<br/>
-								<div className="color-select">
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-red" checked/>
-										<label htmlFor="color-red"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-darkorange"/>
-										<label htmlFor="color-darkorange"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-orange"/>
-										<label htmlFor="color-orange"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-yellow"/>
-										<label htmlFor="color-yellow"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-green"/>
-										<label htmlFor="color-green"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-seagreen"/>
-										<label htmlFor="color-seagreen"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-lightblue"/>
-										<label htmlFor="color-lightblue"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-blue"/>
-										<label htmlFor="color-blue"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-darkblue"/>
-										<label htmlFor="color-darkblue"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-darkprple"/>
-										<label htmlFor="color-purple"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-purple"/>
-										<label htmlFor="color-purple"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-pink"/>
-										<label htmlFor="color-pink"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-black"/>
-										<label htmlFor="color-black"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-brown"/>
-										<label htmlFor="color-brown"></label>
-									</div>
-
-									<div className="radio color-radio">
-										<input type="radio" name="color" id="color-grey"/>
-										<label htmlFor="color-grey"></label>
-									</div>
-								</div>
-
-								<br/>
-								<div className="large-btn" id="close-new">Save Changes</div>
-								<div className="large-btn cancel-btn" id="close-new">Cancel</div>
+							<div>
+								<p>Add to your library via QR Code:</p>
+								<div id="qr-result">Not available yet :(</div>
+								<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your device.</p>
 							</div>
-
-							<div className="modal" id="rename-shortcut">
-								<h1>Rename</h1>
-								<div className="input-label">Name</div>
-								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
-								<div className="large-btn" id="close-new">Save Changes</div>
-							</div>
-
 						</div>
-						<div className="editor-window">
-							<div className="editor-navigation">
-								<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
-								<div>
-									<div className="editor-title">ScPL Try-It Editor</div>
-									<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
-									<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
-								</div>
-								<div className="search-container">
-									<SearchActions />
-								</div>
-								<div>
-									<div className="result-details">
-										<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
-									</div>
-									<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="javascript:;">Download</a></div>
-								</div>
+						<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
+					</div>
+
+					<div className="modal" id="create-edit-shortcut">
+						<h1>New Shortcut</h1>
+						<div className="input-label">Name</div>
+						<input type="text" placeholder="Name of Shortcut" id="new-name"/>
+
+						<br/><br/>
+
+						<div className="input-label">Icon</div>
+						<div className="icons-select">
+							<div className="radio glyph-radio">
+								<label htmlFor="glyph-car">Car</label>
+								<input type="radio" name="icon" id="glyph-car"/>
 							</div>
-							<div className="editor-container">
-								<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
-									<FilePane onActiveFileChanged={(file) => this.onChange(file)} />
-								</div>
-								<div className="code-pane">
-									<AceEditor
-										mode="scpl"
-										theme="github"
-										onChange={this.onChange.bind(this)}
-										name="ace_editor"
-										editorProps={{$blockScrolling: true}}
-										value={this.state.fileValue || ""}
-										annotations={this.state.annotations}
-										markers={this.state.markers}
-										ref={this.reactAceComponentRef}
-										showPrintMargin={false}
-									/>
-								</div>
-								<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
-									<div className="result-text">Waited for {this.state.took.waitedFor}ms and then converted in {this.state.took.convertedIn} ms.</div>
-									<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
-									<div className="loading-result-progress"><div><div className="load"></div></div></div>
-								</div>
+						</div>
+
+						<br/><br/>
+
+						<div className="input-label">Color</div>
+						<br/>
+						<div className="color-select">
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-red" checked/>
+								<label htmlFor="color-red"></label>
 							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-darkorange"/>
+								<label htmlFor="color-darkorange"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-orange"/>
+								<label htmlFor="color-orange"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-yellow"/>
+								<label htmlFor="color-yellow"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-green"/>
+								<label htmlFor="color-green"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-seagreen"/>
+								<label htmlFor="color-seagreen"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-lightblue"/>
+								<label htmlFor="color-lightblue"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-blue"/>
+								<label htmlFor="color-blue"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-darkblue"/>
+								<label htmlFor="color-darkblue"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-darkprple"/>
+								<label htmlFor="color-purple"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-purple"/>
+								<label htmlFor="color-purple"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-pink"/>
+								<label htmlFor="color-pink"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-black"/>
+								<label htmlFor="color-black"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-brown"/>
+								<label htmlFor="color-brown"></label>
+							</div>
+
+							<div className="radio color-radio">
+								<input type="radio" name="color" id="color-grey"/>
+								<label htmlFor="color-grey"></label>
+							</div>
+						</div>
+
+						<br/>
+						<div className="large-btn" id="close-new">Save Changes</div>
+						<div className="large-btn cancel-btn" id="close-new">Cancel</div>
+					</div>
+
+					<div className="modal" id="rename-shortcut">
+						<h1>Rename</h1>
+						<div className="input-label">Name</div>
+						<input type="text" placeholder="Name of Shortcut" id="new-name"/>
+						<div className="large-btn" id="close-new">Save Changes</div>
+					</div>
+
+				</div>
+				<div className="editor-window">
+					<div className="editor-navigation">
+						<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
+						<div>
+							<div className="editor-title">ScPL Try-It Editor</div>
+							<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
+							<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
+						</div>
+						<div className="search-container">
+							<SearchActions />
+						</div>
+						<div>
+							<div className="result-details">
+								<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
+							</div>
+							<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="javascript:;">Download</a></div>
+						</div>
+					</div>
+					<div className="editor-container">
+						<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
+							<FilePane onActiveFileChanged={(file) => this.onChange(file)} />
+						</div>
+						<div className="code-pane">
+							<AceEditor
+								mode="scpl"
+								theme="github"
+								onChange={this.onChange.bind(this)}
+								name="ace_editor"
+								editorProps={{$blockScrolling: true}}
+								value={this.state.fileValue || ""}
+								annotations={this.state.annotations}
+								markers={this.state.markers}
+								ref={this.reactAceComponentRef}
+								showPrintMargin={false}
+							/>
+						</div>
+						<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
+							<div className="result-text">Waited for {this.state.took.waitedFor}ms and then converted in {this.state.took.convertedIn} ms.</div>
+							<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
+							<div className="loading-result-progress"><div><div className="load"></div></div></div>
 						</div>
 					</div>
 				</div>
