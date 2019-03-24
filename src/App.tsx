@@ -92,7 +92,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 				{({getRootProps, getInputProps}) => (
 					<div>
 						<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
-						<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
+						<div className="modals-container" style={{display: "flex"}}>
 							<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
 								<h1>Download Export</h1>
 								<div className="download-grid">
@@ -112,27 +112,104 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
 							</div>
 
-							<div className="modal" id="create-edit-shortcut">
+							<div className="modal" id="create-edit-shortcut" style={{display: "block"}}>
 								<h1>New Shortcut</h1>
 								<div className="input-label">Name</div>
 								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
 
+								<br/><br/>
+
 								<div className="input-label">Icon</div>
 								<div className="icons-select">
 									<div className="radio glyph-radio">
-										<label htmlFor="glyph-car"></label>
+										<label htmlFor="glyph-car">Car</label>
 										<input type="radio" name="icon" id="glyph-car"/>
 									</div>
 								</div>
 
+								<br/><br/>
+
 								<div className="input-label">Color</div>
 								<div className="color-select">
 									<div className="radio color-radio">
-										<label htmlFor="color-red"></label>
-										<input type="radio" name="color" id="color-red"/>
+										<input type="radio" name="color" id="color-red" checked/>
+										<label htmlFor="color-red">Red</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-darkorange"/>
+										<label htmlFor="color-darkorange">Dark Orange</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-orange"/>
+										<label htmlFor="color-orange">Orange</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-yellow"/>
+										<label htmlFor="color-yellow">Yellow</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-green"/>
+										<label htmlFor="color-green">Green</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-seagreen"/>
+										<label htmlFor="color-seagreen">Sea Green</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-lightblue"/>
+										<label htmlFor="color-lightblue">Light Blue</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-blue"/>
+										<label htmlFor="color-blue">Blue</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-darkblue"/>
+										<label htmlFor="color-darkblue">Dark Blue</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-darkprple"/>
+										<label htmlFor="color-purple">Dark Purple</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-purple"/>
+										<label htmlFor="color-purple">Purple</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-pink"/>
+										<label htmlFor="color-pink">Pink</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-black"/>
+										<label htmlFor="color-black">Black</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-brown"/>
+										<label htmlFor="color-brown">Brown</label>
+									</div>
+
+									<div className="radio color-radio">
+										<input type="radio" name="color" id="color-grey"/>
+										<label htmlFor="color-grey">Grey</label>
 									</div>
 								</div>
+
+								<br/>
 								<div className="large-btn" id="close-new">Save Changes</div>
+								<div className="large-btn cancel-btn" id="close-new">Cancel</div>
 							</div>
 
 							<div className="modal" id="rename-shortcut">
