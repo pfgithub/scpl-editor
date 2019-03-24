@@ -19,11 +19,51 @@ export class CreateEditShortcut extends Component<{}> {
 				<br/>
 				<div className="glyphs-container">
 
-				<div className="glyphs-select">
+				<div className="glyph-cat" id="gc-objects">
+					<div className="glyph-header">Objects</div>
+
 					<div className="radio glyph-radio">
-						<label htmlFor="glyph-car">Car</label>
-						<input type="radio" name="icon" id="glyph-car"/>
+						<input type="radio" name="glyph" id="glyph-car" defaultChecked/>
+						<label htmlFor="glyph-car"></label>
 					</div>
+
+					{
+  					["amb","house","cart","forkknife","sun","cloud","tree","footprints","compass","photo","camera","videomarker","calendar","comment","paperairplane","creditcard","smartphone","emptykeyboard","printer","database","cube","puzzle","speaker","bookmark","mask","dice","soccer","lifesaver","chess","stopwatch","platter","trophy","flag","hourglass","battery","paintbrush","scissors","colorpicker","hammerwrench","screwdriver","trashcan","soupbowl","fish","wineglass","oven","showerhead","pillbottle","scope","beaker","pawprint","gift","stairs","bus","plane","hospital","purse","gaspump","moon","rain","flower","signs","earth","film","videocamera","playbutton-one","message","letter","suitcase","watch","laptop","calculator","harddrive","servers","television","headphones","books","emptyglasses","ticket","baseball","tennisball","telescope","clock","volume","heart","lightbulb","tag","locked","magicwand","pencil","magnify","tool","gears","hand","teardrop","apple","cake","hanger","shirt","pill","bandaid","needle","cat","like","alien","rocket","motorcycle","boat","city","stand","temp","snow","umbrella","fire","binoculars","mountain","filmfull","microphone","clipboard","messages","openletter","folder","phone","keyboard","stats","serverset","inbox","controller","musicnote","book","glasses","masks","basketball","football","microscope","alarmclock","bell","star","lightning","key","unlocked","magicstar","paperclip","link","wrench","hammer","privacy","cup","carrot","bottle","laundry","bath","pills","inhaler","atom","dog","cap","bed"].map(id =>
+    					<div className="radio glyph-radio">
+      					<input type="radio" name="glyph" id={"glyph-"+id}/>
+      					<label htmlFor={"glyph-"+id}></label>
+    					</div>
+  					)
+					}
+
+				</div>
+
+				<div className="glyph-cat" id="gc-objects">
+					<div className="glyph-header">People</div>
+
+					{
+  					["amb", "id2", "id3"].map(id =>
+    					<div className="radio glyph-radio">
+      					<input type="radio" name="glyph" id={"glyph-"+id}/>
+      					<label htmlFor={"glyph-"+id}></label>
+    					</div>
+  					)
+					}
+
+				</div>
+
+				<div className="glyph-cat" id="gc-objects">
+					<div className="glyph-header">Symbols</div>
+
+					{
+  					["amb", "id2", "id3"].map(id =>
+    					<div className="radio glyph-radio">
+      					<input type="radio" name="glyph" id={"glyph-"+id}/>
+      					<label htmlFor={"glyph-"+id}></label>
+    					</div>
+  					)
+					}
+
 				</div>
 
 				</div>
