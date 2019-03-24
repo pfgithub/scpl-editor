@@ -187,7 +187,10 @@ hr {
     width: 600px;
     background-color: #fff;
     border-radius: 15px;
-    padding: 20px;
+    padding: 10px 20px;
+}
+.modal h1 {
+  display: inline-block;
 }
 .editor-window {
     position: fixed;
@@ -374,13 +377,12 @@ input {
 }
 .large-btn {
     padding: 15px 10px;
-    font-weight: 500;
     background-color: #eee;
     border-radius: 3px;
     margin: 10px;
     font-size: 18px;
     color: #007aff;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     border: none;
     text-align: center;
@@ -391,6 +393,7 @@ input {
 .cancel-btn {
   font-weight: normal;
   background: none;
+  float: right;
 }
 /* loading indicator */
 .result-pane.loading .loading-result-progress {

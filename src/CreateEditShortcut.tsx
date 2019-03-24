@@ -8,6 +8,7 @@ export class CreateEditShortcut extends Component<{}> {
 	render() {
 		return (
 			<div>
+				<div className="large-btn cancel-btn" id="close-new">Cancel</div>
 				<h1>New ScPL File</h1>
 				<div className="input-label">Shortcut Name</div>
 				<input type="text" placeholder="My New Shortcut, Cool Idea, etc." id="new-name"/>
@@ -15,11 +16,16 @@ export class CreateEditShortcut extends Component<{}> {
 				<br/><br/>
 
 				<div className="input-label">Glyph</div>
+				<br/>
+				<div className="glyphs-container">
+
 				<div className="glyphs-select">
 					<div className="radio glyph-radio">
 						<label htmlFor="glyph-car">Car</label>
 						<input type="radio" name="icon" id="glyph-car"/>
 					</div>
+				</div>
+
 				</div>
 
 				<br/><br/>
@@ -104,8 +110,7 @@ export class CreateEditShortcut extends Component<{}> {
 				</div>
 
 				<br/>
-				<div className="large-btn" id="close-new">Save Changes</div>
-				<div className="large-btn cancel-btn" id="close-new">Cancel</div>
+				<div className="large-btn" id="close-new">Create</div>
 			</div>
 		);
 	}
