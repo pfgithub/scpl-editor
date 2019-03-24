@@ -93,7 +93,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 		return (
 			<div>
 				<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
-				<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
+				<div className="modals-container"  style={{display: "flex"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
 					<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
 						<h1>Download Export</h1>
 						<div className="download-grid">
@@ -113,7 +113,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 						<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
 					</div>
 
-					<div className="modal" id="create-edit-shortcut">
+					<div className="modal" id="create-edit-shortcut" style={{display: "block"}}>
 						<CreateEditShortcut />
 					</div>
 
