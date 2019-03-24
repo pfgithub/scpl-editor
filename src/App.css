@@ -325,8 +325,7 @@ hr {
   background-color: #eaeaea !important;
 }
 .file-list li.open-folder > ul > li {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  width: 94%;
 }
 .file-list ul {
   list-style-type: none;
@@ -340,6 +339,21 @@ hr {
 .list-item-file > div, .list-item-folder > div {
   padding-left: 27px;
   font-size: 14px;
+}
+.item-name {
+  width: 170px;
+  height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  margin-top: 3px;
+}
+.file-list ul li.open-folder ul li > div > .item-name {
+  width: 60%;
+}
+.file-list ul li.open-folder ul li.open-folder ul > li > div > .item-name {
+  width: 50%;
 }
 /* File items */
 .list-item-file > div {
@@ -378,21 +392,24 @@ hr {
   font-weight: 500;
 }
 /* Configure and delete btns */
-.file-list li > div .edit-btn, .file-list li > div .delete-btn {
+.action-btns {
+  float: right;
+  margin-top: -3px;
+}
+.edit-btn, .delete-btn {
   background: url() center / 20px no-repeat;
   padding: 15px;
   float: right;
-  margin-top: -6px;
   border-radius: 3px;
   cursor: pointer;
 }
-.file-list li > div > div:active {
+.action-btns div:active {
   background-color: #007aff20;
 }
-.file-list li > div .edit-btn {
+.edit-btn {
   background-image: url(img/edit.png);
 }
-.file-list li > div .delete-btn {
+.delete-btn {
   background-image: url(img/delete.png);
   margin-left: 3px;
 }

@@ -111,30 +111,9 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								</div>
 								<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
 							</div>
-							<div className="modal" id="new-shortcut">
-								<h1>Create New Shortcut</h1>
-								<div className="input-label">Name</div>
-								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
 
-								<div className="input-label">Icon</div>
-								<div className="icons-select">
-									<div className="radio glyph-radio">
-										<label htmlFor="glyph-car"></label>
-										<input type="radio" name="icon" id="glyph-car"/>
-									</div>
-								</div>
-
-								<div className="input-label">Color</div>
-								<div className="color-select">
-									<div className="radio color-radio">
-										<label htmlFor="color-red"></label>
-										<input type="radio" name="color" id="color-red"/>
-									</div>
-								</div>
-								<div className="large-btn" id="close-new">Create</div>
-							</div>
-							<div className="modal" id="edit-shortcut">
-								<h1>Edit Shortcut</h1>
+							<div className="modal" id="create-edit-shortcut">
+								<h1>New Shortcut</h1>
 								<div className="input-label">Name</div>
 								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
 
@@ -155,6 +134,14 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								</div>
 								<div className="large-btn" id="close-new">Save Changes</div>
 							</div>
+
+							<div className="modal" id="rename-shortcut">
+								<h1>Rename</h1>
+								<div className="input-label">Name</div>
+								<input type="text" placeholder="Name of Shortcut" id="new-name"/>
+								<div className="large-btn" id="close-new">Save Changes</div>
+							</div>
+
 						</div>
 						<div className="editor-window">
 							<div className="editor-navigation">
@@ -200,38 +187,38 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								</div>
 									<div className="file-list">
 										<ul>
-											<li className="list-item-file"><div>Converted.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-											<li className="list-item-folder"><div>Shortcuts Folder<div className="delete-btn"></div></div>
+											<li className="list-item-file"><div><div className='item-name'>Converted Shortcut.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+											<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
 												<ul>
-													<li className="list-item-file"><div>Folder Item.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-													<li className="list-item-folder"><div>Shortcuts Folder<div className="delete-btn"></div></div>
+													<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+													<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
 														<ul>
-															<li className="list-item-file"><div>Folder Item.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
+															<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
 														</ul>
 													</li>
 												</ul>
 											</li>
-											<li className="list-item-folder"><div>Shortcuts Folder 2<div className="delete-btn"></div></div>
+											<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder 2</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
 												<ul>
-													<li className="list-item-file"><div>Folder Item.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-													<li className="list-item-folder"><div>Shortcuts Folder<div className="delete-btn"></div></div>
+													<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+													<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
 														<ul>
-															<li className="list-item-file"><div>Folder Item.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
+															<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
 														</ul>
 													</li>
 												</ul>
 											</li>
-											<li className="list-item-file"><div>Something.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-											<li className="list-item-file"><div>New File.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-											<li className="list-item-folder"><div>Shortcuts Folder 3<div className="delete-btn"></div></div>
+											<li className="list-item-file"><div><div className='item-name'>Something.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+											<li className="list-item-file"><div><div className='item-name'>New File.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+											<li className="list-item-folder open-folder"><div><div className='item-name'>Shortcuts Folder 3</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
 												<ul>
-													<li className="list-item-file"><div>Folder Item.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-													<li className="list-item-folder"><div>Shortcuts Folder<div className="delete-btn"></div></div>
+													<li className="list-item-file active"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+													<li className="list-item-folder open-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
 														<ul>
-															<li className="list-item-file"><div>Folder Item.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-															<li className="list-item-file"><div>Folder Item 2.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-															<li className="list-item-file"><div>Folder Item 3.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
-															<li className="list-item-file"><div>Folder Item 4.scpl<div className="delete-btn"></div><div className="edit-btn"></div></div></li>
+															<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+															<li className="list-item-file"><div><div className='item-name'>Folder Item 2.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+															<li className="list-item-file"><div><div className='item-name'>Folder Item 3.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
+															<li className="list-item-file"><div><div className='item-name'>Folder Item 4.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
 														</ul>
 													</li>
 												</ul>
