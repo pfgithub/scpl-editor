@@ -93,7 +93,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 		return (
 			<div>
 				<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
-				<div className="modals-container" style={{display: "flex"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
+				<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
 					<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
 						<h1>Download Export</h1>
 						<div className="download-grid">
@@ -113,15 +113,32 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 						<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
 					</div>
 
-					<div className="modal" id="create-edit-shortcut" style={{display: "block"}}>
+					<div className="modal" id="create-edit-shortcut">
 						<CreateEditShortcut />
 					</div>
 
-					<div className="modal" id="rename-shortcut">
-						<h1>Rename</h1>
-						<div className="input-label">Name</div>
-						<input type="text" placeholder="Name of Shortcut" id="new-name"/>
-						<div className="large-btn" id="close-new">Save Changes</div>
+					<div className="modal dialog" id="rename-folder">
+						<div className="large-btn cancel-btn" id="close-rename-folder">Cancel</div>
+						<h1>Create New Folder</h1>
+						<div className="input-label">Folder Name</div>
+						<input type="text" placeholder="Folder Name" id="new-folder"/>
+						<div className="large-btn" id="close-rename-folder">Create Folder</div>
+					</div>
+
+					<div className="modal dialog" id="rename-file">
+						<div className="large-btn cancel-btn" id="close-rename-file">Cancel</div>
+						<h1>Rename File</h1>
+						<div className="input-label">Filename</div>
+						<input type="text" placeholder="Filename" id="rename-file"/>
+						<div className="large-btn" id="close-rename">Save Changes</div>
+					</div>
+
+					<div className="modal dialog" id="rename-folder">
+						<div className="large-btn cancel-btn" id="close-rename-folder">Cancel</div>
+						<h1>Rename Folder</h1>
+						<div className="input-label">Folder Name</div>
+						<input type="text" placeholder="Folder Name" id="rename-folder"/>
+						<div className="large-btn" id="close-rename-folder">Save Changes</div>
 					</div>
 
 				</div>

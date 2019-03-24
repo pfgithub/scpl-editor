@@ -183,3 +183,18 @@ input[type=radio]#glyph-car+label:before {
 input[type=radio]#glyph-amb+label:before {
   background-image: url(img/glyphs/02.png);
 }
+input[type=radio]#glyph-house+label:before {
+  background-image: url(img/glyphs/03.png);
+}
+input[type=radio]#glyph-cart+label:before {
+  background-image: url(img/glyphs/04.png);
+}
+input[type=radio]#glyph-forkknife+label:before {
+  background-image: url(img/glyphs/05.png);
+}
+input[type=radio]#glyph-sun+label:before {
+  background-image: url(img/glyphs/06.png);
+}
+input[type=radio]#glyph-cloud+label:before {
+  background-image: url(img/glyphs/07.png);
+}
