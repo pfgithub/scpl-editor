@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import {parse, inverse, PositionedError} from "scpl";
+import {parse, PositionedError} from "scpl";
 import "./App.css";
-import Dropzone, {DropEvent} from "react-dropzone";
 // import {Helmet} from "react-helmet";
 
 import shortcutDownloadPreviewIcon from "./img/shortcut-file.png";
@@ -11,6 +10,9 @@ import testshortcut from "./testshortcut.json";
 import ace from "brace";
 import "./ace/mode-scpl";
 import AceEditor from "react-ace";
+
+import { FilePane } from "./FilePane";
+import { SearchActions } from "./SearchActions";
 
 import ShortcutPreview from "shortcut-preview";
 
@@ -88,8 +90,8 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 	}
 	render() {
 		return (
-			<Dropzone onDrop={this.onDrop.bind(this)}>
-				{({getRootProps, getInputProps}) => (
+			<div>
+				<div>
 					<div>
 						<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
 						<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
@@ -152,20 +154,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 									<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
 								</div>
 								<div className="search-container">
-									<input className="search-input" placeholder="Search Actions"/>
-									<div className="search-action-results">
-										<div className="action-item action-item-get-clipboard">
-											<div className="action-item-title">Get Clipboard<div className="action-item-code">getclipboard</div></div>
-											<div className="action-item-description">Passes the contents of the clipboard to the next action.</div>
-											<div className="action-item-usage">getclipboard</div>
-										</div>
-
-										<div className="action-item action-item-count">
-											<div className="action-item-title">Count<div className="action-item-code">count</div></div>
-											<div className="action-item-description">Counts the number of items, characters, words, sentences, or lines passed as input.</div>
-											<div className="action-item-usage">count count=("Items" | "Characters" | "Words" | "Sentences" | "Lines")</div>
-										</div>
-									</div>
+									<SearchActions />
 								</div>
 								<div>
 									<div className="result-details">
@@ -176,55 +165,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 							</div>
 							<div className="editor-container">
 								<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
-									<div className="files-header">
-										<h2>Files</h2>
-										<input type="search" className="search-input" placeholder="Search" />
-										<div className="file-btns">
-											<div className="large-btn file-btn upload-btn" {...getRootProps()}><input {...getInputProps()} /></div>
-											<div className="large-btn file-btn new-btn"></div>
-											<div className="large-btn file-btn newf-btn"></div>
-										</div>
-									</div>
-									<div className="file-list">
-										<ul>
-											<li className="list-item-file"><div><div className='item-name'>Converted Shortcut.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-											<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
-												<ul>
-													<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-													<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
-														<ul>
-															<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-											<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder 2</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
-												<ul>
-													<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-													<li className="list-item-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
-														<ul>
-															<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-											<li className="list-item-file"><div><div className='item-name'>Something.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-											<li className="list-item-file"><div><div className='item-name'>New File.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-											<li className="list-item-folder open-folder"><div><div className='item-name'>Shortcuts Folder 3</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
-												<ul>
-													<li className="list-item-file active"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-													<li className="list-item-folder open-folder"><div><div className='item-name'>Shortcuts Folder</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div>
-														<ul>
-															<li className="list-item-file"><div><div className='item-name'>Folder Item.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-															<li className="list-item-file"><div><div className='item-name'>Folder Item 2.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-															<li className="list-item-file"><div><div className='item-name'>Folder Item 3.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-															<li className="list-item-file"><div><div className='item-name'>Folder Item 4.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-										</ul>
-									</div>
+									<FilePane onActiveFileChanged={(file) => this.onChange(file)} />
 								</div>
 								<div className="code-pane">
 									<AceEditor
@@ -248,22 +189,9 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 							</div>
 						</div>
 					</div>
-				)}
-			</Dropzone>
+				</div>
+			</div>
 		);
-	}
-	onDrop(acceptedFiles: File[], _rejectedFiles: File[], _event: DropEvent) {
-		const reader = new FileReader();
-
-		reader.onabort = () => alert("file reading was aborted");
-		reader.onerror = () => alert("file reading has failed");
-		reader.onload = () => {
-			// Do whatever you want with the file contents
-			const binaryStr = new Buffer(reader.result as ArrayBuffer);
-			this.onChange(inverse(binaryStr));
-		};
-
-		acceptedFiles.forEach(file => reader.readAsArrayBuffer(file));
 	}
 	onActionSelect(data: {type: "action" | "parameter", actionData: any}) {
 		if(data.actionData.SCPLData) {
