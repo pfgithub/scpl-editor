@@ -165,7 +165,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 											<div className="action-item-description">Counts the number of items, characters, words, sentences, or lines passed as input.</div>
 											<div className="action-item-usage">count count=("Items" | "Characters" | "Words" | "Sentences" | "Lines")</div>
 										</div>
-										</div>
+									</div>
 								</div>
 								<div>
 									<div className="result-details">
@@ -176,15 +176,15 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 							</div>
 							<div className="editor-container">
 								<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
-								<div className="files-header">
-									<h2>Files</h2>
-									<input type="search" className="search-input" placeholder="Search" />
-									<div className="file-btns">
-										<div className="large-btn file-btn upload-btn" {...getRootProps()}><input {...getInputProps()} /></div>
-										<div className="large-btn file-btn new-btn"></div>
-										<div className="large-btn file-btn newf-btn"></div>
+									<div className="files-header">
+										<h2>Files</h2>
+										<input type="search" className="search-input" placeholder="Search" />
+										<div className="file-btns">
+											<div className="large-btn file-btn upload-btn" {...getRootProps()}><input {...getInputProps()} /></div>
+											<div className="large-btn file-btn new-btn"></div>
+											<div className="large-btn file-btn newf-btn"></div>
+										</div>
 									</div>
-								</div>
 									<div className="file-list">
 										<ul>
 											<li className="list-item-file"><div><div className='item-name'>Converted Shortcut.scpl</div><div className='action-btns'><div className="delete-btn"></div><div className="edit-btn"></div></div></div></li>
