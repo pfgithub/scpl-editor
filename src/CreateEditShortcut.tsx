@@ -8,14 +8,14 @@ export class CreateEditShortcut extends Component<{}> {
 	render() {
 		return (
 			<div>
-				<h1>New Shortcut</h1>
-				<div className="input-label">Name</div>
-				<input type="text" placeholder="Name of Shortcut" id="new-name"/>
+				<h1>New ScPL File</h1>
+				<div className="input-label">Shortcut Name</div>
+				<input type="text" placeholder="My New Shortcut, Cool Idea, etc." id="new-name"/>
 
 				<br/><br/>
 
-				<div className="input-label">Icon</div>
-				<div className="icons-select">
+				<div className="input-label">Glyph</div>
+				<div className="glyphs-select">
 					<div className="radio glyph-radio">
 						<label htmlFor="glyph-car">Car</label>
 						<input type="radio" name="icon" id="glyph-car"/>
@@ -28,7 +28,7 @@ export class CreateEditShortcut extends Component<{}> {
 				<br/>
 				<div className="color-select">
 					<div className="radio color-radio">
-						<input type="radio" name="color" id="color-red" checked/>
+						<input type="radio" name="color" id="color-red" defaultChecked/>
 						<label htmlFor="color-red"></label>
 					</div>
 
@@ -73,8 +73,8 @@ export class CreateEditShortcut extends Component<{}> {
 					</div>
 
 					<div className="radio color-radio">
-						<input type="radio" name="color" id="color-darkprple"/>
-						<label htmlFor="color-purple"></label>
+						<input type="radio" name="color" id="color-darkpurple"/>
+						<label htmlFor="color-darkpurple"></label>
 					</div>
 
 					<div className="radio color-radio">

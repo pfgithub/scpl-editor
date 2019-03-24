@@ -6,21 +6,19 @@
     display: inline-block;
     cursor: pointer;
     position: relative;
-    /* padding: 20px; */
-    padding-left: 35px;
-    margin: 3px 10px 40px;
-    line-height: 22px;
+    padding: 15px 20px;
+    margin: 10px 5px;
 }
 .radio label:before {
     content: "";
     display: inline-block;
     width: 30px;
     height: 30px;
-    margin-right: 10px;
+    margin-top: -15px;
     position: absolute;
     left: 0;
-    background-color: #d6d6d6;
-    border: 2px solid #d6d6d6;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #fff;
     transition: all 0.1s cubic-bezier(.25, .8, .25, 1);
 }
 label:hover:before {
@@ -40,6 +38,7 @@ input[type=radio]:checked+label:before {
     content: " ";
     background-color: #555;
     border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #555;
     transition: all 0.1s cubic-bezier(.25, .8, .25, 1);
 }
 /* colors */
@@ -106,10 +105,10 @@ input[type=radio]:checked#color-darkblue+label:before {
   box-shadow: 0 0 0 2px #2c75dd;
 }
 
-input[type=radio]#color-darkprple+label:before {
+input[type=radio]#color-darkpurple+label:before {
   background-image:linear-gradient(to right, #7751e3, #4c22b8);
 }
-input[type=radio]:checked#color-darkprple+label:before {
+input[type=radio]:checked#color-darkpurple+label:before {
   box-shadow: 0 0 0 2px #7751e3;
 }
 
