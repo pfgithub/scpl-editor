@@ -9,6 +9,7 @@
 .glyph-header {
   background-color: #eee;
   color: #555;
+  border-bottom: 1px solid #ddd;
   position: sticky;
   top: 0;
   font-size: 13px;
@@ -26,6 +27,10 @@
     padding: 15px 20px;
     margin: 10px 5px;
     cursor: pointer;
+}
+.radio.glyph-radio label {
+  padding: 15px;
+  margin: 5px;
 }
 .radio label:before {
     content: "";
@@ -754,204 +759,204 @@ background-position: -270px -552px;
 }
 input[type=radio]#glyph-info+label:before {
 background-position: -300px -552px;
-}/**/
-input[type=radio]#glyph-money+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-yen+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-filefilled+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-list+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-more+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-share+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-spinner+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-target+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-location+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-crop+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-move+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-playsolo+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-rss+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-quotes+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-text+label:before {
-background-position: 0px 0px;
 }
 input[type=radio]#glyph-shareleft+label:before {
-background-position: 0px 0px;
+background-position: 1px -582px;
 }
 input[type=radio]#glyph-barcode+label:before {
-background-position: 0px 0px;
+background-position: -29px -582px;
 }
 input[type=radio]#glyph-frame+label:before {
-background-position: 0px 0px;
+background-position: -58px -582px;
 }
 input[type=radio]#glyph-right+label:before {
-background-position: 0px 0px;
+background-position: -89px -582px;
 }
 input[type=radio]#glyph-down+label:before {
-background-position: 0px 0px;
+background-position: -120px -582px;
 }
 input[type=radio]#glyph-prev+label:before {
-background-position: 0px 0px;
+background-position: -150px -582px;
 }
 input[type=radio]#glyph-next+label:before {
-background-position: 0px 0px;
+background-position: -180px -582px;
 }
 input[type=radio]#glyph-plus+label:before {
-background-position: 0px 0px;
+background-position: -210px -582px;
 }
 input[type=radio]#glyph-eurosign+label:before {
-background-position: 0px 0px;
+background-position: -240px -582px;
 }
 input[type=radio]#glyph-bitcoinsign+label:before {
-background-position: 0px 0px;
+background-position: -270px -582px;
 }
 input[type=radio]#glyph-smile+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-euro+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-bitcoin+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-file+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-document+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-listitems+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-infinite+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-loading+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-podcasts+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-mapmarker+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-exit+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-repeat+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-shuffle+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-signal+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-peace+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-cloudservice+label:before {
-background-position: 0px 0px;
+background-position: -300px -582px;
 }
 input[type=radio]#glyph-shareright+label:before {
-background-position: 0px 0px;
+background-position: 1px -612px;
 }
 input[type=radio]#glyph-qrcode+label:before {
-background-position: 0px 0px;
+background-position: -28px -612px;
 }
 input[type=radio]#glyph-sizes+label:before {
-background-position: 0px 0px;
+background-position: -58px -612px;
 }
 input[type=radio]#glyph-download+label:before {
-background-position: 0px 0px;
+background-position: -89px -612px;
 }
 input[type=radio]#glyph-upload+label:before {
-background-position: 0px 0px;
+background-position: -119px -612px;
 }
 input[type=radio]#glyph-power+label:before {
-background-position: 0px 0px;
+background-position: -150px -612px;
 }
 input[type=radio]#glyph-help+label:before {
-background-position: 0px 0px;
+background-position: -180px -612px;
 }
 input[type=radio]#glyph-xfilled+label:before {
-background-position: 0px 0px;
+background-position: -210px -612px;
 }
 input[type=radio]#glyph-pounds+label:before {
-background-position: 0px 0px;
+background-position: -240px -612px;
 }
 input[type=radio]#glyph-pi+label:before {
-background-position: 0px 0px;
+background-position: -270px -612px;
 }
 input[type=radio]#glyph-cssfile+label:before {
-background-position: 0px 0px;
+background-position: -300px -610px;
+}
+input[type=radio]#glyph-money+label:before {
+background-position: 2px -642px;
+}
+input[type=radio]#glyph-yen+label:before {
+background-position: -29px -642px;
+}
+input[type=radio]#glyph-filefilled+label:before {
+background-position: -58px -642px;
+}
+input[type=radio]#glyph-list+label:before {
+background-position: -89px -642px;
+}
+input[type=radio]#glyph-more+label:before {
+background-position: -119px -642px;
+}
+input[type=radio]#glyph-share+label:before {
+background-position: -150px -642px;
+}
+input[type=radio]#glyph-spinner+label:before {
+background-position: -180px -642px;
+}
+input[type=radio]#glyph-target+label:before {
+background-position: -210px -642px;
+}
+input[type=radio]#glyph-location+label:before {
+background-position: -240px -642px;
+}
+input[type=radio]#glyph-crop+label:before {
+background-position: -270px -642px;
+}
+input[type=radio]#glyph-move+label:before {
+background-position: -304px -642px;
+}
+input[type=radio]#glyph-euro+label:before {
+background-position: 2px -672px;
+}
+input[type=radio]#glyph-bitcoin+label:before {
+background-position: -28px -672px;
+}
+input[type=radio]#glyph-file+label:before {
+background-position: -58px -672px;
+}
+input[type=radio]#glyph-document+label:before {
+background-position: -89px -672px;
+}
+input[type=radio]#glyph-listitems+label:before {
+background-position: -119px -672px;
+}
+input[type=radio]#glyph-infinite+label:before {
+background-position: -150px -672px;
+}
+input[type=radio]#glyph-loading+label:before {
+background-position: -180px -672px;
+}
+input[type=radio]#glyph-podcasts+label:before {
+background-position: -210px -672px;
+}
+input[type=radio]#glyph-mapmarker+label:before {
+background-position: -240px -672px;
+}
+input[type=radio]#glyph-exit+label:before {
+background-position: -270px -672px;
+}
+input[type=radio]#glyph-repeat+label:before {
+background-position: -304px -672px;
 }
 input[type=radio]#glyph-poundsign+label:before {
-background-position: 0px 0px;
+background-position: 2px -702px;
 }
 input[type=radio]#glyph-asterisk+label:before {
-background-position: 0px 0px;
+background-position: -28px -701px;
 }
 input[type=radio]#glyph-filedoc+label:before {
-background-position: 0px 0px;
+background-position: -58px -701px;
 }
 input[type=radio]#glyph-fourgrid+label:before {
-background-position: 0px 0px;
+background-position: -89px -701px;
 }
 input[type=radio]#glyph-sixgrid+label:before {
-background-position: 0px 0px;
+background-position: -119px -701px;
 }
 input[type=radio]#glyph-recycle+label:before {
-background-position: 0px 0px;
+background-position: -150px -701px;
 }
 input[type=radio]#glyph-playvideo+label:before {
-background-position: 0px 0px;
+background-position: -180px -701px;
 }
 input[type=radio]#glyph-bigtarget+label:before {
-background-position: 0px 0px;
+background-position: -210px -701px;
 }
 input[type=radio]#glyph-squarep+label:before {
-background-position: 0px 0px;
+background-position: -240px -701px;
 }
 input[type=radio]#glyph-resize+label:before {
-background-position: 0px 0px;
+background-position: -270px -701px;
 }
 input[type=radio]#glyph-sync+label:before {
-background-position: 0px 0px;
+background-position: -302px -701px;
+}
+input[type=radio]#glyph-playsolo+label:before {
+background-position: 2px -735px;
+}
+input[type=radio]#glyph-rss+label:before {
+background-position: -28px -735px;
+}
+input[type=radio]#glyph-quotes+label:before {
+background-position: -58px -735px;
+}
+input[type=radio]#glyph-text+label:before {
+background-position: -89px -735px;
+}
+input[type=radio]#glyph-shuffle+label:before {
+background-position: -119px -735px;
+}
+input[type=radio]#glyph-signal+label:before {
+background-position: -150px -735px;
+}
+input[type=radio]#glyph-peace+label:before {
+background-position: -180px -735px;
+}
+input[type=radio]#glyph-cloudservice+label:before {
+background-position: -210px -735px;
 }
 input[type=radio]#glyph-settings+label:before {
-background-position: 0px 0px;
+background-position: -240px -735px;
 }
 input[type=radio]#glyph-wifi+label:before {
-background-position: 0px 0px;
+background-position: -270px -735px;
 }
 input[type=radio]#glyph-nuclear+label:before {
-background-position: 0px 0px;
+background-position: -300px -735px;
 }
 /* end symbols */
 
