@@ -208,8 +208,9 @@ input, textarea, [contenteditable] {
     border: none;
     font-size: 15px;
     background: #ebebec url(img/search.png) 8px center / 20px no-repeat;
-    padding-left: 35px;
-    margin-bottom: 5px;
+    padding-left: 35px !important;
+    margin-bottom: 5px !important;
+    margin-top: 0 !important;
     margin-left: 13px;
     width: 93%;
     outline: none;
@@ -666,15 +667,16 @@ input {
     display: inline-block;
     cursor: pointer;
     position: relative;
-    padding-left: 30px;
-    margin: 15px 5px 5px;
+    /* padding: 20px; */
+    padding-left: 35px;
+    margin: 3px 10px 40px;
     line-height: 22px;
 }
 .radio label:before {
     content: "";
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 30px;
+    height: 30px;
     margin-right: 10px;
     position: absolute;
     left: 0;
@@ -689,73 +691,120 @@ label:hover:before {
 input[type=radio] {
     display: none;
 }
-.radio label:before {
-    border-radius: 10px;
+.radio.color-radio label:before {
+    border-radius: 50%;
+}
+.radio.glyph-radio label:before {
+    border-radius: 5px;
 }
 input[type=radio]:checked+label:before {
     content: " ";
-    color: #4173b1;
     background-color: #555;
-    border: 2px solid #4173b1;
-    font-size: 38px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 48%;
-    transition: all 0.1s cubic-bezier(.25, .8, .25, 1);
-}
-.radio.dark input[type=radio]:checked+label:before {
-    content: "\2022";
-    color: #4173b1;
-    border: 2px solid #5C74FF;
-    font-size: 38px;
-    background-color: #5C74FF;
-    text-align: center;
-    line-height: 48%;
+    border: 2px solid #fff;
     transition: all 0.1s cubic-bezier(.25, .8, .25, 1);
 }
 /* colors */
 input[type=radio]#color-red+label:before {
   background-image:linear-gradient(to right, #f62544, #c50026);
 }
+input[type=radio]#color-red:checked+label:before {
+  box-shadow: 0 0 0 2px #f62544;
+}
+
 input[type=radio]#color-darkorange+label:before {
   background-image:linear-gradient(to right, #f06b3c, #db2c00);
 }
+input[type=radio]:checked#color-darkorange+label:before {
+  box-shadow: 0 0 0 2px #f06b3c;
+}
+
 input[type=radio]#color-orange+label:before {
   background-image:linear-gradient(to right, #ff881e, #e25b00);
 }
-input[type=radio]#color-yellow+label:before {
-  background-image:linear-gradient(to right, #f0b600, #e78500);
+input[type=radio]:checked#color-orange+label:before {
+  box-shadow: 0 0 0 2px #ff881e;
 }
+
+input[type=radio]#color-yellow+label:before {
+  background-image:linear-gradient(to right, #f0b500, #e78600);
+}
+input[type=radio]:checked#color-yellow+label:before {
+  box-shadow: 0 0 0 2px #f0b500;
+}
+
 input[type=radio]#color-green+label:before {
   background-image:linear-gradient(to right, #5fca3f, #379c0f);
 }
+input[type=radio]:checked#color-green+label:before {
+  box-shadow: 0 0 0 2px #5fca3f;
+}
+
 input[type=radio]#color-seagreen+label:before {
   background-image:linear-gradient(to right, #40d0b1, #00a490);
 }
+input[type=radio]:checked#color-seagreen+label:before {
+  box-shadow: 0 0 0 2px #40d0b1;
+}
+
 input[type=radio]#color-lightblue+label:before {
   background-image:linear-gradient(to right, #39cdd5, #009cc4);
 }
+input[type=radio]:checked#color-lightblue+label:before {
+  box-shadow: 0 0 0 2px #39cdd5;
+}
+
 input[type=radio]#color-blue+label:before {
   background-image:linear-gradient(to right, #4ba8f0, #0079e1);
 }
+input[type=radio]:checked#color-blue+label:before {
+  box-shadow: 0 0 0 2px #4ba8f0;
+}
+
 input[type=radio]#color-darkblue+label:before {
   background-image:linear-gradient(to right, #2c75dd, #0047bb);
 }
+input[type=radio]:checked#color-darkblue+label:before {
+  box-shadow: 0 0 0 2px #2c75dd;
+}
+
 input[type=radio]#color-darkprple+label:before {
   background-image:linear-gradient(to right, #7751e3, #4c22b8);
 }
+input[type=radio]:checked#color-darkprple+label:before {
+  box-shadow: 0 0 0 2px #7751e3;
+}
+
 input[type=radio]#color-purple+label:before {
   background-image:linear-gradient(to right, #b247d8, #840aad);
 }
+input[type=radio]:checked#color-purple+label:before {
+  box-shadow: 0 0 0 2px #b247d8;
+}
+
 input[type=radio]#color-pink+label:before {
   background-image:linear-gradient(to right, #ee60a6, #d0287e);
 }
+input[type=radio]:checked#color-pink+label:before {
+  box-shadow: 0 0 0 2px #ee60a6;
+}
+
 input[type=radio]#color-black+label:before {
   background-image:linear-gradient(to right, #78797e, #535658);
 }
+input[type=radio]:checked#color-black+label:before {
+  box-shadow: 0 0 0 2px #78797e;
+}
+
 input[type=radio]#color-brown+label:before {
   background-image:linear-gradient(to right, #9d9b92, #7f7b6b);
 }
+input[type=radio]:checked#color-brown+label:before {
+  box-shadow: 0 0 0 2px #9d9b92;
+}
+
 input[type=radio]#color-grey+label:before {
   background-image:linear-gradient(to right, #8f99b0, #6d768e);
+}
+input[type=radio]:checked#color-grey+label:before {
+  box-shadow: 0 0 0 2px #8f99b0;
 }

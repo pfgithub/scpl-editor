@@ -92,7 +92,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 				{({getRootProps, getInputProps}) => (
 					<div>
 						<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
-						<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
+						<div className="modals-container" style={{display: this.state.openDownload ? "flex" : "none"}}  onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
 							<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
 								<h1>Download Export</h1>
 								<div className="download-grid">
@@ -130,80 +130,81 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								<br/><br/>
 
 								<div className="input-label">Color</div>
+								<br/>
 								<div className="color-select">
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-red" checked/>
-										<label htmlFor="color-red">Red</label>
+										<label htmlFor="color-red"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-darkorange"/>
-										<label htmlFor="color-darkorange">Dark Orange</label>
+										<label htmlFor="color-darkorange"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-orange"/>
-										<label htmlFor="color-orange">Orange</label>
+										<label htmlFor="color-orange"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-yellow"/>
-										<label htmlFor="color-yellow">Yellow</label>
+										<label htmlFor="color-yellow"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-green"/>
-										<label htmlFor="color-green">Green</label>
+										<label htmlFor="color-green"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-seagreen"/>
-										<label htmlFor="color-seagreen">Sea Green</label>
+										<label htmlFor="color-seagreen"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-lightblue"/>
-										<label htmlFor="color-lightblue">Light Blue</label>
+										<label htmlFor="color-lightblue"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-blue"/>
-										<label htmlFor="color-blue">Blue</label>
+										<label htmlFor="color-blue"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-darkblue"/>
-										<label htmlFor="color-darkblue">Dark Blue</label>
+										<label htmlFor="color-darkblue"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-darkprple"/>
-										<label htmlFor="color-purple">Dark Purple</label>
+										<label htmlFor="color-purple"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-purple"/>
-										<label htmlFor="color-purple">Purple</label>
+										<label htmlFor="color-purple"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-pink"/>
-										<label htmlFor="color-pink">Pink</label>
+										<label htmlFor="color-pink"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-black"/>
-										<label htmlFor="color-black">Black</label>
+										<label htmlFor="color-black"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-brown"/>
-										<label htmlFor="color-brown">Brown</label>
+										<label htmlFor="color-brown"></label>
 									</div>
 
 									<div className="radio color-radio">
 										<input type="radio" name="color" id="color-grey"/>
-										<label htmlFor="color-grey">Grey</label>
+										<label htmlFor="color-grey"></label>
 									</div>
 								</div>
 
