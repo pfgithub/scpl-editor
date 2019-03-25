@@ -188,7 +188,6 @@ module.exports = {
 		"no-array-constructor": 2, // disallow use of the Array constructor
 		"no-inline-comments": 0, // disallow comments inline after code (off by default)
 		"no-lonely-if": 1, // disallow if as the only statement in an else block (off by default)
-		"no-mixed-spaces-and-tabs": 1, // disallow mixed spaces and tabs for indentation
 		"no-multiple-empty-lines": 0, // disallow multiple empty lines (off by default)
 		"no-nested-ternary": 0, // disallow nested ternary expressions (off by default)
 		"no-new-object": 1, // disallow use of the Object constructor
@@ -213,9 +212,9 @@ module.exports = {
 		"space-before-blocks": [1, "always"], // require or disallow space before blocks (off by default)
 		"space-in-parens": 0, // require or disallow spaces inside parentheses (off by default)
 		"space-unary-ops": 0, // Require or disallow spaces before/after unary operators (words on by default, nonwords off by default)
-		indent: [1, "tab", { SwitchCase: 1 }],
 		"prefer-const": 1,
 		complexity: 1,
+		"no-mixed-spaces-and-tabs": 0,
 
 		////////// ECMAScript 6 //////////
 
