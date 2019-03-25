@@ -113,10 +113,9 @@
 	background: url(img/folder.png) left center / 20px no-repeat;
 }
 .file-list li.list-item-folder > ul {
-	/* display: none; */
+	display: none;
 	transform-origin: top center;
-	transition: 1s left ease-out;
-	position: absolute;
+	transition: 0.1s left ease-out;
 	transform: scale(1, 0);
 }
 .file-list li.list-item-folder {
@@ -130,10 +129,6 @@
 	display: block;
 	animation: scaleIn 0.1s;
 	transform: scale(1, 1);
-	position: static;
-}
-.file-list li.list-item-folder:not(.open-folder) > ul {
-	animation: scaleOut 0.1s;
 }
 .list-item-folder.open-folder > div {
 	font-weight: 500;
@@ -144,14 +139,6 @@
 	}
 	to {
 		transform: scale(1, 1);
-	}
-}
-@keyframes scaleOut {
-	from {
-		transform: scale(1, 1);
-	}
-	to {
-		transform: scale(1, 0);
 	}
 }
 /* Rename and delete btns */

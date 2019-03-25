@@ -381,6 +381,14 @@ class App extends Component<
 													"Look at all these files.scpl"
 											}
 										]
+									},
+									{
+										type: "file" as "file",
+										name: "My File.scpl"
+									},
+									{
+										type: "file" as "file",
+										name: "Another File.scpl"
 									}
 								]}
 								onActiveFileChanged={file =>
