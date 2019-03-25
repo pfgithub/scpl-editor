@@ -113,7 +113,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 						<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
 					</div>
 
-					<div className="modal" id="create-edit-shortcut" style={{display: "block"}}>
+					<div className="modal dialog" id="create-edit-shortcut" style={{display: "block"}}>
 						<CreateEditShortcut />
 					</div>
 

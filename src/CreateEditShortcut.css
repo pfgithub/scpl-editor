@@ -1,6 +1,6 @@
 /* Color & Glyph select */
 .glyphs-container {
-  height: 200px;
+  height: 160px;
   overflow-x: hidden;
   overflow-y: scroll;
   border: 1px solid #dedede;
@@ -28,6 +28,9 @@
     margin: 10px 5px;
     cursor: pointer;
 }
+.radio label:hover, .radio label:hover:before {
+  cursor: pointer;
+}
 .radio.glyph-radio label {
   padding: 15px;
   margin: 5px;
@@ -48,9 +51,13 @@
   background: url(img/glyph_sheet.png) center / 330px no-repeat;
   background-color: #fafafa;
 }
-label:hover:before {
+.color-radio label:hover:before {
     background-color: #c7c7c7;
     border-color: #c7c7c7;
+}
+.glyph-radio label:hover:before {
+    background-color: #ddd;
+    border-color: #ddd;
 }
 input[type=radio] {
     display: none;
@@ -72,7 +79,7 @@ input[type=radio]:checked+label:before {
   background-color: #fff !important;
 }
 .glyph-radio input[type=radio]:checked+label:before {
-  box-shadow: 0 0 0 2px #ddd;
+  box-shadow: 0 0 0 2px #ccc;
   background-color: #eee !important;
 }
 /* colors */
@@ -209,454 +216,454 @@ input[type=radio]#glyph-tree+label:before {
 background-position: -210px 0px;
 }
 input[type=radio]#glyph-footprints+label:before {
-background-position: -240px 0px;
+background-position: -241px 0px;
 }
 input[type=radio]#glyph-compass+label:before {
-background-position: -270px 0px;
+background-position: -272px 0px;
 }
 input[type=radio]#glyph-photo+label:before {
-background-position: -300px 0px;
-}/**/
-input[type=radio]#glyph-camera+label:before {
+background-position: -302px 0px;
+}
+input[type=radio]#glyph-bus+label:before {
 background-position: 2px -29px;
 }
-input[type=radio]#glyph-videomarker+label:before {
+input[type=radio]#glyph-plane+label:before {
 background-position: -28px -29px;
 }
-input[type=radio]#glyph-calendar+label:before {
+input[type=radio]#glyph-hospital+label:before {
 background-position: -58px -29px;
 }
+input[type=radio]#glyph-purse+label:before {
+background-position: -89px -29px;
+}
+input[type=radio]#glyph-gaspump+label:before {
+background-position: -119px -29px;
+}
+input[type=radio]#glyph-moon+label:before {
+background-position: -150px -29px;
+}
+input[type=radio]#glyph-rain+label:before {
+background-position: -180px -29px;
+}
+input[type=radio]#glyph-flower+label:before {
+background-position: -210px -29px;
+}
+input[type=radio]#glyph-signs+label:before {
+background-position: -240px -29px;
+}
+input[type=radio]#glyph-earth+label:before {
+background-position: -270px -29px;
+}
+input[type=radio]#glyph-film+label:before {
+background-position: -300px -29px;
+}
+input[type=radio]#glyph-motorcycle+label:before {
+background-position: 2px -59px;
+}
+input[type=radio]#glyph-boat+label:before {
+background-position: -29px -59px;
+}
+input[type=radio]#glyph-city+label:before {
+background-position: -58px -59px;
+}
+input[type=radio]#glyph-stand+label:before {
+background-position: -89px -59px;
+}
+input[type=radio]#glyph-temp+label:before {
+background-position: -119px -59px;
+}
+input[type=radio]#glyph-snow+label:before {
+background-position: -150px -59px;
+}
+input[type=radio]#glyph-umbrella+label:before {
+background-position: -180px -59px;
+}
+input[type=radio]#glyph-fire+label:before {
+background-position: -210px -59px;
+}
+input[type=radio]#glyph-binoculars+label:before {
+background-position: -240px -59px;
+}
+input[type=radio]#glyph-mountain+label:before {
+background-position: -270px -59px;
+}
+input[type=radio]#glyph-filmfull+label:before {
+background-position: -300px -59px;
+}
+input[type=radio]#glyph-camera+label:before {
+background-position: 0px -91px;
+}
+input[type=radio]#glyph-videomarker+label:before {
+background-position: -30px -90px;
+}
+input[type=radio]#glyph-calendar+label:before {
+background-position: -58px -90px;
+}
 input[type=radio]#glyph-comment+label:before {
-background-position: -90px -29px;
+background-position: -89px -90px;
 }
 input[type=radio]#glyph-paperairplane+label:before {
-background-position: -119px -29px;
+background-position: -119px -90px;
 }
 input[type=radio]#glyph-creditcard+label:before {
 background-position: -150px -29px;
 }
 input[type=radio]#glyph-smartphone+label:before {
-background-position: -180px -29px;
+background-position: -180px -90px;
 }
 input[type=radio]#glyph-emptykeyboard+label:before {
-background-position: -210px -29px;
+background-position: -210px -90px;
 }
 input[type=radio]#glyph-printer+label:before {
-background-position: -240px -29px;
+background-position: -240px -90px;
 }
 input[type=radio]#glyph-database+label:before {
-background-position: -270px -29px;
+background-position: -270px -90px;
 }
 input[type=radio]#glyph-cube+label:before {
-background-position: -300px -29px;
-}
-input[type=radio]#glyph-puzzle+label:before {
-background-position: 2px -59px;
-}
-input[type=radio]#glyph-speaker+label:before {
-background-position: -28px -59px;
-}
-input[type=radio]#glyph-bookmark+label:before {
-background-position: -58px -59px;
-}
-input[type=radio]#glyph-mask+label:before {
-background-position: -90px -59px;
-}
-input[type=radio]#glyph-dice+label:before {
-background-position: -119px -59px;
-}
-input[type=radio]#glyph-soccer+label:before {
-background-position: -150px -59px;
-}
-input[type=radio]#glyph-lifesaver+label:before {
-background-position: -180px -59px;
-}
-input[type=radio]#glyph-chess+label:before {
-background-position: -210px -59px;
-}
-input[type=radio]#glyph-stopwatch+label:before {
-background-position: -240px -59px;
-}
-input[type=radio]#glyph-platter+label:before {
-background-position: -270px -59px;
-}
-input[type=radio]#glyph-trophy+label:before {
-background-position: -300px -59px;
-}
-input[type=radio]#glyph-flag+label:before {
-background-position: 2px -89px;
-}
-input[type=radio]#glyph-hourglass+label:before {
-background-position: -30px -89px;
-}
-input[type=radio]#glyph-battery+label:before {
-background-position: -58px -89px;
-}
-input[type=radio]#glyph-paintbrush+label:before {
-background-position: -90px -89px;
-}
-input[type=radio]#glyph-scissors+label:before {
-background-position: -119px -89px;
-}
-input[type=radio]#glyph-colorpicker+label:before {
-background-position: -150px -89px;
-}
-input[type=radio]#glyph-hammerwrench+label:before {
-background-position: -180px -89px;
-}
-input[type=radio]#glyph-screwdriver+label:before {
-background-position: -210px -89px;
-}
-input[type=radio]#glyph-trashcan+label:before {
-background-position: -240px -89px;
-}
-input[type=radio]#glyph-soupbowl+label:before {
-background-position: -270px -89px;
-}
-input[type=radio]#glyph-fish+label:before {
-background-position: -300px -89px;
-}
-input[type=radio]#glyph-wineglass+label:before {
-background-position: 2px -119px;
-}
-input[type=radio]#glyph-oven+label:before {
-background-position: -30px -118px;
-}
-input[type=radio]#glyph-showerhead+label:before {
-background-position: -58px -118px;
-}
-input[type=radio]#glyph-pillbottle+label:before {
-background-position: -89px -118px;
-}
-input[type=radio]#glyph-scope+label:before {
-background-position: -120px -120px;
-}
-input[type=radio]#glyph-beaker+label:before {
-background-position: -150px -120px;
-}
-input[type=radio]#glyph-pawprint+label:before {
-background-position: -180px -120px;
-}
-input[type=radio]#glyph-gift+label:before {
-background-position: -210px -120px;
-}
-input[type=radio]#glyph-stairs+label:before {
-background-position: -240px -120px;
-}
-input[type=radio]#glyph-bus+label:before {
-background-position: -270px -120px;
-}
-input[type=radio]#glyph-plane+label:before {
-background-position: -302px -120px;
-}
-input[type=radio]#glyph-hospital+label:before {
-background-position: 2px 0px;
-}
-input[type=radio]#glyph-purse+label:before {
-background-position: -30px 0px;
-}
-input[type=radio]#glyph-gaspump+label:before {
-background-position: -58px 0px;
-}
-input[type=radio]#glyph-moon+label:before {
-background-position: -90px 0px;
-}
-input[type=radio]#glyph-rain+label:before {
-background-position: -119px 0px;
-}
-input[type=radio]#glyph-flower+label:before {
-background-position: -150px 0px;
-}
-input[type=radio]#glyph-signs+label:before {
-background-position: -180px 0px;
-}
-input[type=radio]#glyph-earth+label:before {
-background-position: -210px 0px;
-}
-input[type=radio]#glyph-film+label:before {
-background-position: -240px 0px;
+background-position: -300px -90px;
 }
 input[type=radio]#glyph-videocamera+label:before {
-background-position: -270px 0px;
+background-position: 0px -119px;
 }
 input[type=radio]#glyph-playbutton-one+label:before {
-background-position: -300px 0px;
+background-position: -30px -118px;
 }
 input[type=radio]#glyph-message+label:before {
-background-position: 2px 0px;
+background-position: -60px -118px;
 }
 input[type=radio]#glyph-letter+label:before {
-background-position: -28px 0px;
+background-position: -90px -119px;
 }
 input[type=radio]#glyph-suitcase+label:before {
-background-position: -58px 0px;
+background-position: -120px -119px;
 }
 input[type=radio]#glyph-watch+label:before {
-background-position: -90px 0px;
+background-position: -150px -118px;
 }
 input[type=radio]#glyph-laptop+label:before {
-background-position: -119px 0px;
+background-position: -180px -118px;
 }
 input[type=radio]#glyph-calculator+label:before {
-background-position: -150px 0px;
+background-position: -210px -119px;
 }
 input[type=radio]#glyph-harddrive+label:before {
-background-position: -180px 0px;
+background-position: -240px -118px;
 }
 input[type=radio]#glyph-servers+label:before {
-background-position: -210px 0px;
+background-position: -270px -118px;
 }
 input[type=radio]#glyph-television+label:before {
-background-position: -240px 0px;
-}
-input[type=radio]#glyph-headphones+label:before {
-background-position: -270px 0px;
-}
-input[type=radio]#glyph-books+label:before {
-background-position: -300px 0px;
-}
-input[type=radio]#glyph-emptyglasses+label:before {
-background-position: 2px 0px;
-}
-input[type=radio]#glyph-ticket+label:before {
-background-position: -28px 0px;
-}
-input[type=radio]#glyph-baseball+label:before {
-background-position: -58px 0px;
-}
-input[type=radio]#glyph-tennisball+label:before {
-background-position: 2px 0px;
-}
-input[type=radio]#glyph-telescope+label:before {
-background-position: -28px 0px;
-}
-input[type=radio]#glyph-clock+label:before {
-background-position: -58px 0px;
-}
-input[type=radio]#glyph-volume+label:before {
-background-position: -90px 0px;
-}
-input[type=radio]#glyph-heart+label:before {
-background-position: -119px 0px;
-}
-input[type=radio]#glyph-lightbulb+label:before {
-background-position: -150px 0px;
-}
-input[type=radio]#glyph-tag+label:before {
-background-position: -180px 0px;
-}
-input[type=radio]#glyph-locked+label:before {
-background-position: -210px 0px;
-}
-input[type=radio]#glyph-magicwand+label:before {
-background-position: -240px 0px;
-}
-input[type=radio]#glyph-pencil+label:before {
-background-position: -270px 0px;
-}
-input[type=radio]#glyph-magnify+label:before {
-background-position: -300px 0px;
-}
-input[type=radio]#glyph-tool+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-gears+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-hand+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-teardrop+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-apple+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-cake+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-hanger+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-shirt+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-pill+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-bandaid+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-needle+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-cat+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-like+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-alien+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-rocket+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-motorcycle+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-boat+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-city+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-stand+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-temp+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-snow+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-umbrella+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-fire+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-binoculars+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-mountain+label:before {
-background-position: 0px 0px;
-}
-input[type=radio]#glyph-filmfull+label:before {
-background-position: 0px 0px;
+background-position: -301px -120px;
 }
 input[type=radio]#glyph-microphone+label:before {
-background-position: 0px 0px;
+background-position: 0 -148px;
 }
 input[type=radio]#glyph-clipboard+label:before {
-background-position: 0px 0px;
+background-position: -30px -148px;
 }
 input[type=radio]#glyph-messages+label:before {
-background-position: 0px 0px;
+background-position: -60px -148px;
 }
 input[type=radio]#glyph-openletter+label:before {
-background-position: 0px 0px;
+background-position: -90px -148px;
 }
 input[type=radio]#glyph-folder+label:before {
-background-position: 0px 0px;
+background-position: -120px -148px;
 }
 input[type=radio]#glyph-phone+label:before {
-background-position: 0px 0px;
+background-position: -150px -148px;
 }
 input[type=radio]#glyph-keyboard+label:before {
-background-position: 0px 0px;
+background-position: -180px -148px;
 }
 input[type=radio]#glyph-stats+label:before {
-background-position: 0px 0px;
+background-position: -210px -148px;
 }
 input[type=radio]#glyph-serverset+label:before {
-background-position: 0px 0px;
+background-position: -240px -148px;
 }
 input[type=radio]#glyph-inbox+label:before {
-background-position: 0px 0px;
+background-position: -270px -148px;
 }
 input[type=radio]#glyph-controller+label:before {
-background-position: 0px 0px;
+background-position: -301px -148px;
+}
+input[type=radio]#glyph-puzzle+label:before {
+background-position: 1px -178px;
+}
+input[type=radio]#glyph-speaker+label:before {
+background-position: -28px -178px;
+}
+input[type=radio]#glyph-bookmark+label:before {
+background-position: -58px -178px;
+}
+input[type=radio]#glyph-mask+label:before {
+background-position: -90px -178px;
+}
+input[type=radio]#glyph-dice+label:before {
+background-position: -119px -178px;
+}
+input[type=radio]#glyph-soccer+label:before {
+background-position: -150px -178px;
+}
+input[type=radio]#glyph-lifesaver+label:before {
+background-position: -180px -178px;
+}
+input[type=radio]#glyph-chess+label:before {
+background-position: -210px -178px;
+}
+input[type=radio]#glyph-stopwatch+label:before {
+background-position: -240px -178px;
+}
+input[type=radio]#glyph-platter+label:before {
+background-position: -270px -178px;
+}
+input[type=radio]#glyph-trophy+label:before {
+background-position: -301px -178px;
+}
+input[type=radio]#glyph-headphones+label:before {
+background-position: 1px -208px;
+}
+input[type=radio]#glyph-books+label:before {
+background-position: -30px -208px;
+}
+input[type=radio]#glyph-emptyglasses+label:before {
+background-position: -60px -208px;
+}
+input[type=radio]#glyph-ticket+label:before {
+background-position: -90px -208px;
+}
+input[type=radio]#glyph-baseball+label:before {
+background-position: -120px -208px;
+}
+input[type=radio]#glyph-tennisball+label:before {
+background-position: -150px -208px;
+}
+input[type=radio]#glyph-telescope+label:before {
+background-position: -180px -208px;
+}
+input[type=radio]#glyph-clock+label:before {
+background-position: -210px -208px;
+}
+input[type=radio]#glyph-volume+label:before {
+background-position: -240px -208px;
+}
+input[type=radio]#glyph-heart+label:before {
+background-position: -270px -208px;
+}
+input[type=radio]#glyph-lightbulb+label:before {
+background-position: -300px -208px;
 }
 input[type=radio]#glyph-musicnote+label:before {
-background-position: 0px 0px;
+background-position: 1px -238px;
 }
 input[type=radio]#glyph-book+label:before {
-background-position: 0px 0px;
+background-position: -30px -238px;
 }
 input[type=radio]#glyph-glasses+label:before {
-background-position: 0px 0px;
+background-position: -60px -238px;
 }
 input[type=radio]#glyph-masks+label:before {
-background-position: 0px 0px;
+background-position: -90px -238px;
 }
 input[type=radio]#glyph-basketball+label:before {
-background-position: 0px 0px;
+background-position: -120px -238px;
 }
 input[type=radio]#glyph-football+label:before {
-background-position: 0px 0px;
+background-position: -150px -238px;
 }
 input[type=radio]#glyph-microscope+label:before {
-background-position: 0px 0px;
+background-position: -180px 0px;
 }
 input[type=radio]#glyph-alarmclock+label:before {
-background-position: 0px 0px;
+background-position: -210px -238px;
 }
 input[type=radio]#glyph-bell+label:before {
-background-position: 0px 0px;
+background-position: -240px -238px;
 }
 input[type=radio]#glyph-star+label:before {
-background-position: 0px 0px;
+background-position: -270px -238px;
 }
 input[type=radio]#glyph-lightning+label:before {
-background-position: 0px 0px;
+background-position: -301px -238px;
+}
+input[type=radio]#glyph-flag+label:before {
+background-position: 4px -270px;
+}
+input[type=radio]#glyph-hourglass+label:before {
+background-position: -25px -269px
+}
+input[type=radio]#glyph-battery+label:before {
+background-position: -56px -269px;
+}
+input[type=radio]#glyph-paintbrush+label:before {
+background-position: -87px -270px;
+}
+input[type=radio]#glyph-scissors+label:before {
+background-position: -117px -270px;
+}
+input[type=radio]#glyph-colorpicker+label:before {
+background-position: -147px -270px;
+}
+input[type=radio]#glyph-hammerwrench+label:before {
+background-position: -179px -270px;
+}
+input[type=radio]#glyph-screwdriver+label:before {
+background-position: -208px -270px;
+}
+input[type=radio]#glyph-trashcan+label:before {
+background-position: -239px -270px;
+}
+input[type=radio]#glyph-soupbowl+label:before {
+background-position: -270px -270px;
+}
+input[type=radio]#glyph-fish+label:before {
+background-position: -302px -270px;
+}
+input[type=radio]#glyph-tag+label:before {
+background-position: 4px -299px;
+}
+input[type=radio]#glyph-locked+label:before {
+background-position: -27px -299px;
+}
+input[type=radio]#glyph-magicwand+label:before {
+background-position: -57px -299px;
+}
+input[type=radio]#glyph-pencil+label:before {
+background-position: -87px -299px;
+}
+input[type=radio]#glyph-magnify+label:before {
+background-position: -117px -299px;
+}
+input[type=radio]#glyph-tool+label:before {
+background-position: -150px -299px;
+}
+input[type=radio]#glyph-gears+label:before {
+background-position: -180px -299px;
+}
+input[type=radio]#glyph-hand+label:before {
+background-position: -210px -299px;
+}
+input[type=radio]#glyph-teardrop+label:before {
+background-position: -240px -299px;
+}
+input[type=radio]#glyph-apple+label:before {
+background-position: -270px -299px;
+}
+input[type=radio]#glyph-cake+label:before {
+background-position: -301px -300px;
 }
 input[type=radio]#glyph-key+label:before {
-background-position: 0px 0px;
+background-position: 4px -330px;
 }
 input[type=radio]#glyph-unlocked+label:before {
-background-position: 0px 0px;
+background-position: -25px -328px;
 }
 input[type=radio]#glyph-magicstar+label:before {
-background-position: 0px 0px;
+background-position: -55px -328px;
 }
 input[type=radio]#glyph-paperclip+label:before {
-background-position: 0px 0px;
+background-position: -90px 0px;
 }
 input[type=radio]#glyph-link+label:before {
-background-position: 0px 0px;
+background-position: -118px -328px;
 }
 input[type=radio]#glyph-wrench+label:before {
-background-position: 0px 0px;
+background-position: -150px -328px;
 }
 input[type=radio]#glyph-hammer+label:before {
-background-position: 0px 0px;
+background-position: -180px -328px;
 }
 input[type=radio]#glyph-privacy+label:before {
-background-position: 0px 0px;
+background-position: -210px -328px;
 }
 input[type=radio]#glyph-cup+label:before {
-background-position: 0px 0px;
+background-position: -240px -328px;
 }
 input[type=radio]#glyph-carrot+label:before {
-background-position: 0px 0px;
+background-position: -270px -328px;
 }
 input[type=radio]#glyph-bottle+label:before {
-background-position: 0px 0px;
+background-position: -301px -329px;
+}
+input[type=radio]#glyph-wineglass+label:before {
+background-position: 2px -361px;
+}
+input[type=radio]#glyph-oven+label:before {
+background-position: -27px -361px;
+}
+input[type=radio]#glyph-showerhead+label:before {
+background-position: -58px -361px;
+}
+input[type=radio]#glyph-pillbottle+label:before {
+background-position: -89px -361px;
+}
+input[type=radio]#glyph-scope+label:before {
+background-position: -120px -361px;
+}
+input[type=radio]#glyph-beaker+label:before {
+background-position: -150px -361px;
+}
+input[type=radio]#glyph-pawprint+label:before {
+background-position: -181px -361px;
+}
+input[type=radio]#glyph-gift+label:before {
+background-position: -213px -362px;
+}
+input[type=radio]#glyph-stairs+label:before {
+background-position: -243px -362px;
+}
+input[type=radio]#glyph-hanger+label:before {
+background-position: 4px -392px;
+}
+input[type=radio]#glyph-shirt+label:before {
+background-position: -27px -392px;
+}
+input[type=radio]#glyph-pill+label:before {
+background-position: -57px -392px;
+}
+input[type=radio]#glyph-bandaid+label:before {
+background-position: -88px -392px;
+}
+input[type=radio]#glyph-needle+label:before {
+background-position: -120px -392px;
+}
+input[type=radio]#glyph-cat+label:before {
+background-position: -150px -392px;
+}
+input[type=radio]#glyph-like+label:before {
+background-position: -180px -392px;
+}
+input[type=radio]#glyph-alien+label:before {
+background-position: -212px -392px;
+}
+input[type=radio]#glyph-rocket+label:before {
+background-position: -243px -392px;
 }
 input[type=radio]#glyph-laundry+label:before {
-background-position: 0px 0px;
+background-position: 3px -422px;
 }
 input[type=radio]#glyph-bath+label:before {
-background-position: 0px 0px;
+background-position: -28px -422px;
 }
 input[type=radio]#glyph-pills+label:before {
-background-position: 0px 0px;
+background-position: -58px -422px;
 }
 input[type=radio]#glyph-inhaler+label:before {
-background-position: 0px 0px;
+background-position: -88px -422px;
 }
 input[type=radio]#glyph-atom+label:before {
-background-position: 0px 0px;
+background-position: -119px -422px;
 }
 input[type=radio]#glyph-dog+label:before {
-background-position: 0px 0px;
+background-position: -150px -421px;
 }
 input[type=radio]#glyph-cap+label:before {
-background-position: 0px 0px;
+background-position: -182px -422px;
 }
 input[type=radio]#glyph-bed+label:before {
-background-position: 0px 0px;
+background-position: -213px -422px;
 }
 /* end objects */
 
