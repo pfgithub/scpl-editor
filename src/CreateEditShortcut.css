@@ -1,969 +1,970 @@
 /* Color & Glyph select */
 .glyphs-container {
-  height: 160px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  border: 1px solid #dedede;
-  border-width: 1px 0;
+	height: 160px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	border: 1px solid #dedede;
+	border-width: 1px 0;
 }
 .glyph-header {
-  background-color: #eee;
-  color: #555;
-  border-bottom: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 3px 5px;
-  z-index: 1000;
+	background-color: #eee;
+	color: #555;
+	border-bottom: 1px solid #ddd;
+	position: sticky;
+	top: 0;
+	font-size: 13px;
+	font-weight: 500;
+	padding: 3px 5px;
+	z-index: 1000;
 }
 .radio {
-  display: inline-block;
+	display: inline-block;
 }
 .radio label {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding: 15px 20px;
-    margin: 10px 5px;
-    cursor: pointer;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding: 15px 20px;
+	margin: 10px 5px;
+	cursor: pointer;
 }
-.radio label:hover, .radio label:hover:before {
-  cursor: pointer;
+.radio label:hover,
+.radio label:hover:before {
+	cursor: pointer;
 }
 .radio.glyph-radio label {
-  padding: 15px;
-  margin: 5px;
+	padding: 15px;
+	margin: 5px;
 }
 .radio label:before {
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-top: -15px;
-    position: absolute;
-    left: 0;
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 2px #fff;
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+	content: "";
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+	position: absolute;
+	left: 0;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 2px #fff;
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .radio.glyph-radio label:before {
-  background: url(img/glyph_sheet.png) center / 330px no-repeat;
-  background-color: #fafafa;
+	background: url(img/glyph_sheet.png) center / 330px no-repeat;
+	background-color: #fafafa;
 }
 .color-radio label:hover:before {
-    background-color: #c7c7c7;
-    border-color: #c7c7c7;
+	background-color: #c7c7c7;
+	border-color: #c7c7c7;
 }
 .glyph-radio label:hover:before {
-    background-color: #ddd;
-    border-color: #ddd;
+	background-color: #ddd;
+	border-color: #ddd;
 }
-input[type=radio] {
-    display: none;
+input[type="radio"] {
+	display: none;
 }
 .radio.color-radio label:before {
-    border-radius: 50%;
+	border-radius: 50%;
 }
 .radio.glyph-radio label:before {
-    border-radius: 5px;
+	border-radius: 5px;
 }
-input[type=radio]:checked+label:before {
-    content: " ";
-    background-color: #555;
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 2px #555;
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+input[type="radio"]:checked + label:before {
+	content: " ";
+	background-color: #555;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 2px #555;
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.glyph-radio input[type=radio]+label:before {
-  background-color: #fff !important;
+.glyph-radio input[type="radio"] + label:before {
+	background-color: #fff !important;
 }
-.glyph-radio input[type=radio]:checked+label:before {
-  box-shadow: 0 0 0 2px #ccc;
-  background-color: #eee !important;
+.glyph-radio input[type="radio"]:checked + label:before {
+	box-shadow: 0 0 0 2px #ccc;
+	background-color: #eee !important;
 }
 /* colors */
-input[type=radio]#color-red+label:before {
-  background-image:linear-gradient(to right, #f62544, #c50026);
+input[type="radio"]#color-red + label:before {
+	background-image: linear-gradient(to right, #f62544, #c50026);
 }
-input[type=radio]#color-red:checked+label:before {
-  box-shadow: 0 0 0 2px #f62544;
-}
-
-input[type=radio]#color-darkorange+label:before {
-  background-image:linear-gradient(to right, #f06b3c, #db2c00);
-}
-input[type=radio]:checked#color-darkorange+label:before {
-  box-shadow: 0 0 0 2px #f06b3c;
+input[type="radio"]#color-red:checked + label:before {
+	box-shadow: 0 0 0 2px #f62544;
 }
 
-input[type=radio]#color-orange+label:before {
-  background-image:linear-gradient(to right, #ff881e, #e25b00);
+input[type="radio"]#color-darkorange + label:before {
+	background-image: linear-gradient(to right, #f06b3c, #db2c00);
 }
-input[type=radio]:checked#color-orange+label:before {
-  box-shadow: 0 0 0 2px #ff881e;
-}
-
-input[type=radio]#color-yellow+label:before {
-  background-image:linear-gradient(to right, #f0b500, #e78600);
-}
-input[type=radio]:checked#color-yellow+label:before {
-  box-shadow: 0 0 0 2px #f0b500;
+input[type="radio"]:checked#color-darkorange + label:before {
+	box-shadow: 0 0 0 2px #f06b3c;
 }
 
-input[type=radio]#color-green+label:before {
-  background-image:linear-gradient(to right, #5fca3f, #379c0f);
+input[type="radio"]#color-orange + label:before {
+	background-image: linear-gradient(to right, #ff881e, #e25b00);
 }
-input[type=radio]:checked#color-green+label:before {
-  box-shadow: 0 0 0 2px #5fca3f;
-}
-
-input[type=radio]#color-seagreen+label:before {
-  background-image:linear-gradient(to right, #40d0b1, #00a490);
-}
-input[type=radio]:checked#color-seagreen+label:before {
-  box-shadow: 0 0 0 2px #40d0b1;
+input[type="radio"]:checked#color-orange + label:before {
+	box-shadow: 0 0 0 2px #ff881e;
 }
 
-input[type=radio]#color-lightblue+label:before {
-  background-image:linear-gradient(to right, #39cdd5, #009cc4);
+input[type="radio"]#color-yellow + label:before {
+	background-image: linear-gradient(to right, #f0b500, #e78600);
 }
-input[type=radio]:checked#color-lightblue+label:before {
-  box-shadow: 0 0 0 2px #39cdd5;
-}
-
-input[type=radio]#color-blue+label:before {
-  background-image:linear-gradient(to right, #4ba8f0, #0079e1);
-}
-input[type=radio]:checked#color-blue+label:before {
-  box-shadow: 0 0 0 2px #4ba8f0;
+input[type="radio"]:checked#color-yellow + label:before {
+	box-shadow: 0 0 0 2px #f0b500;
 }
 
-input[type=radio]#color-darkblue+label:before {
-  background-image:linear-gradient(to right, #2c75dd, #0047bb);
+input[type="radio"]#color-green + label:before {
+	background-image: linear-gradient(to right, #5fca3f, #379c0f);
 }
-input[type=radio]:checked#color-darkblue+label:before {
-  box-shadow: 0 0 0 2px #2c75dd;
-}
-
-input[type=radio]#color-darkpurple+label:before {
-  background-image:linear-gradient(to right, #7751e3, #4c22b8);
-}
-input[type=radio]:checked#color-darkpurple+label:before {
-  box-shadow: 0 0 0 2px #7751e3;
+input[type="radio"]:checked#color-green + label:before {
+	box-shadow: 0 0 0 2px #5fca3f;
 }
 
-input[type=radio]#color-purple+label:before {
-  background-image:linear-gradient(to right, #b247d8, #840aad);
+input[type="radio"]#color-seagreen + label:before {
+	background-image: linear-gradient(to right, #40d0b1, #00a490);
 }
-input[type=radio]:checked#color-purple+label:before {
-  box-shadow: 0 0 0 2px #b247d8;
-}
-
-input[type=radio]#color-pink+label:before {
-  background-image:linear-gradient(to right, #ee60a6, #d0287e);
-}
-input[type=radio]:checked#color-pink+label:before {
-  box-shadow: 0 0 0 2px #ee60a6;
+input[type="radio"]:checked#color-seagreen + label:before {
+	box-shadow: 0 0 0 2px #40d0b1;
 }
 
-input[type=radio]#color-black+label:before {
-  background-image:linear-gradient(to right, #78797e, #535658);
+input[type="radio"]#color-lightblue + label:before {
+	background-image: linear-gradient(to right, #39cdd5, #009cc4);
 }
-input[type=radio]:checked#color-black+label:before {
-  box-shadow: 0 0 0 2px #78797e;
-}
-
-input[type=radio]#color-brown+label:before {
-  background-image:linear-gradient(to right, #9d9b92, #7f7b6b);
-}
-input[type=radio]:checked#color-brown+label:before {
-  box-shadow: 0 0 0 2px #9d9b92;
+input[type="radio"]:checked#color-lightblue + label:before {
+	box-shadow: 0 0 0 2px #39cdd5;
 }
 
-input[type=radio]#color-grey+label:before {
-  background-image:linear-gradient(to right, #8f99b0, #6d768e);
+input[type="radio"]#color-blue + label:before {
+	background-image: linear-gradient(to right, #4ba8f0, #0079e1);
 }
-input[type=radio]:checked#color-grey+label:before {
-  box-shadow: 0 0 0 2px #8f99b0;
+input[type="radio"]:checked#color-blue + label:before {
+	box-shadow: 0 0 0 2px #4ba8f0;
+}
+
+input[type="radio"]#color-darkblue + label:before {
+	background-image: linear-gradient(to right, #2c75dd, #0047bb);
+}
+input[type="radio"]:checked#color-darkblue + label:before {
+	box-shadow: 0 0 0 2px #2c75dd;
+}
+
+input[type="radio"]#color-darkpurple + label:before {
+	background-image: linear-gradient(to right, #7751e3, #4c22b8);
+}
+input[type="radio"]:checked#color-darkpurple + label:before {
+	box-shadow: 0 0 0 2px #7751e3;
+}
+
+input[type="radio"]#color-purple + label:before {
+	background-image: linear-gradient(to right, #b247d8, #840aad);
+}
+input[type="radio"]:checked#color-purple + label:before {
+	box-shadow: 0 0 0 2px #b247d8;
+}
+
+input[type="radio"]#color-pink + label:before {
+	background-image: linear-gradient(to right, #ee60a6, #d0287e);
+}
+input[type="radio"]:checked#color-pink + label:before {
+	box-shadow: 0 0 0 2px #ee60a6;
+}
+
+input[type="radio"]#color-black + label:before {
+	background-image: linear-gradient(to right, #78797e, #535658);
+}
+input[type="radio"]:checked#color-black + label:before {
+	box-shadow: 0 0 0 2px #78797e;
+}
+
+input[type="radio"]#color-brown + label:before {
+	background-image: linear-gradient(to right, #9d9b92, #7f7b6b);
+}
+input[type="radio"]:checked#color-brown + label:before {
+	box-shadow: 0 0 0 2px #9d9b92;
+}
+
+input[type="radio"]#color-grey + label:before {
+	background-image: linear-gradient(to right, #8f99b0, #6d768e);
+}
+input[type="radio"]:checked#color-grey + label:before {
+	box-shadow: 0 0 0 2px #8f99b0;
 }
 
 /* glyphs */
 
 /* objects */
-input[type=radio]#glyph-car+label:before {
-background-position: 2px 0px;
+input[type="radio"]#glyph-car + label:before {
+	background-position: 2px 0px;
 }
-input[type=radio]#glyph-amb+label:before {
-background-position: -28px 0px;
+input[type="radio"]#glyph-amb + label:before {
+	background-position: -28px 0px;
 }
-input[type=radio]#glyph-house+label:before {
-background-position: -58px 0px;
+input[type="radio"]#glyph-house + label:before {
+	background-position: -58px 0px;
 }
-input[type=radio]#glyph-cart+label:before {
-background-position: -90px 0px;
+input[type="radio"]#glyph-cart + label:before {
+	background-position: -90px 0px;
 }
-input[type=radio]#glyph-forkknife+label:before {
-background-position: -119px 0px;
+input[type="radio"]#glyph-forkknife + label:before {
+	background-position: -119px 0px;
 }
-input[type=radio]#glyph-sun+label:before {
-background-position: -150px 0px;
+input[type="radio"]#glyph-sun + label:before {
+	background-position: -150px 0px;
 }
-input[type=radio]#glyph-cloud+label:before {
-background-position: -180px 0px;
+input[type="radio"]#glyph-cloud + label:before {
+	background-position: -180px 0px;
 }
-input[type=radio]#glyph-tree+label:before {
-background-position: -210px 0px;
+input[type="radio"]#glyph-tree + label:before {
+	background-position: -210px 0px;
 }
-input[type=radio]#glyph-footprints+label:before {
-background-position: -241px 0px;
+input[type="radio"]#glyph-footprints + label:before {
+	background-position: -241px 0px;
 }
-input[type=radio]#glyph-compass+label:before {
-background-position: -272px 0px;
+input[type="radio"]#glyph-compass + label:before {
+	background-position: -272px 0px;
 }
-input[type=radio]#glyph-photo+label:before {
-background-position: -302px 0px;
+input[type="radio"]#glyph-photo + label:before {
+	background-position: -302px 0px;
 }
-input[type=radio]#glyph-bus+label:before {
-background-position: 2px -29px;
+input[type="radio"]#glyph-bus + label:before {
+	background-position: 2px -29px;
 }
-input[type=radio]#glyph-plane+label:before {
-background-position: -28px -29px;
+input[type="radio"]#glyph-plane + label:before {
+	background-position: -28px -29px;
 }
-input[type=radio]#glyph-hospital+label:before {
-background-position: -58px -29px;
+input[type="radio"]#glyph-hospital + label:before {
+	background-position: -58px -29px;
 }
-input[type=radio]#glyph-purse+label:before {
-background-position: -89px -29px;
+input[type="radio"]#glyph-purse + label:before {
+	background-position: -89px -29px;
 }
-input[type=radio]#glyph-gaspump+label:before {
-background-position: -119px -29px;
+input[type="radio"]#glyph-gaspump + label:before {
+	background-position: -119px -29px;
 }
-input[type=radio]#glyph-moon+label:before {
-background-position: -150px -29px;
+input[type="radio"]#glyph-moon + label:before {
+	background-position: -150px -29px;
 }
-input[type=radio]#glyph-rain+label:before {
-background-position: -180px -29px;
+input[type="radio"]#glyph-rain + label:before {
+	background-position: -180px -29px;
 }
-input[type=radio]#glyph-flower+label:before {
-background-position: -210px -29px;
+input[type="radio"]#glyph-flower + label:before {
+	background-position: -210px -29px;
 }
-input[type=radio]#glyph-signs+label:before {
-background-position: -240px -29px;
+input[type="radio"]#glyph-signs + label:before {
+	background-position: -240px -29px;
 }
-input[type=radio]#glyph-earth+label:before {
-background-position: -270px -29px;
+input[type="radio"]#glyph-earth + label:before {
+	background-position: -270px -29px;
 }
-input[type=radio]#glyph-film+label:before {
-background-position: -300px -29px;
+input[type="radio"]#glyph-film + label:before {
+	background-position: -300px -29px;
 }
-input[type=radio]#glyph-motorcycle+label:before {
-background-position: 2px -59px;
+input[type="radio"]#glyph-motorcycle + label:before {
+	background-position: 2px -59px;
 }
-input[type=radio]#glyph-boat+label:before {
-background-position: -29px -59px;
+input[type="radio"]#glyph-boat + label:before {
+	background-position: -29px -59px;
 }
-input[type=radio]#glyph-city+label:before {
-background-position: -58px -59px;
+input[type="radio"]#glyph-city + label:before {
+	background-position: -58px -59px;
 }
-input[type=radio]#glyph-stand+label:before {
-background-position: -89px -59px;
+input[type="radio"]#glyph-stand + label:before {
+	background-position: -89px -59px;
 }
-input[type=radio]#glyph-temp+label:before {
-background-position: -119px -59px;
+input[type="radio"]#glyph-temp + label:before {
+	background-position: -119px -59px;
 }
-input[type=radio]#glyph-snow+label:before {
-background-position: -150px -59px;
+input[type="radio"]#glyph-snow + label:before {
+	background-position: -150px -59px;
 }
-input[type=radio]#glyph-umbrella+label:before {
-background-position: -180px -59px;
+input[type="radio"]#glyph-umbrella + label:before {
+	background-position: -180px -59px;
 }
-input[type=radio]#glyph-fire+label:before {
-background-position: -210px -59px;
+input[type="radio"]#glyph-fire + label:before {
+	background-position: -210px -59px;
 }
-input[type=radio]#glyph-binoculars+label:before {
-background-position: -240px -59px;
+input[type="radio"]#glyph-binoculars + label:before {
+	background-position: -240px -59px;
 }
-input[type=radio]#glyph-mountain+label:before {
-background-position: -270px -59px;
+input[type="radio"]#glyph-mountain + label:before {
+	background-position: -270px -59px;
 }
-input[type=radio]#glyph-filmfull+label:before {
-background-position: -300px -59px;
+input[type="radio"]#glyph-filmfull + label:before {
+	background-position: -300px -59px;
 }
-input[type=radio]#glyph-camera+label:before {
-background-position: 0px -91px;
+input[type="radio"]#glyph-camera + label:before {
+	background-position: 0px -91px;
 }
-input[type=radio]#glyph-videomarker+label:before {
-background-position: -30px -90px;
+input[type="radio"]#glyph-videomarker + label:before {
+	background-position: -30px -90px;
 }
-input[type=radio]#glyph-calendar+label:before {
-background-position: -58px -90px;
+input[type="radio"]#glyph-calendar + label:before {
+	background-position: -58px -90px;
 }
-input[type=radio]#glyph-comment+label:before {
-background-position: -89px -90px;
+input[type="radio"]#glyph-comment + label:before {
+	background-position: -89px -90px;
 }
-input[type=radio]#glyph-paperairplane+label:before {
-background-position: -119px -90px;
+input[type="radio"]#glyph-paperairplane + label:before {
+	background-position: -119px -90px;
 }
-input[type=radio]#glyph-creditcard+label:before {
-background-position: -150px -29px;
+input[type="radio"]#glyph-creditcard + label:before {
+	background-position: -150px -29px;
 }
-input[type=radio]#glyph-smartphone+label:before {
-background-position: -180px -90px;
+input[type="radio"]#glyph-smartphone + label:before {
+	background-position: -180px -90px;
 }
-input[type=radio]#glyph-emptykeyboard+label:before {
-background-position: -210px -90px;
+input[type="radio"]#glyph-emptykeyboard + label:before {
+	background-position: -210px -90px;
 }
-input[type=radio]#glyph-printer+label:before {
-background-position: -240px -90px;
+input[type="radio"]#glyph-printer + label:before {
+	background-position: -240px -90px;
 }
-input[type=radio]#glyph-database+label:before {
-background-position: -270px -90px;
+input[type="radio"]#glyph-database + label:before {
+	background-position: -270px -90px;
 }
-input[type=radio]#glyph-cube+label:before {
-background-position: -300px -90px;
+input[type="radio"]#glyph-cube + label:before {
+	background-position: -300px -90px;
 }
-input[type=radio]#glyph-videocamera+label:before {
-background-position: 0px -119px;
+input[type="radio"]#glyph-videocamera + label:before {
+	background-position: 0px -119px;
 }
-input[type=radio]#glyph-playbutton-one+label:before {
-background-position: -30px -118px;
+input[type="radio"]#glyph-playbutton-one + label:before {
+	background-position: -30px -118px;
 }
-input[type=radio]#glyph-message+label:before {
-background-position: -60px -118px;
+input[type="radio"]#glyph-message + label:before {
+	background-position: -60px -118px;
 }
-input[type=radio]#glyph-letter+label:before {
-background-position: -90px -119px;
+input[type="radio"]#glyph-letter + label:before {
+	background-position: -90px -119px;
 }
-input[type=radio]#glyph-suitcase+label:before {
-background-position: -120px -119px;
+input[type="radio"]#glyph-suitcase + label:before {
+	background-position: -120px -119px;
 }
-input[type=radio]#glyph-watch+label:before {
-background-position: -150px -118px;
+input[type="radio"]#glyph-watch + label:before {
+	background-position: -150px -118px;
 }
-input[type=radio]#glyph-laptop+label:before {
-background-position: -180px -118px;
+input[type="radio"]#glyph-laptop + label:before {
+	background-position: -180px -118px;
 }
-input[type=radio]#glyph-calculator+label:before {
-background-position: -210px -119px;
+input[type="radio"]#glyph-calculator + label:before {
+	background-position: -210px -119px;
 }
-input[type=radio]#glyph-harddrive+label:before {
-background-position: -240px -118px;
+input[type="radio"]#glyph-harddrive + label:before {
+	background-position: -240px -118px;
 }
-input[type=radio]#glyph-servers+label:before {
-background-position: -270px -118px;
+input[type="radio"]#glyph-servers + label:before {
+	background-position: -270px -118px;
 }
-input[type=radio]#glyph-television+label:before {
-background-position: -301px -120px;
+input[type="radio"]#glyph-television + label:before {
+	background-position: -301px -120px;
 }
-input[type=radio]#glyph-microphone+label:before {
-background-position: 0 -148px;
+input[type="radio"]#glyph-microphone + label:before {
+	background-position: 0 -148px;
 }
-input[type=radio]#glyph-clipboard+label:before {
-background-position: -30px -148px;
+input[type="radio"]#glyph-clipboard + label:before {
+	background-position: -30px -148px;
 }
-input[type=radio]#glyph-messages+label:before {
-background-position: -60px -148px;
+input[type="radio"]#glyph-messages + label:before {
+	background-position: -60px -148px;
 }
-input[type=radio]#glyph-openletter+label:before {
-background-position: -90px -148px;
+input[type="radio"]#glyph-openletter + label:before {
+	background-position: -90px -148px;
 }
-input[type=radio]#glyph-folder+label:before {
-background-position: -120px -148px;
+input[type="radio"]#glyph-folder + label:before {
+	background-position: -120px -148px;
 }
-input[type=radio]#glyph-phone+label:before {
-background-position: -150px -148px;
+input[type="radio"]#glyph-phone + label:before {
+	background-position: -150px -148px;
 }
-input[type=radio]#glyph-keyboard+label:before {
-background-position: -180px -148px;
+input[type="radio"]#glyph-keyboard + label:before {
+	background-position: -180px -148px;
 }
-input[type=radio]#glyph-stats+label:before {
-background-position: -210px -148px;
+input[type="radio"]#glyph-stats + label:before {
+	background-position: -210px -148px;
 }
-input[type=radio]#glyph-serverset+label:before {
-background-position: -240px -148px;
+input[type="radio"]#glyph-serverset + label:before {
+	background-position: -240px -148px;
 }
-input[type=radio]#glyph-inbox+label:before {
-background-position: -270px -148px;
+input[type="radio"]#glyph-inbox + label:before {
+	background-position: -270px -148px;
 }
-input[type=radio]#glyph-controller+label:before {
-background-position: -301px -148px;
+input[type="radio"]#glyph-controller + label:before {
+	background-position: -301px -148px;
 }
-input[type=radio]#glyph-puzzle+label:before {
-background-position: 1px -178px;
+input[type="radio"]#glyph-puzzle + label:before {
+	background-position: 1px -178px;
 }
-input[type=radio]#glyph-speaker+label:before {
-background-position: -28px -178px;
+input[type="radio"]#glyph-speaker + label:before {
+	background-position: -28px -178px;
 }
-input[type=radio]#glyph-bookmark+label:before {
-background-position: -58px -178px;
+input[type="radio"]#glyph-bookmark + label:before {
+	background-position: -58px -178px;
 }
-input[type=radio]#glyph-mask+label:before {
-background-position: -90px -178px;
+input[type="radio"]#glyph-mask + label:before {
+	background-position: -90px -178px;
 }
-input[type=radio]#glyph-dice+label:before {
-background-position: -119px -178px;
+input[type="radio"]#glyph-dice + label:before {
+	background-position: -119px -178px;
 }
-input[type=radio]#glyph-soccer+label:before {
-background-position: -150px -178px;
+input[type="radio"]#glyph-soccer + label:before {
+	background-position: -150px -178px;
 }
-input[type=radio]#glyph-lifesaver+label:before {
-background-position: -180px -178px;
+input[type="radio"]#glyph-lifesaver + label:before {
+	background-position: -180px -178px;
 }
-input[type=radio]#glyph-chess+label:before {
-background-position: -210px -178px;
+input[type="radio"]#glyph-chess + label:before {
+	background-position: -210px -178px;
 }
-input[type=radio]#glyph-stopwatch+label:before {
-background-position: -240px -178px;
+input[type="radio"]#glyph-stopwatch + label:before {
+	background-position: -240px -178px;
 }
-input[type=radio]#glyph-platter+label:before {
-background-position: -270px -178px;
+input[type="radio"]#glyph-platter + label:before {
+	background-position: -270px -178px;
 }
-input[type=radio]#glyph-trophy+label:before {
-background-position: -301px -178px;
+input[type="radio"]#glyph-trophy + label:before {
+	background-position: -301px -178px;
 }
-input[type=radio]#glyph-headphones+label:before {
-background-position: 1px -208px;
+input[type="radio"]#glyph-headphones + label:before {
+	background-position: 1px -208px;
 }
-input[type=radio]#glyph-books+label:before {
-background-position: -30px -208px;
+input[type="radio"]#glyph-books + label:before {
+	background-position: -30px -208px;
 }
-input[type=radio]#glyph-emptyglasses+label:before {
-background-position: -60px -208px;
+input[type="radio"]#glyph-emptyglasses + label:before {
+	background-position: -60px -208px;
 }
-input[type=radio]#glyph-ticket+label:before {
-background-position: -90px -208px;
+input[type="radio"]#glyph-ticket + label:before {
+	background-position: -90px -208px;
 }
-input[type=radio]#glyph-baseball+label:before {
-background-position: -120px -208px;
+input[type="radio"]#glyph-baseball + label:before {
+	background-position: -120px -208px;
 }
-input[type=radio]#glyph-tennisball+label:before {
-background-position: -150px -208px;
+input[type="radio"]#glyph-tennisball + label:before {
+	background-position: -150px -208px;
 }
-input[type=radio]#glyph-telescope+label:before {
-background-position: -180px -208px;
+input[type="radio"]#glyph-telescope + label:before {
+	background-position: -180px -208px;
 }
-input[type=radio]#glyph-clock+label:before {
-background-position: -210px -208px;
+input[type="radio"]#glyph-clock + label:before {
+	background-position: -210px -208px;
 }
-input[type=radio]#glyph-volume+label:before {
-background-position: -240px -208px;
+input[type="radio"]#glyph-volume + label:before {
+	background-position: -240px -208px;
 }
-input[type=radio]#glyph-heart+label:before {
-background-position: -270px -208px;
+input[type="radio"]#glyph-heart + label:before {
+	background-position: -270px -208px;
 }
-input[type=radio]#glyph-lightbulb+label:before {
-background-position: -300px -208px;
+input[type="radio"]#glyph-lightbulb + label:before {
+	background-position: -300px -208px;
 }
-input[type=radio]#glyph-musicnote+label:before {
-background-position: 1px -238px;
+input[type="radio"]#glyph-musicnote + label:before {
+	background-position: 1px -238px;
 }
-input[type=radio]#glyph-book+label:before {
-background-position: -30px -238px;
+input[type="radio"]#glyph-book + label:before {
+	background-position: -30px -238px;
 }
-input[type=radio]#glyph-glasses+label:before {
-background-position: -60px -238px;
+input[type="radio"]#glyph-glasses + label:before {
+	background-position: -60px -238px;
 }
-input[type=radio]#glyph-masks+label:before {
-background-position: -90px -238px;
+input[type="radio"]#glyph-masks + label:before {
+	background-position: -90px -238px;
 }
-input[type=radio]#glyph-basketball+label:before {
-background-position: -120px -238px;
+input[type="radio"]#glyph-basketball + label:before {
+	background-position: -120px -238px;
 }
-input[type=radio]#glyph-football+label:before {
-background-position: -150px -238px;
+input[type="radio"]#glyph-football + label:before {
+	background-position: -150px -238px;
 }
-input[type=radio]#glyph-microscope+label:before {
-background-position: -180px 0px;
+input[type="radio"]#glyph-microscope + label:before {
+	background-position: -180px 0px;
 }
-input[type=radio]#glyph-alarmclock+label:before {
-background-position: -210px -238px;
+input[type="radio"]#glyph-alarmclock + label:before {
+	background-position: -210px -238px;
 }
-input[type=radio]#glyph-bell+label:before {
-background-position: -240px -238px;
+input[type="radio"]#glyph-bell + label:before {
+	background-position: -240px -238px;
 }
-input[type=radio]#glyph-star+label:before {
-background-position: -270px -238px;
+input[type="radio"]#glyph-star + label:before {
+	background-position: -270px -238px;
 }
-input[type=radio]#glyph-lightning+label:before {
-background-position: -301px -238px;
+input[type="radio"]#glyph-lightning + label:before {
+	background-position: -301px -238px;
 }
-input[type=radio]#glyph-flag+label:before {
-background-position: 4px -270px;
+input[type="radio"]#glyph-flag + label:before {
+	background-position: 4px -270px;
 }
-input[type=radio]#glyph-hourglass+label:before {
-background-position: -25px -269px
+input[type="radio"]#glyph-hourglass + label:before {
+	background-position: -25px -269px;
 }
-input[type=radio]#glyph-battery+label:before {
-background-position: -56px -269px;
+input[type="radio"]#glyph-battery + label:before {
+	background-position: -56px -269px;
 }
-input[type=radio]#glyph-paintbrush+label:before {
-background-position: -87px -270px;
+input[type="radio"]#glyph-paintbrush + label:before {
+	background-position: -87px -270px;
 }
-input[type=radio]#glyph-scissors+label:before {
-background-position: -117px -270px;
+input[type="radio"]#glyph-scissors + label:before {
+	background-position: -117px -270px;
 }
-input[type=radio]#glyph-colorpicker+label:before {
-background-position: -147px -270px;
+input[type="radio"]#glyph-colorpicker + label:before {
+	background-position: -147px -270px;
 }
-input[type=radio]#glyph-hammerwrench+label:before {
-background-position: -179px -270px;
+input[type="radio"]#glyph-hammerwrench + label:before {
+	background-position: -179px -270px;
 }
-input[type=radio]#glyph-screwdriver+label:before {
-background-position: -208px -270px;
+input[type="radio"]#glyph-screwdriver + label:before {
+	background-position: -208px -270px;
 }
-input[type=radio]#glyph-trashcan+label:before {
-background-position: -239px -270px;
+input[type="radio"]#glyph-trashcan + label:before {
+	background-position: -239px -270px;
 }
-input[type=radio]#glyph-soupbowl+label:before {
-background-position: -270px -270px;
+input[type="radio"]#glyph-soupbowl + label:before {
+	background-position: -270px -270px;
 }
-input[type=radio]#glyph-fish+label:before {
-background-position: -302px -270px;
+input[type="radio"]#glyph-fish + label:before {
+	background-position: -302px -270px;
 }
-input[type=radio]#glyph-tag+label:before {
-background-position: 4px -299px;
+input[type="radio"]#glyph-tag + label:before {
+	background-position: 4px -299px;
 }
-input[type=radio]#glyph-locked+label:before {
-background-position: -27px -299px;
+input[type="radio"]#glyph-locked + label:before {
+	background-position: -27px -299px;
 }
-input[type=radio]#glyph-magicwand+label:before {
-background-position: -57px -299px;
+input[type="radio"]#glyph-magicwand + label:before {
+	background-position: -57px -299px;
 }
-input[type=radio]#glyph-pencil+label:before {
-background-position: -87px -299px;
+input[type="radio"]#glyph-pencil + label:before {
+	background-position: -87px -299px;
 }
-input[type=radio]#glyph-magnify+label:before {
-background-position: -117px -299px;
+input[type="radio"]#glyph-magnify + label:before {
+	background-position: -117px -299px;
 }
-input[type=radio]#glyph-tool+label:before {
-background-position: -150px -299px;
+input[type="radio"]#glyph-tool + label:before {
+	background-position: -150px -299px;
 }
-input[type=radio]#glyph-gears+label:before {
-background-position: -180px -299px;
+input[type="radio"]#glyph-gears + label:before {
+	background-position: -180px -299px;
 }
-input[type=radio]#glyph-hand+label:before {
-background-position: -210px -299px;
+input[type="radio"]#glyph-hand + label:before {
+	background-position: -210px -299px;
 }
-input[type=radio]#glyph-teardrop+label:before {
-background-position: -240px -299px;
+input[type="radio"]#glyph-teardrop + label:before {
+	background-position: -240px -299px;
 }
-input[type=radio]#glyph-apple+label:before {
-background-position: -270px -299px;
+input[type="radio"]#glyph-apple + label:before {
+	background-position: -270px -299px;
 }
-input[type=radio]#glyph-cake+label:before {
-background-position: -301px -300px;
+input[type="radio"]#glyph-cake + label:before {
+	background-position: -301px -300px;
 }
-input[type=radio]#glyph-key+label:before {
-background-position: 4px -330px;
+input[type="radio"]#glyph-key + label:before {
+	background-position: 4px -330px;
 }
-input[type=radio]#glyph-unlocked+label:before {
-background-position: -25px -328px;
+input[type="radio"]#glyph-unlocked + label:before {
+	background-position: -25px -328px;
 }
-input[type=radio]#glyph-magicstar+label:before {
-background-position: -55px -328px;
+input[type="radio"]#glyph-magicstar + label:before {
+	background-position: -55px -328px;
 }
-input[type=radio]#glyph-paperclip+label:before {
-background-position: -90px 0px;
+input[type="radio"]#glyph-paperclip + label:before {
+	background-position: -90px 0px;
 }
-input[type=radio]#glyph-link+label:before {
-background-position: -118px -328px;
+input[type="radio"]#glyph-link + label:before {
+	background-position: -118px -328px;
 }
-input[type=radio]#glyph-wrench+label:before {
-background-position: -150px -328px;
+input[type="radio"]#glyph-wrench + label:before {
+	background-position: -150px -328px;
 }
-input[type=radio]#glyph-hammer+label:before {
-background-position: -180px -328px;
+input[type="radio"]#glyph-hammer + label:before {
+	background-position: -180px -328px;
 }
-input[type=radio]#glyph-privacy+label:before {
-background-position: -210px -328px;
+input[type="radio"]#glyph-privacy + label:before {
+	background-position: -210px -328px;
 }
-input[type=radio]#glyph-cup+label:before {
-background-position: -240px -328px;
+input[type="radio"]#glyph-cup + label:before {
+	background-position: -240px -328px;
 }
-input[type=radio]#glyph-carrot+label:before {
-background-position: -270px -328px;
+input[type="radio"]#glyph-carrot + label:before {
+	background-position: -270px -328px;
 }
-input[type=radio]#glyph-bottle+label:before {
-background-position: -301px -329px;
+input[type="radio"]#glyph-bottle + label:before {
+	background-position: -301px -329px;
 }
-input[type=radio]#glyph-wineglass+label:before {
-background-position: 2px -361px;
+input[type="radio"]#glyph-wineglass + label:before {
+	background-position: 2px -361px;
 }
-input[type=radio]#glyph-oven+label:before {
-background-position: -27px -361px;
+input[type="radio"]#glyph-oven + label:before {
+	background-position: -27px -361px;
 }
-input[type=radio]#glyph-showerhead+label:before {
-background-position: -58px -361px;
+input[type="radio"]#glyph-showerhead + label:before {
+	background-position: -58px -361px;
 }
-input[type=radio]#glyph-pillbottle+label:before {
-background-position: -89px -361px;
+input[type="radio"]#glyph-pillbottle + label:before {
+	background-position: -89px -361px;
 }
-input[type=radio]#glyph-scope+label:before {
-background-position: -120px -361px;
+input[type="radio"]#glyph-scope + label:before {
+	background-position: -120px -361px;
 }
-input[type=radio]#glyph-beaker+label:before {
-background-position: -150px -361px;
+input[type="radio"]#glyph-beaker + label:before {
+	background-position: -150px -361px;
 }
-input[type=radio]#glyph-pawprint+label:before {
-background-position: -181px -361px;
+input[type="radio"]#glyph-pawprint + label:before {
+	background-position: -181px -361px;
 }
-input[type=radio]#glyph-gift+label:before {
-background-position: -213px -362px;
+input[type="radio"]#glyph-gift + label:before {
+	background-position: -213px -362px;
 }
-input[type=radio]#glyph-stairs+label:before {
-background-position: -243px -362px;
+input[type="radio"]#glyph-stairs + label:before {
+	background-position: -243px -362px;
 }
-input[type=radio]#glyph-hanger+label:before {
-background-position: 4px -392px;
+input[type="radio"]#glyph-hanger + label:before {
+	background-position: 4px -392px;
 }
-input[type=radio]#glyph-shirt+label:before {
-background-position: -27px -392px;
+input[type="radio"]#glyph-shirt + label:before {
+	background-position: -27px -392px;
 }
-input[type=radio]#glyph-pill+label:before {
-background-position: -57px -392px;
+input[type="radio"]#glyph-pill + label:before {
+	background-position: -57px -392px;
 }
-input[type=radio]#glyph-bandaid+label:before {
-background-position: -88px -392px;
+input[type="radio"]#glyph-bandaid + label:before {
+	background-position: -88px -392px;
 }
-input[type=radio]#glyph-needle+label:before {
-background-position: -120px -392px;
+input[type="radio"]#glyph-needle + label:before {
+	background-position: -120px -392px;
 }
-input[type=radio]#glyph-cat+label:before {
-background-position: -150px -392px;
+input[type="radio"]#glyph-cat + label:before {
+	background-position: -150px -392px;
 }
-input[type=radio]#glyph-like+label:before {
-background-position: -180px -392px;
+input[type="radio"]#glyph-like + label:before {
+	background-position: -180px -392px;
 }
-input[type=radio]#glyph-alien+label:before {
-background-position: -212px -392px;
+input[type="radio"]#glyph-alien + label:before {
+	background-position: -212px -392px;
 }
-input[type=radio]#glyph-rocket+label:before {
-background-position: -243px -392px;
+input[type="radio"]#glyph-rocket + label:before {
+	background-position: -243px -392px;
 }
-input[type=radio]#glyph-laundry+label:before {
-background-position: 3px -422px;
+input[type="radio"]#glyph-laundry + label:before {
+	background-position: 3px -422px;
 }
-input[type=radio]#glyph-bath+label:before {
-background-position: -28px -422px;
+input[type="radio"]#glyph-bath + label:before {
+	background-position: -28px -422px;
 }
-input[type=radio]#glyph-pills+label:before {
-background-position: -58px -422px;
+input[type="radio"]#glyph-pills + label:before {
+	background-position: -58px -422px;
 }
-input[type=radio]#glyph-inhaler+label:before {
-background-position: -88px -422px;
+input[type="radio"]#glyph-inhaler + label:before {
+	background-position: -88px -422px;
 }
-input[type=radio]#glyph-atom+label:before {
-background-position: -119px -422px;
+input[type="radio"]#glyph-atom + label:before {
+	background-position: -119px -422px;
 }
-input[type=radio]#glyph-dog+label:before {
-background-position: -150px -421px;
+input[type="radio"]#glyph-dog + label:before {
+	background-position: -150px -421px;
 }
-input[type=radio]#glyph-cap+label:before {
-background-position: -182px -422px;
+input[type="radio"]#glyph-cap + label:before {
+	background-position: -182px -422px;
 }
-input[type=radio]#glyph-bed+label:before {
-background-position: -213px -422px;
+input[type="radio"]#glyph-bed + label:before {
+	background-position: -213px -422px;
 }
 /* end objects */
 
 /* people */
-input[type=radio]#glyph-girlbaby+label:before {
-background-position: 1px -458px;
+input[type="radio"]#glyph-girlbaby + label:before {
+	background-position: 1px -458px;
 }
-input[type=radio]#glyph-mansymbol+label:before {
-background-position: -30px -457px;
+input[type="radio"]#glyph-mansymbol + label:before {
+	background-position: -30px -457px;
 }
-input[type=radio]#glyph-user+label:before {
-background-position: -60px -457px;
+input[type="radio"]#glyph-user + label:before {
+	background-position: -60px -457px;
 }
-input[type=radio]#glyph-accessibility+label:before {
-background-position: -91px -456px;
+input[type="radio"]#glyph-accessibility + label:before {
+	background-position: -91px -456px;
 }
-input[type=radio]#glyph-dance+label:before {
-background-position: -122px -456px;
+input[type="radio"]#glyph-dance + label:before {
+	background-position: -122px -456px;
 }
-input[type=radio]#glyph-snowboard+label:before {
-background-position: -154px -456px;
+input[type="radio"]#glyph-snowboard + label:before {
+	background-position: -154px -456px;
 }
-input[type=radio]#glyph-activity+label:before {
-background-position: -184px -456px;
+input[type="radio"]#glyph-activity + label:before {
+	background-position: -184px -456px;
 }
-input[type=radio]#glyph-boybaby+label:before {
-background-position: 1px -488px;
+input[type="radio"]#glyph-boybaby + label:before {
+	background-position: 1px -488px;
 }
-input[type=radio]#glyph-womansymbol+label:before {
-background-position: -29px -487px;
+input[type="radio"]#glyph-womansymbol + label:before {
+	background-position: -29px -487px;
 }
-input[type=radio]#glyph-users+label:before {
-background-position: -60px -487px;
+input[type="radio"]#glyph-users + label:before {
+	background-position: -60px -487px;
 }
-input[type=radio]#glyph-podium+label:before {
-background-position: -91px -487px;
+input[type="radio"]#glyph-podium + label:before {
+	background-position: -91px -487px;
 }
-input[type=radio]#glyph-gym+label:before {
-background-position: -122px -487px;
+input[type="radio"]#glyph-gym + label:before {
+	background-position: -122px -487px;
 }
-input[type=radio]#glyph-swim+label:before {
-background-position: -153px -486px;
+input[type="radio"]#glyph-swim + label:before {
+	background-position: -153px -486px;
 }
-input[type=radio]#glyph-sprint+label:before {
-background-position: -183px -487px;
-}/**/
-input[type=radio]#glyph-person+label:before {
-background-position: 1px -518px;
+input[type="radio"]#glyph-sprint + label:before {
+	background-position: -183px -487px;
+} /**/
+input[type="radio"]#glyph-person + label:before {
+	background-position: 1px -518px;
 }
-input[type=radio]#glyph-handicap+label:before {
-background-position: -29px -517px;
+input[type="radio"]#glyph-handicap + label:before {
+	background-position: -29px -517px;
 }
-input[type=radio]#glyph-group+label:before {
-background-position: -60px -517px;
+input[type="radio"]#glyph-group + label:before {
+	background-position: -60px -517px;
 }
-input[type=radio]#glyph-handraised+label:before {
-background-position: -90px -517px;
+input[type="radio"]#glyph-handraised + label:before {
+	background-position: -90px -517px;
 }
-input[type=radio]#glyph-hike+label:before {
-background-position: -120px -517px;
+input[type="radio"]#glyph-hike + label:before {
+	background-position: -120px -517px;
 }
-input[type=radio]#glyph-hiking+label:before {
-background-position: -153px -517px;
+input[type="radio"]#glyph-hiking + label:before {
+	background-position: -153px -517px;
 }
-input[type=radio]#glyph-cane+label:before {
-background-position: -183px -517px;
+input[type="radio"]#glyph-cane + label:before {
+	background-position: -183px -517px;
 }
 /* end people */
 
 /* symbols */
-input[type=radio]#glyph-alert+label:before {
-background-position: 1px -552px;
+input[type="radio"]#glyph-alert + label:before {
+	background-position: 1px -552px;
 }
-input[type=radio]#glyph-bookmarkthis+label:before {
-background-position: -28px -552px;
+input[type="radio"]#glyph-bookmarkthis + label:before {
+	background-position: -28px -552px;
 }
-input[type=radio]#glyph-stopfilled+label:before {
-background-position: -58px -552px;
+input[type="radio"]#glyph-stopfilled + label:before {
+	background-position: -58px -552px;
 }
-input[type=radio]#glyph-left+label:before {
-background-position: -89px -552px;
+input[type="radio"]#glyph-left + label:before {
+	background-position: -89px -552px;
 }
-input[type=radio]#glyph-up+label:before {
-background-position: -119px -552px;
+input[type="radio"]#glyph-up + label:before {
+	background-position: -119px -552px;
 }
-input[type=radio]#glyph-play+label:before {
-background-position: -150px -552px;
+input[type="radio"]#glyph-play + label:before {
+	background-position: -150px -552px;
 }
-input[type=radio]#glyph-stop+label:before {
-background-position: -180px -552px;
+input[type="radio"]#glyph-stop + label:before {
+	background-position: -180px -552px;
 }
-input[type=radio]#glyph-checked+label:before {
-background-position: -210px -552px;
+input[type="radio"]#glyph-checked + label:before {
+	background-position: -210px -552px;
 }
-input[type=radio]#glyph-moneysign+label:before {
-background-position: -240px -552px;
+input[type="radio"]#glyph-moneysign + label:before {
+	background-position: -240px -552px;
 }
-input[type=radio]#glyph-yensign+label:before {
-background-position: -270px -552px;
+input[type="radio"]#glyph-yensign + label:before {
+	background-position: -270px -552px;
 }
-input[type=radio]#glyph-info+label:before {
-background-position: -300px -552px;
+input[type="radio"]#glyph-info + label:before {
+	background-position: -300px -552px;
 }
-input[type=radio]#glyph-shareleft+label:before {
-background-position: 1px -582px;
+input[type="radio"]#glyph-shareleft + label:before {
+	background-position: 1px -582px;
 }
-input[type=radio]#glyph-barcode+label:before {
-background-position: -29px -582px;
+input[type="radio"]#glyph-barcode + label:before {
+	background-position: -29px -582px;
 }
-input[type=radio]#glyph-frame+label:before {
-background-position: -58px -582px;
+input[type="radio"]#glyph-frame + label:before {
+	background-position: -58px -582px;
 }
-input[type=radio]#glyph-right+label:before {
-background-position: -89px -582px;
+input[type="radio"]#glyph-right + label:before {
+	background-position: -89px -582px;
 }
-input[type=radio]#glyph-down+label:before {
-background-position: -120px -582px;
+input[type="radio"]#glyph-down + label:before {
+	background-position: -120px -582px;
 }
-input[type=radio]#glyph-prev+label:before {
-background-position: -150px -582px;
+input[type="radio"]#glyph-prev + label:before {
+	background-position: -150px -582px;
 }
-input[type=radio]#glyph-next+label:before {
-background-position: -180px -582px;
+input[type="radio"]#glyph-next + label:before {
+	background-position: -180px -582px;
 }
-input[type=radio]#glyph-plus+label:before {
-background-position: -210px -582px;
+input[type="radio"]#glyph-plus + label:before {
+	background-position: -210px -582px;
 }
-input[type=radio]#glyph-eurosign+label:before {
-background-position: -240px -582px;
+input[type="radio"]#glyph-eurosign + label:before {
+	background-position: -240px -582px;
 }
-input[type=radio]#glyph-bitcoinsign+label:before {
-background-position: -270px -582px;
+input[type="radio"]#glyph-bitcoinsign + label:before {
+	background-position: -270px -582px;
 }
-input[type=radio]#glyph-smile+label:before {
-background-position: -300px -582px;
+input[type="radio"]#glyph-smile + label:before {
+	background-position: -300px -582px;
 }
-input[type=radio]#glyph-shareright+label:before {
-background-position: 1px -612px;
+input[type="radio"]#glyph-shareright + label:before {
+	background-position: 1px -612px;
 }
-input[type=radio]#glyph-qrcode+label:before {
-background-position: -28px -612px;
+input[type="radio"]#glyph-qrcode + label:before {
+	background-position: -28px -612px;
 }
-input[type=radio]#glyph-sizes+label:before {
-background-position: -58px -612px;
+input[type="radio"]#glyph-sizes + label:before {
+	background-position: -58px -612px;
 }
-input[type=radio]#glyph-download+label:before {
-background-position: -89px -612px;
+input[type="radio"]#glyph-download + label:before {
+	background-position: -89px -612px;
 }
-input[type=radio]#glyph-upload+label:before {
-background-position: -119px -612px;
+input[type="radio"]#glyph-upload + label:before {
+	background-position: -119px -612px;
 }
-input[type=radio]#glyph-power+label:before {
-background-position: -150px -612px;
+input[type="radio"]#glyph-power + label:before {
+	background-position: -150px -612px;
 }
-input[type=radio]#glyph-help+label:before {
-background-position: -180px -612px;
+input[type="radio"]#glyph-help + label:before {
+	background-position: -180px -612px;
 }
-input[type=radio]#glyph-xfilled+label:before {
-background-position: -210px -612px;
+input[type="radio"]#glyph-xfilled + label:before {
+	background-position: -210px -612px;
 }
-input[type=radio]#glyph-pounds+label:before {
-background-position: -240px -612px;
+input[type="radio"]#glyph-pounds + label:before {
+	background-position: -240px -612px;
 }
-input[type=radio]#glyph-pi+label:before {
-background-position: -270px -612px;
+input[type="radio"]#glyph-pi + label:before {
+	background-position: -270px -612px;
 }
-input[type=radio]#glyph-cssfile+label:before {
-background-position: -300px -610px;
+input[type="radio"]#glyph-cssfile + label:before {
+	background-position: -300px -610px;
 }
-input[type=radio]#glyph-money+label:before {
-background-position: 2px -642px;
+input[type="radio"]#glyph-money + label:before {
+	background-position: 2px -642px;
 }
-input[type=radio]#glyph-yen+label:before {
-background-position: -29px -642px;
+input[type="radio"]#glyph-yen + label:before {
+	background-position: -29px -642px;
 }
-input[type=radio]#glyph-filefilled+label:before {
-background-position: -58px -642px;
+input[type="radio"]#glyph-filefilled + label:before {
+	background-position: -58px -642px;
 }
-input[type=radio]#glyph-list+label:before {
-background-position: -89px -642px;
+input[type="radio"]#glyph-list + label:before {
+	background-position: -89px -642px;
 }
-input[type=radio]#glyph-more+label:before {
-background-position: -119px -642px;
+input[type="radio"]#glyph-more + label:before {
+	background-position: -119px -642px;
 }
-input[type=radio]#glyph-share+label:before {
-background-position: -150px -642px;
+input[type="radio"]#glyph-share + label:before {
+	background-position: -150px -642px;
 }
-input[type=radio]#glyph-spinner+label:before {
-background-position: -180px -642px;
+input[type="radio"]#glyph-spinner + label:before {
+	background-position: -180px -642px;
 }
-input[type=radio]#glyph-target+label:before {
-background-position: -210px -642px;
+input[type="radio"]#glyph-target + label:before {
+	background-position: -210px -642px;
 }
-input[type=radio]#glyph-location+label:before {
-background-position: -240px -642px;
+input[type="radio"]#glyph-location + label:before {
+	background-position: -240px -642px;
 }
-input[type=radio]#glyph-crop+label:before {
-background-position: -270px -642px;
+input[type="radio"]#glyph-crop + label:before {
+	background-position: -270px -642px;
 }
-input[type=radio]#glyph-move+label:before {
-background-position: -304px -642px;
+input[type="radio"]#glyph-move + label:before {
+	background-position: -304px -642px;
 }
-input[type=radio]#glyph-euro+label:before {
-background-position: 2px -672px;
+input[type="radio"]#glyph-euro + label:before {
+	background-position: 2px -672px;
 }
-input[type=radio]#glyph-bitcoin+label:before {
-background-position: -28px -672px;
+input[type="radio"]#glyph-bitcoin + label:before {
+	background-position: -28px -672px;
 }
-input[type=radio]#glyph-file+label:before {
-background-position: -58px -672px;
+input[type="radio"]#glyph-file + label:before {
+	background-position: -58px -672px;
 }
-input[type=radio]#glyph-document+label:before {
-background-position: -89px -672px;
+input[type="radio"]#glyph-document + label:before {
+	background-position: -89px -672px;
 }
-input[type=radio]#glyph-listitems+label:before {
-background-position: -119px -672px;
+input[type="radio"]#glyph-listitems + label:before {
+	background-position: -119px -672px;
 }
-input[type=radio]#glyph-infinite+label:before {
-background-position: -150px -672px;
+input[type="radio"]#glyph-infinite + label:before {
+	background-position: -150px -672px;
 }
-input[type=radio]#glyph-loading+label:before {
-background-position: -180px -672px;
+input[type="radio"]#glyph-loading + label:before {
+	background-position: -180px -672px;
 }
-input[type=radio]#glyph-podcasts+label:before {
-background-position: -210px -672px;
+input[type="radio"]#glyph-podcasts + label:before {
+	background-position: -210px -672px;
 }
-input[type=radio]#glyph-mapmarker+label:before {
-background-position: -240px -672px;
+input[type="radio"]#glyph-mapmarker + label:before {
+	background-position: -240px -672px;
 }
-input[type=radio]#glyph-exit+label:before {
-background-position: -270px -672px;
+input[type="radio"]#glyph-exit + label:before {
+	background-position: -270px -672px;
 }
-input[type=radio]#glyph-repeat+label:before {
-background-position: -304px -672px;
+input[type="radio"]#glyph-repeat + label:before {
+	background-position: -304px -672px;
 }
-input[type=radio]#glyph-poundsign+label:before {
-background-position: 2px -702px;
+input[type="radio"]#glyph-poundsign + label:before {
+	background-position: 2px -702px;
 }
-input[type=radio]#glyph-asterisk+label:before {
-background-position: -28px -701px;
+input[type="radio"]#glyph-asterisk + label:before {
+	background-position: -28px -701px;
 }
-input[type=radio]#glyph-filedoc+label:before {
-background-position: -58px -701px;
+input[type="radio"]#glyph-filedoc + label:before {
+	background-position: -58px -701px;
 }
-input[type=radio]#glyph-fourgrid+label:before {
-background-position: -89px -701px;
+input[type="radio"]#glyph-fourgrid + label:before {
+	background-position: -89px -701px;
 }
-input[type=radio]#glyph-sixgrid+label:before {
-background-position: -119px -701px;
+input[type="radio"]#glyph-sixgrid + label:before {
+	background-position: -119px -701px;
 }
-input[type=radio]#glyph-recycle+label:before {
-background-position: -150px -701px;
+input[type="radio"]#glyph-recycle + label:before {
+	background-position: -150px -701px;
 }
-input[type=radio]#glyph-playvideo+label:before {
-background-position: -180px -701px;
+input[type="radio"]#glyph-playvideo + label:before {
+	background-position: -180px -701px;
 }
-input[type=radio]#glyph-bigtarget+label:before {
-background-position: -210px -701px;
+input[type="radio"]#glyph-bigtarget + label:before {
+	background-position: -210px -701px;
 }
-input[type=radio]#glyph-squarep+label:before {
-background-position: -240px -701px;
+input[type="radio"]#glyph-squarep + label:before {
+	background-position: -240px -701px;
 }
-input[type=radio]#glyph-resize+label:before {
-background-position: -270px -701px;
+input[type="radio"]#glyph-resize + label:before {
+	background-position: -270px -701px;
 }
-input[type=radio]#glyph-sync+label:before {
-background-position: -302px -701px;
+input[type="radio"]#glyph-sync + label:before {
+	background-position: -302px -701px;
 }
-input[type=radio]#glyph-playsolo+label:before {
-background-position: 2px -735px;
+input[type="radio"]#glyph-playsolo + label:before {
+	background-position: 2px -735px;
 }
-input[type=radio]#glyph-rss+label:before {
-background-position: -28px -735px;
+input[type="radio"]#glyph-rss + label:before {
+	background-position: -28px -735px;
 }
-input[type=radio]#glyph-quotes+label:before {
-background-position: -58px -735px;
+input[type="radio"]#glyph-quotes + label:before {
+	background-position: -58px -735px;
 }
-input[type=radio]#glyph-text+label:before {
-background-position: -89px -735px;
+input[type="radio"]#glyph-text + label:before {
+	background-position: -89px -735px;
 }
-input[type=radio]#glyph-shuffle+label:before {
-background-position: -119px -735px;
+input[type="radio"]#glyph-shuffle + label:before {
+	background-position: -119px -735px;
 }
-input[type=radio]#glyph-signal+label:before {
-background-position: -150px -735px;
+input[type="radio"]#glyph-signal + label:before {
+	background-position: -150px -735px;
 }
-input[type=radio]#glyph-peace+label:before {
-background-position: -180px -735px;
+input[type="radio"]#glyph-peace + label:before {
+	background-position: -180px -735px;
 }
-input[type=radio]#glyph-cloudservice+label:before {
-background-position: -210px -735px;
+input[type="radio"]#glyph-cloudservice + label:before {
+	background-position: -210px -735px;
 }
-input[type=radio]#glyph-settings+label:before {
-background-position: -240px -735px;
+input[type="radio"]#glyph-settings + label:before {
+	background-position: -240px -735px;
 }
-input[type=radio]#glyph-wifi+label:before {
-background-position: -270px -735px;
+input[type="radio"]#glyph-wifi + label:before {
+	background-position: -270px -735px;
 }
-input[type=radio]#glyph-nuclear+label:before {
-background-position: -300px -735px;
+input[type="radio"]#glyph-nuclear + label:before {
+	background-position: -300px -735px;
 }
 /* end symbols */
 

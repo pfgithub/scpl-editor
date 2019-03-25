@@ -1,41 +1,43 @@
 {
-  "name": "scpl-editor",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://scpl.dev/",
-  "dependencies": {
-    "react": "^16.8.4",
-    "react-ace": "^6.4.0",
-    "react-dom": "^16.8.4",
-    "react-dropzone": "^10.0.5",
-    "react-helmet": "^5.2.0",
-    "react-scripts": "2.1.8",
-    "scpl": "^1.6.1",
-    "shortcut-preview": "pfgithub/shortcut-preview",
-    "typescript": "3.3.3333"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && rm -rf docs && mv build docs && echo \"editor.scpl.dev\" > docs/CNAME",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "devDependencies": {
-    "@types/jest": "24.0.11",
-    "@types/node": "11.11.0",
-    "@types/react": "16.8.7",
-    "@types/react-dom": "16.8.2",
-    "@types/react-helmet": "^5.0.8",
-    "@typescript-eslint/eslint-plugin": "^1.4.2",
-    "@typescript-eslint/parser": "^1.4.2"
-  }
+	"name": "scpl-editor",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "https://scpl.dev/",
+	"dependencies": {
+		"react": "^16.8.4",
+		"react-ace": "^6.4.0",
+		"react-dom": "^16.8.4",
+		"react-dropzone": "^10.0.5",
+		"react-helmet": "^5.2.0",
+		"react-scripts": "2.1.8",
+		"scpl": "^1.6.1",
+		"shortcut-preview": "pfgithub/shortcut-preview",
+		"typescript": "3.3.3333"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build && rm -rf docs && mv build docs && echo \"editor.scpl.dev\" > docs/CNAME",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"format": "yarn run prettier --write src/***.{css,tsx,ts,json} .prettierrc .eslintrc.js package.json"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"@types/jest": "24.0.11",
+		"@types/node": "11.11.0",
+		"@types/react": "16.8.7",
+		"@types/react-dom": "16.8.2",
+		"@types/react-helmet": "^5.0.8",
+		"@typescript-eslint/eslint-plugin": "^1.4.2",
+		"@typescript-eslint/parser": "^1.4.2",
+		"prettier": "^1.16.4"
+	}
 }

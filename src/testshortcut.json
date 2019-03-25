@@ -11,10 +11,7 @@
 			},
 			"WFWorkflowIconGlyphNumber": 59511
 		},
-		"WFWorkflowTypes": [
-			"NCWidget",
-			"WatchKit"
-		],
+		"WFWorkflowTypes": ["NCWidget", "WatchKit"],
 		"WFWorkflowInputContentItemClasses": [
 			"WFAppStoreAppContentItem",
 			"WFArticleContentItem",

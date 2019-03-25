@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {parse, PositionedError} from "scpl";
+import { parse, PositionedError } from "scpl";
 import "./App.css";
 // import {Helmet} from "react-helmet";
 
@@ -21,8 +21,8 @@ let timeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
 
-class MaybeUpdate extends Component<{shouldUpdate: boolean}, {}> {
-	shouldComponentUpdate(nextProps: {shouldUpdate: boolean}) {
+class MaybeUpdate extends Component<{ shouldUpdate: boolean }, {}> {
+	shouldComponentUpdate(nextProps: { shouldUpdate: boolean }) {
 		return nextProps.shouldUpdate;
 	}
 	render() {
@@ -30,9 +30,21 @@ class MaybeUpdate extends Component<{shouldUpdate: boolean}, {}> {
 	}
 }
 
-class DownloadButton extends Component<{filename: string, file: Buffer | undefined}, {}> { // from https://github.com/axetroy/react-download
+class DownloadButton extends Component<
+	{ filename: string; file: Buffer | undefined },
+	{}
+> {
+	// from https://github.com/axetroy/react-download
 	render() {
-		return <a href="javascript:;" id="download-shortcut-link" onClick={(e) => this.onClick(e)}>{this.props.children}</a>;
+		return (
+			<a
+				href="javascript:;"
+				id="download-shortcut-link"
+				onClick={e => this.onClick(e)}
+			>
+				{this.props.children}
+			</a>
+		);
 	}
 	fakeClick(obj: HTMLAnchorElement) {
 		const ev = document.createEvent("MouseEvents");
@@ -73,96 +85,275 @@ class DownloadButton extends Component<{filename: string, file: Buffer | undefin
 			save_link.download = name;
 			this.fakeClick(save_link);
 		} else {
-			alert("Downloading shortcuts is not available on this browser yet :(\nIt should be implemented within a few days from a few days from a while from now.");
+			alert(
+				"Downloading shortcuts is not available on this browser yet :(\nIt should be implemented within a few days from a few days from a while from now."
+			);
 		}
 	}
 	onClick(_e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-		if(!this.props.file) {return;}
+		if (!this.props.file) {
+			return;
+		}
 		this.exportRaw(this.props.filename, this.props.file);
 	}
 }
 
-class App extends Component<{}, { fileValue: string, shortcutData: any, shortcutDownload: Buffer | undefined, annotations: Array<ace.Annotation>, markers: Array<{startRow: number, endRow: number, startCol: number, endCol: number, className: string, type: string}>, loading: boolean, took: {waitedFor:number, convertedIn:number}, fullUpdate: boolean, mobileFilemenu: boolean, openDownload: boolean }> {
+class App extends Component<
+	{},
+	{
+		fileValue: string;
+		shortcutData: any;
+		shortcutDownload: Buffer | undefined;
+		annotations: Array<ace.Annotation>;
+		markers: Array<{
+			startRow: number;
+			endRow: number;
+			startCol: number;
+			endCol: number;
+			className: string;
+			type: string;
+		}>;
+		loading: boolean;
+		took: { waitedFor: number; convertedIn: number };
+		fullUpdate: boolean;
+		mobileFilemenu: boolean;
+		openDownload: boolean;
+	}
+> {
 	reactAceComponentRef: React.RefObject<AceEditor>;
 	constructor(props: Readonly<{}>) {
 		super(props);
-		this.state = {fileValue: "ShowResult \"Hello ScPL\"", shortcutData: testshortcut, shortcutDownload: undefined, annotations: [], markers: [], loading: false, took: {waitedFor: 0, convertedIn: 0}, fullUpdate: true, mobileFilemenu: false, openDownload: false};
+		this.state = {
+			fileValue: 'ShowResult "Hello ScPL"',
+			shortcutData: testshortcut,
+			shortcutDownload: undefined,
+			annotations: [],
+			markers: [],
+			loading: false,
+			took: { waitedFor: 0, convertedIn: 0 },
+			fullUpdate: true,
+			mobileFilemenu: false,
+			openDownload: false
+		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	render() {
 		return (
 			<div>
-				<div className="upload-area" style={{display: "none"}}><div>Drop file anywhere to upload</div></div>
-				<div className="modals-container"  style={{display: "flex"}} onClick={() => this.setState({fullUpdate: false, openDownload: false})}>
-					<div className="modal" id="download-result" style={{display: this.state.openDownload ? "block" : "none"}} onClick={e => e.stopPropagation()}>
+				<div className="upload-area" style={{ display: "none" }}>
+					<div>Drop file anywhere to upload</div>
+				</div>
+				<div
+					className="modals-container"
+					style={{ display: "flex" }}
+					onClick={() =>
+						this.setState({
+							fullUpdate: false,
+							openDownload: false
+						})
+					}
+				>
+					<div
+						className="modal"
+						id="download-result"
+						style={{
+							display: this.state.openDownload ? "block" : "none"
+						}}
+						onClick={e => e.stopPropagation()}
+					>
 						<h1>Download Export</h1>
 						<div className="download-grid">
 							<div>
-								<DownloadButton filename={this.state.shortcutData._filename || "download.shortcut"} file={this.state.shortcutDownload}>
-									<img src={shortcutDownloadPreviewIcon} width={130} />
-									<div className="shortcut-filename">download.shortcut</div>
-									<div className="shortcut-filedetails">5 KB</div>
+								<DownloadButton
+									filename={
+										this.state.shortcutData._filename ||
+										"download.shortcut"
+									}
+									file={this.state.shortcutDownload}
+								>
+									<img
+										src={shortcutDownloadPreviewIcon}
+										width={130}
+									/>
+									<div className="shortcut-filename">
+										download.shortcut
+									</div>
+									<div className="shortcut-filedetails">
+										5 KB
+									</div>
 								</DownloadButton>
 							</div>
 							<div>
 								<p>Add to your library via QR Code:</p>
 								<div id="qr-result">Not available yet :(</div>
-								<p className="details-text">Open your Camera app and point it steady for 2-3 seconds at this QR Code.<br /><br />If nothing happens, QR Code scanning may not be enabled on your device.</p>
+								<p className="details-text">
+									Open your Camera app and point it steady for
+									2-3 seconds at this QR Code.
+									<br />
+									<br />
+									If nothing happens, QR Code scanning may not
+									be enabled on your device.
+								</p>
 							</div>
 						</div>
-						<div className="large-btn" id="close-download" onClick={() => this.setState({fullUpdate: false, openDownload: false})}>Done</div>
+						<div
+							className="large-btn"
+							id="close-download"
+							onClick={() =>
+								this.setState({
+									fullUpdate: false,
+									openDownload: false
+								})
+							}
+						>
+							Done
+						</div>
 					</div>
 
-					<div className="modal dialog" id="create-edit-shortcut" style={{display: "block"}}>
+					<div
+						className="modal dialog"
+						id="create-edit-shortcut"
+						style={{ display: "block" }}
+					>
 						<CreateEditShortcut />
 					</div>
 
 					<div className="modal dialog" id="rename-folder">
-						<div className="large-btn cancel-btn" id="close-rename-folder">Cancel</div>
+						<div
+							className="large-btn cancel-btn"
+							id="close-rename-folder"
+						>
+							Cancel
+						</div>
 						<h1>Create New Folder</h1>
 						<div className="input-label">Folder Name</div>
-						<input type="text" placeholder="Folder Name" id="new-folder"/>
-						<div className="large-btn" id="close-rename-folder">Create Folder</div>
+						<input
+							type="text"
+							placeholder="Folder Name"
+							id="new-folder"
+						/>
+						<div className="large-btn" id="close-rename-folder">
+							Create Folder
+						</div>
 					</div>
 
 					<div className="modal dialog" id="rename-file">
-						<div className="large-btn cancel-btn" id="close-rename-file">Cancel</div>
+						<div
+							className="large-btn cancel-btn"
+							id="close-rename-file"
+						>
+							Cancel
+						</div>
 						<h1>Rename File</h1>
 						<div className="input-label">Filename</div>
-						<input type="text" placeholder="Filename" id="rename-file"/>
-						<div className="large-btn" id="close-rename">Save Changes</div>
+						<input
+							type="text"
+							placeholder="Filename"
+							id="rename-file"
+						/>
+						<div className="large-btn" id="close-rename">
+							Save Changes
+						</div>
 					</div>
 
 					<div className="modal dialog" id="rename-folder">
-						<div className="large-btn cancel-btn" id="close-rename-folder">Cancel</div>
+						<div
+							className="large-btn cancel-btn"
+							id="close-rename-folder"
+						>
+							Cancel
+						</div>
 						<h1>Rename Folder</h1>
 						<div className="input-label">Folder Name</div>
-						<input type="text" placeholder="Folder Name" id="rename-folder"/>
-						<div className="large-btn" id="close-rename-folder">Save Changes</div>
+						<input
+							type="text"
+							placeholder="Folder Name"
+							id="rename-folder"
+						/>
+						<div className="large-btn" id="close-rename-folder">
+							Save Changes
+						</div>
 					</div>
-
 				</div>
 				<div className="editor-window">
 					<div className="editor-navigation">
-						<div className={`mobile-filemenu${this.state.mobileFilemenu ? " open-filemenu" : ""}`} style={{display: "none"}} onClick={() => this.setState({fullUpdate: false, mobileFilemenu: !this.state.mobileFilemenu})} />
+						<div
+							className={`mobile-filemenu${
+								this.state.mobileFilemenu
+									? " open-filemenu"
+									: ""
+							}`}
+							style={{ display: "none" }}
+							onClick={() =>
+								this.setState({
+									fullUpdate: false,
+									mobileFilemenu: !this.state.mobileFilemenu
+								})
+							}
+						/>
 						<div>
-							<div className="editor-title">ScPL Try-It Editor</div>
-							<div className="editor-btn"><a href="https://docs.scpl.dev/gettingstarted.html" target="_blank">Getting Started</a></div>
-							<div className="editor-btn"><a href="https://docs.scpl.dev/" target="_blank">Documentation</a></div>
+							<div className="editor-title">
+								ScPL Try-It Editor
+							</div>
+							<div className="editor-btn">
+								<a
+									href="https://docs.scpl.dev/gettingstarted.html"
+									target="_blank"
+								>
+									Getting Started
+								</a>
+							</div>
+							<div className="editor-btn">
+								<a
+									href="https://docs.scpl.dev/"
+									target="_blank"
+								>
+									Documentation
+								</a>
+							</div>
 						</div>
 						<div className="search-container">
 							<SearchActions />
 						</div>
 						<div>
 							<div className="result-details">
-								<div className="result-actions">{this.state.shortcutData[0].WFWorkflowActions.length} action{this.state.shortcutData[0].WFWorkflowActions.length === 1 ? "" : "s"}</div>
+								<div className="result-actions">
+									{
+										this.state.shortcutData[0]
+											.WFWorkflowActions.length
+									}{" "}
+									action
+									{this.state.shortcutData[0]
+										.WFWorkflowActions.length === 1
+										? ""
+										: "s"}
+								</div>
 							</div>
-							<div className="editor-btn primary-btn" id="open-download" onClick={() => this.setState({fullUpdate: false, openDownload: true})}><a href="javascript:;">Download</a></div>
+							<div
+								className="editor-btn primary-btn"
+								id="open-download"
+								onClick={() =>
+									this.setState({
+										fullUpdate: false,
+										openDownload: true
+									})
+								}
+							>
+								<a href="javascript:;">Download</a>
+							</div>
 						</div>
 					</div>
 					<div className="editor-container">
-						<div className={`file-pane${this.state.mobileFilemenu ? " open-menu" : ""}`}>
-							<FilePane onActiveFileChanged={(file) => this.onChange(file)} />
+						<div
+							className={`file-pane${
+								this.state.mobileFilemenu ? " open-menu" : ""
+							}`}
+						>
+							<FilePane
+								onActiveFileChanged={file =>
+									this.onChange(file)
+								}
+							/>
 						</div>
 						<div className="code-pane">
 							<AceEditor
@@ -170,7 +361,7 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								theme="github"
 								onChange={this.onChange.bind(this)}
 								name="ace_editor"
-								editorProps={{$blockScrolling: true}}
+								editorProps={{ $blockScrolling: true }}
 								value={this.state.fileValue || ""}
 								annotations={this.state.annotations}
 								markers={this.state.markers}
@@ -178,70 +369,130 @@ class App extends Component<{}, { fileValue: string, shortcutData: any, shortcut
 								showPrintMargin={false}
 							/>
 						</div>
-						<div className={`result-pane${this.state.loading ? " loading" : ""}`}>
-							<div className="result-text">Waited for {this.state.took.waitedFor}ms and then converted in {this.state.took.convertedIn} ms.</div>
-							<MaybeUpdate shouldUpdate={this.state.fullUpdate}><ShortcutPreview onInteract={(data) => this.onActionSelect(data)} data={this.state.shortcutData} /></MaybeUpdate>
-							<div className="loading-result-progress"><div><div className="load"></div></div></div>
+						<div
+							className={`result-pane${
+								this.state.loading ? " loading" : ""
+							}`}
+						>
+							<div className="result-text">
+								Waited for {this.state.took.waitedFor}ms and
+								then converted in {this.state.took.convertedIn}{" "}
+								ms.
+							</div>
+							<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
+								<ShortcutPreview
+									onInteract={data =>
+										this.onActionSelect(data)
+									}
+									data={this.state.shortcutData}
+								/>
+							</MaybeUpdate>
+							<div className="loading-result-progress">
+								<div>
+									<div className="load" />
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		);
 	}
-	onActionSelect(data: {type: "action" | "parameter", actionData: any}) {
-		if(data.actionData.SCPLData) {
+	onActionSelect(data: { type: "action" | "parameter"; actionData: any }) {
+		if (data.actionData.SCPLData) {
 			const scpldata = data.actionData.SCPLData;
 
 			const reactAceComponent = this.reactAceComponentRef.current;
-			if(!reactAceComponent) {console.log("reactacecomponent is not yet defined"); return;} //eslint-disable-line no-console
+			if (!reactAceComponent) {
+				console.log("reactacecomponent is not yet defined");
+				return;
+			} //eslint-disable-line no-console
 			const editor = (reactAceComponent as any).editor as ace.Editor;
 			// .Position.start|end
 			const line = scpldata.Position.start[0];
 			const col = scpldata.Position.start[1] - 1;
 			editor.gotoLine(line, col, true);
-			editor.selection.setRange(new Range(scpldata.Position.start[0] - 1, scpldata.Position.start[1] - 1, scpldata.Position.end[0] - 1, scpldata.Position.end[1] - 1), true);
+			editor.selection.setRange(
+				new Range(
+					scpldata.Position.start[0] - 1,
+					scpldata.Position.start[1] - 1,
+					scpldata.Position.end[0] - 1,
+					scpldata.Position.end[1] - 1
+				),
+				true
+			);
 		}
 	}
 	onChange(text: string) {
 		const willWaitFor = Math.max(this.state.took.convertedIn * 4, 100);
-		if(!this.state.loading) {this.setState({fileValue: text, loading: true, fullUpdate: false});}
-		if(timeout) {clearTimeout(timeout);}
-		timeout = setTimeout(() => this.onChangeLimited(text, willWaitFor), willWaitFor);
+		if (!this.state.loading) {
+			this.setState({
+				fileValue: text,
+				loading: true,
+				fullUpdate: false
+			});
+		}
+		if (timeout) {
+			clearTimeout(timeout);
+		}
+		timeout = setTimeout(
+			() => this.onChangeLimited(text, willWaitFor),
+			willWaitFor
+		);
 	}
 	onChangeLimited(text: string, waitedFor: number) {
 		// parse
-		let output: {shortcutjson: any, shortcutplist: Buffer};
-		const startTime = (new Date()).getTime();
-		try{
+		let output: { shortcutjson: any; shortcutplist: Buffer };
+		const startTime = new Date().getTime();
+		try {
 			output = parse(text, { make: ["shortcutjson", "shortcutplist"] });
-		}catch(er) {
+		} catch (er) {
 			console.log(er.message); //eslint-disable-line no-console
-			if(!(er instanceof PositionedError)) {throw er;}
+			if (!(er instanceof PositionedError)) {
+				throw er;
+			}
 			this.setState({
 				fileValue: text,
 				loading: false,
 				shortcutDownload: undefined,
-				took: {waitedFor: waitedFor, convertedIn: (new Date()).getTime() - startTime},
+				took: {
+					waitedFor: waitedFor,
+					convertedIn: new Date().getTime() - startTime
+				},
 				fullUpdate: true,
-				annotations: [{
-					row: er.start[0] - 1,
-					column: er.start[1] - 1,
-					text: er.message, // Or the Json reply from the parser
-					type: "error" // also warning and information
-				}], markers: [{
-					startRow: er.start[0] - 1,
-					endRow: er.end[0] - 1,
-					startCol: er.start[1] - 1,
-					endCol: er.end[1] - 1,
-					className: "ace_active-line error", type: "background"
-				}]});
+				annotations: [
+					{
+						row: er.start[0] - 1,
+						column: er.start[1] - 1,
+						text: er.message, // Or the Json reply from the parser
+						type: "error" // also warning and information
+					}
+				],
+				markers: [
+					{
+						startRow: er.start[0] - 1,
+						endRow: er.end[0] - 1,
+						startCol: er.start[1] - 1,
+						endCol: er.end[1] - 1,
+						className: "ace_active-line error",
+						type: "background"
+					}
+				]
+			});
 			return;
 		}
-		const {shortcutjson, shortcutplist} = output;
+		const { shortcutjson, shortcutplist } = output;
 		this.setState({
 			fileValue: text,
-			took: {waitedFor: waitedFor, convertedIn: (new Date()).getTime() - startTime},
-			loading: false, fullUpdate: true, shortcutData: shortcutjson, annotations: [], markers: [],
+			took: {
+				waitedFor: waitedFor,
+				convertedIn: new Date().getTime() - startTime
+			},
+			loading: false,
+			fullUpdate: true,
+			shortcutData: shortcutjson,
+			annotations: [],
+			markers: [],
 			shortcutDownload: shortcutplist
 		});
 	}
