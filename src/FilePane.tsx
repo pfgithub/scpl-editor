@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Dropzone, { DropEvent } from "react-dropzone";
 import { inverse } from "scpl";
 
+import { CreateEditShortcut } from "./CreateEditShortcut";
+
 import "./FilePane.css";
 
 type FileData = { type: "file"; name: string };
@@ -42,6 +44,7 @@ class FileComponent extends Component<{
 				onClick={e => {
 					e.stopPropagation();
 				}}
+				title={this.props.data.name}
 			>
 				<div>
 					<div className="item-name">{this.props.data.name}</div>
@@ -78,6 +81,7 @@ class FolderComponent extends Component<
 					this.setState({ expanded: !this.state.expanded });
 					e.stopPropagation();
 				}}
+				title={this.props.data.name}
 			>
 				<div>
 					<div className="item-name">{this.props.data.name}</div>
@@ -110,10 +114,26 @@ class FileList extends Component<{
 	}
 }
 
-export class FilePane extends Component<{
-	onActiveFileChanged: (fileContents: string) => void;
-	files: (FileData | FolderData)[];
-}> {
+export class FilePane extends Component<
+	{
+		onActiveFileChanged: (fileContents: string) => void;
+		files: (FileData | FolderData)[];
+	},
+	{
+		showFileModal: boolean;
+	}
+> {
+	constructor(
+		props: Readonly<{
+			onActiveFileChanged: (fileContents: string) => void;
+			files: (FileData | FolderData)[];
+		}>
+	) {
+		super(props);
+		this.state = {
+			showFileModal: false
+		};
+	}
 	onDrop(acceptedFiles: File[], _rejectedFiles: File[], _event: DropEvent) {
 		const reader = new FileReader();
 
@@ -138,33 +158,51 @@ export class FilePane extends Component<{
 	}
 	render() {
 		return (
-			<Dropzone onDrop={this.onDrop.bind(this)}>
-				{({ getRootProps, getInputProps }) => (
-					<div>
-						<div className="files-header">
-							<h2>Files</h2>
-							<input
-								type="search"
-								className="search-input"
-								placeholder="Search Files"
-							/>
-							<div className="file-btns">
-								<div
-									className="large-btn file-btn upload-btn"
-									{...getRootProps()}
-								>
-									<input {...getInputProps()} />
+			<div>
+				<Dropzone onDrop={this.onDrop.bind(this)}>
+					{({ getRootProps, getInputProps }) => (
+						<div>
+							<div className="files-header">
+								<h2>Files</h2>
+								<input
+									type="search"
+									className="search-input"
+									placeholder="Search Files"
+								/>
+								<div className="file-btns">
+									<div
+										className="large-btn file-btn upload-btn"
+										{...getRootProps()}
+									>
+										<input {...getInputProps()} />
+									</div>
+									<button
+										className="large-btn file-btn new-btn"
+										onClick={() =>
+											this.setState({
+												showFileModal: true
+											})
+										}
+									/>
+									<button className="large-btn file-btn newf-btn" />
 								</div>
-								<div className="large-btn file-btn new-btn" />
-								<div className="large-btn file-btn newf-btn" />
+							</div>
+							<div className="file-list">
+								<FileList files={this.props.files} />
 							</div>
 						</div>
-						<div className="file-list">
-							<FileList files={this.props.files} />
-						</div>
-					</div>
-				)}
-			</Dropzone>
+					)}
+				</Dropzone>
+
+				{this.state.showFileModal ? (
+					<CreateEditShortcut
+						onCancel={() => this.setState({ showFileModal: false })}
+						onResult={(name, color, glyph) => {
+							this.setState({ showFileModal: false });
+						}}
+					/>
+				) : null}
+			</div>
 		);
 	}
 }

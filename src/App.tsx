@@ -3,8 +3,6 @@ import { parse, PositionedError } from "scpl";
 import "./App.css";
 // import {Helmet} from "react-helmet";
 
-import shortcutDownloadPreviewIcon from "./img/shortcut-file.png";
-
 import testshortcut from "./testshortcut.json";
 
 import ace from "brace";
@@ -13,7 +11,7 @@ import AceEditor from "react-ace";
 
 import { FilePane } from "./FilePane";
 import { SearchActions } from "./SearchActions";
-import { CreateEditShortcut } from "./CreateEditShortcut";
+import { DownloadModal } from "./DownloadModal";
 
 import ShortcutPreview from "shortcut-preview";
 
@@ -27,74 +25,6 @@ class MaybeUpdate extends Component<{ shouldUpdate: boolean }, {}> {
 	}
 	render() {
 		return this.props.children;
-	}
-}
-
-class DownloadButton extends Component<
-	{ filename: string; file: Buffer | undefined },
-	{}
-> {
-	// from https://github.com/axetroy/react-download
-	render() {
-		return (
-			<a
-				href="javascript:;"
-				id="download-shortcut-link"
-				onClick={e => this.onClick(e)}
-			>
-				{this.props.children}
-			</a>
-		);
-	}
-	fakeClick(obj: HTMLAnchorElement) {
-		const ev = document.createEvent("MouseEvents");
-		ev.initMouseEvent(
-			"click",
-			true,
-			false,
-			window,
-			0,
-			0,
-			0,
-			0,
-			0,
-			false,
-			false,
-			false,
-			false,
-			0,
-			null
-		);
-		obj.dispatchEvent(ev);
-	}
-	exportRaw(name: string, data: Buffer) {
-		const urlObject = window.URL || (window as any).webkitURL || window;
-		const export_blob = new Blob([data]);
-
-		if ("msSaveBlob" in navigator) {
-			// Prefer msSaveBlob if available - Edge supports a[download] but
-			// ignores the filename provided, using the blob UUID instead.
-			// msSaveBlob will respect the provided filename
-			navigator.msSaveBlob(export_blob, name);
-		} else if ("download" in HTMLAnchorElement.prototype) {
-			const save_link = document.createElementNS(
-				"http://www.w3.org/1999/xhtml",
-				"a"
-			) as HTMLAnchorElement;
-			save_link.href = urlObject.createObjectURL(export_blob);
-			save_link.download = name;
-			this.fakeClick(save_link);
-		} else {
-			alert(
-				"Downloading shortcuts is not available on this browser yet :(\nIt should be implemented within a few days from a few days from a while from now."
-			);
-		}
-	}
-	onClick(_e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-		if (!this.props.file) {
-			return;
-		}
-		this.exportRaw(this.props.filename, this.props.file);
 	}
 }
 
@@ -143,136 +73,18 @@ class App extends Component<
 				<div className="upload-area" style={{ display: "none" }}>
 					<div>Drop file anywhere to upload</div>
 				</div>
-				<div
-					className="modals-container"
-					style={{
-						display: this.state.openDownload ? "flex" : "none"
-					}}
-					onClick={() =>
-						this.setState({
-							fullUpdate: false,
-							openDownload: false
-						})
-					}
-				>
-					<div
-						className="modal"
-						id="download-result"
-						style={{
-							display: this.state.openDownload ? "block" : "none"
+				{this.state.openDownload ? (
+					<DownloadModal
+						onCancel={() => {
+							this.setState({ openDownload: false });
 						}}
-						onClick={e => e.stopPropagation()}
-					>
-						<h1>Download Export</h1>
-						<div className="download-grid">
-							<div>
-								<DownloadButton
-									filename={
-										this.state.shortcutData._filename ||
-										"download.shortcut"
-									}
-									file={this.state.shortcutDownload}
-								>
-									<img
-										src={shortcutDownloadPreviewIcon}
-										width={130}
-									/>
-									<div className="shortcut-filename">
-										download.shortcut
-									</div>
-									<div className="shortcut-filedetails">
-										5 KB
-									</div>
-								</DownloadButton>
-							</div>
-							<div>
-								<p>Add to your library via QR Code:</p>
-								<div id="qr-result">Not available yet :(</div>
-								<p className="details-text">
-									Open your Camera app and point it steady for
-									2-3 seconds at this QR Code.
-									<br />
-									<br />
-									If nothing happens, QR Code scanning may not
-									be enabled on your device.
-								</p>
-							</div>
-						</div>
-						<div
-							className="large-btn"
-							id="close-download"
-							onClick={() =>
-								this.setState({
-									fullUpdate: false,
-									openDownload: false
-								})
-							}
-						>
-							Done
-						</div>
-					</div>
-
-					<div className="modal dialog" id="create-edit-shortcut">
-						<CreateEditShortcut />
-					</div>
-
-					<div className="modal dialog" id="rename-folder">
-						<div
-							className="large-btn cancel-btn"
-							id="close-rename-folder"
-						>
-							Cancel
-						</div>
-						<h1>Create New Folder</h1>
-						<div className="input-label">Folder Name</div>
-						<input
-							type="text"
-							placeholder="Folder Name"
-							id="new-folder"
-						/>
-						<div className="large-btn" id="close-rename-folder">
-							Create Folder
-						</div>
-					</div>
-
-					<div className="modal dialog" id="rename-file">
-						<div
-							className="large-btn cancel-btn"
-							id="close-rename-file"
-						>
-							Cancel
-						</div>
-						<h1>Rename File</h1>
-						<div className="input-label">Filename</div>
-						<input
-							type="text"
-							placeholder="Filename"
-							id="rename-file"
-						/>
-						<div className="large-btn" id="close-rename">
-							Save Changes
-						</div>
-					</div>
-
-					<div className="modal dialog" id="rename-folder">
-						<div
-							className="large-btn cancel-btn"
-							id="close-rename-folder"
-						>
-							Cancel
-						</div>
-						<h1>Rename Folder</h1>
-						<div className="input-label">Folder Name</div>
-						<input
-							type="text"
-							placeholder="Folder Name"
-							id="rename-folder"
-						/>
-						<div className="large-btn" id="close-rename-folder">
-							Save Changes
-						</div>
-					</div>
-				</div>
+						filename={
+							this.state.shortcutData._filename ||
+							"download.shortcut"
+						}
+						file={this.state.shortcutDownload}
+					/>
+				) : null}
 				<div className="editor-window">
 					<div className="editor-navigation">
 						<div
