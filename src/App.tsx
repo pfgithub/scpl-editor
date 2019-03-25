@@ -145,7 +145,7 @@ class App extends Component<
 				</div>
 				<div
 					className="modals-container"
-					style={{ display: "flex" }}
+					style={{ display: "none" }}
 					onClick={() =>
 						this.setState({
 							fullUpdate: false,
@@ -210,11 +210,7 @@ class App extends Component<
 						</div>
 					</div>
 
-					<div
-						className="modal dialog"
-						id="create-edit-shortcut"
-						style={{ display: "block" }}
-					>
+					<div className="modal dialog" id="create-edit-shortcut">
 						<CreateEditShortcut />
 					</div>
 
@@ -350,6 +346,41 @@ class App extends Component<
 							}`}
 						>
 							<FilePane
+								files={[
+									{
+										type: "file" as "file",
+										name: "My File.scpl"
+									},
+									{
+										type: "file" as "file",
+										name: "Another File.scpl"
+									},
+									{
+										type: "folder" as "folder",
+										name: "A Folder",
+										files: [
+											{
+												type: "file" as "file",
+												name: "A File.scpl"
+											},
+											{
+												type: "folder" as "folder",
+												name: "My Folder",
+												files: [
+													{
+														type: "file" as "file",
+														name: "A Shortcut.scpl"
+													}
+												]
+											},
+											{
+												type: "file" as "file",
+												name:
+													"Look at all these files.scpl"
+											}
+										]
+									}
+								]}
 								onActiveFileChanged={file =>
 									this.onChange(file)
 								}

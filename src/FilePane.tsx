@@ -4,8 +4,115 @@ import { inverse } from "scpl";
 
 import "./FilePane.css";
 
+type FileData = { type: "file"; name: string };
+type FolderData = {
+	type: "folder";
+	name: string;
+	files: (FileData | FolderData)[];
+};
+
+class ActionButtons extends Component<{}> {
+	render() {
+		return (
+			<div className="action-btns">
+				<div
+					className="delete-btn"
+					onClick={e => {
+						e.stopPropagation();
+					}}
+				/>
+				<div
+					className="edit-btn"
+					onClick={e => {
+						e.stopPropagation();
+					}}
+				/>
+			</div>
+		);
+	}
+}
+
+class FileComponent extends Component<{
+	data: FileData;
+}> {
+	render() {
+		return (
+			<li
+				className="list-item-file"
+				onClick={e => {
+					e.stopPropagation();
+				}}
+			>
+				<div>
+					<div className="item-name">{this.props.data.name}</div>
+					<ActionButtons />
+				</div>
+			</li>
+		);
+	}
+}
+
+class FolderComponent extends Component<
+	{
+		data: FolderData;
+	},
+	{
+		expanded: boolean;
+	}
+> {
+	constructor(
+		props: Readonly<{
+			data: FolderData;
+		}>
+	) {
+		super(props);
+		this.state = { expanded: false };
+	}
+	render() {
+		return (
+			<li
+				className={`list-item-folder ${
+					this.state.expanded ? "open-folder" : ""
+				}`}
+				onClick={e => {
+					this.setState({ expanded: !this.state.expanded });
+					e.stopPropagation();
+				}}
+			>
+				<div>
+					<div className="item-name">{this.props.data.name}</div>
+					<ActionButtons />
+				</div>
+				<FileList files={this.props.data.files} />
+			</li>
+		);
+	}
+}
+
+// sort:
+// a.order - b.order != 0 ? a.order - b.order
+// : a.name.localeCompare(b.name, undefined, {numeric: true})
+
+class FileList extends Component<{
+	files: (FileData | FolderData)[];
+}> {
+	render() {
+		return (
+			<ul>
+				{this.props.files.map(file => {
+					if (file.type === "file") {
+						return <FileComponent data={file} />;
+					}
+					return <FolderComponent data={file} />;
+				})}
+			</ul>
+		);
+	}
+}
+
 export class FilePane extends Component<{
 	onActiveFileChanged: (fileContents: string) => void;
+	files: (FileData | FolderData)[];
 }> {
 	onDrop(acceptedFiles: File[], _rejectedFiles: File[], _event: DropEvent) {
 		const reader = new FileReader();
@@ -53,218 +160,7 @@ export class FilePane extends Component<{
 							</div>
 						</div>
 						<div className="file-list">
-							<ul>
-								<li className="list-item-file">
-									<div>
-										<div className="item-name">
-											Converted Shortcut.scpl
-										</div>
-										<div className="action-btns">
-											<div className="delete-btn" />
-											<div className="edit-btn" />
-										</div>
-									</div>
-								</li>
-								<li className="list-item-folder">
-									<div>
-										<div className="item-name">
-											Shortcuts Folder
-										</div>
-										<div className="action-btns">
-											<div className="delete-btn" />
-											<div className="edit-btn" />
-										</div>
-									</div>
-									<ul>
-										<li className="list-item-file">
-											<div>
-												<div className="item-name">
-													Folder Item.scpl
-												</div>
-												<div className="action-btns">
-													<div className="delete-btn" />
-													<div className="edit-btn" />
-												</div>
-											</div>
-										</li>
-										<li className="list-item-folder">
-											<div>
-												<div className="item-name">
-													Shortcuts Folder
-												</div>
-												<div className="action-btns">
-													<div className="delete-btn" />
-													<div className="edit-btn" />
-												</div>
-											</div>
-											<ul>
-												<li className="list-item-file">
-													<div>
-														<div className="item-name">
-															Folder Item.scpl
-														</div>
-														<div className="action-btns">
-															<div className="delete-btn" />
-															<div className="edit-btn" />
-														</div>
-													</div>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li className="list-item-folder">
-									<div>
-										<div className="item-name">
-											Shortcuts Folder 2
-										</div>
-										<div className="action-btns">
-											<div className="delete-btn" />
-											<div className="edit-btn" />
-										</div>
-									</div>
-									<ul>
-										<li className="list-item-file">
-											<div>
-												<div className="item-name">
-													Folder Item.scpl
-												</div>
-												<div className="action-btns">
-													<div className="delete-btn" />
-													<div className="edit-btn" />
-												</div>
-											</div>
-										</li>
-										<li className="list-item-folder">
-											<div>
-												<div className="item-name">
-													Shortcuts Folder
-												</div>
-												<div className="action-btns">
-													<div className="delete-btn" />
-													<div className="edit-btn" />
-												</div>
-											</div>
-											<ul>
-												<li className="list-item-file">
-													<div>
-														<div className="item-name">
-															Folder Item.scpl
-														</div>
-														<div className="action-btns">
-															<div className="delete-btn" />
-															<div className="edit-btn" />
-														</div>
-													</div>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li className="list-item-file">
-									<div>
-										<div className="item-name">
-											Something.scpl
-										</div>
-										<div className="action-btns">
-											<div className="delete-btn" />
-											<div className="edit-btn" />
-										</div>
-									</div>
-								</li>
-								<li className="list-item-file">
-									<div>
-										<div className="item-name">
-											New File.scpl
-										</div>
-										<div className="action-btns">
-											<div className="delete-btn" />
-											<div className="edit-btn" />
-										</div>
-									</div>
-								</li>
-								<li className="list-item-folder open-folder">
-									<div>
-										<div className="item-name">
-											Shortcuts Folder 3
-										</div>
-										<div className="action-btns">
-											<div className="delete-btn" />
-											<div className="edit-btn" />
-										</div>
-									</div>
-									<ul>
-										<li className="list-item-file active">
-											<div>
-												<div className="item-name">
-													Folder Item.scpl
-												</div>
-												<div className="action-btns">
-													<div className="delete-btn" />
-													<div className="edit-btn" />
-												</div>
-											</div>
-										</li>
-										<li className="list-item-folder open-folder">
-											<div>
-												<div className="item-name">
-													Shortcuts Folder
-												</div>
-												<div className="action-btns">
-													<div className="delete-btn" />
-													<div className="edit-btn" />
-												</div>
-											</div>
-											<ul>
-												<li className="list-item-file">
-													<div>
-														<div className="item-name">
-															Folder Item.scpl
-														</div>
-														<div className="action-btns">
-															<div className="delete-btn" />
-															<div className="edit-btn" />
-														</div>
-													</div>
-												</li>
-												<li className="list-item-file">
-													<div>
-														<div className="item-name">
-															Folder Item 2.scpl
-														</div>
-														<div className="action-btns">
-															<div className="delete-btn" />
-															<div className="edit-btn" />
-														</div>
-													</div>
-												</li>
-												<li className="list-item-file">
-													<div>
-														<div className="item-name">
-															Folder Item 3.scpl
-														</div>
-														<div className="action-btns">
-															<div className="delete-btn" />
-															<div className="edit-btn" />
-														</div>
-													</div>
-												</li>
-												<li className="list-item-file">
-													<div>
-														<div className="item-name">
-															Folder Item 4.scpl
-														</div>
-														<div className="action-btns">
-															<div className="delete-btn" />
-															<div className="edit-btn" />
-														</div>
-													</div>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
+							<FileList files={this.props.files} />
 						</div>
 					</div>
 				)}

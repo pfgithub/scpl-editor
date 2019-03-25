@@ -114,6 +114,9 @@
 }
 .file-list li.list-item-folder > ul {
 	display: none;
+	transform-origin: top center;
+	transform: scale(1, 0);
+	transition: 0.1s transform;
 }
 .file-list li.list-item-folder {
 	background: url(img/right.svg) 10px 15px / 10px no-repeat;
@@ -123,6 +126,16 @@
 }
 .file-list li.list-item-folder.open-folder > ul {
 	display: block;
+	animation: scaleIn 0.1s;
+	transform: scale(1, 1);
+}
+@keyframes scaleIn {
+	from {
+		transform: scale(1, 0);
+	}
+	to {
+		transform: scale(1, 1);
+	}
 }
 .list-item-folder.open-folder > div {
 	font-weight: 500;
