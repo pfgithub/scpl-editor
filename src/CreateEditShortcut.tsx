@@ -29,6 +29,7 @@ export class CreateEditShortcut extends Component<{
 						type="text"
 						placeholder="My New Shortcut, Cool Idea, etc."
 						id="new-name"
+						autoFocus
 					/>
 
 					<br />
