@@ -1,4 +1,4 @@
-/* Color & Glyph select */
+/* Glyph container and headers */
 .glyphs-container {
 	height: 160px;
 	overflow-x: hidden;
@@ -17,6 +17,7 @@
 	padding: 3px 5px;
 	z-index: 1000;
 }
+/* Color & Glyph radios style */
 .radio {
 	display: inline-block;
 }
@@ -28,13 +29,12 @@
 	margin: 10px 5px;
 	cursor: pointer;
 }
+input[type="radio"] {
+	display: none;
+}
 .radio label:hover,
 .radio label:hover:before {
 	cursor: pointer;
-}
-.radio.glyph-radio label {
-	padding: 15px;
-	margin: 5px;
 }
 .radio label:before {
 	content: "";
@@ -48,33 +48,36 @@
 	box-shadow: 0 0 0 2px #fff;
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.radio.glyph-radio label:before {
-	background: url(img/glyph_sheet.png) center / 330px no-repeat;
-	background-color: #fafafa;
-}
-.color-radio label:hover:before {
-	background-color: #c7c7c7;
-	border-color: #c7c7c7;
-}
-.glyph-radio label:hover:before {
-	background-color: #ddd;
-	border-color: #ddd;
-}
-input[type="radio"] {
-	display: none;
-}
-.radio.color-radio label:before {
-	border-radius: 50%;
-}
-.radio.glyph-radio label:before {
-	border-radius: 5px;
-}
 input[type="radio"]:checked + label:before {
 	content: " ";
 	background-color: #555;
 	border: 2px solid #fff;
 	box-shadow: 0 0 0 2px #555;
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/* Color radio style */
+.radio.color-radio label:before {
+	border-radius: 50%;
+}
+.color-radio label:hover:before {
+	background-color: #c7c7c7;
+	border-color: #c7c7c7;
+}
+/* Glyph radio style */
+.radio.glyph-radio label {
+	padding: 15px;
+	margin: 5px;
+}
+.radio.glyph-radio label:before {
+	border-radius: 5px;
+}
+.radio.glyph-radio label:before {
+	background: url(img/glyph_sheet.png) center / 330px no-repeat;
+	background-color: #fafafa;
+}
+.glyph-radio label:hover:before {
+	background-color: #ddd;
+	border-color: #ddd;
 }
 .glyph-radio input[type="radio"] + label:before {
 	background-color: #fff !important;
@@ -83,7 +86,7 @@ input[type="radio"]:checked + label:before {
 	box-shadow: 0 0 0 2px #ccc;
 	background-color: #eee !important;
 }
-/* colors */
+/* Colors */
 input[type="radio"]#color-red + label:before {
 	background-image: linear-gradient(to right, #f62544, #c50026);
 }
@@ -189,9 +192,9 @@ input[type="radio"]:checked#color-grey + label:before {
 	box-shadow: 0 0 0 2px #8f99b0;
 }
 
-/* glyphs */
+/* Glyphs */
 
-/* objects */
+/* Category: Objects */
 input[type="radio"]#glyph-car + label:before {
 	background-position: 2px 0px;
 }
@@ -666,9 +669,9 @@ input[type="radio"]#glyph-cap + label:before {
 input[type="radio"]#glyph-bed + label:before {
 	background-position: -213px -422px;
 }
-/* end objects */
+/* End Objects */
 
-/* people */
+/* Category: People */
 input[type="radio"]#glyph-girlbaby + label:before {
 	background-position: 1px -458px;
 }
@@ -732,9 +735,9 @@ input[type="radio"]#glyph-hiking + label:before {
 input[type="radio"]#glyph-cane + label:before {
 	background-position: -183px -517px;
 }
-/* end people */
+/* End People */
 
-/* symbols */
+/* Category: Symbols */
 input[type="radio"]#glyph-alert + label:before {
 	background-position: 1px -552px;
 }
@@ -966,6 +969,6 @@ input[type="radio"]#glyph-wifi + label:before {
 input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -300px -735px;
 }
-/* end symbols */
+/* End Symbols */
 
-/* end glyphs */
+/* End Glyphs */

@@ -145,7 +145,9 @@ class App extends Component<
 				</div>
 				<div
 					className="modals-container"
-					style={{ display: "none" }}
+					style={{
+						display: this.state.openDownload ? "flex" : "none"
+					}}
 					onClick={() =>
 						this.setState({
 							fullUpdate: false,
