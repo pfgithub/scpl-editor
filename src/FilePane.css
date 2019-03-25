@@ -54,7 +54,7 @@
 	user-select: none;
 }
 .file-list li:hover:not(.open-folder) {
-	background-color: #efefef !important;
+	background-color: #f3f3f3 !important;
 }
 .file-list li:active:not(.open-folder) {
 	background-color: #eaeaea !important;
@@ -77,7 +77,7 @@
 	font-size: 14px;
 }
 .item-name {
-	width: 170px;
+	width: 70%;
 	height: 18px;
 	white-space: nowrap;
 	overflow: hidden;
@@ -93,7 +93,7 @@
 }
 /* File items */
 .list-item-file > div {
-	background: url(img/file.png) left center / 18px no-repeat;
+	background: url(img/file.png) 2px center / 18px no-repeat;
 }
 .file-list li.list-item-file.active {
 	background-color: #007aff20;
@@ -113,21 +113,30 @@
 	background: url(img/folder.png) left center / 20px no-repeat;
 }
 .file-list li.list-item-folder > ul {
-	display: none;
+	/* display: none; */
 	transform-origin: top center;
+	transition: 1s left ease-out;
+	position: absolute;
 	transform: scale(1, 0);
-	transition: 0.1s transform;
 }
 .file-list li.list-item-folder {
 	background: url(img/right.svg) 10px 15px / 10px no-repeat;
 }
 .file-list li.list-item-folder.open-folder {
 	background: url(img/down.svg) 10px 15px / 10px no-repeat;
+	margin-bottom: -13px;
 }
 .file-list li.list-item-folder.open-folder > ul {
 	display: block;
 	animation: scaleIn 0.1s;
 	transform: scale(1, 1);
+	position: static;
+}
+.file-list li.list-item-folder:not(.open-folder) > ul {
+	animation: scaleOut 0.1s;
+}
+.list-item-folder.open-folder > div {
+	font-weight: 500;
 }
 @keyframes scaleIn {
 	from {
@@ -137,8 +146,13 @@
 		transform: scale(1, 1);
 	}
 }
-.list-item-folder.open-folder > div {
-	font-weight: 500;
+@keyframes scaleOut {
+	from {
+		transform: scale(1, 1);
+	}
+	to {
+		transform: scale(1, 0);
+	}
 }
 /* Rename and delete btns */
 .action-btns {
@@ -157,12 +171,19 @@
 	cursor: pointer;
 }
 .action-btns div:active {
-	background-color: #007aff20;
+	/* background-color: #007aff20; */
+	background-color: #888;
 }
 .edit-btn {
 	background-image: url(img/edit.png);
 }
+.edit-btn:active {
+	background-image: url(img/edit_w.png);
+}
 .delete-btn {
 	background-image: url(img/delete.png);
 	margin-left: 3px;
+}
+.delete-btn:active {
+	background-image: url(img/delete_w.png);
 }
