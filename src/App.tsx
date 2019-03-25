@@ -145,7 +145,7 @@ class App extends Component<
 				</div>
 				<div
 					className="modals-container"
-					style={{ display: "flex" }}
+					style={{display: this.state.openDownload ? "flex" : "none"}}
 					onClick={() =>
 						this.setState({
 							fullUpdate: false,
@@ -213,7 +213,6 @@ class App extends Component<
 					<div
 						className="modal dialog"
 						id="create-edit-shortcut"
-						style={{ display: "block" }}
 					>
 						<CreateEditShortcut />
 					</div>
