@@ -25,9 +25,6 @@
 	grid-template-columns: 1fr 1fr 1fr;
 	padding: 0 10px;
 }
-.file-btns > div {
-	margin: 5px;
-}
 .file-btn {
 	font-size: 15px;
 	padding: 20px 0;
