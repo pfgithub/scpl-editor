@@ -155,8 +155,7 @@
 	cursor: pointer;
 }
 .action-btns div:active {
-	/* background-color: #007aff20; */
-	background-color: #888;
+	background-color: #8c99b3;
 }
 .edit-btn {
 	background-image: url(img/edit.png);
