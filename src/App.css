@@ -382,6 +382,7 @@ input {
 	margin: 5px;
 	font-size: 15px;
 	color: #888;
+	text-transform: uppercase;
 }
 .download-grid {
 	display: grid;
