@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { ModalContainer } from "./ModalContainer";
 import { DownloadButton } from "./DownloadButton";
 
+import prettyBytes from "pretty-bytes";
+
 import shortcutDownloadPreviewIcon from "./img/shortcut-file.png";
 
 import "./CreateEditShortcut.css";
@@ -39,10 +41,12 @@ export class DownloadModal extends Component<
 										width={130}
 									/>
 									<div className="shortcut-filename">
-										download.shortcut
+										{this.props.filename}
 									</div>
 									<div className="shortcut-filedetails">
-										5 KB
+										{prettyBytes(
+											Buffer.byteLength(this.props.file)
+										)}
 									</div>
 								</DownloadButton>
 							</div>

@@ -4,8 +4,10 @@
 	"private": true,
 	"homepage": "https://scpl.dev/",
 	"dependencies": {
+		"@types/pretty-bytes": "^5.1.0",
 		"@types/react-portal": "^4.0.2",
 		"browserfs": "^1.4.3",
+		"pretty-bytes": "^5.1.0",
 		"react": "^16.8.4",
 		"react-ace": "^6.4.0",
 		"react-dom": "^16.8.4",
