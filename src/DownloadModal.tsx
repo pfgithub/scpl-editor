@@ -64,7 +64,7 @@ export class DownloadModal extends Component<
 							</div>
 						</div>
 					) : (
-						<div id="no-file-msg"><h2>No code</h2><p>You need to write actions to be converted into a shortcut.</p></div>
+						<div id="no-file-msg"><p>You need to write actions to be converted into a shortcut.</p></div>
 					)}
 					<div
 						className="large-btn"

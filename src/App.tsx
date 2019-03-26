@@ -229,8 +229,7 @@ class App extends Component<
 							}`}
 						>
 							<div className="result-text">
-								Waited for {this.state.took.waitedFor}ms and
-								then converted in {this.state.took.convertedIn}{" "}
+								Converted in {this.state.took.convertedIn}{" "}
 								ms.
 							</div>
 							<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
