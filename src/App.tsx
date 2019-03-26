@@ -7,6 +7,7 @@ import testshortcut from "./testshortcut.json";
 
 import ace from "brace";
 import "./ace/mode-scpl";
+import "brace/theme/chrome";
 import AceEditor from "react-ace";
 
 import { FilePane } from "./FilePane";
@@ -211,7 +212,7 @@ class App extends Component<
 						<div className="code-pane">
 							<AceEditor
 								mode="scpl"
-								theme="github"
+								theme="chrome"
 								onChange={this.onChange.bind(this)}
 								name="ace_editor"
 								editorProps={{ $blockScrolling: true }}

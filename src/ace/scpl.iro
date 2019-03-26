@@ -43,8 +43,15 @@ styles [] {
 }
 
 .keyword : style {
-   color     = cyan
+   color     = blue
    ace_scope             = keyword
+   textmate_scope        = keyword
+   pygments_scope        = Keyword
+}
+
+.action : style {
+   color     = orange
+   ace_scope             = entity.name.function
    textmate_scope        = keyword
    pygments_scope        = Keyword
 }
@@ -122,8 +129,12 @@ action : context {
       styles[] = .macro;
    }
    : pattern { # identifier
-      regex \= $${__IDENTIFIER}
+      regex \= ([Ii][Ff]|[Rr][Ee][Pp][Ee][Aa][Tt][Ww][Ii][Tt][Hh][Ee][Aa][Cc][Hh]|[Cc][Hh][Oo][Oo][Ss][Ee][Ff][Rr][Oo][Mm][Mm][Ee][Nn][Uu]|[Rr][Ee][Pp][Ee][Aa][Tt]|[Oo][Tt][Hh][Ee][Rr][Ww][Ii][Ss][Ee]|[Ee][Nn][Dd]|[Ff][Ll][Oo][Ww]|[Ee][Ll][Ss][Ee]|[Cc][Aa][Ss][Ee])
       styles[] = .keyword;
+   }
+   : pattern { # identifier
+      regex \= $${__IDENTIFIER}
+      styles[] = .action;
    }
    : include "multi_line_comment";
    : include "inline_comment";
