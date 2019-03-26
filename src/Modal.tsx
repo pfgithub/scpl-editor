@@ -14,6 +14,7 @@ export const _ = class {};
 			type="text"
 			placeholder="Folder Name"
 			id="new-folder"
+      autoFocus
 		/>
 		<div className="large-btn" id="close-rename-folder">
 			Create Folder
@@ -33,6 +34,7 @@ export const _ = class {};
 			type="text"
 			placeholder="Filename"
 			id="rename-file"
+      autoFocus
 		/>
 		<div className="large-btn" id="close-rename">
 			Save Changes
@@ -52,6 +54,7 @@ export const _ = class {};
 			type="text"
 			placeholder="Folder Name"
 			id="rename-folder"
+      autoFocus
 		/>
 		<div className="large-btn" id="close-rename-folder">
 			Save Changes
