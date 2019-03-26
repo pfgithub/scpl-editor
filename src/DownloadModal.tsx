@@ -28,7 +28,7 @@ export class DownloadModal extends Component<
 					}}
 					onClick={e => e.stopPropagation()}
 				>
-					<h1>Download Export</h1>
+					<h1>Export Shortcut</h1>
 					{this.props.file ? (
 						<div className="download-grid">
 							<div>
@@ -64,7 +64,7 @@ export class DownloadModal extends Component<
 							</div>
 						</div>
 					) : (
-						<h2>No file. Try editing the shortcut.</h2>
+						<div id="no-file-msg"><h2>No code</h2><p>You need to write actions to be converted into a shortcut.</p></div>
 					)}
 					<div
 						className="large-btn"

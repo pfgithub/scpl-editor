@@ -191,6 +191,9 @@ hr {
 	border-radius: 15px;
 	padding: 10px 20px;
 }
+.modal .large-btn {
+	margin: 10px 0;
+}
 .modal.dialog {
 	width: 400px;
 }
@@ -354,10 +357,20 @@ input {
 	border-radius: 3px;
 	background-color: #eee;
 	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 #download-shortcut-link {
 	text-decoration: none;
 	text-align: center;
+}
+#no-file-msg {
+	padding: 80px 0;
+	border: 1px solid #eee;
+	border-radius: 10px;
+	background: #fafafa;
+	margin-bottom: 20px;
 }
 .shortcut-filename {
 	margin: 5px;
