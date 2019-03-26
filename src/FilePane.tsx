@@ -105,9 +105,9 @@ class FileList extends Component<{
 			<ul>
 				{this.props.files.map(file => {
 					if (file.type === "file") {
-						return <FileComponent data={file} />;
+						return <FileComponent key={file.name} data={file} />;
 					}
-					return <FolderComponent data={file} />;
+					return <FolderComponent key={file.name} data={file} />;
 				})}
 			</ul>
 		);

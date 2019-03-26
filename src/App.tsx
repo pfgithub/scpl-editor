@@ -176,7 +176,7 @@ class App extends Component<
 										files: [
 											{
 												type: "file" as "file",
-												name: "A File.scpl"
+												name: "My File.scpl"
 											},
 											{
 												type: "folder" as "folder",
@@ -197,11 +197,11 @@ class App extends Component<
 									},
 									{
 										type: "file" as "file",
-										name: "My File.scpl"
+										name: "My File 2.scpl"
 									},
 									{
 										type: "file" as "file",
-										name: "Another File.scpl"
+										name: "Another File 2.scpl"
 									}
 								]}
 								onActiveFileChanged={file =>
