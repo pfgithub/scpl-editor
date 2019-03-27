@@ -31,14 +31,6 @@
 			"WFStringContentItem",
 			"WFURLContentItem"
 		],
-		"WFWorkflowActions": [
-			{
-				"WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
-				"WFWorkflowActionParameters": {
-					"UUID": "c47f4d71-321c-41fc-86c2-f8b7aef06409",
-					"Text": "Hello ScPL"
-				}
-			}
-		]
+		"WFWorkflowActions": []
 	}
 ]

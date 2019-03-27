@@ -55,7 +55,7 @@ class App extends Component<
 	constructor(props: Readonly<{}>) {
 		super(props);
 		this.state = {
-			fileValue: 'ShowResult "Hello ScPL"',
+			fileValue: "...",
 			shortcutData: testshortcut,
 			shortcutDownload: undefined,
 			annotations: [],
@@ -67,6 +67,19 @@ class App extends Component<
 			openDownload: false
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
+	}
+	componentDidMount() {}
+	componentWillMount() {
+		this.onChange(
+			`ShowResult "Hello ScPL"
+ChooseFromMenu items=["Getting Started", "View Documentation"]
+Case "Getting Started"
+    URL "https://docs.scpl.dev/gettingstarted"
+Case "View Documentation"
+    URL "https://docs.scpl.dev/"
+End Menu
+OpenURLs`
+		);
 	}
 	render() {
 		return (
@@ -229,8 +242,7 @@ class App extends Component<
 							}`}
 						>
 							<div className="result-text">
-								Converted in {this.state.took.convertedIn}{" "}
-								ms.
+								Converted in {this.state.took.convertedIn} ms.
 							</div>
 							<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
 								<ShortcutPreview
