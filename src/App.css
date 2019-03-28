@@ -480,3 +480,10 @@ input {
 		transform: rotate(359deg);
 	}
 }
+
+/*Error color*/
+.error {
+	/*Don't remove*/
+	background-color: rgba(255, 0, 0, 0.3) !important;
+	/*Don't remove*/
+}
