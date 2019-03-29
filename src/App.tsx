@@ -228,7 +228,7 @@ OpenURLs`
 								theme="chrome"
 								onChange={this.onChange.bind(this)}
 								name="ace_editor"
-								editorProps={{ $blockScrolling: true }}
+								editorProps={{ $blockScrolling: Infinity }}
 								value={this.state.fileValue || ""}
 								annotations={this.state.annotations}
 								markers={this.state.markers}

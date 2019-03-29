@@ -9118,8 +9118,8 @@ shellwords@^0.1.1:
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
 shortcut-preview@pfgithub/shortcut-preview:
-  version "0.1.5"
-  resolved "https://codeload.github.com/pfgithub/shortcut-preview/tar.gz/2fa71c3ff18bde1a493b50104927e7d3c4cc2461"
+  version "0.1.7"
+  resolved "https://codeload.github.com/pfgithub/shortcut-preview/tar.gz/52cea4ddf3b3ffb4184d4968357232221afb5ac8"
   dependencies:
     node-sass "^4.11.0"
 
