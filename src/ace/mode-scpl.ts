@@ -391,7 +391,7 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 					push: "escape__1"
 				},
 				{
-					token: "string",
+					token: "support.constant",
 					regex: "([^\\\\]+)"
 				},
 				{
@@ -525,7 +525,7 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 					push: "escape__1"
 				},
 				{
-					token: "string",
+					token: "support.constant",
 					regex: '([^"\\\\]+)'
 				},
 				{
@@ -548,7 +548,7 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 					push: "escape__1"
 				},
 				{
-					token: "string",
+					token: "support.constant",
 					regex: "([^'\\\\]+)"
 				},
 				{

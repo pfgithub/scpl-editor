@@ -43,14 +43,14 @@ styles [] {
 }
 
 .keyword : style {
-   color     = blue
+   color     = purple
    ace_scope             = keyword
    textmate_scope        = keyword
    pygments_scope        = Keyword
 }
 
 .action : style {
-   color     = orange
+   color     = "#287aff";
    ace_scope             = entity.name.function
    textmate_scope        = keyword
    pygments_scope        = Keyword
@@ -85,8 +85,8 @@ styles [] {
 }
 
 .text : style {
-   color                 = brown
-   ace_scope             = string
+   color                 = light_green
+   ace_scope             = support.constant
    textmate_scope        = string.quoted.double
    pygments_scope        = String
 }
