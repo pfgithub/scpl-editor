@@ -63,6 +63,13 @@ styles [] {
    pygments_scope        = Name.Function
 }
 
+.label : style{
+   color= "#6d79de";
+   ace_scope = support.type
+   textmate_scope = support.type
+   pygments_scope = Name.Function
+}
+
 .variable : style {
    color     = light_blue
    ace_scope             = variable
@@ -123,6 +130,10 @@ action : context {
    : pattern { # variable
       regex          \= (:$${__IDENTIFIER})
       styles[] = .variable;
+   }
+   : pattern { # variable
+      regex          \= ($${__IDENTIFIER}=)
+      styles[] = .label;
    }
    : pattern { # identifier
       regex \= (@($${__IDENTIFIER})?)

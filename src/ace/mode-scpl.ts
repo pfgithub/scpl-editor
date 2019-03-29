@@ -37,6 +37,10 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 					regex: "(:([A-Za-z0-9@._]+))"
 				},
 				{
+					token: "support.type",
+					regex: "(([A-Za-z0-9@._]+)=)"
+				},
+				{
 					token: "support.constant",
 					regex: "(@(([A-Za-z0-9@._]+))?)"
 				},
@@ -126,6 +130,10 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 				{
 					token: "variable",
 					regex: "(:([A-Za-z0-9@._]+))"
+				},
+				{
+					token: "support.type",
+					regex: "(([A-Za-z0-9@._]+)=)"
 				},
 				{
 					token: "support.constant",
@@ -219,6 +227,10 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 					regex: "(:([A-Za-z0-9@._]+))"
 				},
 				{
+					token: "support.type",
+					regex: "(([A-Za-z0-9@._]+)=)"
+				},
+				{
 					token: "support.constant",
 					regex: "(@(([A-Za-z0-9@._]+))?)"
 				},
@@ -308,6 +320,10 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 				{
 					token: "variable",
 					regex: "(:([A-Za-z0-9@._]+))"
+				},
+				{
+					token: "support.type",
+					regex: "(([A-Za-z0-9@._]+)=)"
 				},
 				{
 					token: "support.constant",
@@ -422,6 +438,10 @@ ace.define("ace/mode/scpl_highlight_rules", function(
 				{
 					token: "variable",
 					regex: "(:([A-Za-z0-9@._]+))"
+				},
+				{
+					token: "support.type",
+					regex: "(([A-Za-z0-9@._]+)=)"
 				},
 				{
 					token: "support.constant",
