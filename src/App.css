@@ -346,6 +346,12 @@ input {
 	width: 100% !important;
 	height: 100% !important;
 }
+.ace_gutter-cell.ace_error {
+	background: url(img/error.png) 2px 1px / 14px no-repeat !important;
+}
+.ace_invalid {
+	background-color: #d74c39 !important;
+}
 /* download modal */
 #qr-result {
 	width: 200px;
