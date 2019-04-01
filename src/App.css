@@ -136,9 +136,6 @@ hr {
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-.error {
-	background-color: #ffb9b9 !important;
-}
 .upload-area {
 	user-select: none;
 	position: fixed;
@@ -484,6 +481,6 @@ input {
 /*Error color*/
 .error {
 	/*Don't remove*/
-	background-color: rgba(255, 0, 0, 0.3) !important;
+	background: #ffdcdc !important;
 	/*Don't remove*/
 }
