@@ -99,6 +99,7 @@
 		bottom: 0;
 		left: 0;
 		padding: 0 !important;
+		position: relative !important;
 	}
 	.e-message {
 		border-radius: 0 !important;
@@ -106,6 +107,7 @@
 		border: none !important;
 		padding: 15px 0 !important;
 		padding-left: 40px !important;
+		margin: 0 !important;
 	}
 }
 /* General Responsiveness */
@@ -534,13 +536,13 @@ input {
 	padding: 15px;
 }
 .e-message {
-	background: url(img/error.png) 10px center / 20px no-repeat;
-	background-color: #ffe4e0;
+	background: url(img/error_w.png) 10px center / 20px no-repeat;
+	background-color: #d74c39;
 	border: 2px solid #d74c3950;
 	padding: 13px 20px;
 	padding-left: 40px;
 	border-radius: 5px;
-	color: #d74b38;
+	color: #fff;
 	font-size: 13px;
 	margin-bottom: 13px;
 	box-shadow: 0 0 5px rgba(150,150,150,.5);
