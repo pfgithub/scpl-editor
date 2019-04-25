@@ -1,5 +1,5 @@
 /* iPad */
-@media screen and (min-width: 767px) and (max-width: 1360px) {
+@media screen and (min-width: 767px) and (max-width: 1260px) {
 	.search-input {
 		width: 97% !important;
 	}
@@ -14,20 +14,18 @@
 		box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.25);
 	}
 	.editor-container {
-		grid-template-columns: 1fr 1fr !important;
+		grid-template-columns: 1fr !important;
 	}
 }
 /* iPad Portrait */
-@media only screen and (min-device-width: 767px) and (max-device-width: 1360px) and (orientation: portrait) {
+@media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: portrait) {
 	.editor-container {
-		display: block !important;
+		grid-template-columns: 1fr !important;
 	}
 	.code-pane {
-		height: 50vh;
 		border: none !important;
 	}
 	.result-pane {
-		height: 44vh;
 		border: none !important;
 	}
 	.loading-result-progress {
@@ -37,9 +35,9 @@
 	}
 }
 /* iPad Landscape */
-@media only screen and (min-device-width: 767px) and (max-device-width: 1360px) and (orientation: landscape) {
+@media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: landscape) {
 	.editor-container {
-		grid-template-columns: 1fr 0fr !important;
+		grid-template-columns: 1fr !important;
 	}
 	.result-pane {
 		width: 300px !important;
@@ -52,6 +50,20 @@
 @media screen and (min-width: 120px) and (max-width: 767px) {
 	.editor-title {
 		display: none !important;
+	}
+	#download-result h1 {
+		opacity: 0 !important;
+	}
+	.modal .large-btn {
+		margin: 10px 20px !important;
+	}
+	.search-container input {
+    width: 70% !important;
+		min-width: auto !important;
+		margin-left: 8px !important;
+	}
+	.editor-navigation > div:last-child {
+		width: 200px;
 	}
 	.editor-navigation {
 		grid-template-columns: 0fr 0fr 1fr 1fr !important;
@@ -70,32 +82,41 @@
 		width: 100% !important;
 	}
 	.editor-container {
-		display: block !important;
+		grid-template-columns: 1fr !important;
 	}
 	.code-pane,
 	.result-pane {
-		height: 44vh;
 		border: none !important;
 	}
 	.code-pane {
-		height: 50vh;
 		border: none !important;
 	}
 	.result-pane {
 		height: 44vh;
 		border: none !important;
 	}
+	.error-messages {
+		bottom: 0;
+		left: 0;
+		padding: 0 !important;
+	}
+	.e-message {
+		border-radius: 0 !important;
+		display: block;
+		border: none !important;
+		padding: 15px 0 !important;
+		padding-left: 40px !important;
+	}
 }
 /* General Responsiveness */
-@media screen and (min-width: 120px) and (max-width: 1360px) {
+@media screen and (min-width: 120px) and (max-width: 1260px) {
 	.file-pane.open-menu {
 		left: 0;
 	}
 	.result-details {
 		display: none !important;
 	}
-	.editor-navigation .editor-btn:not(#open-download),
-	.download-or {
+	.editor-navigation div:nth-child(2) > .editor-btn {
 		display: none !important;
 	}
 	.mobile-filemenu {
@@ -107,7 +128,7 @@
 	}
 	.modal {
 		width: 100% !important;
-		padding: 5px !important;
+		padding: 0 !important;
 		border-radius: 0 !important;
 		position: absolute;
 		bottom: 0;
@@ -254,7 +275,13 @@ input {
 	background-color: #fff;
 	border-bottom: 0.5px solid #c7c7cc;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 0.8fr;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 500;
+	height: 50px;
 }
 .editor-navigation > div:last-child {
 	text-align: right;
@@ -311,9 +338,14 @@ input {
 /* editor + result panes */
 .editor-container {
 	display: grid;
-	grid-template-columns: 0fr 2fr 1fr;
+	grid-template-columns: 0fr 1fr;
 	width: 100%;
-	height: 94vh;
+	position: fixed;
+	top: 50px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
 }
 .code-pane {
 	border-left: 0.5px solid #c7c7cc;
@@ -329,6 +361,15 @@ input {
 	box-shadow: inset 0 0 10px rgba(150, 150, 150, 0.5);
 	padding: 20px;
 	transition: 0.1s opacity;
+	position: fixed;
+	z-index: 200;
+	height: 500px;
+	right: 80px;
+	top: 45px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: -1px 5px 16px rgba(0, 0, 0, 0.27);
+	border: 2px solid #ccc;
 }
 .result-pane.loading {
 	pointer-events: none;
@@ -428,14 +469,10 @@ input {
 }
 .loading-result-progress {
 	display: none;
-	position: fixed;
+	position: absolute;
 	z-index: 500;
-	right: 0;
-	bottom: 0;
-	left: 73.6%;
-	top: 49px;
-	height: 100vh;
-	/* background-color: rgba(255, 255, 255, 0.6); */
+	left: 45%;
+	top: 45%;
 }
 .result-pane.loading .styles_container__2XUEs {
 	opacity: 0.5;
@@ -489,4 +526,22 @@ input {
 	/*Don't remove*/
 	background: #ffdcdc !important;
 	/*Don't remove*/
+}
+.error-messages {
+	position: absolute;
+	z-index: 100;
+	right: 0;
+	padding: 15px;
+}
+.e-message {
+	background: url(img/error.png) 10px center / 20px no-repeat;
+	background-color: #ffe4e0;
+	border: 2px solid #d74c3950;
+	padding: 13px 20px;
+	padding-left: 40px;
+	border-radius: 5px;
+	color: #d74b38;
+	font-size: 13px;
+	margin-bottom: 13px;
+	box-shadow: 0 0 5px rgba(150,150,150,.5);
 }

@@ -99,7 +99,30 @@ OpenURLs`
 						file={this.state.shortcutDownload}
 					/>
 				) : null}
-				<div className="editor-window">
+
+				<div
+					className={`result-pane${
+						this.state.loading ? " loading" : ""
+					}`}
+				 style={{ display: "none" }}>
+					<div className="result-text">
+						Converted in {this.state.took.convertedIn} ms.
+					</div>
+					<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
+						<ShortcutPreview
+							onInteract={data =>
+								this.onActionSelect(data)
+							}
+							data={this.state.shortcutData}
+						/>
+					</MaybeUpdate>
+					<div className="loading-result-progress">
+						<div>
+							<div className="load" />
+						</div>
+					</div>
+				</div>
+
 					<div className="editor-navigation">
 						<div
 							className={`mobile-filemenu${
@@ -152,6 +175,11 @@ OpenURLs`
 										? ""
 										: "s"}
 								</div>
+							</div>
+							<div
+								className="editor-btn"
+								id="run-preview">
+								<a href="javascript:;">Preview</a>
 							</div>
 							<div
 								className="editor-btn primary-btn"
@@ -223,6 +251,9 @@ OpenURLs`
 							/>
 						</div>
 						<div className="code-pane">
+						<div className="error-messages">
+							<div className="e-message">Something is wrong in your code, you fool.</div>
+						</div>
 							<AceEditor
 								mode="scpl"
 								theme="chrome"
@@ -236,31 +267,8 @@ OpenURLs`
 								showPrintMargin={false}
 							/>
 						</div>
-						<div
-							className={`result-pane${
-								this.state.loading ? " loading" : ""
-							}`}
-						>
-							<div className="result-text">
-								Converted in {this.state.took.convertedIn} ms.
-							</div>
-							<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
-								<ShortcutPreview
-									onInteract={data =>
-										this.onActionSelect(data)
-									}
-									data={this.state.shortcutData}
-								/>
-							</MaybeUpdate>
-							<div className="loading-result-progress">
-								<div>
-									<div className="load" />
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
-			</div>
 		);
 	}
 	onActionSelect(data: { type: "action" | "parameter"; actionData: any }) {
