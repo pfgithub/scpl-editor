@@ -44,11 +44,18 @@ class App extends Component<
 			className: string;
 			type: string;
 		}>;
+		errors: Array<{
+			startRow: number;
+			endRow: number;
+			startCol: number;
+			endCol: number;
+			message: string;
+		}>;
 		loading: boolean;
 		took: { waitedFor: number; convertedIn: number };
-		fullUpdate: boolean;
 		mobileFilemenu: boolean;
 		openDownload: boolean;
+		showPreview: boolean;
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -62,9 +69,10 @@ class App extends Component<
 			markers: [],
 			loading: false,
 			took: { waitedFor: 0, convertedIn: 0 },
-			fullUpdate: true,
 			mobileFilemenu: false,
-			openDownload: false
+			openDownload: false,
+			showPreview: false,
+			errors: []
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
@@ -104,12 +112,14 @@ OpenURLs`
 					className={`result-pane${
 						this.state.loading ? " loading" : ""
 					}`}
-					style={{ display: "none" }}
+					style={{
+						display: this.state.showPreview ? "block" : "none"
+					}}
 				>
 					<div className="result-text">
 						Converted in {this.state.took.convertedIn} ms.
 					</div>
-					<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
+					<MaybeUpdate shouldUpdate={this.state.showPreview}>
 						<ShortcutPreview
 							onInteract={data => this.onActionSelect(data)}
 							data={this.state.shortcutData}
@@ -130,7 +140,6 @@ OpenURLs`
 						style={{ display: "none" }}
 						onClick={() =>
 							this.setState({
-								fullUpdate: false,
 								mobileFilemenu: !this.state.mobileFilemenu
 							})
 						}
@@ -169,14 +178,22 @@ OpenURLs`
 							</div>
 						</div>
 						<div className="editor-btn" id="run-preview">
-							<a href="javascript:;">Preview</a>
+							<a
+								href="javascript:;"
+								onClick={() => {
+									this.setState({
+										showPreview: !this.state.showPreview
+									});
+								}}
+							>
+								Preview
+							</a>
 						</div>
 						<div
 							className="editor-btn primary-btn"
 							id="open-download"
 							onClick={() =>
 								this.setState({
-									fullUpdate: false,
 									openDownload: true
 								})
 							}
@@ -239,9 +256,16 @@ OpenURLs`
 					</div>
 					<div className="code-pane">
 						<div className="error-messages">
-							<div className="e-message">
-								Something is wrong in your code, you fool.
-							</div>
+							{this.state.errors.map(err => (
+								<div className="e-message">
+									{err.message}
+									<button
+										onClick={() => this.jumpToError(err)}
+									>
+										Jump
+									</button>
+								</div>
+							))}
 						</div>
 						<AceEditor
 							mode="scpl"
@@ -285,13 +309,37 @@ OpenURLs`
 			);
 		}
 	}
+	jumpToError(d: {
+		startCol: number;
+		startRow: number;
+		endCol: number;
+		endRow: number;
+	}) {
+		const reactAceComponent = this.reactAceComponentRef.current;
+		if (!reactAceComponent) {
+			console.log("reactacecomponent is not yet defined");
+			return;
+		} //eslint-disable-line no-console
+		const editor = (reactAceComponent as any).editor as ace.Editor;
+		const line = d.startRow;
+		const col = d.startCol - 1;
+		editor.gotoLine(line, col, true);
+		editor.selection.setRange(
+			new Range(
+				d.startRow - 1,
+				d.startCol - 1,
+				d.endRow - 1,
+				d.endCol - 1
+			),
+			true
+		);
+	}
 	onChange(text: string) {
 		const willWaitFor = Math.max(this.state.took.convertedIn * 4, 100);
 		if (!this.state.loading) {
 			this.setState({
 				fileValue: text,
-				loading: true,
-				fullUpdate: false
+				loading: true
 			});
 		}
 		if (timeout) {
@@ -321,7 +369,6 @@ OpenURLs`
 					waitedFor: waitedFor,
 					convertedIn: new Date().getTime() - startTime
 				},
-				fullUpdate: true,
 				annotations: [
 					{
 						row: er.start[0] - 1,
@@ -339,6 +386,15 @@ OpenURLs`
 						className: "ace_active-line error",
 						type: "background"
 					}
+				],
+				errors: [
+					{
+						startRow: er.start[0],
+						endRow: er.end[0],
+						startCol: er.start[1],
+						endCol: er.end[1],
+						message: er.message
+					}
 				]
 			});
 			return;
@@ -351,10 +407,10 @@ OpenURLs`
 				convertedIn: new Date().getTime() - startTime
 			},
 			loading: false,
-			fullUpdate: true,
 			shortcutData: shortcutjson,
 			annotations: [],
 			markers: [],
+			errors: [],
 			shortcutDownload: shortcutplist
 		});
 	}

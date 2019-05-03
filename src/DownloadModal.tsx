@@ -109,13 +109,17 @@ export class DownloadModal extends Component<
 														To generate a QR code,
 														ScPL editor will upload
 														your shortcut to{" "}
-														<a href="https://file.io" target="_blank" rel="noopener">
+														<a
+															href="https://file.io"
+															target="_blank"
+															rel="noopener"
+														>
 															file.io
 														</a>
 														.
 													</p>
 													<button
-													className="large-btn"
+														className="large-btn"
 														onClick={() =>
 															this.uploadFile()
 														}
