@@ -187,6 +187,7 @@ hr {
 	background-color: #fff;
 	border-radius: 15px;
 	padding: 10px 20px;
+	box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
 }
 .modal .large-btn {
 	margin: 10px 0;
@@ -356,8 +357,8 @@ input {
 #qr-result {
 	width: 200px;
 	height: 200px;
+	border: 2px solid #c7c7cc;
 	border-radius: 3px;
-	background-color: #eee;
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
