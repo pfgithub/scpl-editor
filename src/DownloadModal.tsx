@@ -102,7 +102,99 @@ export class DownloadModal extends Component<
 										</div>
 									</DownloadButton>
 								) : (
-									<p>Cannot download on this browser, todo replace this with a button to get the link thing</p>
+									(() => {
+										switch (this.state.uploadStatus) {
+											case "None":
+												return (
+													<div>
+														<p>
+															To download on this
+															browser, ScPL editor
+															will upload your
+															shortcut to{" "}
+															<a
+																href="https://file.io"
+																target="_blank"
+																rel="noopener"
+															>
+																file.io
+															</a>
+															.
+														</p>
+														<button
+															className="large-btn"
+															onClick={() =>
+																this.uploadFile()
+															}
+														>
+															Download
+														</button>
+													</div>
+												);
+											case "URL":
+												return (
+													<a
+														target="_blank"
+														rel="noopener noreferrer"
+														href={
+															this.state
+																.uploadedURL
+														}
+													>
+														<img
+															src={
+																shortcutDownloadPreviewIcon
+															}
+															width={130}
+														/>
+														<div className="shortcut-filename">
+															{
+																this.props
+																	.filename
+															}
+														</div>
+														<div className="shortcut-filedetails">
+															{prettyBytes(
+																Buffer.byteLength(
+																	this.props
+																		.file
+																)
+															)}
+														</div>
+													</a>
+												);
+											case "Uploading":
+												return (
+													<div>
+														<div className="generate-code-load">
+															<div className="load" />
+															<p>Uploading</p>
+														</div>
+													</div>
+												);
+											case "Error":
+												return (
+													<div>
+														<p>
+															Error uploading:{" "}
+															{
+																this.state
+																	.uploadError
+															}
+														</p>
+													</div>
+												);
+											default:
+												return (
+													<div>
+														<p>
+															Something bad
+															happened.
+														</p>
+													</div>
+												);
+										}
+									})()
 								)}
 							</div>
 							<div>
@@ -132,12 +224,6 @@ export class DownloadModal extends Component<
 													>
 														Generate Code
 													</button>
-													<div
-													className="generate-code-load">
-													<div
-													className="load"></div>
-													<p>Generating QR Code...</p>
-													</div>
 												</div>
 											);
 										case "URL":
@@ -170,7 +256,13 @@ export class DownloadModal extends Component<
 										case "Uploading":
 											return (
 												<div>
-													<p>Uploading...</p>
+													<div className="generate-code-load">
+														<div className="load" />
+														<p>
+															Generating QR
+															Code...
+														</p>
+													</div>
 												</div>
 											);
 										case "Error":
