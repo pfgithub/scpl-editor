@@ -161,7 +161,27 @@ OpenURLs`
 						</div>
 					</div>
 					<div className="search-container">
-						<SearchActions />
+						<SearchActions
+							insertText={text => {
+								console.log("insert", text);
+								const reactAceComponent = this
+									.reactAceComponentRef.current;
+								const editor = (reactAceComponent as any)
+									.editor as ace.Editor;
+								editor.session.insert(
+									editor.getCursorPosition(),
+									text
+								);
+								console.log(
+									editor.session.getValue(),
+									text,
+									editor.getCursorPosition()
+								);
+								this.setState({
+									fileValue: editor.session.getValue()
+								});
+							}}
+						/>
 					</div>
 					<div>
 						<div className="result-details">
@@ -258,15 +278,17 @@ OpenURLs`
 						<div className="error-messages">
 							{this.state.errors.map(err => (
 								<div className="e-message">
-									<div className='message-content'>
-									{err.message}
+									<div className="message-content">
+										{err.message}
 									</div>
-									<div className='jump-error'>
-									<button
-										onClick={() => this.jumpToError(err)}
-									>
-										Jump
-									</button>
+									<div className="jump-error">
+										<button
+											onClick={() =>
+												this.jumpToError(err)
+											}
+										>
+											Jump
+										</button>
 									</div>
 								</div>
 							))}
@@ -294,9 +316,8 @@ OpenURLs`
 
 			const reactAceComponent = this.reactAceComponentRef.current;
 			if (!reactAceComponent) {
-				console.log("reactacecomponent is not yet defined");
 				return;
-			} //eslint-disable-line no-console
+			}
 			const editor = (reactAceComponent as any).editor as ace.Editor;
 			// .Position.start|end
 			const line = scpldata.Position.start[0];
@@ -321,9 +342,8 @@ OpenURLs`
 	}) {
 		const reactAceComponent = this.reactAceComponentRef.current;
 		if (!reactAceComponent) {
-			console.log("reactacecomponent is not yet defined");
 			return;
-		} //eslint-disable-line no-console
+		}
 		const editor = (reactAceComponent as any).editor as ace.Editor;
 		const line = d.startRow;
 		const col = d.startCol - 1;

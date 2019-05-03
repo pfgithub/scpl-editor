@@ -2,13 +2,42 @@ import React, { Component } from "react";
 
 import "./SearchActions.css";
 
-export class SearchActions extends Component<{}> {
+type SearchActionsProps = { insertText: (text: string) => void };
+export class SearchActions extends Component<
+	SearchActionsProps,
+	{ searchTerm: string | undefined }
+> {
+	constructor(props: Readonly<SearchActionsProps>) {
+		super(props);
+		this.state = { searchTerm: undefined };
+	}
+	searchChanged(value: string | undefined) {
+		const searchTerm = value;
+		this.setState({ searchTerm: searchTerm });
+	}
 	render() {
 		return (
 			<div>
-				<input className="search-input" placeholder="Search Actions" />
-				<div className="search-action-results">
-					<div className="action-item action-item-get-clipboard">
+				<input
+					className="search-input"
+					placeholder="Search Actions"
+					onKeyUp={e => this.searchChanged(e.currentTarget.value)}
+					onFocus={e => this.searchChanged(e.currentTarget.value)}
+				/>
+				<div
+					className={`search-action-results ${
+						this.state.searchTerm !== undefined
+							? "search-action-results-visible"
+							: ""
+					}`}
+				>
+					<div
+						className="action-item action-item-get-clipboard"
+						onClick={() => {
+							this.props.insertText("getclipboard");
+							this.searchChanged(undefined);
+						}}
+					>
 						<div className="action-item-title">
 							Get Clipboard
 							<div className="action-item-code">getclipboard</div>
@@ -18,20 +47,6 @@ export class SearchActions extends Component<{}> {
 							action.
 						</div>
 						<div className="action-item-usage">getclipboard</div>
-					</div>
-
-					<div className="action-item action-item-count">
-						<div className="action-item-title">
-							Count<div className="action-item-code">count</div>
-						</div>
-						<div className="action-item-description">
-							Counts the number of items, characters, words,
-							sentences, or lines passed as input.
-						</div>
-						<div className="action-item-usage">
-							count count=("Items" | "Characters" | "Words" |
-							"Sentences" | "Lines")
-						</div>
 					</div>
 				</div>
 			</div>
