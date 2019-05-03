@@ -81,23 +81,29 @@ export class DownloadModal extends Component<
 					{this.props.file ? (
 						<div className="download-grid">
 							<div>
-								<DownloadButton
-									filename={this.props.filename}
-									file={this.props.file}
-								>
-									<img
-										src={shortcutDownloadPreviewIcon}
-										width={130}
-									/>
-									<div className="shortcut-filename">
-										{this.props.filename}
-									</div>
-									<div className="shortcut-filedetails">
-										{prettyBytes(
-											Buffer.byteLength(this.props.file)
-										)}
-									</div>
-								</DownloadButton>
+								{"download" in HTMLAnchorElement.prototype ? (
+									<DownloadButton
+										filename={this.props.filename}
+										file={this.props.file}
+									>
+										<img
+											src={shortcutDownloadPreviewIcon}
+											width={130}
+										/>
+										<div className="shortcut-filename">
+											{this.props.filename}
+										</div>
+										<div className="shortcut-filedetails">
+											{prettyBytes(
+												Buffer.byteLength(
+													this.props.file
+												)
+											)}
+										</div>
+									</DownloadButton>
+								) : (
+									<p>Cannot download on this browser, todo replace this with a button to get the link thing</p>
+								)}
 							</div>
 							<div>
 								{(() => {
