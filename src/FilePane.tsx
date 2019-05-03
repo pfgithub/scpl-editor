@@ -47,7 +47,7 @@ class FileComponent extends Component<{
 				title={this.props.data.name}
 			>
 				<div>
-					<div className="item-name">{this.props.data.name}</div>
+					<div className="item-name"><div className='load small'></div>{this.props.data.name}</div>
 					<ActionButtons />
 				</div>
 			</li>

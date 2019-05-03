@@ -82,6 +82,9 @@
 	display: inline-block;
 	margin-top: 3px;
 }
+.item-name .load {
+	display: none;
+}
 .file-list ul li.open-folder ul li > div > .item-name {
 	width: 60%;
 }
@@ -104,6 +107,27 @@
 }
 .file-list li.list-item-file.active > div {
 	background-image: url(img/file_active.png);
+}
+/* uploading state */
+.list-item-file.uploading {
+	background: none;
+	pointer-events: none;
+	user-select: none;
+	color: #777;
+}
+.list-item-file.uploading .action-btns {
+	opacity: .5;
+}
+.list-item-file.uploading > div {
+	background: none;
+}
+.list-item-file.uploading .item-name .load {
+	display: inline-block;
+	position: absolute;
+	margin-left: -25px;
+	margin-top: 2px;
+	width: 10px;
+	height: 10px;
 }
 /* Folder items */
 .list-item-folder > div {
