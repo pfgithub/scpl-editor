@@ -453,6 +453,7 @@ input {
 #qr-result img {
 	width: 150px;
 	height: 150px;
+	image-rendering: pixelated;
 }
 #download-shortcut-link {
 	text-decoration: none;
@@ -615,5 +616,5 @@ input {
 	transition: 0.3s opacity;
 }
 .e-message button:active {
-	opacity: .7;
+	opacity: 0.7;
 }
