@@ -61,6 +61,16 @@
 	.editor-title {
 		display: none !important;
 	}
+	.editor-container {
+		display: block !important;
+	}
+	.result-pane {
+		width: auto !important;
+		right: 0 !important;
+		left: 0;
+		bottom: 0;
+		height: 90% !important;
+	}
 	#download-result h1 {
 		opacity: 0 !important;
 	}
@@ -90,9 +100,6 @@
 		top: 50px;
 		right: 0;
 		width: 100% !important;
-	}
-	.editor-container {
-		grid-template-columns: 1fr !important;
 	}
 	.code-pane,
 	.result-pane {
@@ -183,6 +190,10 @@ a:focus {
 	text-decoration: underline;
 	color: #007aff;
 	cursor: pointer !important;
+}
+button {
+	cursor: pointer;
+	outline: none;
 }
 .upload-area {
 	user-select: none;
@@ -392,6 +403,7 @@ input {
 	position: fixed;
 	z-index: 200;
 	height: 500px;
+	width: 400px;
 	right: 80px;
 	top: 45px;
 	border-bottom-left-radius: 10px;
@@ -412,8 +424,8 @@ input {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 100% !important;
-	height: 100% !important;
+	width: 100vh !important;
+	height: 100vh !important;
 }
 .ace_gutter-cell.ace_error {
 	background: url(img/error.png) 2px 1px / 14px no-repeat !important;
@@ -422,6 +434,9 @@ input {
 	background-color: #d74c39 !important;
 }
 /* download modal */
+.generate-code-load .load {
+	margin: 0 auto;
+}
 #qr-result {
 	width: 150px;
 	height: 150px;
@@ -577,4 +592,27 @@ input {
 	font-size: 13px;
 	margin-bottom: 13px;
 	box-shadow: 0 0 5px rgba(150, 150, 150, 0.5);
+	display: grid;
+	grid-template-columns: 1fr 0fr;
+	max-width: 400px;
+	font-weight: 500;
+}
+.e-message .jump-error {
+	padding: 0 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.e-message button {
+	background-color: #fff;
+	border: none;
+	font-size: 14px;
+	color: #d74c39;
+	border-radius: 5px;
+	font-weight: bold;
+	padding: 8px 20px;
+	transition: 0.3s opacity;
+}
+.e-message button:active {
+	opacity: .7;
 }
