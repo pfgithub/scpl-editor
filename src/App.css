@@ -1,3 +1,13 @@
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+::selection {
+	background: rgba(131, 174, 229, .5);
+}
+::-moz-selection {
+	background: rgba(131, 174, 229, .5);
+}
+
 /* iPad */
 @media screen and (min-width: 767px) and (max-width: 1260px) {
 	.search-input {
@@ -149,6 +159,7 @@
 		display: none;
 	}
 }
+/**/
 html,
 body {
 	font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
@@ -158,6 +169,18 @@ hr {
 	height: 0;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+a:link {
+	color: #007aff;
+	text-decoration: none;
+}
+a:visited {
+	color: #007aff;
+}
+a:hover, a:active, a:focus {
+	text-decoration: underline;
+	color: #007aff;
+	cursor: pointer !important;
 }
 .upload-area {
 	user-select: none;
@@ -398,8 +421,8 @@ input {
 }
 /* download modal */
 #qr-result {
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	border: 2px solid #c7c7cc;
 	border-radius: 3px;
 	margin: 0 auto;
@@ -408,6 +431,10 @@ input {
 	align-items: center;
 	padding: 10px;
 	background-color: white;
+}
+#qr-result img {
+	width: 150px;
+	height: 150px;
 }
 #download-shortcut-link {
 	text-decoration: none;
@@ -447,7 +474,7 @@ input {
 	align-items: center;
 }
 .large-btn {
-	padding: 15px 10px;
+	padding: 15px;
 	background-color: #eee;
 	border-radius: 3px;
 	margin: 10px;
