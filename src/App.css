@@ -61,6 +61,9 @@
 	.editor-title {
 		display: none !important;
 	}
+	.editor-container {
+		display: block !important;
+	}
 	.result-pane {
 		width: auto !important;
 		right: 0 !important;
@@ -97,9 +100,6 @@
 		top: 50px;
 		right: 0;
 		width: 100% !important;
-	}
-	.editor-container {
-		grid-template-columns: 1fr !important;
 	}
 	.code-pane,
 	.result-pane {
@@ -424,8 +424,8 @@ input {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 100% !important;
-	height: 100% !important;
+	width: 100vh !important;
+	height: 100vh !important;
 }
 .ace_gutter-cell.ace_error {
 	background: url(img/error.png) 2px 1px / 14px no-repeat !important;
@@ -598,7 +598,7 @@ input {
 	font-weight: 500;
 }
 .e-message .jump-error {
-	padding-left: 10px;
+	padding: 0 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
