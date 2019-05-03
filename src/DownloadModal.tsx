@@ -6,17 +6,66 @@ import { DownloadButton } from "./DownloadButton";
 import prettyBytes from "pretty-bytes";
 
 import shortcutDownloadPreviewIcon from "./img/shortcut-file.png";
+import { uploadShortcut } from "./Uploader";
 
 import "./CreateEditShortcut.css";
 
+type DownloadModalProps = {
+	onCancel: () => void;
+	filename: string;
+	file: Buffer | undefined;
+};
+
 export class DownloadModal extends Component<
-	{
-		onCancel: () => void;
-		filename: string;
-		file: Buffer | undefined;
-	},
-	{}
+	DownloadModalProps,
+	| {
+			uploadStatus: "None" | "Uploading";
+	  }
+	| {
+			uploadStatus: "URL";
+			uploadedURL: string;
+	  }
+	| {
+			uploadStatus: "Error";
+			uploadError: string;
+	  }
 > {
+	constructor(props: Readonly<DownloadModalProps>) {
+		super(props);
+		this.state = { uploadStatus: "None" };
+	}
+	componentWillReceiveProps(nextProps: Readonly<DownloadModalProps>) {
+		if (nextProps.file !== this.props.file) {
+			this.setState({ uploadStatus: "None" });
+		}
+	}
+	async uploadFile() {
+		if (!this.props.file) {
+			this.setState({
+				uploadStatus: "Error",
+				uploadError: "No file. Make sure your shortcut has no errors."
+			});
+			return;
+		}
+		this.setState({
+			uploadStatus: "Uploading"
+		});
+		const uploadResult = await uploadShortcut(
+			this.props.file,
+			this.props.filename
+		);
+		if (uploadResult.result === "error") {
+			this.setState({
+				uploadStatus: "Error",
+				uploadError: uploadResult.message
+			});
+			return;
+		}
+		this.setState({
+			uploadStatus: "URL",
+			uploadedURL: uploadResult.url
+		});
+	}
 	render() {
 		return (
 			<ModalContainer onCancel={() => this.props.onCancel()}>
@@ -51,20 +100,90 @@ export class DownloadModal extends Component<
 								</DownloadButton>
 							</div>
 							<div>
-								<p>Add to your library via QR Code:</p>
-								<div id="qr-result">Not available yet :(</div>
-								<p className="details-text">
-									Open your Camera app and point it steady for
-									2-3 seconds at this QR Code.
-									<br />
-									<br />
-									If nothing happens, QR Code scanning may not
-									be enabled on your device.
-								</p>
+								{(() => {
+									switch (this.state.uploadStatus) {
+										case "None":
+											return (
+												<div>
+													<p>
+														To generate a QR code,
+														ScPL editor will upload
+														your shortcut to{" "}
+														<a href="https://file.io">
+															file.io
+														</a>
+														.
+													</p>
+													<button
+														onClick={() =>
+															this.uploadFile()
+														}
+													>
+														Generate Code
+													</button>
+												</div>
+											);
+										case "URL":
+											return (
+												<div>
+													<p>
+														Add to your library via
+														QR Code:
+													</p>
+													<div id="qr-result">
+														<img
+															src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(
+																this.state
+																	.uploadedURL
+															)}`}
+														/>
+													</div>
+													<p className="details-text">
+														Open your Camera app and
+														point it steady for 2-3
+														seconds at this QR Code.
+														<br />
+														<br />
+														If nothing happens, QR
+														Code scanning may not be
+														enabled on your device.
+													</p>
+												</div>
+											);
+										case "Uploading":
+											return (
+												<div>
+													<p>Uploading...</p>
+												</div>
+											);
+										case "Error":
+											return (
+												<div>
+													<p>
+														Error uploading:{" "}
+														{this.state.uploadError}
+													</p>
+												</div>
+											);
+										default:
+											return (
+												<div>
+													<p>
+														Something bad happened.
+													</p>
+												</div>
+											);
+									}
+								})()}
 							</div>
 						</div>
 					) : (
-						<div id="no-file-msg"><p>Please write some actions to be converted into a shortcut.</p></div>
+						<div id="no-file-msg">
+							<p>
+								Please write some actions to be converted into a
+								shortcut.
+							</p>
+						</div>
 					)}
 					<div
 						className="large-btn"

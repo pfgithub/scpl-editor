@@ -356,13 +356,14 @@ input {
 #qr-result {
 	width: 200px;
 	height: 200px;
-	border: 2px solid #c7c7cc;
 	border-radius: 3px;
 	background-color: #eee;
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 10px;
+	background-color: white;
 }
 #download-shortcut-link {
 	text-decoration: none;
