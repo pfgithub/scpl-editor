@@ -2,10 +2,10 @@
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 ::selection {
-	background: rgba(131, 174, 229, .5);
+	background: rgba(131, 174, 229, 0.5);
 }
 ::-moz-selection {
-	background: rgba(131, 174, 229, .5);
+	background: rgba(131, 174, 229, 0.5);
 }
 
 /* iPad */
@@ -177,7 +177,9 @@ a:link {
 a:visited {
 	color: #007aff;
 }
-a:hover, a:active, a:focus {
+a:hover,
+a:active,
+a:focus {
 	text-decoration: underline;
 	color: #007aff;
 	cursor: pointer !important;
