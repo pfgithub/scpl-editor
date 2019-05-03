@@ -393,6 +393,7 @@ input {
 .code-pane,
 .result-pane {
 	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 }
 .result-pane {
 	border-left: 0.5px solid #c7c7cc;
