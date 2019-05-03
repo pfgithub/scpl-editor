@@ -184,6 +184,10 @@ a:focus {
 	color: #007aff;
 	cursor: pointer !important;
 }
+button {
+	cursor: pointer;
+	outline: none;
+}
 .upload-area {
 	user-select: none;
 	position: fixed;
@@ -577,4 +581,27 @@ input {
 	font-size: 13px;
 	margin-bottom: 13px;
 	box-shadow: 0 0 5px rgba(150, 150, 150, 0.5);
+	display: grid;
+	grid-template-columns: 1fr 0fr;
+	max-width: 400px;
+	font-weight: 500;
+}
+.e-message .jump-error {
+	padding-left: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.e-message button {
+	background-color: #fff;
+	border: none;
+	font-size: 14px;
+	color: #d74c39;
+	border-radius: 5px;
+	font-weight: bold;
+	padding: 8px 20px;
+	transition: 0.3s opacity;
+}
+.e-message button:active {
+	opacity: .7;
 }

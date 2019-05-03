@@ -258,12 +258,16 @@ OpenURLs`
 						<div className="error-messages">
 							{this.state.errors.map(err => (
 								<div className="e-message">
+									<div className='message-content'>
 									{err.message}
+									</div>
+									<div className='jump-error'>
 									<button
 										onClick={() => this.jumpToError(err)}
 									>
 										Jump
 									</button>
+									</div>
 								</div>
 							))}
 						</div>
