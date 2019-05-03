@@ -126,6 +126,12 @@ export class DownloadModal extends Component<
 													>
 														Generate Code
 													</button>
+													<div
+													className="generate-code-load">
+													<div
+													className="load"></div>
+													<p>Generating QR Code...</p>
+													</div>
 												</div>
 											);
 										case "URL":
