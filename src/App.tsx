@@ -46,9 +46,9 @@ class App extends Component<
 		}>;
 		loading: boolean;
 		took: { waitedFor: number; convertedIn: number };
-		fullUpdate: boolean;
 		mobileFilemenu: boolean;
 		openDownload: boolean;
+		showPreview: boolean;
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -62,9 +62,9 @@ class App extends Component<
 			markers: [],
 			loading: false,
 			took: { waitedFor: 0, convertedIn: 0 },
-			fullUpdate: true,
 			mobileFilemenu: false,
-			openDownload: false
+			openDownload: false,
+			showPreview: false
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
@@ -104,12 +104,14 @@ OpenURLs`
 					className={`result-pane${
 						this.state.loading ? " loading" : ""
 					}`}
-					style={{ display: "none" }}
+					style={{
+						display: this.state.showPreview ? "block" : "none"
+					}}
 				>
 					<div className="result-text">
 						Converted in {this.state.took.convertedIn} ms.
 					</div>
-					<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
+					<MaybeUpdate shouldUpdate={this.state.showPreview}>
 						<ShortcutPreview
 							onInteract={data => this.onActionSelect(data)}
 							data={this.state.shortcutData}
@@ -130,7 +132,6 @@ OpenURLs`
 						style={{ display: "none" }}
 						onClick={() =>
 							this.setState({
-								fullUpdate: false,
 								mobileFilemenu: !this.state.mobileFilemenu
 							})
 						}
@@ -169,14 +170,22 @@ OpenURLs`
 							</div>
 						</div>
 						<div className="editor-btn" id="run-preview">
-							<a href="javascript:;">Preview</a>
+							<a
+								href="javascript:;"
+								onClick={() => {
+									this.setState({
+										showPreview: !this.state.showPreview
+									});
+								}}
+							>
+								Preview
+							</a>
 						</div>
 						<div
 							className="editor-btn primary-btn"
 							id="open-download"
 							onClick={() =>
 								this.setState({
-									fullUpdate: false,
 									openDownload: true
 								})
 							}
@@ -290,8 +299,7 @@ OpenURLs`
 		if (!this.state.loading) {
 			this.setState({
 				fileValue: text,
-				loading: true,
-				fullUpdate: false
+				loading: true
 			});
 		}
 		if (timeout) {
@@ -321,7 +329,6 @@ OpenURLs`
 					waitedFor: waitedFor,
 					convertedIn: new Date().getTime() - startTime
 				},
-				fullUpdate: true,
 				annotations: [
 					{
 						row: er.start[0] - 1,
@@ -351,7 +358,6 @@ OpenURLs`
 				convertedIn: new Date().getTime() - startTime
 			},
 			loading: false,
-			fullUpdate: true,
 			shortcutData: shortcutjson,
 			annotations: [],
 			markers: [],
