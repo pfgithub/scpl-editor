@@ -99,165 +99,162 @@ OpenURLs`
 						file={this.state.shortcutDownload}
 					/>
 				) : null}
-				<div className="editor-window">
-					<div className="editor-navigation">
+
+				<div
+					className={`result-pane${
+						this.state.loading ? " loading" : ""
+					}`}
+					style={{ display: "none" }}
+				>
+					<div className="result-text">
+						Converted in {this.state.took.convertedIn} ms.
+					</div>
+					<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
+						<ShortcutPreview
+							onInteract={data => this.onActionSelect(data)}
+							data={this.state.shortcutData}
+						/>
+					</MaybeUpdate>
+					<div className="loading-result-progress">
+						<div>
+							<div className="load" />
+						</div>
+					</div>
+				</div>
+
+				<div className="editor-navigation">
+					<div
+						className={`mobile-filemenu${
+							this.state.mobileFilemenu ? " open-filemenu" : ""
+						}`}
+						style={{ display: "none" }}
+						onClick={() =>
+							this.setState({
+								fullUpdate: false,
+								mobileFilemenu: !this.state.mobileFilemenu
+							})
+						}
+					/>
+					<div>
+						<div className="editor-title">ScPL Try-It Editor</div>
+						<div className="editor-btn">
+							<a
+								href="https://docs.scpl.dev/gettingstarted.html"
+								target="_blank"
+							>
+								Getting Started
+							</a>
+						</div>
+						<div className="editor-btn">
+							<a href="https://docs.scpl.dev/" target="_blank">
+								Documentation
+							</a>
+						</div>
+					</div>
+					<div className="search-container">
+						<SearchActions />
+					</div>
+					<div>
+						<div className="result-details">
+							<div className="result-actions">
+								{
+									this.state.shortcutData[0].WFWorkflowActions
+										.length
+								}{" "}
+								action
+								{this.state.shortcutData[0].WFWorkflowActions
+									.length === 1
+									? ""
+									: "s"}
+							</div>
+						</div>
+						<div className="editor-btn" id="run-preview">
+							<a href="javascript:;">Preview</a>
+						</div>
 						<div
-							className={`mobile-filemenu${
-								this.state.mobileFilemenu
-									? " open-filemenu"
-									: ""
-							}`}
-							style={{ display: "none" }}
+							className="editor-btn primary-btn"
+							id="open-download"
 							onClick={() =>
 								this.setState({
 									fullUpdate: false,
-									mobileFilemenu: !this.state.mobileFilemenu
+									openDownload: true
 								})
 							}
-						/>
-						<div>
-							<div className="editor-title">
-								ScPL Try-It Editor
-							</div>
-							<div className="editor-btn">
-								<a
-									href="https://docs.scpl.dev/gettingstarted.html"
-									target="_blank"
-								>
-									Getting Started
-								</a>
-							</div>
-							<div className="editor-btn">
-								<a
-									href="https://docs.scpl.dev/"
-									target="_blank"
-								>
-									Documentation
-								</a>
-							</div>
-						</div>
-						<div className="search-container">
-							<SearchActions />
-						</div>
-						<div>
-							<div className="result-details">
-								<div className="result-actions">
-									{
-										this.state.shortcutData[0]
-											.WFWorkflowActions.length
-									}{" "}
-									action
-									{this.state.shortcutData[0]
-										.WFWorkflowActions.length === 1
-										? ""
-										: "s"}
-								</div>
-							</div>
-							<div
-								className="editor-btn primary-btn"
-								id="open-download"
-								onClick={() =>
-									this.setState({
-										fullUpdate: false,
-										openDownload: true
-									})
-								}
-							>
-								<a href="javascript:;">Download</a>
-							</div>
+						>
+							<a href="javascript:;">Download</a>
 						</div>
 					</div>
-					<div className="editor-container">
-						<div
-							className={`file-pane${
-								this.state.mobileFilemenu ? " open-menu" : ""
-							}`}
-						>
-							<FilePane
-								files={[
-									{
-										type: "file" as "file",
-										name: "My File.scpl"
-									},
-									{
-										type: "file" as "file",
-										name: "Another File.scpl"
-									},
-									{
-										type: "folder" as "folder",
-										name: "A Folder",
-										files: [
-											{
-												type: "file" as "file",
-												name: "My File.scpl"
-											},
-											{
-												type: "folder" as "folder",
-												name: "My Folder",
-												files: [
-													{
-														type: "file" as "file",
-														name: "A Shortcut.scpl"
-													}
-												]
-											},
-											{
-												type: "file" as "file",
-												name:
-													"Look at all these files.scpl"
-											}
-										]
-									},
-									{
-										type: "file" as "file",
-										name: "My File 2.scpl"
-									},
-									{
-										type: "file" as "file",
-										name: "Another File 2.scpl"
-									}
-								]}
-								onActiveFileChanged={file =>
-									this.onChange(file)
+				</div>
+				<div className="editor-container">
+					<div
+						className={`file-pane${
+							this.state.mobileFilemenu ? " open-menu" : ""
+						}`}
+					>
+						<FilePane
+							files={[
+								{
+									type: "file" as "file",
+									name: "My File.scpl"
+								},
+								{
+									type: "file" as "file",
+									name: "Another File.scpl"
+								},
+								{
+									type: "folder" as "folder",
+									name: "A Folder",
+									files: [
+										{
+											type: "file" as "file",
+											name: "My File.scpl"
+										},
+										{
+											type: "folder" as "folder",
+											name: "My Folder",
+											files: [
+												{
+													type: "file" as "file",
+													name: "A Shortcut.scpl"
+												}
+											]
+										},
+										{
+											type: "file" as "file",
+											name: "Look at all these files.scpl"
+										}
+									]
+								},
+								{
+									type: "file" as "file",
+									name: "My File 2.scpl"
+								},
+								{
+									type: "file" as "file",
+									name: "Another File 2.scpl"
 								}
-							/>
-						</div>
-						<div className="code-pane">
-							<AceEditor
-								mode="scpl"
-								theme="chrome"
-								onChange={this.onChange.bind(this)}
-								name="ace_editor"
-								editorProps={{ $blockScrolling: Infinity }}
-								value={this.state.fileValue || ""}
-								annotations={this.state.annotations}
-								markers={this.state.markers}
-								ref={this.reactAceComponentRef}
-								showPrintMargin={false}
-							/>
-						</div>
-						<div
-							className={`result-pane${
-								this.state.loading ? " loading" : ""
-							}`}
-						>
-							<div className="result-text">
-								Converted in {this.state.took.convertedIn} ms.
-							</div>
-							<MaybeUpdate shouldUpdate={this.state.fullUpdate}>
-								<ShortcutPreview
-									onInteract={data =>
-										this.onActionSelect(data)
-									}
-									data={this.state.shortcutData}
-								/>
-							</MaybeUpdate>
-							<div className="loading-result-progress">
-								<div>
-									<div className="load" />
-								</div>
+							]}
+							onActiveFileChanged={file => this.onChange(file)}
+						/>
+					</div>
+					<div className="code-pane">
+						<div className="error-messages">
+							<div className="e-message">
+								Something is wrong in your code, you fool.
 							</div>
 						</div>
+						<AceEditor
+							mode="scpl"
+							theme="chrome"
+							onChange={this.onChange.bind(this)}
+							name="ace_editor"
+							editorProps={{ $blockScrolling: Infinity }}
+							value={this.state.fileValue || ""}
+							annotations={this.state.annotations}
+							markers={this.state.markers}
+							ref={this.reactAceComponentRef}
+							showPrintMargin={false}
+						/>
 					</div>
 				</div>
 			</div>
