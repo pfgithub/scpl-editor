@@ -600,7 +600,7 @@ input {
 	position: absolute;
 	z-index: 100;
 	right: 0;
-	padding: 15px;
+	margin: 15px;
 }
 .e-message {
 	background: url(img/error_w.png) 10px center / 20px no-repeat;
