@@ -30,7 +30,10 @@ class ActionData extends Component<{
 		return (
 			<div
 				className="action-item action-item-get-clipboard"
-				onClick={() => this.props.onSelect(usage)}
+				onClick={e => {
+					e.stopPropagation();
+					this.props.onSelect(usage);
+				}}
 			>
 				<div className="action-item-title">
 					{action.name}
@@ -77,12 +80,15 @@ export class SearchActions extends Component<
 	}
 	render() {
 		return (
-			<div>
+			<div onMouseUp={e => e.stopPropagation()}>
 				<input
 					className="search-input"
 					placeholder="Search Actions"
 					onKeyUp={e => this.searchChanged(e.currentTarget.value)}
 					onFocus={e => this.searchChanged(e.currentTarget.value)}
+					onBlur={e =>
+						setTimeout(() => this.searchChanged(undefined), 1000)
+					}
 				/>
 				<div
 					className={`search-action-results ${
