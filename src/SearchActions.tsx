@@ -1,6 +1,66 @@
 import React, { Component } from "react";
+import ReactMarkdown from "react-markdown";
+
+import { allActions, getActionFromID } from "scpl";
 
 import "./SearchActions.css";
+
+const actionsByName = allActions.sort((a, b) => {
+	if (a.name > b.name) {
+		return 1;
+	}
+	if (a.name < b.name) {
+		return -1;
+	}
+	return 0;
+});
+
+class ActionData extends Component<{
+	onSelect: (text: string) => void;
+	actionID: string;
+}> {
+	render() {
+		const action = getActionFromID(this.props.actionID);
+		if (!action) {
+			return null;
+		}
+		const usage = action
+			.genDocsUsage()
+			.replace(/^```\s+(.+?)\s+```$/, "$1");
+		return (
+			<div
+				className="action-item action-item-get-clipboard"
+				onClick={() => this.props.onSelect(usage)}
+			>
+				<div className="action-item-title">
+					{action.name}
+					<div className="action-item-code">{usage}</div>
+				</div>
+				<a
+					className="action-item-url"
+					href={`https://docs.scpl.dev/actions/${encodeURIComponent(
+						action.shortName
+					)}`}
+					target="_blank"
+					rel="noreferrer"
+				>
+					Documentation
+				</a>
+				<div className="action-item-description">
+					{/*<ReactMarkdown source={action.genDocs()} />*/}
+					{
+						(
+							action._data.Description || {
+								DescriptionSummary: "No description"
+							}
+						).DescriptionSummary
+					}
+				</div>
+				<div className="action-item-usage">{action.genDocsUsage()}</div>
+			</div>
+		);
+	}
+}
 
 type SearchActionsProps = { insertText: (text: string) => void };
 export class SearchActions extends Component<
@@ -31,23 +91,27 @@ export class SearchActions extends Component<
 							: ""
 					}`}
 				>
-					<div
-						className="action-item action-item-get-clipboard"
-						onClick={() => {
-							this.props.insertText("getclipboard");
-							this.searchChanged(undefined);
-						}}
-					>
-						<div className="action-item-title">
-							Get Clipboard
-							<div className="action-item-code">getclipboard</div>
-						</div>
-						<div className="action-item-description">
-							Passes the contents of the clipboard to the next
-							action.
-						</div>
-						<div className="action-item-usage">getclipboard</div>
-					</div>
+					{actionsByName
+						.filter(
+							action =>
+								action.name
+									.toLowerCase()
+									.replace(/[^A-Za-z0-9]/g, "")
+									.indexOf(
+										(
+											this.state.searchTerm || "kjhgvb"
+										).replace(/[^A-Za-z0-9]/g, "")
+									) > -1
+						)
+						.map(action => (
+							<ActionData
+								actionID={action.id}
+								onSelect={text => {
+									this.props.insertText(text);
+									this.searchChanged(undefined);
+								}}
+							/>
+						))}
 				</div>
 			</div>
 		);

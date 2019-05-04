@@ -11,9 +11,10 @@
 		"react-dom": "^16.8.4",
 		"react-dropzone": "^10.0.5",
 		"react-helmet": "^5.2.0",
+		"react-markdown": "^4.0.8",
 		"react-portal": "^4.2.0",
 		"react-scripts": "2.1.8",
-		"scpl": "^1.9.2",
+		"scpl": "^1.9.3",
 		"shortcut-preview": "pfgithub/shortcut-preview",
 		"typescript": "3.3.3333"
 	},
