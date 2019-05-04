@@ -165,6 +165,9 @@
 	.download-grid > div:last-child {
 		display: none;
 	}
+	.code-pane #ace_editor {
+		height: 100vh !important;
+	}
 }
 /**/
 html,
@@ -425,8 +428,8 @@ input {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 100vh !important;
-	height: 100vh !important;
+	width: 100% !important;
+	height: 100% !important;
 }
 .ace_gutter-cell.ace_error {
 	background: url(img/error.png) 2px 1px / 14px no-repeat !important;
