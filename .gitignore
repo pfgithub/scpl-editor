@@ -25,3 +25,6 @@ yarn-error.log*
 # junk folder
 /junk
 package-lock.json
+
+
+yarn.lock

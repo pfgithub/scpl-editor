@@ -13,7 +13,7 @@
 		"react-helmet": "^5.2.0",
 		"react-portal": "^4.2.0",
 		"react-scripts": "2.1.8",
-		"scpl": "^1.6.1",
+		"scpl": "^1.9.2",
 		"shortcut-preview": "pfgithub/shortcut-preview",
 		"typescript": "3.3.3333"
 	},
