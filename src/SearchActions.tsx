@@ -37,7 +37,7 @@ class ActionData extends Component<{
 			>
 				<div className="action-item-title">
 					{action.name}
-					<div className="action-item-code">{usage}</div>
+					<div className="action-item-code">{action.shortName}</div>
 				</div>
 				<a
 					className="action-item-url"
@@ -59,7 +59,7 @@ class ActionData extends Component<{
 						).DescriptionSummary
 					}
 				</div>
-				<div className="action-item-usage">{action.genDocsUsage()}</div>
+				<div className="action-item-usage">{usage}</div>
 			</div>
 		);
 	}

@@ -61,6 +61,9 @@
 	.editor-title {
 		display: none !important;
 	}
+	.file-list li.open-folder > ul > li {
+		width: 96% !important;
+	}
 	.editor-container {
 		display: block !important;
 	}
@@ -137,6 +140,7 @@
 		box-shadow: none !important;
 		border-radius: 0 !important;
 		width: auto !important;
+		max-height: 100% !important;
 	}
 }
 /* General Responsiveness */
