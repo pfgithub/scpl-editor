@@ -5,6 +5,19 @@
 .search-container input {
 	width: 95%;
 }
+.close-search-btn {
+	float: right;
+	padding: 10px 20px;
+	border-bottom-left-radius: 10px;
+	font-size: 30px;
+	text-align: center;
+	background: #f5f5f5;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.close-search-btn a {
+	text-decoration: none !important;
+}
 .search-action-results {
 	position: absolute;
 	opacity: 0;

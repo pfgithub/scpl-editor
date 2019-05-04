@@ -97,6 +97,14 @@ export class SearchActions extends Component<
 							: ""
 					}`}
 				>
+				<div className="close-search-btn">
+					<a
+						href="javascript:;"
+						onClick={e => this.searchChanged(undefined)}
+					>
+						&times;
+					</a>
+				</div>
 					{actionsByName
 						.filter(
 							action =>
@@ -113,7 +121,7 @@ export class SearchActions extends Component<
 							<ActionData
 								actionID={action.id}
 								onSelect={text => {
-									this.props.insertText(text);
+									this.props.insertText(`\n${text}`);
 									this.searchChanged(undefined);
 								}}
 							/>
