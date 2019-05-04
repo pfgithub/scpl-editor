@@ -11,11 +11,15 @@
 	pointer-events: none;
 	cursor: pointer;
 	z-index: 2000;
+	margin: 0 auto;
+	right: -160px;
+	left: 0;
+	width: 600px;
 	background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
-	transition: 0.1s opacity;
+	transition: 0.3s opacity;
 }
 .search-action-results.search-action-results-visible {
 	opacity: 1;

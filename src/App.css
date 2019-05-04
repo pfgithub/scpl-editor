@@ -126,6 +126,16 @@
 		padding-left: 40px !important;
 		margin: 0 !important;
 	}
+	.search-action-results {
+		position: fixed !important;
+		top: 51px;
+		left: 0 !important;
+		right: 0 !important;
+		bottom: 0;
+		box-shadow: none !important;
+		border-radius: 0 !important;
+		width: auto !important;
+	}
 }
 /* General Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 1260px) {
