@@ -61,6 +61,9 @@
 	.editor-title {
 		display: none !important;
 	}
+	.file-list li.open-folder > ul > li {
+		width: 96% !important;
+	}
 	.editor-container {
 		display: block !important;
 	}
