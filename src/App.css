@@ -137,6 +137,7 @@
 		box-shadow: none !important;
 		border-radius: 0 !important;
 		width: auto !important;
+		max-height: 100% !important;
 	}
 }
 /* General Responsiveness */
