@@ -13,5 +13,5 @@ serviceWorker.unregister();
 
 // Enable navigation prompt
 window.onbeforeunload = () => {
-	return true;
+  return true;
 };

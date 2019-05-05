@@ -7721,10 +7721,10 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-scpl@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.9.1.tgz#53526379df9be7572eb1504e6e1b146c79b64117"
-  integrity sha512-Ifxt33i3dPWBV7eEq41AXgdnjm8SQpC6zeMkOfG9iiYdDT9GmKUxmA2oHU0STOEqLidUpg42LD8i8ZQlGja0eQ==
+scpl@^1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/scpl/-/scpl-1.10.1.tgz#c595eb0f822ea2b893b708e26253ce602d982706"
+  integrity sha512-7QqN5Z4S0pwMF6mGV98Mh+QHVJbjKMXLfMjbY1IAX7XirlQLkDmtgKi25GQRAK461sshwGM4Rq++LYP3dy/ysw==
   dependencies:
     bplist-creator "^0.0.7"
     bplist-parser "^0.1.1"
