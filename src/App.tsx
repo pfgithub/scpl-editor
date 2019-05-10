@@ -108,30 +108,6 @@ OpenURLs`
 					/>
 				) : null}
 
-				<div
-					className={`result-pane${
-						this.state.loading ? " loading" : ""
-					}`}
-					style={{
-						display: this.state.showPreview ? "block" : "none"
-					}}
-				>
-					<div className="result-text">
-						Converted in {this.state.took.convertedIn} ms.
-					</div>
-					<MaybeUpdate shouldUpdate={this.state.showPreview}>
-						<ShortcutPreview
-							onInteract={data => this.onActionSelect(data)}
-							data={this.state.shortcutData}
-						/>
-					</MaybeUpdate>
-					<div className="loading-result-progress">
-						<div>
-							<div className="load" />
-						</div>
-					</div>
-				</div>
-
 				<div className="editor-navigation">
 					<div
 						className={`mobile-filemenu${
@@ -306,6 +282,29 @@ OpenURLs`
 							ref={this.reactAceComponentRef}
 							showPrintMargin={false}
 						/>
+					</div>
+					<div
+						className={`result-pane${
+							this.state.loading ? " loading" : ""
+						}`}
+						// style={{
+						// 	display: this.state.showPreview ? "none" : "block"
+						// }}
+					>
+						<div className="result-text">
+							Converted in {this.state.took.convertedIn} ms.
+						</div>
+						<MaybeUpdate shouldUpdate={this.state.showPreview}>
+							<ShortcutPreview
+								onInteract={data => this.onActionSelect(data)}
+								data={this.state.shortcutData}
+							/>
+						</MaybeUpdate>
+						<div className="loading-result-progress">
+							<div>
+								<div className="load" />
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

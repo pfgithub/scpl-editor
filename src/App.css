@@ -30,12 +30,9 @@
 /* iPad Portrait */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: portrait) {
 	.editor-container {
-		grid-template-columns: 1fr !important;
+		display: block !important;
 	}
 	.code-pane {
-		border: none !important;
-	}
-	.result-pane {
 		border: none !important;
 	}
 	.loading-result-progress {
@@ -47,10 +44,7 @@
 /* iPad Landscape */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: landscape) {
 	.editor-container {
-		grid-template-columns: 1fr !important;
-	}
-	.result-pane {
-		width: 300px !important;
+		display: block !important;
 	}
 	.loading-result-progress {
 		left: 66.6% !important;
@@ -122,6 +116,7 @@
 		left: 0;
 		padding: 0 !important;
 		position: relative !important;
+		margin: 0 !important;
 	}
 	.e-message {
 		border-radius: 0 !important;
@@ -145,6 +140,21 @@
 }
 /* General Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 1260px) {
+	.result-pane {
+		position: fixed;
+		z-index: 200;
+		height: 500px;
+		right: 80px;
+		top: 45px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		box-shadow: -1px 5px 16px rgba(0, 0, 0, 0.27) !important;
+		border: 2px solid #ccc;
+		display: none;
+	}
+	#run-preview {
+		display: inline-block !important;
+	}
 	.file-pane.open-menu {
 		left: 0;
 	}
@@ -396,7 +406,7 @@ input {
 /* editor + result panes */
 .editor-container {
 	display: grid;
-	grid-template-columns: 0fr 1fr;
+	grid-template-columns: 0fr 1fr 0fr;
 	width: 100%;
 	position: fixed;
 	top: 50px;
@@ -419,17 +429,9 @@ input {
 	background-color: #e1e3e6;
 	box-shadow: inset 0 0 10px rgba(150, 150, 150, 0.5);
 	padding: 20px;
-	transition: 0.1s opacity;
-	position: fixed;
-	z-index: 200;
-	height: 500px;
-	width: 400px;
-	right: 80px;
-	top: 45px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	box-shadow: -1px 5px 16px rgba(0, 0, 0, 0.27);
-	border: 2px solid #ccc;
+	transition: 0.3s opacity;
+	width: 330px;
+	overflow-y: auto;
 }
 .result-pane.loading {
 	pointer-events: none;
@@ -437,6 +439,9 @@ input {
 .result-text {
 	font-size: 16px;
 	color: #777;
+}
+#run-preview {
+	display: none;
 }
 /* ace editor */
 #ace_editor {
