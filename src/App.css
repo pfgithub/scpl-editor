@@ -35,19 +35,11 @@
 	.code-pane {
 		border: none !important;
 	}
-	.loading-result-progress {
-		top: 53.5% !important;
-		left: 0 !important;
-		height: 50vh !important;
-	}
 }
 /* iPad Landscape */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: landscape) {
 	.editor-container {
 		display: block !important;
-	}
-	.loading-result-progress {
-		left: 66.6% !important;
 	}
 }
 /* Phone Responsiveness */
@@ -86,11 +78,6 @@
 	}
 	.editor-navigation {
 		grid-template-columns: 0fr 0fr 1fr 1fr !important;
-	}
-	.loading-result-progress {
-		top: 57% !important;
-		left: 0 !important;
-		height: 50vh !important;
 	}
 	.file-pane {
 		position: fixed;
@@ -154,6 +141,11 @@
 	}
 	#run-preview {
 		display: inline-block !important;
+	}
+	.loading-result-progress {
+		right: 0 !important;
+    left: 0;
+    width: auto !important;
 	}
 	.file-pane.open-menu {
 		left: 0;
@@ -545,8 +537,9 @@ input {
 	display: none;
 	position: absolute;
 	z-index: 500;
-	left: 45%;
+	right: 0;
 	top: 45%;
+	width: 355px;
 }
 .result-pane.loading .styles_container__2XUEs {
 	opacity: 0.5;
