@@ -39,16 +39,6 @@ class ActionData extends Component<{
 					{action.name}
 					<div className="action-item-code">{action.shortName}</div>
 				</div>
-				<a
-					className="action-item-url"
-					href={`https://docs.scpl.dev/actions/${encodeURIComponent(
-						action.shortName
-					)}`}
-					target="_blank"
-					rel="noreferrer"
-				>
-					Documentation
-				</a>
 				<div className="action-item-description">
 					{/*<ReactMarkdown source={action.genDocs()} />*/}
 					{
@@ -60,6 +50,16 @@ class ActionData extends Component<{
 					}
 				</div>
 				<div className="action-item-usage">{usage}</div>
+				<a
+					className="action-item-url"
+					href={`https://docs.scpl.dev/actions/${encodeURIComponent(
+						action.shortName
+					)}`}
+					target="_blank"
+					rel="noreferrer"
+				>
+					See futher documentation
+				</a>
 			</div>
 		);
 	}

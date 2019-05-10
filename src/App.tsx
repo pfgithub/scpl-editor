@@ -121,7 +121,7 @@ OpenURLs`
 						}
 					/>
 					<div>
-						<div className="editor-title">ScPL Try-It Editor</div>
+						<div className="editor-title">ScPL Web Editor</div>
 						<div className="editor-btn">
 							<a
 								href="https://docs.scpl.dev/gettingstarted.html"
