@@ -318,7 +318,7 @@ input:active {
 	background-color: #8c99b350 !important;
 }
 .search-input {
-	background: #ebebec url(img/search.png) 8px center / 19px no-repeat !important;
+	background: #ebebec url(img/search.svg) 8px center / 20px no-repeat !important;
 	padding-left: 35px !important;
 	margin-bottom: 5px !important;
 	margin-top: 1px !important;

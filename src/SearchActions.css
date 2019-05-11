@@ -16,6 +16,8 @@
 }
 .close-mobile-search-btn {
 	float: right;
+	position: sticky;
+	top: 0;
 	padding: 10px 20px;
 	font-size: 30px;
 	text-align: center;
@@ -25,8 +27,8 @@
 	cursor: pointer;
 	display: none;
 	border-bottom-left-radius: 10px;
-	border-left: 0.5px solid #c7c7cc;
-	border-bottom: 0.5px solid #c7c7cc;
+	border-left: 0.5px solid #c7c7cc50;
+	border-bottom: 0.5px solid #c7c7cc50;
 }
 .close-search-btn a {
 	text-decoration: none !important;
