@@ -545,6 +545,27 @@ input:active {
 	float: right;
 	margin-top: 15px;
 }
+.too-many-actions {
+	position: absolute;
+	z-index: 500;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 330px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #a6a6aa30;
+}
+.too-many-actions div {
+	padding: 10px;
+	text-align: center;
+	font-weight: 500;
+	font-size: 15px;
+}
+.too-many-actions p {
+	margin-bottom: 25px;
+}
 /* loading indicator */
 .result-pane.loading .loading-result-progress {
 	display: flex;

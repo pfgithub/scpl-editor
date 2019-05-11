@@ -305,6 +305,12 @@ OpenURLs`
 								<div className="load" />
 							</div>
 						</div>
+						<div className="too-many-actions">
+							<div>
+								<p>There are too many actions to render a preview automatically.</p>
+								<div className="large-btn">Render Preview</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
