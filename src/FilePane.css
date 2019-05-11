@@ -122,7 +122,7 @@
 	color: #777;
 }
 .list-item-file.uploading .action-btns {
-	opacity: .5;
+	opacity: 0.5;
 }
 .list-item-file.uploading > div {
 	background: none;
