@@ -139,6 +139,12 @@
 		border: 2px solid #ccc;
 		display: none;
 	}
+	.close-search-btn {
+		display: none !important;
+	}
+	.close-mobile-search-btn {
+		display: block !important;
+	}
 	#run-preview {
 		display: inline-block !important;
 	}
@@ -300,26 +306,23 @@ input {
 	padding: 10px;
 	background-color: #ebebec;
 	width: stretch;
-	border-radius: 10px;
+	border-radius: 8px;
 	border: none;
-	font-size: 15px;
+	font-size: 14px;
 	margin: 10px 0;
 	min-width: 200px;
 	outline: none;
+	transition: 0.3s background-color;
+}
+input:active {
+	background-color: #8c99b350 !important;
 }
 .search-input {
-	padding: 10px;
-	background-color: #ebebec;
-	border-radius: 10px;
-	border: none;
-	font-size: 15px;
-	background: #ebebec url(img/search.png) 8px center / 20px no-repeat;
+	background: #ebebec url(img/search.png) 8px center / 19px no-repeat !important;
 	padding-left: 35px !important;
 	margin-bottom: 5px !important;
-	margin-top: 0 !important;
-	margin-left: 13px;
+	margin-top: 1px !important;
 	width: 93%;
-	outline: none;
 }
 /* navigation + nav elements */
 .mobile-filemenu {
@@ -366,6 +369,7 @@ input {
 	margin-right: 5px;
 	border-radius: 5px;
 	display: inline-block;
+	font-size: 15px;
 }
 /* download section */
 .download-or {
@@ -379,6 +383,7 @@ input {
 .editor-btn {
 	display: inline-block;
 	cursor: pointer;
+	font-size: 15px;
 }
 .editor-btn a {
 	color: #007aff;
@@ -420,7 +425,7 @@ input {
 	border-left: 0.5px solid #c7c7cc;
 	background-color: #e1e3e6;
 	box-shadow: inset 0 0 10px rgba(150, 150, 150, 0.5);
-	padding: 20px;
+	padding-top: 0;
 	transition: 0.3s opacity;
 	width: 330px;
 	overflow-y: auto;
@@ -429,8 +434,19 @@ input {
 	pointer-events: none;
 }
 .result-text {
-	font-size: 16px;
+	font-size: 14px;
 	color: #777;
+	background: #eee;
+	position: sticky;
+	top: 0;
+	padding: 10px;
+	z-index: 5;
+	border-left: 0.5px solid #c7c7cc;
+	border-bottom: 0.5px solid #c7c7cc;
+}
+.styles_container__2XUEs {
+	padding: 20px;
+	padding-top: 0;
 }
 #run-preview {
 	display: none;

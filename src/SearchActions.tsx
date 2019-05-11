@@ -87,9 +87,15 @@ export class SearchActions extends Component<
 					onKeyUp={e => this.searchChanged(e.currentTarget.value)}
 					onFocus={e => this.searchChanged(e.currentTarget.value)}
 					onBlur={e =>
-						setTimeout(() => this.searchChanged(undefined), 1000)
+						setTimeout(() => this.searchChanged(undefined), 300)
 					}
 				/>
+				<div
+					className="close-search-btn"
+				onClick={e => this.searchChanged(undefined)}
+				>
+						Cancel
+				</div>
 				<div
 					className={`search-action-results ${
 						this.state.searchTerm !== undefined
@@ -97,13 +103,11 @@ export class SearchActions extends Component<
 							: ""
 					}`}
 				>
-				<div className="close-search-btn">
-					<a
-						href="javascript:;"
-						onClick={e => this.searchChanged(undefined)}
-					>
+				<div
+					className="close-mobile-search-btn"
+				onClick={e => this.searchChanged(undefined)}
+				>
 						&times;
-					</a>
 				</div>
 					{actionsByName
 						.filter(

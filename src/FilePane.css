@@ -5,6 +5,10 @@
 	transition: 0.1s left ease-out;
 	z-index: 1000000;
 }
+.file-pane input {
+	width: 90%;
+	margin-left: 15px;
+}
 .file-pane h2 {
 	margin: 20px 15px;
 }
@@ -17,8 +21,9 @@
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 10px;
 	padding: 5px 0;
+	padding-top: 1px;
 	padding-bottom: 20px;
-	box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.23);
+	box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.15);
 }
 .file-btns {
 	display: grid;
@@ -49,9 +54,10 @@
 	padding-left: 25px;
 	cursor: pointer;
 	user-select: none;
+	transition: 0.3s background-color;
 }
 .file-list li:hover:not(.open-folder) {
-	background-color: #f3f3f3 !important;
+	background-color: #f3f3f395 !important;
 }
 .file-list li:active:not(.open-folder) {
 	background-color: #eaeaea !important;
@@ -144,7 +150,7 @@
 }
 .file-list li.list-item-folder.open-folder {
 	background: url(img/down.svg) 10px 15px / 10px no-repeat;
-	margin-bottom: -13px;
+	padding-bottom: 0;
 }
 .file-list li.list-item-folder.open-folder > ul {
 	display: block;
