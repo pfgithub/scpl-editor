@@ -23,24 +23,16 @@
 		top: 50px;
 		box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.25);
 	}
-	.editor-container {
-		grid-template-columns: 1fr !important;
-	}
 }
 /* iPad Portrait */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: portrait) {
-	.editor-container {
-		display: block !important;
-	}
 	.code-pane {
 		border: none !important;
 	}
 }
 /* iPad Landscape */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: landscape) {
-	.editor-container {
-		display: block !important;
-	}
+
 }
 /* Phone Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 767px) {
@@ -49,9 +41,6 @@
 	}
 	.file-list li.open-folder > ul > li {
 		width: 96% !important;
-	}
-	.editor-container {
-		display: block !important;
 	}
 	.result-pane {
 		width: auto !important;
@@ -86,6 +75,7 @@
 		top: 50px;
 		right: 0;
 		width: 100% !important;
+		overflow-x: hidden !important;
 	}
 	.code-pane,
 	.result-pane {
@@ -127,6 +117,15 @@
 }
 /* General Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 1260px) {
+	.editor-container {
+		display: block !important;
+		grid-template-columns: auto !important;
+		position: static !important;
+		margin-top: 50px;
+	}
+	.code-pane {
+		height: 93vh;
+	}
 	.result-pane {
 		position: fixed;
 		z-index: 200;

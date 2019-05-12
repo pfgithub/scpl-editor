@@ -51,7 +51,6 @@ export class ShortcutDownloadStatusSwitcher extends Component<{
 			case "None":
 				return (
 					<div>
-					<p>Add to your library via QR Code:</p>
 						<button
 							className="large-btn"
 							onClick={() => this.props.requestUpload()}
@@ -79,7 +78,7 @@ export class ShortcutDownloadStatusSwitcher extends Component<{
 					<div>
 						<div className="generate-code-load">
 							<div className="load" />
-							<p>Generating QR Code...</p>
+							<p>Uploading...</p>
 						</div>
 					</div>
 				);
@@ -203,7 +202,6 @@ export class DownloadModal extends Component<
 												)}
 											/>
 										</a>
-										);
 									</ShortcutDownloadStatusSwitcher>
 								)}
 							</div>
