@@ -324,7 +324,7 @@ OpenURLs`
 										preview automatically.
 									</p>
 									<button
-										className="large-btn"
+										className="btn trans-btn"
 										onClick={() =>
 											this.setState({ showPreview: true })
 										}

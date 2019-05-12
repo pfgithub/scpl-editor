@@ -3,7 +3,7 @@ export const _ = class {};
 /*
 	<div className="modal dialog" id="rename-folder">
 		<div
-			className="large-btn cancel-btn"
+			className="cancel-btn"
 			id="close-rename-folder"
 		>
 			Cancel
@@ -23,7 +23,7 @@ export const _ = class {};
 
 	<div className="modal dialog" id="rename-file">
 		<div
-			className="large-btn cancel-btn"
+			className="cancel-btn"
 			id="close-rename-file"
 		>
 			Cancel
@@ -43,7 +43,7 @@ export const _ = class {};
 
 	<div className="modal dialog" id="rename-folder">
 		<div
-			className="large-btn cancel-btn"
+			className="cancel-btn"
 			id="close-rename-folder"
 		>
 			Cancel

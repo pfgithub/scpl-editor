@@ -171,20 +171,20 @@ export class FilePane extends Component<
 								/>
 								<div className="file-btns">
 									<div
-										className="large-btn file-btn upload-btn"
+										className="btn file-btn upload-btn"
 										{...getRootProps()}
 									>
 										<input {...getInputProps()} />
 									</div>
 									<button
-										className="large-btn file-btn new-btn"
+										className="btn file-btn new-btn"
 										onClick={() =>
 											this.setState({
 												showFileModal: true
 											})
 										}
 									/>
-									<button className="large-btn file-btn newf-btn" />
+									<button className="btn file-btn newf-btn" />
 								</div>
 							</div>
 							<div className="file-list">

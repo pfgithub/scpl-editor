@@ -51,8 +51,9 @@ export class ShortcutDownloadStatusSwitcher extends Component<{
 			case "None":
 				return (
 					<div>
+					<br/><br/>
 						<button
-							className="large-btn"
+							className="btn"
 							onClick={() => this.props.requestUpload()}
 						>
 							{this.props.uploadAction}
@@ -238,7 +239,7 @@ export class DownloadModal extends Component<
 					)}
 					<br/>
 					<div
-						className="large-btn"
+						className="btn large-btn"
 						id="close-download"
 						onClick={() => this.props.onCancel()}
 					>

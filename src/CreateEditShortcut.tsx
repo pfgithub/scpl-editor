@@ -474,7 +474,7 @@ export class CreateEditShortcut extends Component<{
 					</div>
 
 					<br />
-					<div className="large-btn" id="close-new">
+					<div className="btn large-btn" id="close-new">
 						Create
 					</div>
 				</div>
