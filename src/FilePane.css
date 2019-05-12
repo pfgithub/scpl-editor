@@ -57,10 +57,10 @@
 	transition: 0.3s background-color;
 }
 .file-list li:hover:not(.open-folder) {
-	background-color: #f3f3f395 !important;
+	background-color: #e8f6fe !important;
 }
 .file-list li:active:not(.open-folder) {
-	background-color: #eaeaea !important;
+	background-color: #daeffc !important;
 }
 .file-list li.open-folder > ul > li {
 	width: 94%;

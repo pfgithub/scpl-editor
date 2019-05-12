@@ -2,10 +2,10 @@
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 ::selection {
-	background: rgba(131, 174, 229, 0.5);
+	background: #007aff30;
 }
 ::-moz-selection {
-	background: rgba(131, 174, 229, 0.5);
+	background: #007aff30;
 }
 
 /* iPad */
@@ -463,12 +463,19 @@ input:active {
 	bottom: 0;
 	width: 100% !important;
 	height: 100% !important;
+	cursor: text;
 }
 .ace_gutter-cell.ace_error {
 	background: url(img/error.png) 2px 1px / 14px no-repeat !important;
 }
 .ace_invalid {
 	background-color: #d74c39 !important;
+}
+.ace_active-line {
+	background-color: #e8f6fe !important;
+}
+.ace_cursor {
+	color: #007aff !important;
 }
 /* download modal */
 .generate-code-load .load {
@@ -706,4 +713,111 @@ input:active {
 }
 .e-message button:active {
 	opacity: 0.7;
+}
+/* Tabs */
+.file-tabs {
+	border-bottom: 0.5px solid #adacac;
+	background: #ccc;
+}
+.tab {
+	display: inline-block;
+	padding: 5px 10px;
+	padding-right: 20px;
+	border-right: 0.5px solid #adacac;
+	color: #3d3c3d;
+	transition: 0.1s all;
+	cursor: pointer;
+}
+.tab:hover:not(.active-tab) {
+	background: #a7a8a750;
+}
+.tab.active-tab {
+	background: #e3e4e3;
+	color: #1d1d1c;
+}
+.tab-close, .tab-label {
+	display: inline-block;
+}
+.tab-close {
+	font-size: 20px;
+	line-height: 12px;
+	border-radius: 5px;
+	color: #454445;
+	height: 15px;
+	width: 15px;
+	cursor: pointer;
+	user-select: none;
+	padding: 3px;
+	text-align: center;
+	transition: 0.1s all;
+}
+.tab-close:active {
+	opacity: 0.7;
+}
+.tab.active-tab .tab-close:hover {
+	background: #ccc;
+}
+.tab .tab-close:hover {
+	background: #aaa;
+}
+.tab-label {
+	font-size: 13px;
+	line-height: 15px;
+	margin-left: 10px;
+	user-select: none;
+}
+/* Menus */
+.editor-menu {
+	display: inline-block;
+	color: #007aff;
+	cursor: pointer;
+	transition: 0.2s all;
+}
+.editor-menu ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+padding: 16px;
+display: inline-block;
+}
+.editor-menu > ul:first-child:hover {
+background: #e8f6fe;
+}
+.editor-menu ul ul {
+	margin-left: -15px;
+	position: absolute;
+	padding: 10px 0;
+	background-color: #fff;
+	border-radius: 5px;
+	margin-top: 15px;
+	box-shadow: 0 0 5px rgba(50,50,50,.3);
+	min-width: 250px;
+	display: none;
+}
+.editor-menu ul:hover ul {
+	display: block
+}
+.editor-menu ul ul li a {
+	display: block;
+	padding: 8px 15px;
+	font-size: 14px;
+	text-decoration: none;
+	color: #1d1d1c98;
+	transition: 0.2s all;
+	font-weight: 500;
+}
+.editor-menu li a span {
+	float: right;
+	color: #81a8be;
+	font-size: 13px;
+	line-height: 16px;
+	text-align: right;
+}
+.editor-menu ul ul li a:hover {
+	background: #e8f6fe;
+	color: #1d1d1c;
+}
+.menu-div {
+	border-top: 1px solid #5a798b30;
+	margin: 10px 15px;
 }

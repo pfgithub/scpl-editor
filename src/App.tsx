@@ -82,7 +82,7 @@ class App extends Component<
 	componentWillMount() {
 		this.onChange(
 			`ShowResult "Hello ScPL"
-ChooseFromMenu items=["Getting Started", "View Documentation"]
+ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
 Case "Getting Started"
     URL "https://docs.scpl.dev/gettingstarted"
 Case "View Documentation"
@@ -124,18 +124,41 @@ OpenURLs`
 					/>
 					<div>
 						<div className="editor-title">ScPL Web Editor</div>
-						<div className="editor-btn">
-							<a
-								href="https://docs.scpl.dev/gettingstarted.html"
-								target="_blank"
-							>
-								Getting Started
-							</a>
+						<div className="editor-menu">
+						<ul>
+							<li>File
+									<ul>
+										<li><a href='javascript:;'>New File<span>CTRL/&#8984; + N</span></a></li>
+										<li><a href='javascript:;'>Save File<span>CTRL/&#8984; + S</span></a></li>
+										<li><a href='javascript:;'>Close Tab<span>CTRL/&#8984; + E</span></a></li>
+									</ul>
+							</li>
+						</ul>
 						</div>
-						<div className="editor-btn">
-							<a href="https://docs.scpl.dev/" target="_blank">
-								Documentation
-							</a>
+						<div className="editor-menu">
+						<ul>
+							<li>Edit
+									<ul>
+										<li><a href='javascript:;'>Undo<span>CTRL/&#8984; + Z</span></a></li>
+										<li><a href='javascript:;'>Redo<span>CTRL/&#8984; + Y</span></a></li>
+										<div className="menu-div"></div>
+										<li><a href='javascript:;'>Cut<span>CTRL/&#8984; + X</span></a></li>
+										<li><a href='javascript:;'>Copy<span>CTRL/&#8984; + C</span></a></li>
+										<li><a href='javascript:;'>Paste<span>CTRL/&#8984; + P</span></a></li>
+										<li><a href='javascript:;'>Select All<span>CTRL/&#8984; + A</span></a></li>
+									</ul>
+							</li>
+						</ul>
+						</div>
+						<div className="editor-menu">
+						<ul>
+							<li>Help
+									<ul>
+										<li><a href='https://docs.scpl.dev/gettingstarted.html' target='_blank'>Getting Started</a></li>
+										<li><a href='https://docs.scpl.dev/' target='_blank'>Documentation</a></li>
+									</ul>
+							</li>
+						</ul>
 						</div>
 					</div>
 					<div className="search-container">
@@ -274,6 +297,10 @@ OpenURLs`
 									</div>
 								</div>
 							))}
+						</div>
+						<div className="file-tabs">
+							<div className="tab active-tab"><div className="tab-close">&times;</div><div className="tab-label">Example.scpl</div></div>
+							<div className="tab"><div className="tab-close">&times;</div><div className="tab-label">Sample File.scpl</div></div>
 						</div>
 						<AceEditor
 							mode="scpl"
