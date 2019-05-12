@@ -138,6 +138,9 @@
 		box-shadow: -1px 5px 16px rgba(0, 0, 0, 0.27) !important;
 		border: 2px solid #ccc;
 	}
+	.download-grid > div:first-child:after {
+		display: none;
+	}
 	.result-pane.mobiledisabled {
 		display: none;
 	}
@@ -470,7 +473,7 @@ input:active {
 }
 /* download modal */
 .generate-code-load .load {
-	margin: 0 auto;
+	margin: 30px auto;
 }
 #qr-result {
 	width: 150px;
@@ -526,6 +529,17 @@ input:active {
 	justify-content: center;
 	align-items: center;
 }
+.download-grid > div:first-child:after {
+	content: 'or';
+	position: absolute;
+	margin-left: 150px;
+	background: #fff;
+	padding: 10px 0;
+	font-weight: bold;
+	color: #888;
+	text-transform: uppercase;
+	font-size: 15px;
+}
 .large-btn {
 	padding: 15px;
 	background-color: #eee;
@@ -545,7 +559,15 @@ input:active {
 	font-weight: normal;
 	background: none;
 	float: right;
-	margin-top: 15px;
+	margin-top: 23px;
+	color: #007aff;
+	cursor: pointer;
+}
+.cancel-btn:hover {
+	opacity: .7;
+}
+.cancel-btn:active {
+	opacity: .5;
 }
 .too-many-actions {
 	position: absolute;

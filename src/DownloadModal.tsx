@@ -51,7 +51,14 @@ export class ShortcutDownloadStatusSwitcher extends Component<{
 			case "None":
 				return (
 					<div>
-						<p>
+					<p>Add to your library via QR Code:</p>
+						<button
+							className="large-btn"
+							onClick={() => this.props.requestUpload()}
+						>
+							{this.props.uploadAction}
+						</button>
+						<p className="details-text">
 							To {this.props.uploadReason}, ScPL editor will
 							upload your shortcut to{" "}
 							<a
@@ -63,12 +70,6 @@ export class ShortcutDownloadStatusSwitcher extends Component<{
 							</a>
 							.
 						</p>
-						<button
-							className="large-btn"
-							onClick={() => this.props.requestUpload()}
-						>
-							{this.props.uploadAction}
-						</button>
 					</div>
 				);
 			case "URL":
@@ -165,7 +166,7 @@ export class DownloadModal extends Component<
 					}}
 					onClick={e => e.stopPropagation()}
 				>
-					<h1>Download Shortcut Export</h1>
+					<h2>Export Shortcut File</h2>
 					{this.props.file ? (
 						<div className="download-grid">
 							<div>
@@ -227,10 +228,6 @@ export class DownloadModal extends Component<
 											Open your Camera app and point it
 											steady for 2-3 seconds at this QR
 											Code.
-											<br />
-											<br />
-											If nothing happens, QR Code scanning
-											may not be enabled on your device.
 										</p>
 									</div>
 								</ShortcutDownloadStatusSwitcher>
@@ -241,6 +238,7 @@ export class DownloadModal extends Component<
 							<p>Your shortcut may have some errors.</p>
 						</div>
 					)}
+					<br/>
 					<div
 						className="large-btn"
 						id="close-download"

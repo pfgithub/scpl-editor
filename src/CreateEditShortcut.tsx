@@ -17,13 +17,13 @@ export class CreateEditShortcut extends Component<{
 					style={{ display: "block" }}
 				>
 					<div
-						className="large-btn cancel-btn"
+						className="cancel-btn"
 						id="close-new"
 						onClick={() => this.props.onCancel()}
 					>
 						Cancel
 					</div>
-					<h1>New ScPL File</h1>
+					<h2>New ScPL File</h2>
 					<div className="input-label">Shortcut Name</div>
 					<input
 						type="text"
