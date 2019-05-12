@@ -56,6 +56,7 @@ class App extends Component<
 		mobileFilemenu: boolean;
 		openDownload: boolean;
 		showPreview: boolean;
+		autoPreview: boolean;
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -72,6 +73,7 @@ class App extends Component<
 			mobileFilemenu: false,
 			openDownload: false,
 			showPreview: false,
+			autoPreview: false,
 			errors: []
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
@@ -285,7 +287,9 @@ OpenURLs`
 					</div>
 					<div
 						className={`result-pane${
-							this.state.loading ? " loading" : ""
+							this.state.loading && this.state.showPreview
+								? " loading"
+								: ""
 						}`}
 						// style={{
 						// 	display: this.state.showPreview ? "none" : "block"
@@ -294,23 +298,35 @@ OpenURLs`
 						<div className="result-text">
 							Converted in {this.state.took.convertedIn} ms.
 						</div>
-						<MaybeUpdate shouldUpdate={this.state.showPreview}>
+						{this.state.showPreview ? (
 							<ShortcutPreview
 								onInteract={data => this.onActionSelect(data)}
 								data={this.state.shortcutData}
 							/>
-						</MaybeUpdate>
+						) : null}
 						<div className="loading-result-progress">
 							<div>
 								<div className="load" />
 							</div>
 						</div>
-						<div className="too-many-actions">
-							<div>
-								<p>There are too many actions to render a preview automatically.</p>
-								<div className="large-btn">Render Preview</div>
+						{!this.state.showPreview ? (
+							<div className="too-many-actions">
+								<div>
+									<p>
+										There are too many actions to render a
+										preview automatically.
+									</p>
+									<div
+										className="large-btn"
+										onClick={() =>
+											this.setState({ showPreview: true })
+										}
+									>
+										Render Preview
+									</div>
+								</div>
 							</div>
-						</div>
+						) : null}
 					</div>
 				</div>
 			</div>
@@ -368,6 +384,7 @@ OpenURLs`
 		const willWaitFor = Math.max(this.state.took.convertedIn * 4, 100);
 		if (!this.state.loading) {
 			this.setState({
+				showPreview: this.state.took.convertedIn < 50,
 				fileValue: text,
 				loading: true
 			});
