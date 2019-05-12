@@ -56,7 +56,7 @@ class App extends Component<
 		mobileFilemenu: boolean;
 		openDownload: boolean;
 		showPreview: boolean;
-		autoPreview: boolean;
+		showPreviewFullscreen: boolean;
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -73,7 +73,7 @@ class App extends Component<
 			mobileFilemenu: false,
 			openDownload: false,
 			showPreview: false,
-			autoPreview: false,
+			showPreviewFullscreen: false,
 			errors: []
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
@@ -181,7 +181,10 @@ OpenURLs`
 								href="javascript:;"
 								onClick={() => {
 									this.setState({
-										showPreview: !this.state.showPreview
+										showPreviewFullscreen: !this.state
+											.showPreviewFullscreen,
+										showPreview: !this.state
+											.showPreviewFullscreen
 									});
 								}}
 							>
@@ -290,6 +293,10 @@ OpenURLs`
 							this.state.loading && this.state.showPreview
 								? " loading"
 								: ""
+						}${
+							!this.state.showPreviewFullscreen
+								? " mobiledisabled"
+								: ""
 						}`}
 						// style={{
 						// 	display: this.state.showPreview ? "none" : "block"
@@ -316,14 +323,14 @@ OpenURLs`
 										There are too many actions to render a
 										preview automatically.
 									</p>
-									<div
+									<button
 										className="large-btn"
 										onClick={() =>
 											this.setState({ showPreview: true })
 										}
 									>
 										Render Preview
-									</div>
+									</button>
 								</div>
 							</div>
 						) : null}
