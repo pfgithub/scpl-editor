@@ -57,6 +57,7 @@ class App extends Component<
 		openDownload: boolean;
 		showPreview: boolean;
 		showPreviewFullscreen: boolean;
+		tabs: { filename: string; active: boolean }[];
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -74,7 +75,11 @@ class App extends Component<
 			openDownload: false,
 			showPreview: false,
 			showPreviewFullscreen: false,
-			errors: []
+			errors: [],
+			tabs: [
+				{ filename: "download.scpl", active: true },
+				{ filename: "other.scpl", active: false }
+			]
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
@@ -368,12 +373,22 @@ OpenURLs`
 								</div>
 							))}
 						</div>
-						<div className="file-tabs">
-							<div className="tab active-tab">
-								<div className="tab-close">&times;</div>
-								<div className="tab-label">Example.scpl</div>
+						{this.state.tabs.length > 1 ? (
+							<div className="file-tabs">
+								{this.state.tabs.map(tab => (
+									<div
+										className={`tab ${
+											tab.active ? "active-tab" : ""
+										}`}
+									>
+										<div className="tab-close">&times;</div>
+										<div className="tab-label">
+											{tab.filename}
+										</div>
+									</div>
+								))}
 							</div>
-						</div>
+						) : null}
 						<AceEditor
 							mode="scpl"
 							theme="chrome"
