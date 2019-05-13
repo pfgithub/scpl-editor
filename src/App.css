@@ -782,26 +782,29 @@ input:active {
 	transition: 0.2s all;
 }
 .editor-menu ul {
-list-style-type: none;
-margin: 0;
-padding: 0;
-padding: 16px;
-display: inline-block;
-font-size: 15px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding: 16px;
+	display: inline-block;
+	font-size: 15px;
 }
 .editor-menu > ul:first-child:hover {
-background: #e8f6fe;
+	background: #e8f6fe90;
 }
 .editor-menu ul ul {
 	margin-left: -15px;
 	position: absolute;
 	padding: 10px 0;
+	padding-left: 1px;
 	background-color: #fff;
-	border-radius: 5px;
-	margin-top: 15px;
-	box-shadow: 0 0 10px rgba(100,100,100,.8);
-	min-width: 250px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin-top: 16px;
+	box-shadow: 0 5px 5px rgba(100,100,100,.3);
+	min-width: 230px;
 	display: none;
+	border: 0.5px solid #c7c7cc;
 }
 .editor-menu ul:hover ul {
 	display: block
