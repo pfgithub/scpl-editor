@@ -58,6 +58,9 @@ class App extends Component<
 		showPreview: boolean;
 		showPreviewFullscreen: boolean;
 		tabs: { filename: string; active: boolean }[];
+		files: {
+			[filename: string]: string;
+		};
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -79,7 +82,18 @@ class App extends Component<
 			tabs: [
 				{ filename: "download.scpl", active: true },
 				{ filename: "other.scpl", active: false }
-			]
+			],
+			files: {
+				"download.scpl": `ShowResult "Hello ScPL"
+	ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
+	Case "Getting Started"
+	    URL "https://docs.scpl.dev/gettingstarted"
+	Case "View Documentation"
+	    URL "https://docs.scpl.dev/"
+	End Menu
+	OpenURLs`,
+				"other.scpl": `ShowResult "ScPL"`
+			}
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
