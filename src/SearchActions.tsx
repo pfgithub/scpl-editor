@@ -18,6 +18,7 @@ const actionsByName = allActions.sort((a, b) => {
 class ActionData extends Component<{
 	onSelect: (text: string) => void;
 	actionID: string;
+	canShowDetail: boolean;
 }> {
 	render() {
 		const action = getActionFromID(this.props.actionID);
@@ -40,14 +41,15 @@ class ActionData extends Component<{
 					<div className="action-item-code">{action.shortName}</div>
 				</div>
 				<div className="action-item-description">
-					{/*<ReactMarkdown source={action.genDocs()} />*/}
-					{
+					{this.props.canShowDetail ? (
+						<ReactMarkdown source={action.genDocs()} />
+					) : (
 						(
 							action._data.Description || {
 								DescriptionSummary: "No description"
 							}
 						).DescriptionSummary
-					}
+					)}
 				</div>
 				<div className="action-item-usage">{usage}</div>
 				<a
@@ -123,13 +125,15 @@ export class SearchActions extends Component<
 										).replace(/[^A-Za-z0-9]/g, "")
 									) > -1
 						)
-						.map(action => (
+						.map((action, i, v) => (
 							<ActionData
 								actionID={action.id}
 								onSelect={text => {
 									this.props.insertText(`\n${text}`);
 									this.searchChanged(undefined);
 								}}
+								canShowDetail={v.length === 1}
+								key={action.id}
 							/>
 						))}
 				</div>
