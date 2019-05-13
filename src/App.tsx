@@ -128,9 +128,13 @@ OpenURLs`
 						<ul>
 							<li>File
 									<ul>
-										<li><a href='javascript:;'>New File<span>CTRL/&#8984; + N</span></a></li>
-										<li><a href='javascript:;'>Save File<span>CTRL/&#8984; + S</span></a></li>
-										<li><a href='javascript:;'>Close Tab<span>CTRL/&#8984; + E</span></a></li>
+										<li><a href='javascript:;'>New File<span>&#8984;N</span></a></li>
+										<li><a href='javascript:;'>New Folder<span>&#8679;&#8984;N</span></a></li>
+										<li><a href='javascript:;'>Save File<span>&#8984;S</span></a></li>
+										<li><a href='javascript:;'>Close Tab<span>&#8984;E</span></a></li>
+										<div className="menu-div"></div>
+										<li><a href='javascript:;'>Upload Shortcut</a></li>
+										<li><a href='javascript:;'>Export Shortcut</a></li>
 									</ul>
 							</li>
 						</ul>
@@ -139,13 +143,13 @@ OpenURLs`
 						<ul>
 							<li>Edit
 									<ul>
-										<li><a href='javascript:;'>Undo<span>CTRL/&#8984; + Z</span></a></li>
-										<li><a href='javascript:;'>Redo<span>CTRL/&#8984; + Y</span></a></li>
+										<li><a href='javascript:;'>Undo<span>&#8984;Z</span></a></li>
+										<li><a href='javascript:;'>Redo<span>&#8984;Y</span></a></li>
 										<div className="menu-div"></div>
-										<li><a href='javascript:;'>Cut<span>CTRL/&#8984; + X</span></a></li>
-										<li><a href='javascript:;'>Copy<span>CTRL/&#8984; + C</span></a></li>
-										<li><a href='javascript:;'>Paste<span>CTRL/&#8984; + P</span></a></li>
-										<li><a href='javascript:;'>Select All<span>CTRL/&#8984; + A</span></a></li>
+										<li><a href='javascript:;'>Cut<span>&#8984;X</span></a></li>
+										<li><a href='javascript:;'>Copy<span>&#8984;C</span></a></li>
+										<li><a href='javascript:;'>Paste<span>&#8984;P</span></a></li>
+										<li><a href='javascript:;'>Select All<span>&#8984;A</span></a></li>
 									</ul>
 							</li>
 						</ul>
@@ -300,7 +304,6 @@ OpenURLs`
 						</div>
 						<div className="file-tabs">
 							<div className="tab active-tab"><div className="tab-close">&times;</div><div className="tab-label">Example.scpl</div></div>
-							<div className="tab"><div className="tab-close">&times;</div><div className="tab-label">Sample File.scpl</div></div>
 						</div>
 						<AceEditor
 							mode="scpl"

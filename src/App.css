@@ -539,16 +539,16 @@ input:active {
 	justify-content: center;
 	align-items: center;
 }
-.download-grid > div:first-child:after {
-	content: 'or';
+.or-download {
 	position: absolute;
-	margin-left: 150px;
+	margin-bottom: -50px;
 	background: #fff;
 	padding: 10px 0;
 	font-weight: bold;
 	color: #888;
 	text-transform: uppercase;
 	font-size: 15px;
+	display: none;
 }
 .btn {
 	padding: 10px 20px;
@@ -593,7 +593,7 @@ input:active {
 }
 .too-many-actions {
 	position: absolute;
-	z-index: 500;
+	z-index: 100;
 	right: 0;
 	top: 0;
 	bottom: 0;
@@ -679,7 +679,7 @@ input:active {
 }
 .error-messages {
 	position: absolute;
-	z-index: 100;
+	z-index: 110;
 	right: 0;
 	margin: 15px;
 }
@@ -823,8 +823,8 @@ input:active {
 .editor-menu li a span {
 	float: right;
 	color: #94b0cf;
-	font-size: 13px;
-	line-height: 16px;
+	font-size: 14px;
+	line-height: 15px;
 	text-align: right;
 }
 .editor-menu ul ul li a:hover {

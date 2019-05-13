@@ -167,6 +167,7 @@ export class DownloadModal extends Component<
 					onClick={e => e.stopPropagation()}
 				>
 					<h2>Export Shortcut File</h2>
+					<div className="or-download">or</div>
 					{this.props.file ? (
 						<div className="download-grid">
 							<div>
