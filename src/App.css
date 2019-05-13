@@ -32,7 +32,6 @@
 }
 /* iPad Landscape */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: landscape) {
-
 }
 /* Phone Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 767px) {
@@ -586,10 +585,10 @@ input:active {
 	cursor: pointer;
 }
 .cancel-btn:hover {
-	opacity: .7;
+	opacity: 0.7;
 }
 .cancel-btn:active {
-	opacity: .5;
+	opacity: 0.5;
 }
 .too-many-actions {
 	position: absolute;
@@ -732,9 +731,9 @@ input:active {
 	transition: 0.1s all;
 	cursor: pointer;
 	width: 20%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	margin-bottom: -3px;
 }
 .tab:hover:not(.active-tab) {
@@ -744,7 +743,8 @@ input:active {
 	background: #e3e4e3;
 	color: #1d1d1c;
 }
-.tab-close, .tab-label {
+.tab-close,
+.tab-label {
 	display: inline-block;
 }
 .tab-close {
@@ -802,13 +802,13 @@ input:active {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	margin-top: 16px;
-	box-shadow: 0 5px 10px rgba(100,100,100,.1);
+	box-shadow: 0 5px 10px rgba(100, 100, 100, 0.1);
 	min-width: 230px;
 	display: none;
 	border: 0.5px solid #c7c7cc;
 }
 .editor-menu ul:hover ul {
-	display: block
+	display: block;
 }
 .editor-menu ul ul li a {
 	display: block;

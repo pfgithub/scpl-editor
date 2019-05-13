@@ -90,12 +90,14 @@ export class SearchActions extends Component<
 						setTimeout(() => this.searchChanged(undefined), 300)
 					}
 				/>
-				{this.state.searchTerm !== undefined ? <div
-					className="close-search-btn"
-					onClick={e => this.searchChanged(undefined)}
-				>
-					Cancel
-				</div> : null}
+				{this.state.searchTerm !== undefined ? (
+					<div
+						className="close-search-btn"
+						onClick={e => this.searchChanged(undefined)}
+					>
+						Cancel
+					</div>
+				) : null}
 				<div
 					className={`search-action-results ${
 						this.state.searchTerm !== undefined
