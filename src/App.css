@@ -412,6 +412,7 @@ input:active {
 	display: grid;
 	grid-template-columns: 0fr 1fr 0fr;
 	width: 100%;
+	height: 100%;
 	position: fixed;
 	top: 50px;
 	left: 0;
@@ -465,7 +466,7 @@ input:active {
 	left: 0;
 	bottom: 0;
 	width: 100% !important;
-	height: 100% !important;
+	height: 95% !important;
 	cursor: text;
 }
 .ace_gutter-cell.ace_error {
@@ -801,7 +802,7 @@ input:active {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	margin-top: 16px;
-	box-shadow: 0 5px 5px rgba(100,100,100,.3);
+	box-shadow: 0 5px 10px rgba(100,100,100,.1);
 	min-width: 230px;
 	display: none;
 	border: 0.5px solid #c7c7cc;
