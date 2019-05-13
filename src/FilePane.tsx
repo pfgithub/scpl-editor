@@ -163,7 +163,6 @@ export class FilePane extends Component<
 					{({ getRootProps, getInputProps }) => (
 						<div>
 							<div className="files-header">
-								<h2>Files</h2>
 								<input
 									type="search"
 									className="search-input"

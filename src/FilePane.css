@@ -17,12 +17,10 @@
 	position: sticky;
 	top: 0;
 	background-color: #fafafa;
-	height: 150px;
+	height: 85px;
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 10px;
-	padding: 5px 0;
-	padding-top: 1px;
-	padding-bottom: 20px;
+	padding: 15px 0;
 	box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.15);
 }
 .file-btns {
@@ -106,10 +104,7 @@
 	font-weight: 500;
 }
 .file-list li.list-item-file.active:hover {
-	background-color: #007aff35 !important;
-}
-.file-list li.list-item-file.active:active {
-	background-color: #007aff50 !important;
+	background-color: #007aff10 !important;
 }
 .file-list li.list-item-file.active > div {
 	background-image: url(img/file_active.png);

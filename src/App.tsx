@@ -123,7 +123,7 @@ OpenURLs`
 						}
 					/>
 					<div>
-						<div className="editor-title">ScPL Web Editor</div>
+						<div className="editor-title">ScPL Editor</div>
 						<div className="editor-menu">
 						<ul>
 							<li>File

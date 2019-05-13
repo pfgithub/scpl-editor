@@ -117,6 +117,9 @@
 }
 /* General Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 1260px) {
+	.editor-menu {
+		display: none !important;
+	}
 	.editor-container {
 		display: block !important;
 		grid-template-columns: auto !important;
@@ -727,6 +730,11 @@ input:active {
 	color: #3d3c3d;
 	transition: 0.1s all;
 	cursor: pointer;
+	width: 20%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	margin-bottom: -3px;
 }
 .tab:hover:not(.active-tab) {
 	background: #a7a8a750;
@@ -741,7 +749,7 @@ input:active {
 .tab-close {
 	font-size: 20px;
 	line-height: 12px;
-	border-radius: 5px;
+	border-radius: 3px;
 	color: #454445;
 	height: 15px;
 	width: 15px;
@@ -779,6 +787,7 @@ margin: 0;
 padding: 0;
 padding: 16px;
 display: inline-block;
+font-size: 15px;
 }
 .editor-menu > ul:first-child:hover {
 background: #e8f6fe;
@@ -790,7 +799,7 @@ background: #e8f6fe;
 	background-color: #fff;
 	border-radius: 5px;
 	margin-top: 15px;
-	box-shadow: 0 0 5px rgba(50,50,50,.3);
+	box-shadow: 0 0 10px rgba(100,100,100,.8);
 	min-width: 250px;
 	display: none;
 }
@@ -805,10 +814,11 @@ background: #e8f6fe;
 	color: #1d1d1c98;
 	transition: 0.2s all;
 	font-weight: 500;
+	user-select: none;
 }
 .editor-menu li a span {
 	float: right;
-	color: #81a8be;
+	color: #94b0cf;
 	font-size: 13px;
 	line-height: 16px;
 	text-align: right;
