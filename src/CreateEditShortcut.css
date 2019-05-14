@@ -34,7 +34,7 @@
 	margin-right: 20px;
 	border-radius: 5px;
 	background-image: linear-gradient(to bottom right, #6d768e, #8f99b0);
-	box-shadow: 0 0 10px rgba(150,150,150,.5);
+	box-shadow: 0 0 10px rgba(150, 150, 150, 0.5);
 	padding: 3px;
 }
 .icon-preview {
