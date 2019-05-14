@@ -332,7 +332,7 @@ input:active {
 }
 /* navigation + nav elements */
 .mobile-filemenu {
-	background: url(img/menu.png) center / 27px no-repeat;
+	background: url(img/menu.svg) center / 27px no-repeat;
 	padding: 20px;
 	height: 8px;
 }
@@ -476,7 +476,7 @@ input:active {
 	cursor: text;
 }
 .ace_gutter-cell.ace_error {
-	background: url(img/error.png) 2px 1px / 14px no-repeat !important;
+	background: url(img/error_x.svg) 2px 1px / 14px no-repeat !important;
 }
 .ace_invalid {
 	background-color: #d74c39 !important;
@@ -679,7 +679,7 @@ input:active {
 	margin: 15px;
 }
 .e-message {
-	background: url(img/error_w.png) 10px center / 20px no-repeat;
+	background: url(img/error_w.svg) 10px center / 20px no-repeat;
 	background-color: #d74c39;
 	border: 2px solid #d74c3950;
 	padding: 13px 20px;

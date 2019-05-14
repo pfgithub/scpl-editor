@@ -380,7 +380,7 @@ OpenURLs`
 								})
 							}
 						>
-							<a href="javascript:;">Download</a>
+							<a href="javascript:;">Export</a>
 						</div>
 					</div>
 				</div>

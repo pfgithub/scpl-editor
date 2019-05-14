@@ -188,15 +188,15 @@
 	background-color: #8c99b3;
 }
 .edit-btn {
-	background-image: url(img/edit.png);
+	background-image: url(img/edit.svg);
 }
 .edit-btn:active {
-	background-image: url(img/edit_w.png);
+	background-image: url(img/edit_w.svg);
 }
 .delete-btn {
-	background-image: url(img/delete.png);
+	background-image: url(img/delete.svg);
 	margin-left: 3px;
 }
 .delete-btn:active {
-	background-image: url(img/delete_w.png);
+	background-image: url(img/delete_w.svg);
 }
