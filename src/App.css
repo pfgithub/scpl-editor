@@ -434,7 +434,7 @@ input:active {
 	padding-top: 0;
 	transition: 0.3s opacity;
 	width: 330px;
-	height: fill-available;
+	height: stretch;
 	overflow-y: auto;
 }
 .result-pane.loading {
