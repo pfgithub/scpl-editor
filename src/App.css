@@ -532,7 +532,7 @@ input:active {
 }
 .download-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 0fr 1fr;
 	text-align: center;
 }
 .download-grid > div {
@@ -543,17 +543,6 @@ input:active {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-.or-download {
-	position: absolute;
-	margin-bottom: -50px;
-	background: #fff;
-	padding: 10px 0;
-	font-weight: bold;
-	color: #888;
-	text-transform: uppercase;
-	font-size: 15px;
-	display: none;
 }
 .btn {
 	padding: 10px 20px;
