@@ -13,6 +13,7 @@ import AceEditor from "react-ace";
 import { FilePane } from "./FilePane";
 import { SearchActions } from "./SearchActions";
 import { DownloadModal } from "./DownloadModal";
+import { keys } from "./Key";
 
 import ShortcutPreview from "shortcut-preview";
 
@@ -57,6 +58,10 @@ class App extends Component<
 		openDownload: boolean;
 		showPreview: boolean;
 		showPreviewFullscreen: boolean;
+		tabs: { filename: string; active: boolean }[];
+		files: {
+			[filename: string]: string;
+		};
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -74,7 +79,22 @@ class App extends Component<
 			openDownload: false,
 			showPreview: false,
 			showPreviewFullscreen: false,
-			errors: []
+			errors: [],
+			tabs: [
+				{ filename: "download.scpl", active: true },
+				{ filename: "other.scpl", active: false }
+			],
+			files: {
+				"download.scpl": `ShowResult "Hello ScPL"
+	ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
+	Case "Getting Started"
+	    URL "https://docs.scpl.dev/gettingstarted"
+	Case "View Documentation"
+	    URL "https://docs.scpl.dev/"
+	End Menu
+	OpenURLs`,
+				"other.scpl": `ShowResult "ScPL"`
+			}
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
@@ -93,7 +113,16 @@ OpenURLs`
 	}
 	render() {
 		return (
-			<div>
+			<div
+				onKeyDown={e => {
+					if (keys.save(e)) {
+						alert("save");
+					}
+					if (keys.export(e)) {
+						this.setState({ openDownload: true });
+					}
+				}}
+			>
 				<div className="upload-area" style={{ display: "none" }}>
 					<div>Drop file anywhere to upload</div>
 				</div>
@@ -125,44 +154,168 @@ OpenURLs`
 					<div>
 						<div className="editor-title">ScPL Editor</div>
 						<div className="editor-menu">
-						<ul>
-							<li>File
+							<ul>
+								<li>
+									File
 									<ul>
-										<li><a href='javascript:;'>New File<span>&#8984;N</span></a></li>
-										<li><a href='javascript:;'>New Folder<span>&#8679;&#8984;N</span></a></li>
-										<li><a href='javascript:;'>Save File<span>&#8984;S</span></a></li>
-										<li><a href='javascript:;'>Close Tab<span>&#8984;E</span></a></li>
-										<div className="menu-div"></div>
-										<li><a href='javascript:;'>Upload Shortcut</a></li>
-										<li><a href='javascript:;'>Export Shortcut</a></li>
+										<li>
+											<a href="javascript:;">
+												New File
+												<span>&#8984;N</span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												New Folder
+												<span>&#8679;&#8984;N</span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												Save File
+												<span>&#8984;S</span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												Close Tab
+												<span>&#8984;E</span>
+											</a>
+										</li>
+										<div className="menu-div" />
+										<li>
+											<a href="javascript:;">
+												Upload Shortcut
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.setState({
+														openDownload: true
+													})
+												}
+											>
+												Export Shortcut
+												<span>&#8679;&#8984;S</span>
+											</a>
+										</li>
 									</ul>
-							</li>
-						</ul>
+								</li>
+							</ul>
 						</div>
 						<div className="editor-menu">
-						<ul>
-							<li>Edit
+							<ul>
+								<li>
+									Edit
 									<ul>
-										<li><a href='javascript:;'>Undo<span>&#8984;Z</span></a></li>
-										<li><a href='javascript:;'>Redo<span>&#8984;Y</span></a></li>
-										<div className="menu-div"></div>
-										<li><a href='javascript:;'>Cut<span>&#8984;X</span></a></li>
-										<li><a href='javascript:;'>Copy<span>&#8984;C</span></a></li>
-										<li><a href='javascript:;'>Paste<span>&#8984;P</span></a></li>
-										<li><a href='javascript:;'>Select All<span>&#8984;A</span></a></li>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.getAce().undo()
+												}
+											>
+												Undo<span>&#8984;Z</span>
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.getAce().redo()
+												}
+											>
+												Redo
+												<span>&#8679;&#8984;Z</span>
+											</a>
+										</li>
+										<div className="menu-div" />
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													document.execCommand(
+														"cut"
+													) ||
+													alert(
+														"Please press ctrl/cmd+x to cut"
+													)
+												}
+											>
+												Cut<span>&#8984;X</span>
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													document.execCommand(
+														"copy"
+													) &&
+													alert(
+														"Please press ctrl/cmd+c to copy"
+													)
+												}
+											>
+												Copy<span>&#8984;C</span>
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													document.execCommand(
+														"paste"
+													) ||
+													alert(
+														"Please press ctrl/cmd+v to paste."
+													)
+												}
+											>
+												Paste<span>&#8984;P</span>
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.getAce().selectAll()
+												}
+											>
+												Select All
+												<span>&#8984;A</span>
+											</a>
+										</li>
 									</ul>
-							</li>
-						</ul>
+								</li>
+							</ul>
 						</div>
 						<div className="editor-menu">
-						<ul>
-							<li>Help
+							<ul>
+								<li>
+									Help
 									<ul>
-										<li><a href='https://docs.scpl.dev/gettingstarted.html' target='_blank'>Getting Started</a></li>
-										<li><a href='https://docs.scpl.dev/' target='_blank'>Documentation</a></li>
+										<li>
+											<a
+												href="https://docs.scpl.dev/gettingstarted.html"
+												target="_blank"
+											>
+												Getting Started
+											</a>
+										</li>
+										<li>
+											<a
+												href="https://docs.scpl.dev/"
+												target="_blank"
+											>
+												Documentation
+											</a>
+										</li>
 									</ul>
-							</li>
-						</ul>
+								</li>
+							</ul>
 						</div>
 					</div>
 					<div className="search-container">
@@ -302,9 +455,23 @@ OpenURLs`
 								</div>
 							))}
 						</div>
-						<div className="file-tabs">
-							<div className="tab active-tab"><div className="tab-close">&times;</div><div className="tab-label">Example.scpl</div></div>
-						</div>
+						{this.state.tabs.length > 1 ? (
+							<div className="file-tabs">
+								{this.state.tabs.map(tab => (
+									<div
+										className={`tab ${
+											tab.active ? "active-tab" : ""
+										}`}
+									>
+										<div className="tab-close">&times;</div>
+										<div className="tab-label">
+											{tab.filename}
+										</div>
+									</div>
+								))}
+							</div>
+						) : null}
+
 						<AceEditor
 							mode="scpl"
 							theme="chrome"
@@ -335,7 +502,8 @@ OpenURLs`
 						<div className="result-text">
 							Converted in {this.state.took.convertedIn} ms.
 						</div>
-						{this.state.showPreview ? (
+						{this.state.showPreview &&
+						this.state.errors.length === 0 ? (
 							<ShortcutPreview
 								onInteract={data => this.onActionSelect(data)}
 								data={this.state.shortcutData}
@@ -356,11 +524,23 @@ OpenURLs`
 									<button
 										className="btn trans-btn"
 										onClick={() =>
-											this.setState({ showPreview: true })
+											this.setState({
+												showPreview: true
+											})
 										}
 									>
 										Render Preview
 									</button>
+								</div>
+							</div>
+						) : null}
+						{this.state.errors.length !== 0 ? (
+							<div className="too-many-actions">
+								<div>
+									<p>
+										There is an error and the preview cannot
+										be rendered.
+									</p>
 								</div>
 							</div>
 						) : null}
@@ -392,6 +572,14 @@ OpenURLs`
 				true
 			);
 		}
+	}
+	getAce(): ace.Editor {
+		const reactAceComponent = this.reactAceComponentRef.current;
+		if (!reactAceComponent) {
+			throw new Error("No reactacecomponent");
+		}
+		const editor = (reactAceComponent as any).editor as ace.Editor;
+		return editor;
 	}
 	jumpToError(d: {
 		startCol: number;

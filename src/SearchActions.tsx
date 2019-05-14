@@ -3,6 +3,8 @@ import ReactMarkdown from "react-markdown";
 
 import { allActions, getActionFromID } from "scpl";
 
+import { keys } from "./Key";
+
 import "./SearchActions.css";
 
 const actionsByName = allActions.sort((a, b) => {
@@ -18,6 +20,7 @@ const actionsByName = allActions.sort((a, b) => {
 class ActionData extends Component<{
 	onSelect: (text: string) => void;
 	actionID: string;
+	canShowDetail: boolean;
 }> {
 	render() {
 		const action = getActionFromID(this.props.actionID);
@@ -40,14 +43,15 @@ class ActionData extends Component<{
 					<div className="action-item-code">{action.shortName}</div>
 				</div>
 				<div className="action-item-description">
-					{/*<ReactMarkdown source={action.genDocs()} />*/}
-					{
+					{this.props.canShowDetail ? (
+						<ReactMarkdown source={action.genDocs()} />
+					) : (
 						(
 							action._data.Description || {
 								DescriptionSummary: "No description"
 							}
 						).DescriptionSummary
-					}
+					)}
 				</div>
 				<div className="action-item-usage">{usage}</div>
 				<a
@@ -70,9 +74,11 @@ export class SearchActions extends Component<
 	SearchActionsProps,
 	{ searchTerm: string | undefined }
 > {
+	input: HTMLInputElement | null;
 	constructor(props: Readonly<SearchActionsProps>) {
 		super(props);
 		this.state = { searchTerm: undefined };
+		this.input = null;
 	}
 	searchChanged(value: string | undefined) {
 		const searchTerm = value;
@@ -84,18 +90,29 @@ export class SearchActions extends Component<
 				<input
 					className="search-input"
 					placeholder="Search Actions"
+					ref={c => (this.input = c)}
+					onKeyDown={e => {
+						if (keys.closePanel(e)) {
+							if (this.input) {
+								this.input.blur();
+							}
+							this.searchChanged(undefined);
+						}
+					}}
 					onKeyUp={e => this.searchChanged(e.currentTarget.value)}
 					onFocus={e => this.searchChanged(e.currentTarget.value)}
 					onBlur={e =>
 						setTimeout(() => this.searchChanged(undefined), 300)
 					}
 				/>
-				{this.state.searchTerm !== undefined ? <div
-					className="close-search-btn"
-					onClick={e => this.searchChanged(undefined)}
-				>
-					Cancel
-				</div> : null}
+				{this.state.searchTerm !== undefined ? (
+					<div
+						className="close-search-btn"
+						onClick={e => this.searchChanged(undefined)}
+					>
+						Cancel
+					</div>
+				) : null}
 				<div
 					className={`search-action-results ${
 						this.state.searchTerm !== undefined
@@ -121,13 +138,15 @@ export class SearchActions extends Component<
 										).replace(/[^A-Za-z0-9]/g, "")
 									) > -1
 						)
-						.map(action => (
+						.map((action, i, v) => (
 							<ActionData
 								actionID={action.id}
 								onSelect={text => {
 									this.props.insertText(`\n${text}`);
 									this.searchChanged(undefined);
 								}}
+								canShowDetail={v.length === 1}
+								key={action.id}
 							/>
 						))}
 				</div>
