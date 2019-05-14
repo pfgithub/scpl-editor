@@ -11,6 +11,7 @@
 		"react-dom": "^16.8.4",
 		"react-dropzone": "^10.0.5",
 		"react-helmet": "^5.2.0",
+		"react-hotkeys": "^2.0.0-pre5",
 		"react-markdown": "^4.0.8",
 		"react-portal": "^4.2.0",
 		"react-scripts": "2.1.8",

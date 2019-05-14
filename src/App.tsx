@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { parse, PositionedError } from "scpl";
+import {
+	HotKeys as Hotkeys,
+	configure as configureHotkeys
+} from "react-hotkeys";
+configureHotkeys({ simulateMissingKeyPressEvents: true });
 import "./App.css";
 // import {Helmet} from "react-helmet";
 
@@ -112,7 +117,25 @@ OpenURLs`
 	}
 	render() {
 		return (
-			<div>
+			<Hotkeys
+				keyMap={{
+					save: ["command+s", "ctrl+s"],
+					export: ["command+shift+s", "ctrl+shift+s"],
+					undo: ["command+z", "ctrl+z", "ctrl+i"],
+					redo: [
+						"command+shift+z",
+						"ctrl+shift+z",
+						"command+y",
+						"ctrl+y"
+					],
+					closePanel: "escape"
+				}}
+				handlers={{
+					undo: () => this.getAce().undo(),
+					redo: () => this.getAce().redo(),
+					export: () => this.setState({ openDownload: true })
+				}}
+			>
 				<div className="upload-area" style={{ display: "none" }}>
 					<div>Drop file anywhere to upload</div>
 				</div>
@@ -176,7 +199,14 @@ OpenURLs`
 											</a>
 										</li>
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.setState({
+														openDownload: true
+													})
+												}
+											>
 												Export Shortcut
 											</a>
 										</li>
@@ -190,33 +220,78 @@ OpenURLs`
 									Edit
 									<ul>
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.getAce().undo()
+												}
+											>
 												Undo<span>&#8984;Z</span>
 											</a>
 										</li>
 										<li>
-											<a href="javascript:;">
-												Redo<span>&#8984;Y</span>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.getAce().redo()
+												}
+											>
+												Redo<span>&#8984;shift z</span>
 											</a>
 										</li>
 										<div className="menu-div" />
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													document.execCommand(
+														"cut"
+													) ||
+													alert(
+														"Please press ctrl/cmd+x to cut"
+													)
+												}
+											>
 												Cut<span>&#8984;X</span>
 											</a>
 										</li>
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													document.execCommand(
+														"copy"
+													) &&
+													alert(
+														"Please press ctrl/cmd+c to copy"
+													)
+												}
+											>
 												Copy<span>&#8984;C</span>
 											</a>
 										</li>
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													document.execCommand(
+														"paste"
+													) ||
+													alert(
+														"Please press ctrl/cmd+v to paste."
+													)
+												}
+											>
 												Paste<span>&#8984;P</span>
 											</a>
 										</li>
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.getAce().selectAll()
+												}
+											>
 												Select All<span>&#8984;A</span>
 											</a>
 										</li>
@@ -464,7 +539,7 @@ OpenURLs`
 						) : null}
 					</div>
 				</div>
-			</div>
+			</Hotkeys>
 		);
 	}
 	onActionSelect(data: { type: "action" | "parameter"; actionData: any }) {
@@ -490,6 +565,14 @@ OpenURLs`
 				true
 			);
 		}
+	}
+	getAce(): ace.Editor {
+		const reactAceComponent = this.reactAceComponentRef.current;
+		if (!reactAceComponent) {
+			throw new Error("No reactacecomponent");
+		}
+		const editor = (reactAceComponent as any).editor as ace.Editor;
+		return editor;
 	}
 	jumpToError(d: {
 		startCol: number;
