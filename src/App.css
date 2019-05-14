@@ -105,7 +105,7 @@
 	}
 	.search-action-results {
 		position: fixed !important;
-		top: 51px;
+		top: 51px !important;
 		left: 0 !important;
 		right: 0 !important;
 		bottom: 0;
