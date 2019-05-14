@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import ReactMarkdown from "react-markdown";
-import { HotKeys as Hotkeys, ObserveKeys } from "react-hotkeys";
 
 import { allActions, getActionFromID } from "scpl";
+
+import { keys } from "./Key";
 
 import "./SearchActions.css";
 
@@ -86,36 +87,24 @@ export class SearchActions extends Component<
 	render() {
 		return (
 			<div onMouseUp={e => e.stopPropagation()}>
-				<Hotkeys
-					handlers={{
-						closePanel: () => {
+				<input
+					className="search-input"
+					placeholder="Search Actions"
+					ref={c => (this.input = c)}
+					onKeyDown={e => {
+						if (keys.closePanel(e)) {
 							if (this.input) {
 								this.input.blur();
 							}
 							this.searchChanged(undefined);
 						}
 					}}
-				>
-					<ObserveKeys only={["closePanel"]} except={[]}>
-						<input
-							className="search-input"
-							placeholder="Search Actions"
-							ref={c => (this.input = c)}
-							onKeyUp={e =>
-								this.searchChanged(e.currentTarget.value)
-							}
-							onFocus={e =>
-								this.searchChanged(e.currentTarget.value)
-							}
-							onBlur={e =>
-								setTimeout(
-									() => this.searchChanged(undefined),
-									300
-								)
-							}
-						/>
-					</ObserveKeys>
-				</Hotkeys>
+					onKeyUp={e => this.searchChanged(e.currentTarget.value)}
+					onFocus={e => this.searchChanged(e.currentTarget.value)}
+					onBlur={e =>
+						setTimeout(() => this.searchChanged(undefined), 300)
+					}
+				/>
 				{this.state.searchTerm !== undefined ? (
 					<div
 						className="close-search-btn"

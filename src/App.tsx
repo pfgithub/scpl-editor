@@ -1,11 +1,5 @@
 import React, { Component } from "react";
 import { parse, PositionedError } from "scpl";
-import {
-	HotKeys as Hotkeys,
-	configure as configureHotkeys,
-	ObserveKeys
-} from "react-hotkeys";
-configureHotkeys({ simulateMissingKeyPressEvents: true });
 import "./App.css";
 // import {Helmet} from "react-helmet";
 
@@ -19,6 +13,7 @@ import AceEditor from "react-ace";
 import { FilePane } from "./FilePane";
 import { SearchActions } from "./SearchActions";
 import { DownloadModal } from "./DownloadModal";
+import { keys } from "./Key";
 
 import ShortcutPreview from "shortcut-preview";
 
@@ -118,14 +113,14 @@ OpenURLs`
 	}
 	render() {
 		return (
-			<Hotkeys
-				keyMap={{
-					save: ["command+s", "ctrl+s"],
-					export: ["command+shift+s", "ctrl+shift+s"],
-					closePanel: "escape"
-				}}
-				handlers={{
-					export: () => this.setState({ openDownload: true })
+			<div
+				onKeyDown={e => {
+					if (keys.save(e)) {
+						alert("save");
+					}
+					if (keys.export(e)) {
+						this.setState({ openDownload: true });
+					}
 				}}
 			>
 				<div className="upload-area" style={{ display: "none" }}>
@@ -540,7 +535,7 @@ OpenURLs`
 						) : null}
 					</div>
 				</div>
-			</Hotkeys>
+			</div>
 		);
 	}
 	onActionSelect(data: { type: "action" | "parameter"; actionData: any }) {
