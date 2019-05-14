@@ -122,18 +122,9 @@ OpenURLs`
 				keyMap={{
 					save: ["command+s", "ctrl+s"],
 					export: ["command+shift+s", "ctrl+shift+s"],
-					undo: ["command+z", "ctrl+z", "ctrl+i"],
-					redo: [
-						"command+shift+z",
-						"ctrl+shift+z",
-						"command+y",
-						"ctrl+y"
-					],
 					closePanel: "escape"
 				}}
 				handlers={{
-					undo: () => this.getAce().undo(),
-					redo: () => this.getAce().redo(),
 					export: () => this.setState({ openDownload: true })
 				}}
 			>
@@ -485,6 +476,7 @@ OpenURLs`
 								))}
 							</div>
 						) : null}
+
 						<AceEditor
 							mode="scpl"
 							theme="chrome"
