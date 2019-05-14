@@ -61,6 +61,7 @@ class FileComponent extends Component<{
 class FolderComponent extends Component<
 	{
 		data: FolderData;
+		searchTerm: string;
 	},
 	{
 		expanded: boolean;
@@ -69,6 +70,7 @@ class FolderComponent extends Component<
 	constructor(
 		props: Readonly<{
 			data: FolderData;
+			searchTerm: string;
 		}>
 	) {
 		super(props);
@@ -90,7 +92,10 @@ class FolderComponent extends Component<
 					<div className="item-name">{this.props.data.name}</div>
 					<ActionButtons />
 				</div>
-				<FileList files={this.props.data.files} />
+				<FileList
+					files={this.props.data.files}
+					searchTerm={this.props.searchTerm}
+				/>
 			</li>
 		);
 	}
@@ -102,15 +107,32 @@ class FolderComponent extends Component<
 
 class FileList extends Component<{
 	files: (FileData | FolderData)[];
+	searchTerm: string;
 }> {
 	render() {
 		return (
 			<ul>
 				{this.props.files.map(file => {
 					if (file.type === "file") {
-						return <FileComponent key={file.name} data={file} />;
+						if (
+							file.name
+								.toLowerCase()
+								.indexOf(this.props.searchTerm.toLowerCase()) >
+							-1
+						) {
+							return (
+								<FileComponent key={file.name} data={file} />
+							);
+						}
+						return null;
 					}
-					return <FolderComponent key={file.name} data={file} />;
+					return (
+						<FolderComponent
+							key={file.name}
+							data={file}
+							searchTerm={this.props.searchTerm}
+						/>
+					);
 				})}
 			</ul>
 		);
@@ -124,6 +146,7 @@ export class FilePane extends Component<
 	},
 	{
 		showFileModal: boolean;
+		searchTerm: string;
 	}
 > {
 	constructor(
@@ -134,7 +157,8 @@ export class FilePane extends Component<
 	) {
 		super(props);
 		this.state = {
-			showFileModal: false
+			showFileModal: false,
+			searchTerm: ""
 		};
 	}
 	onDrop(acceptedFiles: File[], _rejectedFiles: File[], _event: DropEvent) {
@@ -170,6 +194,11 @@ export class FilePane extends Component<
 									type="search"
 									className="search-input"
 									placeholder="Search Files"
+									onKeyUp={e =>
+										this.setState({
+											searchTerm: e.currentTarget.value
+										})
+									}
 								/>
 								<div className="file-btns">
 									<div
@@ -190,7 +219,10 @@ export class FilePane extends Component<
 								</div>
 							</div>
 							<div className="file-list">
-								<FileList files={this.props.files} />
+								<FileList
+									files={this.props.files}
+									searchTerm={this.state.searchTerm}
+								/>
 							</div>
 						</div>
 					)}
