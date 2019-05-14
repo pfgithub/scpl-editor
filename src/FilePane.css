@@ -2,8 +2,13 @@
 .file-pane {
 	width: 300px;
 	background-color: #fff;
+	border-right: 0.5px solid #c7c7cc;
 	transition: 0.1s left ease-out;
-	z-index: 1000000;
+	z-index: 100;
+	padding-bottom: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: fill-available;
 }
 .file-pane input {
 	width: 90%;

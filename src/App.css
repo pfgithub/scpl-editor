@@ -410,8 +410,6 @@ input:active {
 .editor-container {
 	display: grid;
 	grid-template-columns: 0fr 1fr 0fr;
-	width: 100%;
-	height: 100%;
 	position: fixed;
 	top: 50px;
 	left: 0;
@@ -420,7 +418,8 @@ input:active {
 	z-index: 100;
 }
 .code-pane {
-	border-left: 0.5px solid #c7c7cc;
+	height: 95vh;
+	overflow: hidden !important;
 }
 .file-pane,
 .code-pane,
@@ -435,6 +434,7 @@ input:active {
 	padding-top: 0;
 	transition: 0.3s opacity;
 	width: 330px;
+	height: fill-available;
 	overflow-y: auto;
 }
 .result-pane.loading {
