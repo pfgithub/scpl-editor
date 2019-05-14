@@ -179,17 +179,17 @@ export class FilePane extends Component<
 										<input {...getInputProps()} />
 									</div>
 									<button
-										className="btn file-btn new-btn"
+										className="btn file-btn new-btn disable-this"
 										onClick={() =>
 											this.setState({
 												showFileModal: true
 											})
 										}
 									/>
-									<button className="btn file-btn newf-btn" />
+									<button className="btn file-btn newf-btn disable-this" />
 								</div>
 							</div>
-							<div className="file-list">
+							<div className="file-list disable-this">
 								<FileList files={this.props.files} />
 							</div>
 						</div>

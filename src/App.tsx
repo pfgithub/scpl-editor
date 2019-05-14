@@ -20,6 +20,8 @@ import ShortcutPreview from "shortcut-preview";
 let timeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
+//&#8984;
+const hotkey = window.navigator.platform === "MacIntel" || window.navigator.platform.includes("Win") ? "⌘" : "CTRL+"
 
 class MaybeUpdate extends Component<{ shouldUpdate: boolean }, {}> {
 	shouldComponentUpdate(nextProps: { shouldUpdate: boolean }) {
@@ -158,32 +160,32 @@ OpenURLs`
 								<li>
 									File
 									<ul>
-										<li>
+										<li style={{ display: "none" }}>
 											<a href="javascript:;">
 												New File
-												<span>&#8984;N</span>
+												<span>{hotkey}N</span>
 											</a>
 										</li>
-										<li>
+										<li style={{ display: "none" }}>
 											<a href="javascript:;">
 												New Folder
-												<span>&#8679;&#8984;N</span>
+												<span>{hotkey}&#8679;N</span>
 											</a>
 										</li>
-										<li>
+										<li style={{ display: "none" }}>
 											<a href="javascript:;">
 												Save File
-												<span>&#8984;S</span>
+												<span>{hotkey}S</span>
 											</a>
 										</li>
-										<li>
+										<li style={{ display: "none" }}>
 											<a href="javascript:;">
 												Close Tab
-												<span>&#8984;E</span>
+												<span>{hotkey}E</span>
 											</a>
 										</li>
-										<div className="menu-div" />
-										<li>
+										<div className="menu-div"  style={{ display: "none" }}/>
+										<li style={{ display: "none" }}>
 											<a href="javascript:;">
 												Upload Shortcut
 											</a>
@@ -198,7 +200,7 @@ OpenURLs`
 												}
 											>
 												Export Shortcut
-												<span>&#8679;&#8984;S</span>
+												<span>{hotkey}&#8679;S</span>
 											</a>
 										</li>
 									</ul>
@@ -217,7 +219,7 @@ OpenURLs`
 													this.getAce().undo()
 												}
 											>
-												Undo<span>&#8984;Z</span>
+												Undo<span>{hotkey}Z</span>
 											</a>
 										</li>
 										<li>
@@ -228,7 +230,7 @@ OpenURLs`
 												}
 											>
 												Redo
-												<span>&#8679;&#8984;Z</span>
+												<span>{hotkey}Y</span>
 											</a>
 										</li>
 										<div className="menu-div" />
@@ -240,11 +242,11 @@ OpenURLs`
 														"cut"
 													) ||
 													alert(
-														"Please press ctrl/cmd+x to cut"
+														"Please press CTRL/CMD+X to cut"
 													)
 												}
 											>
-												Cut<span>&#8984;X</span>
+												Cut<span>{hotkey}X</span>
 											</a>
 										</li>
 										<li>
@@ -255,11 +257,11 @@ OpenURLs`
 														"copy"
 													) &&
 													alert(
-														"Please press ctrl/cmd+c to copy"
+														"Please press CTRL/CMD+C to copy"
 													)
 												}
 											>
-												Copy<span>&#8984;C</span>
+												Copy<span>{hotkey}C</span>
 											</a>
 										</li>
 										<li>
@@ -270,11 +272,11 @@ OpenURLs`
 														"paste"
 													) ||
 													alert(
-														"Please press ctrl/cmd+v to paste."
+														"Please press CTRL/CMD+V to paste."
 													)
 												}
 											>
-												Paste<span>&#8984;P</span>
+												Paste<span>{hotkey}P</span>
 											</a>
 										</li>
 										<li>
@@ -285,7 +287,7 @@ OpenURLs`
 												}
 											>
 												Select All
-												<span>&#8984;A</span>
+												<span>{hotkey}A</span>
 											</a>
 										</li>
 									</ul>
@@ -456,7 +458,7 @@ OpenURLs`
 							))}
 						</div>
 						{this.state.tabs.length > 1 ? (
-							<div className="file-tabs">
+							<div className="file-tabs" style={{ display: "none" }}>
 								{this.state.tabs.map(tab => (
 									<div
 										className={`tab ${

@@ -228,6 +228,12 @@ button {
 	cursor: pointer;
 	outline: none;
 }
+.disable-this {
+	pointer-events: none;
+	user-select: none;
+	opacity: .5;
+	filter: grayscale(100%);
+}
 .upload-area {
 	user-select: none;
 	position: fixed;
@@ -418,7 +424,7 @@ input:active {
 	z-index: 100;
 }
 .code-pane {
-	height: 95vh;
+	height: 100vh; /* change to 95vh later */
 	overflow: hidden !important;
 }
 .file-pane,
