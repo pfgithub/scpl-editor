@@ -160,31 +160,31 @@ OpenURLs`
 								<li>
 									File
 									<ul>
-										<li style={{ display: "none" }}>
+										<li className="disable-this">
 											<a href="javascript:;">
 												New File
 												<span>{hotkey}N</span>
 											</a>
 										</li>
-										<li style={{ display: "none" }}>
+										<li className="disable-this">
 											<a href="javascript:;">
 												New Folder
 												<span>{hotkey}&#8679;N</span>
 											</a>
 										</li>
-										<li style={{ display: "none" }}>
+										<li className="disable-this">
 											<a href="javascript:;">
 												Save File
 												<span>{hotkey}S</span>
 											</a>
 										</li>
-										<li style={{ display: "none" }}>
+										<li className="disable-this">
 											<a href="javascript:;">
 												Close Tab
 												<span>{hotkey}E</span>
 											</a>
 										</li>
-										<div className="menu-div"  style={{ display: "none" }}/>
+										<div className="menu-div"/>
 										<li style={{ display: "none" }}>
 											<a href="javascript:;">
 												Upload Shortcut

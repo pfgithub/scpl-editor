@@ -168,7 +168,7 @@ export class FilePane extends Component<
 							<div className="files-header">
 								<input
 									type="search"
-									className="search-input"
+									className="search-input disable-this"
 									placeholder="Search Files"
 								/>
 								<div className="file-btns">
