@@ -93,15 +93,20 @@ class App extends Component<
 	    URL "https://docs.scpl.dev/"
 	End Menu
 	OpenURLs`,
-				"other.scpl": `ShowResult "ScPL"`
+				"other.scpl": `ShowResult "ScPL"`,
+				urlquery:
+					new URLSearchParams(window.location.search).get("scpl") ||
+					""
 			}
 		};
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	componentDidMount() {}
 	componentWillMount() {
+		var urlParams = new URLSearchParams(window.location.search);
 		this.onChange(
-			`ShowResult "Hello ScPL"
+			new URLSearchParams(window.location.search).get("scpl") ||
+				`ShowResult "Hello ScPL"
 ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
 Case "Getting Started"
     URL "https://docs.scpl.dev/gettingstarted"
