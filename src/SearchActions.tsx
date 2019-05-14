@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactMarkdown from "react-markdown";
+import { HotKeys as Hotkeys, ObserveKeys } from "react-hotkeys";
 
 import { allActions, getActionFromID } from "scpl";
 
@@ -72,9 +73,11 @@ export class SearchActions extends Component<
 	SearchActionsProps,
 	{ searchTerm: string | undefined }
 > {
+	input: HTMLInputElement | null;
 	constructor(props: Readonly<SearchActionsProps>) {
 		super(props);
 		this.state = { searchTerm: undefined };
+		this.input = null;
 	}
 	searchChanged(value: string | undefined) {
 		const searchTerm = value;
@@ -83,15 +86,36 @@ export class SearchActions extends Component<
 	render() {
 		return (
 			<div onMouseUp={e => e.stopPropagation()}>
-				<input
-					className="search-input"
-					placeholder="Search Actions"
-					onKeyUp={e => this.searchChanged(e.currentTarget.value)}
-					onFocus={e => this.searchChanged(e.currentTarget.value)}
-					onBlur={e =>
-						setTimeout(() => this.searchChanged(undefined), 300)
-					}
-				/>
+				<Hotkeys
+					handlers={{
+						closePanel: () => {
+							if (this.input) {
+								this.input.blur();
+							}
+							this.searchChanged(undefined);
+						}
+					}}
+				>
+					<ObserveKeys only={["closePanel"]} except={[]}>
+						<input
+							className="search-input"
+							placeholder="Search Actions"
+							ref={c => (this.input = c)}
+							onKeyUp={e =>
+								this.searchChanged(e.currentTarget.value)
+							}
+							onFocus={e =>
+								this.searchChanged(e.currentTarget.value)
+							}
+							onBlur={e =>
+								setTimeout(
+									() => this.searchChanged(undefined),
+									300
+								)
+							}
+						/>
+					</ObserveKeys>
+				</Hotkeys>
 				{this.state.searchTerm !== undefined ? (
 					<div
 						className="close-search-btn"
