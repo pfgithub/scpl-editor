@@ -502,7 +502,8 @@ OpenURLs`
 						<div className="result-text">
 							Converted in {this.state.took.convertedIn} ms.
 						</div>
-						{this.state.showPreview ? (
+						{this.state.showPreview &&
+						this.state.errors.length === 0 ? (
 							<ShortcutPreview
 								onInteract={data => this.onActionSelect(data)}
 								data={this.state.shortcutData}
@@ -530,6 +531,16 @@ OpenURLs`
 									>
 										Render Preview
 									</button>
+								</div>
+							</div>
+						) : null}
+						{this.state.errors.length !== 0 ? (
+							<div className="too-many-actions">
+								<div>
+									<p>
+										There is an error and the preview cannot
+										be rendered.
+									</p>
 								</div>
 							</div>
 						) : null}
