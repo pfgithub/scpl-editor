@@ -24,19 +24,25 @@ export class CreateEditShortcut extends Component<{
 						Cancel
 					</div>
 					<h2>New ScPL File</h2>
-					<div className="input-label">Shortcut Name</div>
-					<input
+					<div className="new-grid">
+						<div>
+							<div className="color-icon-preview" id="color-red">
+								<div className="icon-preview" id="glyph-car"></div>
+							</div>
+					</div>
+					<div>
+						<div className="input-label" style={{ display: "none" }}>Shortcut Name</div>
+						<input
 						type="text"
-						placeholder="My New Shortcut, Cool Idea, etc."
+						placeholder="Shortcut Name"
 						id="new-name"
 						autoFocus
-					/>
-
-					<br />
-					<br />
-
+						/>
+					</div>
+					</div>
+					<br/>
 					<div className="input-label">Glyph</div>
-					<br />
+					<br/>
 					<div className="glyphs-container">
 						<div className="glyph-cat" id="gc-objects">
 							<div className="glyph-header">Objects</div>

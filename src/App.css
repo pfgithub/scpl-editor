@@ -306,6 +306,8 @@ textarea,
 .input-label {
 	font-weight: 500;
 	color: #555;
+	font-size: 15px;
+	line-height: 22px;
 }
 input {
 	appearance: none;
