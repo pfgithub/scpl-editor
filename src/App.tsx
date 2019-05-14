@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { parse, PositionedError } from "scpl";
 import {
 	HotKeys as Hotkeys,
-	configure as configureHotkeys
+	configure as configureHotkeys,
+	ObserveKeys
 } from "react-hotkeys";
 configureHotkeys({ simulateMissingKeyPressEvents: true });
 import "./App.css";
@@ -173,7 +174,8 @@ OpenURLs`
 									<ul>
 										<li>
 											<a href="javascript:;">
-												New File<span>&#8984;N</span>
+												New File
+												<span>&#8984;N</span>
 											</a>
 										</li>
 										<li>
@@ -184,12 +186,14 @@ OpenURLs`
 										</li>
 										<li>
 											<a href="javascript:;">
-												Save File<span>&#8984;S</span>
+												Save File
+												<span>&#8984;S</span>
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;">
-												Close Tab<span>&#8984;E</span>
+												Close Tab
+												<span>&#8984;E</span>
 											</a>
 										</li>
 										<div className="menu-div" />
@@ -237,7 +241,8 @@ OpenURLs`
 													this.getAce().redo()
 												}
 											>
-												Redo<span>&#8679;&#8984;Z</span>
+												Redo
+												<span>&#8679;&#8984;Z</span>
 											</a>
 										</li>
 										<div className="menu-div" />
@@ -293,7 +298,8 @@ OpenURLs`
 													this.getAce().selectAll()
 												}
 											>
-												Select All<span>&#8984;A</span>
+												Select All
+												<span>&#8984;A</span>
 											</a>
 										</li>
 									</ul>
@@ -530,7 +536,9 @@ OpenURLs`
 									<button
 										className="btn trans-btn"
 										onClick={() =>
-											this.setState({ showPreview: true })
+											this.setState({
+												showPreview: true
+											})
 										}
 									>
 										Render Preview
