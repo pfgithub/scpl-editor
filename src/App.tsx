@@ -208,6 +208,7 @@ OpenURLs`
 												}
 											>
 												Export Shortcut
+												<span>&#8679;&#8984;S</span>
 											</a>
 										</li>
 									</ul>
@@ -236,7 +237,7 @@ OpenURLs`
 													this.getAce().redo()
 												}
 											>
-												Redo<span>&#8984;shift z</span>
+												Redo<span>&#8679;&#8984;Z</span>
 											</a>
 										</li>
 										<div className="menu-div" />
