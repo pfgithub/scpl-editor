@@ -526,6 +526,7 @@ export type ColorName =
 	| "darkorange"
 	| "orange"
 	| "yellow"
+	| "green"
 	| "seagreen"
 	| "lightblue"
 	| "blue"
@@ -542,6 +543,7 @@ export const colors: ColorName[] = [
 	"darkorange",
 	"orange",
 	"yellow",
+	"green",
 	"seagreen",
 	"lightblue",
 	"blue",
