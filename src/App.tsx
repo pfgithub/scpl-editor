@@ -21,6 +21,8 @@ let timeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
 
+const hotkey = window.navigator.platform === "MacIntel" || window.navigator.platform.includes("Win") ? "⌘" : "^";
+
 class MaybeUpdate extends Component<{ shouldUpdate: boolean }, {}> {
 	shouldComponentUpdate(nextProps: { shouldUpdate: boolean }) {
 		return nextProps.shouldUpdate;
@@ -166,25 +168,25 @@ OpenURLs`
 										<li>
 											<a href="javascript:;">
 												New File
-												<span>&#8984;N</span>
+												<span>{hotkey}N</span>
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;">
 												New Folder
-												<span>&#8679;&#8984;N</span>
+												<span>&#8679;{hotkey}N</span>
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;">
 												Save File
-												<span>&#8984;S</span>
+												<span>{hotkey}S</span>
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;">
 												Close Tab
-												<span>&#8984;E</span>
+												<span>{hotkey}E</span>
 											</a>
 										</li>
 										<div className="menu-div" />
@@ -203,7 +205,7 @@ OpenURLs`
 												}
 											>
 												Export Shortcut
-												<span>&#8679;&#8984;S</span>
+												<span>&#8679;{hotkey}S</span>
 											</a>
 										</li>
 									</ul>
@@ -385,7 +387,7 @@ OpenURLs`
 								})
 							}
 						>
-							<a href="javascript:;">Download</a>
+							<a href="javascript:;">Export</a>
 						</div>
 					</div>
 				</div>

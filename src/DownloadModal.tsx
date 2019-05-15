@@ -168,7 +168,6 @@ export class DownloadModal extends Component<
 					onClick={e => e.stopPropagation()}
 				>
 					<h2>Export Shortcut File</h2>
-					<div className="or-download">or</div>
 					{this.props.file ? (
 						<div className="download-grid">
 							<div>
@@ -208,6 +207,7 @@ export class DownloadModal extends Component<
 									</ShortcutDownloadStatusSwitcher>
 								)}
 							</div>
+							<div className="download-or">or</div>
 							<div>
 								<ShortcutDownloadStatusSwitcher
 									status={this.state}

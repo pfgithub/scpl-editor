@@ -2,8 +2,13 @@
 .file-pane {
 	width: 300px;
 	background-color: #fff;
+	border-right: 0.5px solid #c7c7cc;
 	transition: 0.1s left ease-out;
-	z-index: 1000000;
+	z-index: 100;
+	padding-bottom: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: stretch;
 }
 .file-pane input {
 	width: 90%;
@@ -183,15 +188,15 @@
 	background-color: #8c99b3;
 }
 .edit-btn {
-	background-image: url(img/edit.png);
+	background-image: url(img/edit.svg);
 }
 .edit-btn:active {
-	background-image: url(img/edit_w.png);
+	background-image: url(img/edit_w.svg);
 }
 .delete-btn {
-	background-image: url(img/delete.png);
+	background-image: url(img/delete.svg);
 	margin-left: 3px;
 }
 .delete-btn:active {
-	background-image: url(img/delete_w.png);
+	background-image: url(img/delete_w.svg);
 }

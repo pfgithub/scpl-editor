@@ -104,7 +104,7 @@
 	}
 	.search-action-results {
 		position: fixed !important;
-		top: 51px;
+		top: 51px !important;
 		left: 0 !important;
 		right: 0 !important;
 		bottom: 0;
@@ -306,6 +306,12 @@ textarea,
 .input-label {
 	font-weight: 500;
 	color: #555;
+	font-size: 15px;
+	line-height: 22px;
+	margin: 15px 0;
+}
+.color-label {
+	margin-bottom: 0;
 }
 input {
 	appearance: none;
@@ -330,14 +336,47 @@ input:active {
 	margin-top: 1px !important;
 	width: 93%;
 }
+/* ios tabs */
+.ios-tabs {
+	display: grid;
+	grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+	margin: 5px 0;
+}
+.ios-tabs div {
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	color: #007aff;
+	border: 0.5px solid #007aff;
+	border-right: none;
+	padding: 7px 0;
+	user-select: none;
+	cursor: pointer;
+}
+.ios-tabs div.active-itab {
+	background-color: #007aff;
+	color: #fff;
+}
+.ios-tabs div:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.ios-tabs div:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-right: 0.5px solid #007aff;
+}
 /* navigation + nav elements */
 .mobile-filemenu {
-	background: url(img/menu.png) center / 27px no-repeat;
+	background: url(img/menu.svg) center / 27px no-repeat;
 	padding: 20px;
 	height: 8px;
 }
 .open-filemenu {
-	background-image: url(img/back.png);
+	background-image: url(img/back.svg);
 	background-size: 20px;
 }
 .editor-navigation {
@@ -381,6 +420,13 @@ input:active {
 .download-or {
 	color: #999;
 	display: inline-block;
+	padding: 10px !important;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-left: -20px;
+	margin-top: 90px;
+	background: #fff;
+	height: 20px;
 }
 /* link buttons */
 .mobile-download {
@@ -410,8 +456,6 @@ input:active {
 .editor-container {
 	display: grid;
 	grid-template-columns: 0fr 1fr 0fr;
-	width: 100%;
-	height: 100%;
 	position: fixed;
 	top: 50px;
 	left: 0;
@@ -420,7 +464,8 @@ input:active {
 	z-index: 100;
 }
 .code-pane {
-	border-left: 0.5px solid #c7c7cc;
+	height: 95vh;
+	overflow: hidden !important;
 }
 .file-pane,
 .code-pane,
@@ -435,6 +480,7 @@ input:active {
 	padding-top: 0;
 	transition: 0.3s opacity;
 	width: 330px;
+	height: stretch;
 	overflow-y: auto;
 }
 .result-pane.loading {
@@ -469,7 +515,7 @@ input:active {
 	cursor: text;
 }
 .ace_gutter-cell.ace_error {
-	background: url(img/error.png) 2px 1px / 14px no-repeat !important;
+	background: url(img/error_x.svg) 2px 1px / 14px no-repeat !important;
 }
 .ace_invalid {
 	background-color: #d74c39 !important;
@@ -526,7 +572,7 @@ input:active {
 }
 .download-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 0fr 1fr;
 	text-align: center;
 }
 .download-grid > div {
@@ -537,17 +583,6 @@ input:active {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-.or-download {
-	position: absolute;
-	margin-bottom: -50px;
-	background: #fff;
-	padding: 10px 0;
-	font-weight: bold;
-	color: #888;
-	text-transform: uppercase;
-	font-size: 15px;
-	display: none;
 }
 .btn {
 	padding: 10px 20px;
@@ -683,7 +718,7 @@ input:active {
 	margin: 15px;
 }
 .e-message {
-	background: url(img/error_w.png) 10px center / 20px no-repeat;
+	background: url(img/error_w.svg) 10px center / 20px no-repeat;
 	background-color: #d74c39;
 	border: 2px solid #d74c3950;
 	padding: 13px 20px;
@@ -815,7 +850,7 @@ input:active {
 	padding: 8px 15px;
 	font-size: 14px;
 	text-decoration: none;
-	color: #1d1d1c98;
+	color: #1d1d1c;
 	transition: 0.2s all;
 	font-weight: 500;
 	user-select: none;
@@ -829,7 +864,7 @@ input:active {
 }
 .editor-menu ul ul li a:hover {
 	background: #e8f6fe;
-	color: #1d1d1c;
+	color: #4068ac;
 }
 .menu-div {
 	border-top: 1px solid #5a798b30;

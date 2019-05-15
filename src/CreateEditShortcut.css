@@ -1,6 +1,15 @@
+.new-grid {
+	display: grid;
+	grid-template-columns: 0fr 1fr;
+	margin-top: 30px;
+margin-left: 7px;
+}
+#new-name {
+	margin: 0;
+}
 /* Glyph container and headers */
 .glyphs-container {
-	height: 160px;
+	height: 250px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	border: 1px solid #dedede;
@@ -17,6 +26,25 @@
 	padding: 3px 5px;
 	z-index: 1000;
 }
+/* Icon/Color preview */
+.color-icon-preview {
+	overflow: hidden;
+	    width: 30px;
+	    height: 30px;
+	    margin-right: 25px;
+	    border-radius: 5px;
+	    background-image: linear-gradient(to bottom right, #6d768e, #8f99b0);
+	    box-shadow: 0 0 10px rgba(150, 150, 150, 0.5);
+	    padding: 3px;
+	    -webkit-transform: scale(1.5);
+	    transform: scale(1.5);
+}
+.icon-preview {
+	background: url(img/glyph_sheet_white.png) center / 330px no-repeat;
+	display: inline-block;
+	padding: 15px;
+	transform: scale(1.2);
+}
 /* Color & Glyph radios style */
 .radio {
 	display: inline-block;
@@ -25,8 +53,8 @@
 	display: inline-block;
 	cursor: pointer;
 	position: relative;
-	padding: 15px 20px;
-	margin: 10px 5px;
+	padding: 20px;
+	margin: 5px;
 	cursor: pointer;
 }
 input[type="radio"] {
@@ -192,6 +220,54 @@ input[type="radio"]:checked#color-grey + label:before {
 	box-shadow: 0 0 0 2px #8f99b0;
 }
 
+/* Preview Colors */
+.color-icon-preview#color-red {
+	background-image: linear-gradient(to bottom right, #f62544, #c50026);
+}
+.color-icon-preview#color-darkorange {
+	background-image: linear-gradient(to bottom right, #f06b3c, #db2c00);
+}
+.color-icon-preview#color-orange {
+	background-image: linear-gradient(to bottom right, #ff881e, #e25b00);
+}
+.color-icon-preview#color-yellow {
+	background-image: linear-gradient(to bottom right, #f0b500, #e78600);
+}
+.color-icon-preview#color-green {
+	background-image: linear-gradient(to bottom right, #5fca3f, #379c0f);
+}
+.color-icon-preview#color-seagreen {
+	background-image: linear-gradient(to bottom right, #40d0b1, #00a490);
+}
+.color-icon-preview#color-lightblue {
+	background-image: linear-gradient(to bottom right, #39cdd5, #009cc4);
+}
+.color-icon-preview#color-blue {
+	background-image: linear-gradient(to bottom right, #4ba8f0, #0079e1);
+}
+.color-icon-preview#color-darkblue {
+	background-image: linear-gradient(to bottom right, #2c75dd, #0047bb);
+}
+.color-icon-preview#color-darkpurple {
+	background-image: linear-gradient(to bottom right, #7751e3, #4c22b8);
+}
+.color-icon-preview#color-purple {
+	background-image: linear-gradient(to bottom right, #b247d8, #840aad);
+}
+.color-icon-preview#color-pink {
+	background-image: linear-gradient(to bottom right, #ee60a6, #d0287e);
+}
+.color-icon-preview#color-black {
+	background-image: linear-gradient(to bottom right, #78797e, #535658);
+}
+.color-icon-preview#color-brown {
+	background-image: linear-gradient(to bottom right, #9d9b92, #7f7b6b);
+}
+.color-icon-preview#color-grey {
+	background-image: linear-gradient(to bottom right, #8f99b0, #6d768e);
+}
+/* End Colors */
+
 /* Glyphs */
 
 /* Category: Objects */
@@ -259,13 +335,13 @@ input[type="radio"]#glyph-earth + label:before {
 	background-position: -270px -29px;
 }
 input[type="radio"]#glyph-film + label:before {
-	background-position: -300px -29px;
+	background-position: -302px -30px;
 }
 input[type="radio"]#glyph-motorcycle + label:before {
 	background-position: 2px -59px;
 }
 input[type="radio"]#glyph-boat + label:before {
-	background-position: -29px -59px;
+	background-position: -28px -59px;
 }
 input[type="radio"]#glyph-city + label:before {
 	background-position: -58px -59px;
@@ -967,6 +1043,787 @@ input[type="radio"]#glyph-wifi + label:before {
 	background-position: -270px -735px;
 }
 input[type="radio"]#glyph-nuclear + label:before {
+	background-position: -300px -735px;
+}
+/* End Symbols */
+
+/* End Glyphs */
+
+/* Preview Glyphs */
+
+/* Category: Objects */
+.icon-preview#glyph-car {
+	background-position: 2px 0px;
+}
+.icon-preview#glyph-amb {
+	background-position: -28px 0px;
+}
+.icon-preview#glyph-house {
+	background-position: -58px 0px;
+}
+.icon-preview#glyph-cart {
+	background-position: -90px 0px;
+}
+.icon-preview#glyph-forkknife {
+	background-position: -119px 0px;
+}
+.icon-preview#glyph-sun {
+	background-position: -150px 0px;
+}
+.icon-preview#glyph-cloud {
+	background-position: -180px 0px;
+}
+.icon-preview#glyph-tree {
+	background-position: -210px 0px;
+}
+.icon-preview#glyph-footprints {
+	background-position: -241px 0px;
+}
+.icon-preview#glyph-compass {
+	background-position: -272px 0px;
+}
+.icon-preview#glyph-photo {
+	background-position: -302px 0px;
+}
+.icon-preview#glyph-bus {
+	background-position: 2px -29px;
+}
+.icon-preview#glyph-plane {
+	background-position: -28px -29px;
+}
+.icon-preview#glyph-hospital {
+	background-position: -58px -29px;
+}
+.icon-preview#glyph-purse {
+	background-position: -89px -29px;
+}
+.icon-preview#glyph-gaspump {
+	background-position: -119px -29px;
+}
+.icon-preview#glyph-moon {
+	background-position: -150px -29px;
+}
+.icon-preview#glyph-rain {
+	background-position: -180px -29px;
+}
+.icon-preview#glyph-flower {
+	background-position: -210px -29px;
+}
+.icon-preview#glyph-signs {
+	background-position: -240px -29px;
+}
+.icon-preview#glyph-earth {
+	background-position: -270px -29px;
+}
+.icon-preview#glyph-film {
+	background-position: -302px -30px;
+}
+.icon-preview#glyph-motorcycle {
+	background-position: 2px -59px;
+}
+.icon-preview#glyph-boat {
+	background-position: -28px -59px;
+}
+.icon-preview#glyph-city {
+	background-position: -58px -59px;
+}
+.icon-preview#glyph-stand {
+	background-position: -89px -59px;
+}
+.icon-preview#glyph-temp {
+	background-position: -119px -59px;
+}
+.icon-preview#glyph-snow {
+	background-position: -150px -59px;
+}
+.icon-preview#glyph-umbrella {
+	background-position: -180px -59px;
+}
+.icon-preview#glyph-fire {
+	background-position: -210px -59px;
+}
+.icon-preview#glyph-binoculars {
+	background-position: -240px -59px;
+}
+.icon-preview#glyph-mountain {
+	background-position: -270px -59px;
+}
+.icon-preview#glyph-filmfull {
+	background-position: -300px -59px;
+}
+.icon-preview#glyph-camera {
+	background-position: 0px -91px;
+}
+.icon-preview#glyph-videomarker {
+	background-position: -30px -90px;
+}
+.icon-preview#glyph-calendar {
+	background-position: -58px -90px;
+}
+.icon-preview#glyph-comment {
+	background-position: -89px -90px;
+}
+.icon-preview#glyph-paperairplane {
+	background-position: -119px -90px;
+}
+.icon-preview#glyph-creditcard {
+	background-position: -150px -29px;
+}
+.icon-preview#glyph-smartphone {
+	background-position: -180px -90px;
+}
+.icon-preview#glyph-emptykeyboard {
+	background-position: -210px -90px;
+}
+.icon-preview#glyph-printer {
+	background-position: -240px -90px;
+}
+.icon-preview#glyph-database {
+	background-position: -270px -90px;
+}
+.icon-preview#glyph-cube {
+	background-position: -300px -90px;
+}
+.icon-preview#glyph-videocamera {
+	background-position: 0px -119px;
+}
+.icon-preview#glyph-playbutton-one {
+	background-position: -30px -118px;
+}
+.icon-preview#glyph-message {
+	background-position: -60px -118px;
+}
+.icon-preview#glyph-letter {
+	background-position: -90px -119px;
+}
+.icon-preview#glyph-suitcase {
+	background-position: -120px -119px;
+}
+.icon-preview#glyph-watch {
+	background-position: -150px -118px;
+}
+.icon-preview#glyph-laptop {
+	background-position: -180px -118px;
+}
+.icon-preview#glyph-calculator {
+	background-position: -210px -119px;
+}
+.icon-preview#glyph-harddrive {
+	background-position: -240px -118px;
+}
+.icon-preview#glyph-servers {
+	background-position: -270px -118px;
+}
+.icon-preview#glyph-television {
+	background-position: -301px -120px;
+}
+.icon-preview#glyph-microphone {
+	background-position: 0 -148px;
+}
+.icon-preview#glyph-clipboard {
+	background-position: -30px -148px;
+}
+.icon-preview#glyph-messages {
+	background-position: -60px -148px;
+}
+.icon-preview#glyph-openletter {
+	background-position: -90px -148px;
+}
+.icon-preview#glyph-folder {
+	background-position: -120px -148px;
+}
+.icon-preview#glyph-phone {
+	background-position: -150px -148px;
+}
+.icon-preview#glyph-keyboard {
+	background-position: -180px -148px;
+}
+.icon-preview#glyph-stats {
+	background-position: -210px -148px;
+}
+.icon-preview#glyph-serverset {
+	background-position: -240px -148px;
+}
+.icon-preview#glyph-inbox {
+	background-position: -270px -148px;
+}
+.icon-preview#glyph-controller {
+	background-position: -301px -148px;
+}
+.icon-preview#glyph-puzzle {
+	background-position: 1px -178px;
+}
+.icon-preview#glyph-speaker {
+	background-position: -28px -178px;
+}
+.icon-preview#glyph-bookmark {
+	background-position: -58px -178px;
+}
+.icon-preview#glyph-mask {
+	background-position: -90px -178px;
+}
+.icon-preview#glyph-dice {
+	background-position: -119px -178px;
+}
+.icon-preview#glyph-soccer {
+	background-position: -150px -178px;
+}
+.icon-preview#glyph-lifesaver {
+	background-position: -180px -178px;
+}
+.icon-preview#glyph-chess {
+	background-position: -210px -178px;
+}
+.icon-preview#glyph-stopwatch {
+	background-position: -240px -178px;
+}
+.icon-preview#glyph-platter {
+	background-position: -270px -178px;
+}
+.icon-preview#glyph-trophy {
+	background-position: -301px -178px;
+}
+.icon-preview#glyph-headphones {
+	background-position: 1px -208px;
+}
+.icon-preview#glyph-books {
+	background-position: -30px -208px;
+}
+.icon-preview#glyph-emptyglasses {
+	background-position: -60px -208px;
+}
+.icon-preview#glyph-ticket {
+	background-position: -90px -208px;
+}
+.icon-preview#glyph-baseball {
+	background-position: -120px -208px;
+}
+.icon-preview#glyph-tennisball {
+	background-position: -150px -208px;
+}
+.icon-preview#glyph-telescope {
+	background-position: -180px -208px;
+}
+.icon-preview#glyph-clock {
+	background-position: -210px -208px;
+}
+.icon-preview#glyph-volume {
+	background-position: -240px -208px;
+}
+.icon-preview#glyph-heart {
+	background-position: -270px -208px;
+}
+.icon-preview#glyph-lightbulb {
+	background-position: -300px -208px;
+}
+.icon-preview#glyph-musicnote {
+	background-position: 1px -238px;
+}
+.icon-preview#glyph-book {
+	background-position: -30px -238px;
+}
+.icon-preview#glyph-glasses {
+	background-position: -60px -238px;
+}
+.icon-preview#glyph-masks {
+	background-position: -90px -238px;
+}
+.icon-preview#glyph-basketball {
+	background-position: -120px -238px;
+}
+.icon-preview#glyph-football {
+	background-position: -150px -238px;
+}
+.icon-preview#glyph-microscope {
+	background-position: -180px 0px;
+}
+.icon-preview#glyph-alarmclock {
+	background-position: -210px -238px;
+}
+.icon-preview#glyph-bell {
+	background-position: -240px -238px;
+}
+.icon-preview#glyph-star {
+	background-position: -270px -238px;
+}
+.icon-preview#glyph-lightning {
+	background-position: -301px -238px;
+}
+.icon-preview#glyph-flag {
+	background-position: 4px -270px;
+}
+.icon-preview#glyph-hourglass {
+	background-position: -25px -269px;
+}
+.icon-preview#glyph-battery {
+	background-position: -56px -269px;
+}
+.icon-preview#glyph-paintbrush {
+	background-position: -87px -270px;
+}
+.icon-preview#glyph-scissors {
+	background-position: -117px -270px;
+}
+.icon-preview#glyph-colorpicker {
+	background-position: -147px -270px;
+}
+.icon-preview#glyph-hammerwrench {
+	background-position: -179px -270px;
+}
+.icon-preview#glyph-screwdriver {
+	background-position: -208px -270px;
+}
+.icon-preview#glyph-trashcan {
+	background-position: -239px -270px;
+}
+.icon-preview#glyph-soupbowl {
+	background-position: -270px -270px;
+}
+.icon-preview#glyph-fish {
+	background-position: -302px -270px;
+}
+.icon-preview#glyph-tag {
+	background-position: 4px -299px;
+}
+.icon-preview#glyph-locked {
+	background-position: -27px -299px;
+}
+.icon-preview#glyph-magicwand {
+	background-position: -57px -299px;
+}
+.icon-preview#glyph-pencil {
+	background-position: -87px -299px;
+}
+.icon-preview#glyph-magnify {
+	background-position: -117px -299px;
+}
+.icon-preview#glyph-tool {
+	background-position: -150px -299px;
+}
+.icon-preview#glyph-gears {
+	background-position: -180px -299px;
+}
+.icon-preview#glyph-hand {
+	background-position: -210px -299px;
+}
+.icon-preview#glyph-teardrop {
+	background-position: -240px -299px;
+}
+.icon-preview#glyph-apple {
+	background-position: -270px -299px;
+}
+.icon-preview#glyph-cake {
+	background-position: -301px -300px;
+}
+.icon-preview#glyph-key {
+	background-position: 4px -330px;
+}
+.icon-preview#glyph-unlocked {
+	background-position: -25px -328px;
+}
+.icon-preview#glyph-magicstar {
+	background-position: -55px -328px;
+}
+.icon-preview#glyph-paperclip {
+	background-position: -90px 0px;
+}
+.icon-preview#glyph-link {
+	background-position: -118px -328px;
+}
+.icon-preview#glyph-wrench {
+	background-position: -150px -328px;
+}
+.icon-preview#glyph-hammer {
+	background-position: -180px -328px;
+}
+.icon-preview#glyph-privacy {
+	background-position: -210px -328px;
+}
+.icon-preview#glyph-cup {
+	background-position: -240px -328px;
+}
+.icon-preview#glyph-carrot {
+	background-position: -270px -328px;
+}
+.icon-preview#glyph-bottle {
+	background-position: -301px -329px;
+}
+.icon-preview#glyph-wineglass {
+	background-position: 2px -361px;
+}
+.icon-preview#glyph-oven {
+	background-position: -27px -361px;
+}
+.icon-preview#glyph-showerhead {
+	background-position: -58px -361px;
+}
+.icon-preview#glyph-pillbottle {
+	background-position: -89px -361px;
+}
+.icon-preview#glyph-scope {
+	background-position: -120px -361px;
+}
+.icon-preview#glyph-beaker {
+	background-position: -150px -361px;
+}
+.icon-preview#glyph-pawprint {
+	background-position: -181px -361px;
+}
+.icon-preview#glyph-gift {
+	background-position: -213px -362px;
+}
+.icon-preview#glyph-stairs {
+	background-position: -243px -362px;
+}
+.icon-preview#glyph-hanger {
+	background-position: 4px -392px;
+}
+.icon-preview#glyph-shirt {
+	background-position: -27px -392px;
+}
+.icon-preview#glyph-pill {
+	background-position: -57px -392px;
+}
+.icon-preview#glyph-bandaid {
+	background-position: -88px -392px;
+}
+.icon-preview#glyph-needle {
+	background-position: -120px -392px;
+}
+.icon-preview#glyph-cat {
+	background-position: -150px -392px;
+}
+.icon-preview#glyph-like {
+	background-position: -180px -392px;
+}
+.icon-preview#glyph-alien {
+	background-position: -212px -392px;
+}
+.icon-preview#glyph-rocket {
+	background-position: -243px -392px;
+}
+.icon-preview#glyph-laundry {
+	background-position: 3px -422px;
+}
+.icon-preview#glyph-bath {
+	background-position: -28px -422px;
+}
+.icon-preview#glyph-pills {
+	background-position: -58px -422px;
+}
+.icon-preview#glyph-inhaler {
+	background-position: -88px -422px;
+}
+.icon-preview#glyph-atom {
+	background-position: -119px -422px;
+}
+.icon-preview#glyph-dog {
+	background-position: -150px -421px;
+}
+.icon-preview#glyph-cap {
+	background-position: -182px -422px;
+}
+.icon-preview#glyph-bed {
+	background-position: -213px -422px;
+}
+/* End Objects */
+
+/* Category: People */
+.icon-preview#glyph-girlbaby {
+	background-position: 1px -458px;
+}
+.icon-preview#glyph-mansymbol {
+	background-position: -30px -457px;
+}
+.icon-preview#glyph-user {
+	background-position: -60px -457px;
+}
+.icon-preview#glyph-accessibility {
+	background-position: -91px -456px;
+}
+.icon-preview#glyph-dance {
+	background-position: -122px -456px;
+}
+.icon-preview#glyph-snowboard {
+	background-position: -154px -456px;
+}
+.icon-preview#glyph-activity {
+	background-position: -184px -456px;
+}
+.icon-preview#glyph-boybaby {
+	background-position: 1px -488px;
+}
+.icon-preview#glyph-womansymbol {
+	background-position: -29px -487px;
+}
+.icon-preview#glyph-users {
+	background-position: -60px -487px;
+}
+.icon-preview#glyph-podium {
+	background-position: -91px -487px;
+}
+.icon-preview#glyph-gym {
+	background-position: -122px -487px;
+}
+.icon-preview#glyph-swim {
+	background-position: -153px -486px;
+}
+.icon-preview#glyph-sprint {
+	background-position: -183px -487px;
+} /**/
+.icon-preview#glyph-person {
+	background-position: 1px -518px;
+}
+.icon-preview#glyph-handicap {
+	background-position: -29px -517px;
+}
+.icon-preview#glyph-group {
+	background-position: -60px -517px;
+}
+.icon-preview#glyph-handraised {
+	background-position: -90px -517px;
+}
+.icon-preview#glyph-hike {
+	background-position: -120px -517px;
+}
+.icon-preview#glyph-hiking {
+	background-position: -153px -517px;
+}
+.icon-preview#glyph-cane {
+	background-position: -183px -517px;
+}
+/* End People */
+
+/* Category: Symbols */
+.icon-preview#glyph-alert {
+	background-position: 1px -552px;
+}
+.icon-preview#glyph-bookmarkthis {
+	background-position: -28px -552px;
+}
+.icon-preview#glyph-stopfilled {
+	background-position: -58px -552px;
+}
+.icon-preview#glyph-left {
+	background-position: -89px -552px;
+}
+.icon-preview#glyph-up {
+	background-position: -119px -552px;
+}
+.icon-preview#glyph-play {
+	background-position: -150px -552px;
+}
+.icon-preview#glyph-stop {
+	background-position: -180px -552px;
+}
+.icon-preview#glyph-checked {
+	background-position: -210px -552px;
+}
+.icon-preview#glyph-moneysign {
+	background-position: -240px -552px;
+}
+.icon-preview#glyph-yensign {
+	background-position: -270px -552px;
+}
+.icon-preview#glyph-info {
+	background-position: -300px -552px;
+}
+.icon-preview#glyph-shareleft {
+	background-position: 1px -582px;
+}
+.icon-preview#glyph-barcode {
+	background-position: -29px -582px;
+}
+.icon-preview#glyph-frame {
+	background-position: -58px -582px;
+}
+.icon-preview#glyph-right {
+	background-position: -89px -582px;
+}
+.icon-preview#glyph-down {
+	background-position: -120px -582px;
+}
+.icon-preview#glyph-prev {
+	background-position: -150px -582px;
+}
+.icon-preview#glyph-next {
+	background-position: -180px -582px;
+}
+.icon-preview#glyph-plus {
+	background-position: -210px -582px;
+}
+.icon-preview#glyph-eurosign {
+	background-position: -240px -582px;
+}
+.icon-preview#glyph-bitcoinsign {
+	background-position: -270px -582px;
+}
+.icon-preview#glyph-smile {
+	background-position: -300px -582px;
+}
+.icon-preview#glyph-shareright {
+	background-position: 1px -612px;
+}
+.icon-preview#glyph-qrcode {
+	background-position: -28px -612px;
+}
+.icon-preview#glyph-sizes {
+	background-position: -58px -612px;
+}
+.icon-preview#glyph-download {
+	background-position: -89px -612px;
+}
+.icon-preview#glyph-upload {
+	background-position: -119px -612px;
+}
+.icon-preview#glyph-power {
+	background-position: -150px -612px;
+}
+.icon-preview#glyph-help {
+	background-position: -180px -612px;
+}
+.icon-preview#glyph-xfilled {
+	background-position: -210px -612px;
+}
+.icon-preview#glyph-pounds {
+	background-position: -240px -612px;
+}
+.icon-preview#glyph-pi {
+	background-position: -270px -612px;
+}
+.icon-preview#glyph-cssfile {
+	background-position: -300px -610px;
+}
+.icon-preview#glyph-money {
+	background-position: 2px -642px;
+}
+.icon-preview#glyph-yen {
+	background-position: -29px -642px;
+}
+.icon-preview#glyph-filefilled {
+	background-position: -58px -642px;
+}
+.icon-preview#glyph-list {
+	background-position: -89px -642px;
+}
+.icon-preview#glyph-more {
+	background-position: -119px -642px;
+}
+.icon-preview#glyph-share {
+	background-position: -150px -642px;
+}
+.icon-preview#glyph-spinner {
+	background-position: -180px -642px;
+}
+.icon-preview#glyph-target {
+	background-position: -210px -642px;
+}
+.icon-preview#glyph-location {
+	background-position: -240px -642px;
+}
+.icon-preview#glyph-crop {
+	background-position: -270px -642px;
+}
+.icon-preview#glyph-move {
+	background-position: -304px -642px;
+}
+.icon-preview#glyph-euro {
+	background-position: 2px -672px;
+}
+.icon-preview#glyph-bitcoin {
+	background-position: -28px -672px;
+}
+.icon-preview#glyph-file {
+	background-position: -58px -672px;
+}
+.icon-preview#glyph-document {
+	background-position: -89px -672px;
+}
+.icon-preview#glyph-listitems {
+	background-position: -119px -672px;
+}
+.icon-preview#glyph-infinite {
+	background-position: -150px -672px;
+}
+.icon-preview#glyph-loading {
+	background-position: -180px -672px;
+}
+.icon-preview#glyph-podcasts {
+	background-position: -210px -672px;
+}
+.icon-preview#glyph-mapmarker {
+	background-position: -240px -672px;
+}
+.icon-preview#glyph-exit {
+	background-position: -270px -672px;
+}
+.icon-preview#glyph-repeat {
+	background-position: -304px -672px;
+}
+.icon-preview#glyph-poundsign {
+	background-position: 2px -702px;
+}
+.icon-preview#glyph-asterisk {
+	background-position: -28px -701px;
+}
+.icon-preview#glyph-filedoc {
+	background-position: -58px -701px;
+}
+.icon-preview#glyph-fourgrid {
+	background-position: -89px -701px;
+}
+.icon-preview#glyph-sixgrid {
+	background-position: -119px -701px;
+}
+.icon-preview#glyph-recycle {
+	background-position: -150px -701px;
+}
+.icon-preview#glyph-playvideo {
+	background-position: -180px -701px;
+}
+.icon-preview#glyph-bigtarget {
+	background-position: -210px -701px;
+}
+.icon-preview#glyph-squarep {
+	background-position: -240px -701px;
+}
+.icon-preview#glyph-resize {
+	background-position: -270px -701px;
+}
+.icon-preview#glyph-sync {
+	background-position: -302px -701px;
+}
+.icon-preview#glyph-playsolo {
+	background-position: 2px -735px;
+}
+.icon-preview#glyph-rss {
+	background-position: -28px -735px;
+}
+.icon-preview#glyph-quotes {
+	background-position: -58px -735px;
+}
+.icon-preview#glyph-text {
+	background-position: -89px -735px;
+}
+.icon-preview#glyph-shuffle {
+	background-position: -119px -735px;
+}
+.icon-preview#glyph-signal {
+	background-position: -150px -735px;
+}
+.icon-preview#glyph-peace {
+	background-position: -180px -735px;
+}
+.icon-preview#glyph-cloudservice {
+	background-position: -210px -735px;
+}
+.icon-preview#glyph-settings {
+	background-position: -240px -735px;
+}
+.icon-preview#glyph-wifi {
+	background-position: -270px -735px;
+}
+.icon-preview#glyph-nuclear {
 	background-position: -300px -735px;
 }
 /* End Symbols */
