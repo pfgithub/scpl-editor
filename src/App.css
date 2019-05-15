@@ -23,6 +23,17 @@
 		top: 50px;
 		box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.25);
 	}
+	.result-pane {
+		position: fixed;
+		z-index: 200;
+		height: 500px !important;
+		right: 80px;
+		top: 45px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		box-shadow: -1px 5px 16px rgba(0, 0, 0, 0.27) !important;
+		border: 2px solid #ccc;
+	}
 }
 /* iPad Portrait */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: portrait) {
@@ -113,10 +124,36 @@
 		width: auto !important;
 		max-height: 100% !important;
 	}
+	.modal {
+		width: 100% !important;
+		padding: 0 !important;
+		border-radius: 0 !important;
+		position: absolute;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		overflow: auto;
+	}
+	.modals-container {
+		justify-content: unset !important;
+		align-items: unset !important;
+	}
 }
 /* General Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 1260px) {
 	.editor-menu {
+		display: none !important;
+	}
+	.result-pane {
+		position: fixed;
+		z-index: 200;
+		right: 0;
+		left: 0;
+		top: 45px;
+		bottom: 0;
+	}
+	.download-or {
 		display: none !important;
 	}
 	.editor-container {
@@ -127,17 +164,6 @@
 	}
 	.code-pane {
 		height: 93vh;
-	}
-	.result-pane {
-		position: fixed;
-		z-index: 200;
-		height: 500px;
-		right: 80px;
-		top: 45px;
-		border-bottom-left-radius: 10px;
-		border-bottom-right-radius: 10px;
-		box-shadow: -1px 5px 16px rgba(0, 0, 0, 0.27) !important;
-		border: 2px solid #ccc;
 	}
 	.download-grid > div:first-child:after {
 		display: none;
@@ -170,21 +196,6 @@
 	}
 	.mobile-filemenu {
 		display: block !important;
-	}
-	.modals-container {
-		justify-content: unset !important;
-		align-items: unset !important;
-	}
-	.modal {
-		width: 100% !important;
-		padding: 0 !important;
-		border-radius: 0 !important;
-		position: absolute;
-		bottom: 0;
-		top: 0;
-		left: 0;
-		right: 0;
-		overflow: auto;
 	}
 	.download-grid {
 		display: block !important;
@@ -342,7 +353,8 @@ input:active {
 	grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 	margin: 5px 0;
 }
-.ios-tabs div {
+.ios-tabs button {
+	background: none;
 	text-align: center;
 	display: inline-block;
 	white-space: nowrap;
@@ -352,19 +364,19 @@ input:active {
 	color: #007aff;
 	border: 0.5px solid #007aff;
 	border-right: none;
-	padding: 7px 0;
+	padding: 8px 0;
 	user-select: none;
 	cursor: pointer;
 }
-.ios-tabs div.active-itab {
+.ios-tabs button.active-itab {
 	background-color: #007aff;
 	color: #fff;
 }
-.ios-tabs div:first-child {
+.ios-tabs button:first-child {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
-.ios-tabs div:last-child {
+.ios-tabs button:last-child {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-right: 0.5px solid #007aff;
@@ -423,7 +435,7 @@ input:active {
 	padding: 10px !important;
 	font-weight: bold;
 	text-transform: uppercase;
-	margin-left: -20px;
+	margin-left: -23px;
 	margin-top: 90px;
 	background: #fff;
 	height: 20px;
