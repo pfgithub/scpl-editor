@@ -9,7 +9,7 @@ margin-left: 7px;
 }
 /* Glyph container and headers */
 .glyphs-container {
-	height: 150px;
+	height: 250px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	border: 1px solid #dedede;

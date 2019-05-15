@@ -49,17 +49,11 @@
 	.editor-title {
 		display: none !important;
 	}
+	.file-pane input {
+    width: 92% !important;
+	}
 	.file-list li.open-folder > ul > li {
 		width: 96% !important;
-	}
-	.result-pane {
-		width: auto !important;
-		right: 0 !important;
-		left: 0;
-		bottom: 0;
-		height: 93% !important;
-		padding-bottom: 0 !important;
-		border-radius: 0;
 	}
 	#download-result h1 {
 		opacity: 0 !important;
@@ -92,10 +86,6 @@
 		border: none !important;
 	}
 	.code-pane {
-		border: none !important;
-	}
-	.result-pane {
-		height: 44vh;
 		border: none !important;
 	}
 	.error-messages {
@@ -139,19 +129,40 @@
 		justify-content: unset !important;
 		align-items: unset !important;
 	}
+	#create-edit-shortcut {
+		padding: 20px !important;
+		width: auto !important;
+	}
+	.ios-tabs {
+		grid-template-columns: repeat(auto-fill,minmax(150px,1fr)) !important;
+	}
+	#create-edit-shortcut .large-btn {
+		margin: 10px 0 !important;
+	}
 }
 /* General Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 1260px) {
 	.editor-menu {
 		display: none !important;
 	}
+	.glyphs-container {
+		height: 50vh !important;
+	}
 	.result-pane {
 		position: fixed;
 		z-index: 200;
-		right: 0;
+		top: 50px;
+		width: auto !important;
+		right: 0 !important;
 		left: 0;
-		top: 45px;
 		bottom: 0;
+		padding-bottom: 0 !important;
+		border-radius: 0;
+		border: none !important;
+		height: 95vh !important;
+	}
+	.result-text {
+		border-left: none !important;
 	}
 	.download-or {
 		display: none !important;
