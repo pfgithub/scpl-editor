@@ -190,39 +190,24 @@ export class FilePane extends Component<
 					{({ getRootProps, getInputProps }) => (
 						<div>
 							<div className="files-header">
-								<input
-									type="search"
-									className="search-input"
-									placeholder="Search Files"
-									onKeyUp={e =>
-										this.setState({
-											searchTerm: e.currentTarget.value
-										})
-									}
-								/>
+								<p
+									style={{
+										paddingLeft: "10px",
+										paddingRight: "10px",
+										margin: "10px"
+									}}
+								>
+									Upload a shortcut
+								</p>
 								<div className="file-btns">
 									<div
 										className="btn file-btn upload-btn"
+										style={{ gridColumn: "1/4" }}
 										{...getRootProps()}
 									>
 										<input {...getInputProps()} />
 									</div>
-									<button
-										className="btn file-btn new-btn"
-										onClick={() =>
-											this.setState({
-												showFileModal: true
-											})
-										}
-									/>
-									<button className="btn file-btn newf-btn" />
 								</div>
-							</div>
-							<div className="file-list">
-								<FileList
-									files={this.props.files}
-									searchTerm={this.state.searchTerm}
-								/>
 							</div>
 						</div>
 					)}
