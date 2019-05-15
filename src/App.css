@@ -872,7 +872,7 @@ input:active {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	margin-top: 16px;
-	box-shadow: 0 5px 10px rgba(100, 100, 100, 0.1);
+	box-shadow: 0 3px 10px rgba(100, 100, 100, 0.3);
 	min-width: 230px;
 	display: none;
 	border: 0.5px solid #c7c7cc;
@@ -885,17 +885,23 @@ input:active {
 	padding: 8px 15px;
 	font-size: 14px;
 	text-decoration: none;
-	color: #1d1d1c;
 	transition: 0.2s all;
+	color: #1d1d1c;
 	font-weight: 500;
 	user-select: none;
 }
+.editor-menu li a:hover span {
+}
 .editor-menu li a span {
 	float: right;
-	color: #94b0cf;
+	color: #748ca5;
 	font-size: 14px;
 	line-height: 15px;
 	text-align: right;
+	padding: 3px 4px;
+	border-radius: 4px;
+	letter-spacing: 1px;
+	margin-top: -3px;
 }
 .editor-menu ul ul li a:hover {
 	background: #e8f6fe;
