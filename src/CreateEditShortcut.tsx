@@ -63,7 +63,13 @@ export class CreateEditShortcut extends Component<
 						</div>
 					</div>
 					<br/>
-					<div className="input-label">Glyph</div>
+					<div className="ios-tabs">
+						<div className="active-itab" id="color-tab">Color</div>
+						<div id="glyphs-tab">Glyph</div>
+					</div>
+
+					<div className="ios-tab-page" id="tab-glyphs">
+
 					<div className="glyphs-container">
 						<div className="glyph-cat" id="gc-objects">
 							<div className="glyph-header">Objects</div>
@@ -125,7 +131,12 @@ export class CreateEditShortcut extends Component<
 							))}
 						</div>
 					</div>
-					<div className="input-label color-label">Color</div>
+
+					</div>
+
+
+					<div className="ios-tab-page" id="tab-color">
+
 					<div className="color-select">
 						{colors.map(color => (
 							<div className="radio color-radio" key={color}>
@@ -143,7 +154,8 @@ export class CreateEditShortcut extends Component<
 						))}
 					</div>
 
-					<br />
+					</div>
+
 					<div className="btn large-btn" id="close-new">
 						Create
 					</div>

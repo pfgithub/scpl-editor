@@ -336,6 +336,39 @@ input:active {
 	margin-top: 1px !important;
 	width: 93%;
 }
+/* ios tabs */
+.ios-tabs {
+	display: grid;
+	grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+	margin: 5px 0;
+}
+.ios-tabs div {
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	color: #007aff;
+	border: 0.5px solid #007aff;
+	border-right: none;
+	padding: 7px 0;
+	user-select: none;
+	cursor: pointer;
+}
+.ios-tabs div.active-itab {
+	background-color: #007aff;
+	color: #fff;
+}
+.ios-tabs div:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.ios-tabs div:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-right: 0.5px solid #007aff;
+}
 /* navigation + nav elements */
 .mobile-filemenu {
 	background: url(img/menu.svg) center / 27px no-repeat;
