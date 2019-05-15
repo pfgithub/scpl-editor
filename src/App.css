@@ -343,7 +343,7 @@ input:active {
 	height: 8px;
 }
 .open-filemenu {
-	background-image: url(img/back.png);
+	background-image: url(img/back.svg);
 	background-size: 20px;
 }
 .editor-navigation {
