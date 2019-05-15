@@ -86,10 +86,7 @@ class App extends Component<
 			showPreview: false,
 			showPreviewFullscreen: false,
 			errors: [],
-			tabs: [
-				{ filename: "download.scpl", active: true },
-				{ filename: "other.scpl", active: false }
-			],
+			tabs: [{ filename: "download.scpl", active: true }],
 			files: {
 				"download.scpl": `ShowResult "Hello ScPL"
 	ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
