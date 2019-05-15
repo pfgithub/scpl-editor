@@ -434,43 +434,43 @@ input[type="radio"]#glyph-servers + label:before {
 	background-position: -272px -119px;
 }
 input[type="radio"]#glyph-television + label:before {
-	background-position: -301px -120px;
+	background-position: -302px -121px;
 }
 input[type="radio"]#glyph-microphone + label:before {
-	background-position: 0 -148px;
+	background-position: -1px -149px;
 }
 input[type="radio"]#glyph-clipboard + label:before {
-	background-position: -30px -148px;
+	background-position: -31px -150px;
 }
 input[type="radio"]#glyph-messages + label:before {
-	background-position: -60px -148px;
+	background-position: -61px -149px;
 }
 input[type="radio"]#glyph-openletter + label:before {
-	background-position: -90px -148px;
+	background-position: -91px -150px;
 }
 input[type="radio"]#glyph-folder + label:before {
-	background-position: -120px -148px;
+	background-position: -121px -149px;
 }
 input[type="radio"]#glyph-phone + label:before {
-	background-position: -150px -148px;
+	background-position: -151px -149px;
 }
 input[type="radio"]#glyph-keyboard + label:before {
-	background-position: -180px -148px;
+	background-position: -181px -149px;
 }
 input[type="radio"]#glyph-stats + label:before {
-	background-position: -210px -148px;
+	background-position: -211px -149px;
 }
 input[type="radio"]#glyph-serverset + label:before {
-	background-position: -240px -148px;
+	background-position: -242px -148px;
 }
 input[type="radio"]#glyph-inbox + label:before {
-	background-position: -270px -148px;
+	background-position: -272px -148px;
 }
 input[type="radio"]#glyph-controller + label:before {
-	background-position: -301px -148px;
+	background-position: -302px -148px;
 }
 input[type="radio"]#glyph-puzzle + label:before {
-	background-position: 1px -178px;
+	background-position: 3px -180px;
 }
 input[type="radio"]#glyph-speaker + label:before {
 	background-position: -28px -178px;
@@ -1215,43 +1215,43 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -272px -119px;
 }
 .icon-preview#glyph-television {
-	background-position: -301px -120px;
+	background-position: -302px -121px;
 }
 .icon-preview#glyph-microphone {
-	background-position: 0 -148px;
+	background-position: -1px -149px;
 }
 .icon-preview#glyph-clipboard {
-	background-position: -30px -148px;
+	background-position: -31px -150px;
 }
 .icon-preview#glyph-messages {
-	background-position: -60px -148px;
+	background-position: -61px -149px;
 }
 .icon-preview#glyph-openletter {
-	background-position: -90px -148px;
+	background-position: -91px -150px;
 }
 .icon-preview#glyph-folder {
-	background-position: -120px -148px;
+	background-position: -121px -149px;
 }
 .icon-preview#glyph-phone {
-	background-position: -150px -148px;
+	background-position: -151px -149px;
 }
 .icon-preview#glyph-keyboard {
-	background-position: -180px -148px;
+	background-position: -181px -149px;
 }
 .icon-preview#glyph-stats {
-	background-position: -210px -148px;
+	background-position: -211px -149px;
 }
 .icon-preview#glyph-serverset {
 	background-position: -240px -148px;
 }
 .icon-preview#glyph-inbox {
-	background-position: -270px -148px;
+	background-position: -272px -148px;
 }
 .icon-preview#glyph-controller {
-	background-position: -301px -148px;
+	background-position: -302px -148px;
 }
 .icon-preview#glyph-puzzle {
-	background-position: 1px -178px;
+	background-position: 3px -180px;
 }
 .icon-preview#glyph-speaker {
 	background-position: -28px -178px;
