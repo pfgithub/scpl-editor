@@ -429,6 +429,9 @@ input:active {
 	padding: 15px;
 	font-weight: bold;
 	display: inline-block;
+	background: url(img/icon.png) left center / 30px no-repeat;
+	padding-left: 37px;
+	margin-left: 10px;
 }
 .result-details {
 	color: #999;
@@ -896,7 +899,6 @@ input:active {
 }
 .editor-menu ul ul li a:hover {
 	background: #e8f6fe;
-	color: #4068ac;
 }
 .menu-div {
 	border-top: 1px solid #5a798b30;
