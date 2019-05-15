@@ -105,7 +105,7 @@ class App extends Component<
 	}
 	componentDidMount() {}
 	componentWillMount() {
-		var urlParams = new URLSearchParams(window.location.search);
+		const urlParams = new URLSearchParams(window.location.search);
 		this.onChange(
 			new URLSearchParams(window.location.search).get("scpl") ||
 				`ShowResult "Hello ScPL"
