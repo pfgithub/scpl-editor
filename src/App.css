@@ -347,6 +347,14 @@ input:active {
 	margin-top: 1px !important;
 	width: 93%;
 }
+/* required field errors */
+.require-error {
+	background: url(img/error.svg) left center / 16px no-repeat;
+	padding-left: 23px;
+	color: #d74c39;
+	margin-top: 10px;
+	font-size: 14px;
+}
 /* ios tabs */
 .ios-tabs {
 	display: grid;
@@ -435,7 +443,7 @@ input:active {
 	padding: 10px !important;
 	font-weight: bold;
 	text-transform: uppercase;
-	margin-left: -23px;
+	margin-left: -22px;
 	margin-top: 90px;
 	background: #fff;
 	height: 20px;
@@ -630,6 +638,7 @@ input:active {
 	margin-top: 23px;
 	color: #007aff;
 	cursor: pointer;
+	user-select: none;
 }
 .cancel-btn:hover {
 	opacity: 0.7;
