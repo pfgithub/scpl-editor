@@ -308,6 +308,10 @@ textarea,
 	color: #555;
 	font-size: 15px;
 	line-height: 22px;
+	margin: 15px 0;
+}
+.color-label {
+	margin-bottom: 0;
 }
 input {
 	appearance: none;
@@ -813,7 +817,7 @@ input:active {
 	padding: 8px 15px;
 	font-size: 14px;
 	text-decoration: none;
-	color: black;
+	color: #1d1d1c;
 	transition: 0.2s all;
 	font-weight: 500;
 	user-select: none;
@@ -827,7 +831,7 @@ input:active {
 }
 .editor-menu ul ul li a:hover {
 	background: #e8f6fe;
-	color: #1d1d1c;
+	color: #4068ac;
 }
 .menu-div {
 	border-top: 1px solid #5a798b30;

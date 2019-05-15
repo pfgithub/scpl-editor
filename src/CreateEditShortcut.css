@@ -1,3 +1,12 @@
+.new-grid {
+	display: grid;
+	grid-template-columns: 0fr 1fr;
+	margin-top: 30px;
+margin-left: 7px;
+}
+#new-name {
+	margin: 0;
+}
 /* Glyph container and headers */
 .glyphs-container {
 	height: 160px;
@@ -17,30 +26,24 @@
 	padding: 3px 5px;
 	z-index: 1000;
 }
-.new-grid {
-	display: grid;
-	grid-template-columns: 0fr 1fr;
-}
-.new-grid > div:first-child {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.new-grid div:last-child {
-	padding-top: 3px;
-}
 /* Icon/Color preview */
 .color-icon-preview {
-	margin-right: 20px;
-	border-radius: 5px;
-	background-image: linear-gradient(to bottom right, #6d768e, #8f99b0);
-	box-shadow: 0 0 10px rgba(150, 150, 150, 0.5);
-	padding: 3px;
+	overflow: hidden;
+	    width: 30px;
+	    height: 30px;
+	    margin-right: 25px;
+	    border-radius: 5px;
+	    background-image: linear-gradient(to bottom right, #6d768e, #8f99b0);
+	    box-shadow: 0 0 10px rgba(150, 150, 150, 0.5);
+	    padding: 3px;
+	    -webkit-transform: scale(1.5);
+	    transform: scale(1.5);
 }
 .icon-preview {
 	background: url(img/glyph_sheet_white.png) center / 330px no-repeat;
 	display: inline-block;
-	padding: 25px 15px;
+	padding: 15px;
+	transform: scale(1.2);
 }
 /* Color & Glyph radios style */
 .radio {
@@ -50,8 +53,8 @@
 	display: inline-block;
 	cursor: pointer;
 	position: relative;
-	padding: 15px 20px;
-	margin: 10px 5px;
+	padding: 20px;
+	margin: 5px;
 	cursor: pointer;
 }
 input[type="radio"] {
@@ -332,13 +335,13 @@ input[type="radio"]#glyph-earth + label:before {
 	background-position: -270px -29px;
 }
 input[type="radio"]#glyph-film + label:before {
-	background-position: -300px -29px;
+	background-position: -302px -30px;
 }
 input[type="radio"]#glyph-motorcycle + label:before {
 	background-position: 2px -59px;
 }
 input[type="radio"]#glyph-boat + label:before {
-	background-position: -29px -59px;
+	background-position: -28px -59px;
 }
 input[type="radio"]#glyph-city + label:before {
 	background-position: -58px -59px;
@@ -1113,13 +1116,13 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -270px -29px;
 }
 .icon-preview#glyph-film {
-	background-position: -300px -29px;
+	background-position: -302px -30px;
 }
 .icon-preview#glyph-motorcycle {
 	background-position: 2px -59px;
 }
 .icon-preview#glyph-boat {
-	background-position: -29px -59px;
+	background-position: -28px -59px;
 }
 .icon-preview#glyph-city {
 	background-position: -58px -59px;

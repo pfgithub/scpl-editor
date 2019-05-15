@@ -41,36 +41,29 @@ export class CreateEditShortcut extends Component<
 						Cancel
 					</div>
 					<h2>New ScPL File</h2>
-					<div className="new-grid">
+<div className="new-grid">
+<div>
+<div
+	className="color-icon-preview"
+	id={`color-${this.state.chosenColor}`}
+>
+	<div
+		className="icon-preview"
+		id={`glyph-${this.state.chosenGlyph}`}
+	/>
+</div>
+</div>
 						<div>
-							<div
-								className="color-icon-preview"
-								id={`color-${this.state.chosenColor}`}
-							>
-								<div
-									className="icon-preview"
-									id={`glyph-${this.state.chosenGlyph}`}
-								/>
-							</div>
-						</div>
-						<div>
-							<div
-								className="input-label"
-								style={{ display: "none" }}
-							>
-								Shortcut Name
-							</div>
-							<input
-								type="text"
-								placeholder="Shortcut Name"
-								id="new-name"
-								autoFocus
-							/>
+						<input
+							type="text"
+							placeholder="Shortcut Name"
+							id="new-name"
+							autoFocus
+						/>
 						</div>
 					</div>
-					<br />
+					<br/>
 					<div className="input-label">Glyph</div>
-					<br />
 					<div className="glyphs-container">
 						<div className="glyph-cat" id="gc-objects">
 							<div className="glyph-header">Objects</div>
@@ -132,11 +125,7 @@ export class CreateEditShortcut extends Component<
 							))}
 						</div>
 					</div>
-
-					<br />
-
-					<div className="input-label">Color</div>
-					<br />
+					<div className="input-label color-label">Color</div>
 					<div className="color-select">
 						{colors.map(color => (
 							<div className="radio color-radio" key={color}>
