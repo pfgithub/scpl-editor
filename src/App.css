@@ -486,6 +486,10 @@ input:active {
 .editor-btn:active {
 	opacity: 0.5;
 }
+.qr-btn {
+	background: url(img/qr.svg) 12px center / 25px no-repeat;
+	padding-left: 45px !important;
+}
 /* editor + result panes */
 .editor-container {
 	display: grid;
