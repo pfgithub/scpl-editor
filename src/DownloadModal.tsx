@@ -48,6 +48,7 @@ export class ShortcutDownloadStatusSwitcher extends Component<{
 	requestUpload: () => void;
 	uploadReason: string;
 	uploadAction: string;
+	additionalClasses?: string;
 }> {
 	render() {
 		switch (this.props.status.uploadStatus) {
@@ -57,7 +58,7 @@ export class ShortcutDownloadStatusSwitcher extends Component<{
 						<br />
 						<br />
 						<button
-							className="btn"
+							className={`btn ${this.props.additionalClasses || ""}`}
 							onClick={() => this.props.requestUpload()}
 						>
 							{this.props.uploadAction}
@@ -209,6 +210,7 @@ export class DownloadModal extends Component<
 									requestUpload={() => this.uploadFile()}
 									uploadReason="generate a QR code"
 									uploadAction="Generate QR Code"
+									additionalClasses="qr-btn"
 								>
 									<div>
 										<p style={{ display: "none" }}>Add to your library via QR Code:</p>
