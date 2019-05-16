@@ -303,8 +303,9 @@ button {
 	padding: 10px 23px;
 	box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
 }
-.modal .large-btn {
+.modal .btn {
 	margin: 10px 0;
+	width: stretch;
 }
 .modal.dialog {
 	width: 400px;

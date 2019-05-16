@@ -74,7 +74,14 @@ export class UploadShortcutModal extends Component<
 					id="create-edit-shortcut"
 					style={{ display: "block" }}
 				>
-					<h2>Convert Shortcut to ScPL</h2>
+				<div
+				className="cancel-btn"
+				id="close-import"
+				onClick={() => this.props.onCancel()}
+				>
+					Cancel
+				</div>
+					<h2>Import Shortcut</h2>
 					<input
 						type="text"
 						placeholder="https://www.icloud.com/shortcuts/"
@@ -90,36 +97,26 @@ export class UploadShortcutModal extends Component<
 						}}
 					/>
 					<p className="details-text">{this.state.shortcutID}</p>
-					<div>
-						<DownloadStatusSwitcher
-							status={this.state.uploadStatus}
-							requestUpload={() => this.downloadShortcut()}
-							detailsMsg={
-								<div>
-									To convert your shortcut from an iCloud
-									link, ScPL Editor will upload your shortcut
-									to{" "}
-									<a
-										href="https://shortcutsweb.app"
-										target="_blank"
-										rel="noopener"
-									>
-										shortcutsweb.app
-									</a>
-									.
-								</div>
-							}
-							uploadAction="Convert Shortcut to ScPL"
-						/>
-					</div>
-					<br />
-					<div
-						className="cancel-btn"
-						id="close-new"
-						onClick={() => this.props.onCancel()}
-					>
-						Cancel
-					</div>
+					<DownloadStatusSwitcher
+						status={this.state.uploadStatus}
+						requestUpload={() => this.downloadShortcut()}
+						detailsMsg={
+							<div>
+								To convert your shortcut from an iCloud, ScPL Editor will upload your shortcut
+								to{" "}
+								<a
+									href="https://shortcutsweb.app"
+									target="_blank"
+									rel="noopener"
+								>
+									shortcutsweb.app
+								</a>
+								.
+							</div>
+						}
+						uploadAction="Convert Shortcut to ScPL"
+					/>
+
 				</div>
 			</ModalContainer>
 		);

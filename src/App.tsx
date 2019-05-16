@@ -209,19 +209,14 @@ OpenURLs`
 										</li>
 										<div className="menu-div" />
 										<li>
-											<a
-												href="javascript:;"
-												onClick={() =>
-													this.setState({
-														showUploadShortcutModal: true
-													})
-												}
-											>
-												Upload Shortcut
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
+										<a
+											href="javascript:;"
+											onClick={() =>
+												this.setState({
+													showUploadShortcutModal: true
+												})
+											}
+										>
 												Import Shortcut from iCloud
 											</a>
 										</li>
