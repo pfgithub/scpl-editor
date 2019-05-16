@@ -305,6 +305,8 @@ button {
 }
 .modal .btn {
 	margin: 10px 0;
+}
+.stretch-btn {
 	width: stretch;
 }
 .modal.dialog {

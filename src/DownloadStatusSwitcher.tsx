@@ -26,14 +26,15 @@ export class DownloadStatusSwitcher extends Component<{
 			case "None":
 				return (
 					<div>
-						<p className="details-text">{this.props.detailsMsg}</p>
+					<br/><br/>
 						<button
-							className={`btn large-btn ${this.props
+							className={`btn ${this.props
 								.additionalButtonClasses || ""}`}
 							onClick={() => this.props.requestUpload()}
 						>
 							{this.props.uploadAction}
 						</button>
+						<p className="details-text">{this.props.detailsMsg}</p>
 					</div>
 				);
 			case "URL":
