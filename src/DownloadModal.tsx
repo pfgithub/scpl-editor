@@ -9,6 +9,7 @@ import prettyBytes from "pretty-bytes";
 
 import shortcutDownloadPreviewIcon from "./img/shortcut-file.png";
 import { uploadShortcut } from "./Uploader";
+import { DownloadStatusSwitcher, UploadStatus } from "./DownloadStatusSwitcher";
 
 import "./CreateEditShortcut.css";
 
@@ -29,91 +30,13 @@ export class ShortcutDownloadPreviewButton extends Component<
 	}
 }
 
-type UploadStatus =
-	| {
-			uploadStatus: "None" | "Uploading";
-	  }
-	| {
-			uploadStatus: "URL";
-			uploadedURL: string;
-			qrcode: string;
-	  }
-	| {
-			uploadStatus: "Error";
-			uploadError: string;
-	  };
-
-export class ShortcutDownloadStatusSwitcher extends Component<{
-	status: UploadStatus;
-	requestUpload: () => void;
-	uploadReason: string;
-	uploadAction: string;
-	additionalClasses?: string;
-}> {
-	render() {
-		switch (this.props.status.uploadStatus) {
-			case "None":
-				return (
-					<div>
-						<br />
-						<br />
-						<button
-							className={`btn ${this.props.additionalClasses || ""}`}
-							onClick={() => this.props.requestUpload()}
-						>
-							{this.props.uploadAction}
-						</button>
-						<p className="details-text">
-							To {this.props.uploadReason}, ScPL editor will
-							upload your shortcut to{" "}
-							<a
-								href="https://file.io"
-								target="_blank"
-								rel="noopener"
-							>
-								file.io
-							</a>
-							.
-						</p>
-					</div>
-				);
-			case "URL":
-				return this.props.children;
-			case "Uploading":
-				return (
-					<div>
-						<div className="generate-code-load">
-							<div className="load" />
-							<p>Uploading...</p>
-						</div>
-					</div>
-				);
-			case "Error":
-				return (
-					<div>
-						<p>Error uploading: {this.props.status.uploadError}</p>
-					</div>
-				);
-			default:
-				return (
-					<div>
-						<p>Something bad happened.</p>
-					</div>
-				);
-		}
-	}
-}
-
 type DownloadModalProps = {
 	onCancel: () => void;
 	filename: string;
 	file: Buffer | undefined;
 };
 
-export class DownloadModal extends Component<
-	DownloadModalProps,
-	UploadStatus
-> {
+export class DownloadModal extends Component<DownloadModalProps, UploadStatus> {
 	constructor(props: Readonly<DownloadModalProps>) {
 		super(props);
 		this.state = { uploadStatus: "None" };
@@ -180,10 +103,24 @@ export class DownloadModal extends Component<
 										/>
 									</DownloadButton>
 								) : (
-									<ShortcutDownloadStatusSwitcher
+									<DownloadStatusSwitcher
 										status={this.state}
 										requestUpload={() => this.uploadFile()}
-										uploadReason="download on this browser"
+										detailsMsg={
+											<div>
+												To download on this browser,
+												ScPL editor will upload your
+												shortcut to{" "}
+												<a
+													href="https://file.io"
+													target="_blank"
+													rel="noopener"
+												>
+													file.io
+												</a>
+												.
+											</div>
+										}
 										uploadAction="Create Download Link"
 									>
 										<a
@@ -200,24 +137,44 @@ export class DownloadModal extends Component<
 												)}
 											/>
 										</a>
-									</ShortcutDownloadStatusSwitcher>
+									</DownloadStatusSwitcher>
 								)}
 							</div>
 							<div className="download-or">or</div>
 							<div>
-								<ShortcutDownloadStatusSwitcher
+								<DownloadStatusSwitcher
 									status={this.state}
 									requestUpload={() => this.uploadFile()}
-									uploadReason="generate a QR code"
+									detailsMsg={
+										<div>
+											To generate a qr code, ScPL editor
+											will upload your shortcut to{" "}
+											<a
+												href="https://file.io"
+												target="_blank"
+												rel="noopener"
+											>
+												file.io
+											</a>
+											.
+										</div>
+									}
 									uploadAction="Generate QR Code"
-									additionalClasses="qr-btn"
+									additionalButtonClasses="qr-btn"
 								>
 									<div>
-										<p style={{ display: "none" }}>Add to your library via QR Code:</p>
+										<p style={{ display: "none" }}>
+											Add to your library via QR Code:
+										</p>
 										<div id="qr-result">
 											<div
 												className="qrresimg"
-												style={{backgroundImage: `url(${(this.state as any).qrcode})`}}
+												style={{
+													backgroundImage: `url(${
+														(this.state as any)
+															.qrcode
+													})`
+												}}
 											/>
 										</div>
 										<p className="details-text">
@@ -226,7 +183,7 @@ export class DownloadModal extends Component<
 											Code.
 										</p>
 									</div>
-								</ShortcutDownloadStatusSwitcher>
+								</DownloadStatusSwitcher>
 							</div>
 						</div>
 					) : (

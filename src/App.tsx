@@ -14,6 +14,7 @@ import { FilePane } from "./FilePane";
 import { SearchActions } from "./SearchActions";
 import { DownloadModal } from "./DownloadModal";
 import { keys } from "./Key";
+import { UploadShortcutModal } from "./UploadShortcutModal";
 
 import ShortcutPreview from "shortcut-preview";
 
@@ -21,7 +22,11 @@ let timeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
 
-const hotkey = window.navigator.platform === "MacIntel" || window.navigator.platform.includes("Win") ? "⌘" : "^";
+const hotkey =
+	window.navigator.platform === "MacIntel" ||
+	window.navigator.platform.includes("Win")
+		? "⌘"
+		: "^";
 
 class MaybeUpdate extends Component<{ shouldUpdate: boolean }, {}> {
 	shouldComponentUpdate(nextProps: { shouldUpdate: boolean }) {
@@ -60,6 +65,7 @@ class App extends Component<
 		openDownload: boolean;
 		showPreview: boolean;
 		showPreviewFullscreen: boolean;
+		showUploadShortcutModal: boolean;
 		tabs: { filename: string; active: boolean }[];
 		files: {
 			[filename: string]: string;
@@ -81,6 +87,7 @@ class App extends Component<
 			openDownload: false,
 			showPreview: false,
 			showPreviewFullscreen: false,
+			showUploadShortcutModal: false,
 			errors: [],
 			tabs: [
 				{ filename: "download.scpl", active: true },
@@ -145,6 +152,17 @@ OpenURLs`
 						file={this.state.shortcutDownload}
 					/>
 				) : null}
+				{this.state.showUploadShortcutModal ? (
+					<UploadShortcutModal
+						onCancel={() =>
+							this.setState({ showUploadShortcutModal: false })
+						}
+						onResult={result => {
+							this.setState({ showUploadShortcutModal: false });
+							this.onChange(result);
+						}}
+					/>
+				) : null}
 
 				<div className="editor-navigation">
 					<div
@@ -191,7 +209,14 @@ OpenURLs`
 										</li>
 										<div className="menu-div" />
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.setState({
+														showUploadShortcutModal: true
+													})
+												}
+											>
 												Upload Shortcut
 											</a>
 										</li>
@@ -309,14 +334,14 @@ OpenURLs`
 								<li>
 									Help
 									<ul>
-									<li>
-										<a
-											href="https://scpl.dev/"
-											target="_blank"
-										>
-											Homepage
-										</a>
-									</li>
+										<li>
+											<a
+												href="https://scpl.dev/"
+												target="_blank"
+											>
+												Homepage
+											</a>
+										</li>
 										<li>
 											<a
 												href="https://docs.scpl.dev/gettingstarted.html"
