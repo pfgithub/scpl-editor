@@ -290,13 +290,13 @@ input[type="radio"]#glyph-sun + label:before {
 	background-position: -150px 0px;
 }
 input[type="radio"]#glyph-cloud + label:before {
-	background-position: -180px 0px;
+	background-position: -181px 0px;
 }
 input[type="radio"]#glyph-tree + label:before {
-	background-position: -210px 0px;
+	background-position: -211px 0px;
 }
 input[type="radio"]#glyph-footprints + label:before {
-	background-position: -241px 0px;
+	background-position: -242px 0px;
 }
 input[type="radio"]#glyph-compass + label:before {
 	background-position: -272px 0px;
@@ -308,13 +308,13 @@ input[type="radio"]#glyph-bus + label:before {
 	background-position: 2px -29px;
 }
 input[type="radio"]#glyph-plane + label:before {
-	background-position: -28px -29px;
+	background-position: -29px -29px;
 }
 input[type="radio"]#glyph-hospital + label:before {
-	background-position: -58px -29px;
+	background-position: -59px -30px;
 }
 input[type="radio"]#glyph-purse + label:before {
-	background-position: -89px -29px;
+	background-position: -90px -30px;
 }
 input[type="radio"]#glyph-gaspump + label:before {
 	background-position: -119px -29px;
@@ -326,16 +326,16 @@ input[type="radio"]#glyph-rain + label:before {
 	background-position: -180px -29px;
 }
 input[type="radio"]#glyph-flower + label:before {
-	background-position: -210px -29px;
+	background-position: -211px -30px;
 }
 input[type="radio"]#glyph-signs + label:before {
-	background-position: -240px -29px;
+	background-position: -242px -29px;
 }
 input[type="radio"]#glyph-earth + label:before {
-	background-position: -270px -29px;
+	background-position: -272px -30px;
 }
 input[type="radio"]#glyph-film + label:before {
-	background-position: -302px -30px;
+	background-position: -303px -30px;
 }
 input[type="radio"]#glyph-motorcycle + label:before {
 	background-position: 2px -59px;
@@ -344,7 +344,7 @@ input[type="radio"]#glyph-boat + label:before {
 	background-position: -28px -59px;
 }
 input[type="radio"]#glyph-city + label:before {
-	background-position: -58px -59px;
+	background-position: -59px -59px;
 }
 input[type="radio"]#glyph-stand + label:before {
 	background-position: -89px -59px;
@@ -359,118 +359,118 @@ input[type="radio"]#glyph-umbrella + label:before {
 	background-position: -180px -59px;
 }
 input[type="radio"]#glyph-fire + label:before {
-	background-position: -210px -59px;
+	background-position: -211px -59px;
 }
 input[type="radio"]#glyph-binoculars + label:before {
-	background-position: -240px -59px;
+	background-position: -241px -59px;
 }
 input[type="radio"]#glyph-mountain + label:before {
-	background-position: -270px -59px;
+	background-position: -272px -59px;
 }
 input[type="radio"]#glyph-filmfull + label:before {
-	background-position: -300px -59px;
+	background-position: -303px -59px;
 }
 input[type="radio"]#glyph-camera + label:before {
 	background-position: 0px -91px;
 }
 input[type="radio"]#glyph-videomarker + label:before {
-	background-position: -30px -90px;
+	background-position: -31px -91px;
 }
 input[type="radio"]#glyph-calendar + label:before {
-	background-position: -58px -90px;
+	background-position: -61px -91px;
 }
 input[type="radio"]#glyph-comment + label:before {
-	background-position: -89px -90px;
+	background-position: -91px -90px;
 }
 input[type="radio"]#glyph-paperairplane + label:before {
-	background-position: -119px -90px;
+	background-position: -121px -90px;
 }
 input[type="radio"]#glyph-creditcard + label:before {
-	background-position: -150px -29px;
+	background-position: -151px -91px;
 }
 input[type="radio"]#glyph-smartphone + label:before {
-	background-position: -180px -90px;
+	background-position: -181px -91px;
 }
 input[type="radio"]#glyph-emptykeyboard + label:before {
-	background-position: -210px -90px;
+	background-position: -211px -90px;
 }
 input[type="radio"]#glyph-printer + label:before {
-	background-position: -240px -90px;
+	background-position: -242px -90px;
 }
 input[type="radio"]#glyph-database + label:before {
-	background-position: -270px -90px;
+	background-position: -272px -91px;
 }
 input[type="radio"]#glyph-cube + label:before {
-	background-position: -300px -90px;
+	background-position: -302px -91px;
 }
 input[type="radio"]#glyph-videocamera + label:before {
-	background-position: 0px -119px;
+	background-position: 0px -120px;
 }
 input[type="radio"]#glyph-playbutton-one + label:before {
-	background-position: -30px -118px;
+	background-position: -30px -120px;
 }
 input[type="radio"]#glyph-message + label:before {
-	background-position: -60px -118px;
+	background-position: -60px -120px;
 }
 input[type="radio"]#glyph-letter + label:before {
-	background-position: -90px -119px;
+	background-position: -91px -120px;
 }
 input[type="radio"]#glyph-suitcase + label:before {
-	background-position: -120px -119px;
+	background-position: -121px -120px;
 }
 input[type="radio"]#glyph-watch + label:before {
-	background-position: -150px -118px;
+	background-position: -152px -120px;
 }
 input[type="radio"]#glyph-laptop + label:before {
-	background-position: -180px -118px;
+	background-position: -181px -119px;
 }
 input[type="radio"]#glyph-calculator + label:before {
-	background-position: -210px -119px;
+	background-position: -212px -120px;
 }
 input[type="radio"]#glyph-harddrive + label:before {
-	background-position: -240px -118px;
+	background-position: -242px -120px;
 }
 input[type="radio"]#glyph-servers + label:before {
-	background-position: -270px -118px;
+	background-position: -272px -119px;
 }
 input[type="radio"]#glyph-television + label:before {
-	background-position: -301px -120px;
+	background-position: -302px -121px;
 }
 input[type="radio"]#glyph-microphone + label:before {
-	background-position: 0 -148px;
+	background-position: -1px -149px;
 }
 input[type="radio"]#glyph-clipboard + label:before {
-	background-position: -30px -148px;
+	background-position: -31px -150px;
 }
 input[type="radio"]#glyph-messages + label:before {
-	background-position: -60px -148px;
+	background-position: -61px -149px;
 }
 input[type="radio"]#glyph-openletter + label:before {
-	background-position: -90px -148px;
+	background-position: -91px -150px;
 }
 input[type="radio"]#glyph-folder + label:before {
-	background-position: -120px -148px;
+	background-position: -121px -149px;
 }
 input[type="radio"]#glyph-phone + label:before {
-	background-position: -150px -148px;
+	background-position: -151px -149px;
 }
 input[type="radio"]#glyph-keyboard + label:before {
-	background-position: -180px -148px;
+	background-position: -181px -149px;
 }
 input[type="radio"]#glyph-stats + label:before {
-	background-position: -210px -148px;
+	background-position: -211px -149px;
 }
 input[type="radio"]#glyph-serverset + label:before {
-	background-position: -240px -148px;
+	background-position: -242px -148px;
 }
 input[type="radio"]#glyph-inbox + label:before {
-	background-position: -270px -148px;
+	background-position: -272px -148px;
 }
 input[type="radio"]#glyph-controller + label:before {
-	background-position: -301px -148px;
+	background-position: -302px -148px;
 }
 input[type="radio"]#glyph-puzzle + label:before {
-	background-position: 1px -178px;
+	background-position: 3px -180px;
 }
 input[type="radio"]#glyph-speaker + label:before {
 	background-position: -28px -178px;
@@ -608,7 +608,7 @@ input[type="radio"]#glyph-locked + label:before {
 	background-position: -27px -299px;
 }
 input[type="radio"]#glyph-magicwand + label:before {
-	background-position: -57px -299px;
+	background-position: -57px -300px;
 }
 input[type="radio"]#glyph-pencil + label:before {
 	background-position: -87px -299px;
@@ -1022,7 +1022,7 @@ input[type="radio"]#glyph-quotes + label:before {
 	background-position: -58px -735px;
 }
 input[type="radio"]#glyph-text + label:before {
-	background-position: -89px -735px;
+	background-position: -91px -736px;
 }
 input[type="radio"]#glyph-shuffle + label:before {
 	background-position: -119px -735px;
@@ -1031,19 +1031,19 @@ input[type="radio"]#glyph-signal + label:before {
 	background-position: -150px -735px;
 }
 input[type="radio"]#glyph-peace + label:before {
-	background-position: -180px -735px;
+	background-position: -182px -735px;
 }
 input[type="radio"]#glyph-cloudservice + label:before {
-	background-position: -210px -735px;
+	background-position: -212px -735px;
 }
 input[type="radio"]#glyph-settings + label:before {
-	background-position: -240px -735px;
+	background-position: -243px -735px;
 }
 input[type="radio"]#glyph-wifi + label:before {
-	background-position: -270px -735px;
+	background-position: -273px -735px;
 }
 input[type="radio"]#glyph-nuclear + label:before {
-	background-position: -300px -735px;
+	background-position: -304px -735px;
 }
 /* End Symbols */
 
@@ -1071,13 +1071,13 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -150px 0px;
 }
 .icon-preview#glyph-cloud {
-	background-position: -180px 0px;
+	background-position: -181px 0px;
 }
 .icon-preview#glyph-tree {
-	background-position: -210px 0px;
+	background-position: -211px 0px;
 }
 .icon-preview#glyph-footprints {
-	background-position: -241px 0px;
+	background-position: -242px 0px;
 }
 .icon-preview#glyph-compass {
 	background-position: -272px 0px;
@@ -1089,13 +1089,13 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: 2px -29px;
 }
 .icon-preview#glyph-plane {
-	background-position: -28px -29px;
+	background-position: -29px -29px;
 }
 .icon-preview#glyph-hospital {
-	background-position: -58px -29px;
+	background-position: -59px -30px;
 }
 .icon-preview#glyph-purse {
-	background-position: -89px -29px;
+	background-position: -90px -30px;
 }
 .icon-preview#glyph-gaspump {
 	background-position: -119px -29px;
@@ -1107,16 +1107,16 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -180px -29px;
 }
 .icon-preview#glyph-flower {
-	background-position: -210px -29px;
+	background-position: -211px -30px;
 }
 .icon-preview#glyph-signs {
-	background-position: -240px -29px;
+	background-position: -242px -29px;
 }
 .icon-preview#glyph-earth {
-	background-position: -270px -29px;
+	background-position: -272px -30px;
 }
 .icon-preview#glyph-film {
-	background-position: -302px -30px;
+	background-position: -303px -30px;
 }
 .icon-preview#glyph-motorcycle {
 	background-position: 2px -59px;
@@ -1125,7 +1125,7 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -28px -59px;
 }
 .icon-preview#glyph-city {
-	background-position: -58px -59px;
+	background-position: -59px -59px;
 }
 .icon-preview#glyph-stand {
 	background-position: -89px -59px;
@@ -1140,118 +1140,118 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -180px -59px;
 }
 .icon-preview#glyph-fire {
-	background-position: -210px -59px;
+	background-position: -211px -59px;
 }
 .icon-preview#glyph-binoculars {
-	background-position: -240px -59px;
+	background-position: -241px -59px;
 }
 .icon-preview#glyph-mountain {
-	background-position: -270px -59px;
+	background-position: -272px -59px;
 }
 .icon-preview#glyph-filmfull {
-	background-position: -300px -59px;
+	background-position: -303px -59px;
 }
 .icon-preview#glyph-camera {
 	background-position: 0px -91px;
 }
 .icon-preview#glyph-videomarker {
-	background-position: -30px -90px;
+	background-position: -31px -91px;
 }
 .icon-preview#glyph-calendar {
-	background-position: -58px -90px;
+	background-position: -61px -91px;
 }
 .icon-preview#glyph-comment {
-	background-position: -89px -90px;
+	background-position: -91px -90px;
 }
 .icon-preview#glyph-paperairplane {
-	background-position: -119px -90px;
+	background-position: -121px -90px;
 }
 .icon-preview#glyph-creditcard {
-	background-position: -150px -29px;
+	background-position: -151px -91px;
 }
 .icon-preview#glyph-smartphone {
-	background-position: -180px -90px;
+	background-position: -181px -91px;
 }
 .icon-preview#glyph-emptykeyboard {
-	background-position: -210px -90px;
+	background-position: -211px -90px;
 }
 .icon-preview#glyph-printer {
-	background-position: -240px -90px;
+	background-position: -242px -90px;
 }
 .icon-preview#glyph-database {
-	background-position: -270px -90px;
+	background-position: -272px -91px;
 }
 .icon-preview#glyph-cube {
-	background-position: -300px -90px;
+	background-position: -302px -91px;
 }
 .icon-preview#glyph-videocamera {
-	background-position: 0px -119px;
+	background-position: 0px -120px;
 }
 .icon-preview#glyph-playbutton-one {
-	background-position: -30px -118px;
+	background-position: -30px -120px;
 }
 .icon-preview#glyph-message {
-	background-position: -60px -118px;
+	background-position: -60px -120px;
 }
 .icon-preview#glyph-letter {
-	background-position: -90px -119px;
+	background-position: -91px -120px;
 }
 .icon-preview#glyph-suitcase {
-	background-position: -120px -119px;
+	background-position: -121px -120px;
 }
 .icon-preview#glyph-watch {
-	background-position: -150px -118px;
+	background-position: -152px -120px;
 }
 .icon-preview#glyph-laptop {
-	background-position: -180px -118px;
+	background-position: -181px -119px;
 }
 .icon-preview#glyph-calculator {
-	background-position: -210px -119px;
+	background-position: -212px -120px;
 }
 .icon-preview#glyph-harddrive {
-	background-position: -240px -118px;
+	background-position: -242px -120px;
 }
 .icon-preview#glyph-servers {
-	background-position: -270px -118px;
+	background-position: -272px -119px;
 }
 .icon-preview#glyph-television {
-	background-position: -301px -120px;
+	background-position: -302px -121px;
 }
 .icon-preview#glyph-microphone {
-	background-position: 0 -148px;
+	background-position: -1px -149px;
 }
 .icon-preview#glyph-clipboard {
-	background-position: -30px -148px;
+	background-position: -31px -150px;
 }
 .icon-preview#glyph-messages {
-	background-position: -60px -148px;
+	background-position: -61px -149px;
 }
 .icon-preview#glyph-openletter {
-	background-position: -90px -148px;
+	background-position: -91px -150px;
 }
 .icon-preview#glyph-folder {
-	background-position: -120px -148px;
+	background-position: -121px -149px;
 }
 .icon-preview#glyph-phone {
-	background-position: -150px -148px;
+	background-position: -151px -149px;
 }
 .icon-preview#glyph-keyboard {
-	background-position: -180px -148px;
+	background-position: -181px -149px;
 }
 .icon-preview#glyph-stats {
-	background-position: -210px -148px;
+	background-position: -211px -149px;
 }
 .icon-preview#glyph-serverset {
 	background-position: -240px -148px;
 }
 .icon-preview#glyph-inbox {
-	background-position: -270px -148px;
+	background-position: -272px -148px;
 }
 .icon-preview#glyph-controller {
-	background-position: -301px -148px;
+	background-position: -302px -148px;
 }
 .icon-preview#glyph-puzzle {
-	background-position: 1px -178px;
+	background-position: 3px -180px;
 }
 .icon-preview#glyph-speaker {
 	background-position: -28px -178px;
@@ -1389,7 +1389,7 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -27px -299px;
 }
 .icon-preview#glyph-magicwand {
-	background-position: -57px -299px;
+	background-position: -57px -300px;
 }
 .icon-preview#glyph-pencil {
 	background-position: -87px -299px;
@@ -1803,7 +1803,7 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -58px -735px;
 }
 .icon-preview#glyph-text {
-	background-position: -89px -735px;
+	background-position: -91px -736px;
 }
 .icon-preview#glyph-shuffle {
 	background-position: -119px -735px;
@@ -1812,19 +1812,19 @@ input[type="radio"]#glyph-nuclear + label:before {
 	background-position: -150px -735px;
 }
 .icon-preview#glyph-peace {
-	background-position: -180px -735px;
+	background-position: -182px -735px;
 }
 .icon-preview#glyph-cloudservice {
-	background-position: -210px -735px;
+	background-position: -212px -735px;
 }
 .icon-preview#glyph-settings {
-	background-position: -240px -735px;
+	background-position: -243px -735px;
 }
 .icon-preview#glyph-wifi {
-	background-position: -270px -735px;
+	background-position: -273px -735px;
 }
 .icon-preview#glyph-nuclear {
-	background-position: -300px -735px;
+	background-position: -304px -735px;
 }
 /* End Symbols */
 

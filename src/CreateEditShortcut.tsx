@@ -64,6 +64,13 @@ export class CreateEditShortcut extends Component<
 								id="new-name"
 								autoFocus
 							/>
+							<div
+								className="require-error"
+								id="new-name-error"
+								style={{ display: "none" }}
+								>
+								Name is required.
+							</div>
 						</div>
 					</div>
 					<br />

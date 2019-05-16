@@ -196,6 +196,11 @@ OpenURLs`
 											</a>
 										</li>
 										<li>
+											<a href="javascript:;">
+												Import Shortcut from iCloud
+											</a>
+										</li>
+										<li>
 											<a
 												href="javascript:;"
 												onClick={() =>
@@ -304,6 +309,14 @@ OpenURLs`
 								<li>
 									Help
 									<ul>
+									<li>
+										<a
+											href="https://scpl.dev/"
+											target="_blank"
+										>
+											Homepage
+										</a>
+									</li>
 										<li>
 											<a
 												href="https://docs.scpl.dev/gettingstarted.html"

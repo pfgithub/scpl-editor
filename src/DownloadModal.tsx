@@ -216,7 +216,7 @@ export class DownloadModal extends Component<
 									uploadAction="Generate QR Code"
 								>
 									<div>
-										<p>Add to your library via QR Code:</p>
+										<p style={{ display: "none" }}>Add to your library via QR Code:</p>
 										<div id="qr-result">
 											<img
 												src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(
