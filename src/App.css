@@ -582,7 +582,8 @@ input:active {
 #qr-result .qrresimg {
 	width: 150px;
 	height: 150px;
-	background-size: cover;
+	background-size: 110%;
+	background-position: center;
 	image-rendering: pixelated;
 }
 #download-shortcut-link {
