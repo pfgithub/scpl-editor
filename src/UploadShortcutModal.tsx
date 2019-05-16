@@ -115,6 +115,7 @@ export class UploadShortcutModal extends Component<
 							</div>
 						}
 						uploadAction="Import"
+						additionalButtonClasses="large-btn stretch-btn"
 					/>
 
 				</div>
