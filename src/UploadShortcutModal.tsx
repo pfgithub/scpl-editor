@@ -102,7 +102,7 @@ export class UploadShortcutModal extends Component<
 						requestUpload={() => this.downloadShortcut()}
 						detailsMsg={
 							<div>
-								To convert your shortcut from an iCloud, ScPL Editor will upload your shortcut
+								To convert your shortcut from iCloud, ScPL Editor will upload your shortcut
 								to{" "}
 								<a
 									href="https://shortcutsweb.app"
