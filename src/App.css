@@ -577,12 +577,12 @@ input:active {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 10px;
 	background-color: white;
 }
-#qr-result img {
+#qr-result .qrresimg {
 	width: 150px;
 	height: 150px;
+	background-size: cover;
 	image-rendering: pixelated;
 }
 #download-shortcut-link {

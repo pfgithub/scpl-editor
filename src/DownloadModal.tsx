@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import * as QRCode from "qrcode";
+
 import { ModalContainer } from "./ModalContainer";
 import { DownloadButton } from "./DownloadButton";
 
@@ -34,6 +36,7 @@ type UploadStatus =
 	| {
 			uploadStatus: "URL";
 			uploadedURL: string;
+			qrcode: string;
 	  }
 	| {
 			uploadStatus: "Error";
@@ -108,17 +111,7 @@ type DownloadModalProps = {
 
 export class DownloadModal extends Component<
 	DownloadModalProps,
-	| {
-			uploadStatus: "None" | "Uploading";
-	  }
-	| {
-			uploadStatus: "URL";
-			uploadedURL: string;
-	  }
-	| {
-			uploadStatus: "Error";
-			uploadError: string;
-	  }
+	UploadStatus
 > {
 	constructor(props: Readonly<DownloadModalProps>) {
 		super(props);
@@ -151,9 +144,11 @@ export class DownloadModal extends Component<
 			});
 			return;
 		}
+		const qrcode = await QRCode.toDataURL(uploadResult.url);
 		this.setState({
 			uploadStatus: "URL",
-			uploadedURL: uploadResult.url
+			uploadedURL: uploadResult.url,
+			qrcode: qrcode
 		});
 	}
 	render() {
@@ -218,11 +213,9 @@ export class DownloadModal extends Component<
 									<div>
 										<p style={{ display: "none" }}>Add to your library via QR Code:</p>
 										<div id="qr-result">
-											<img
-												src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(
-													(this.state as any)
-														.uploadedURL
-												)}`}
+											<div
+												className="qrresimg"
+												style={{backgroundImage: `url(${(this.state as any).qrcode})`}}
 											/>
 										</div>
 										<p className="details-text">
