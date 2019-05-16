@@ -28,7 +28,7 @@ export class DownloadStatusSwitcher extends Component<{
 					<div>
 						<p className="details-text">{this.props.detailsMsg}</p>
 						<button
-							className={`btn ${this.props
+							className={`btn large-btn ${this.props
 								.additionalButtonClasses || ""}`}
 							onClick={() => this.props.requestUpload()}
 						>

@@ -114,7 +114,7 @@ export class UploadShortcutModal extends Component<
 								.
 							</div>
 						}
-						uploadAction="Convert Shortcut to ScPL"
+						uploadAction="Import"
 					/>
 
 				</div>
