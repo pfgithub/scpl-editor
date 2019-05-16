@@ -9,10 +9,10 @@ export const _ = class {};
 			Cancel
 		</div>
 		<h1>Create New Folder</h1>
-		<div className="input-label">Folder Name</div>
+		<div className="input-label">New Folder Name</div>
 		<input
 			type="text"
-			placeholder="Folder Name"
+			placeholder="Enter a new folder name"
 			id="new-folder"
       autoFocus
 		/>
@@ -29,15 +29,14 @@ export const _ = class {};
 			Cancel
 		</div>
 		<h1>Rename File</h1>
-		<div className="input-label">Filename</div>
 		<input
 			type="text"
-			placeholder="Filename"
+			placeholder="Enter a new file name"
 			id="rename-file"
       autoFocus
 		/>
 		<div className="large-btn" id="close-rename">
-			Save Changes
+			Change Name
 		</div>
 	</div>
 
@@ -49,15 +48,14 @@ export const _ = class {};
 			Cancel
 		</div>
 		<h1>Rename Folder</h1>
-		<div className="input-label">Folder Name</div>
 		<input
 			type="text"
-			placeholder="Folder Name"
+			placeholder="Enter a new folder name"
 			id="rename-folder"
       autoFocus
 		/>
 		<div className="large-btn" id="close-rename-folder">
-			Save Changes
+			Change Name
 		</div>
 	</div>
 
