@@ -5,6 +5,7 @@
 	"homepage": "https://scpl.dev/",
 	"dependencies": {
 		"browserfs": "^1.4.3",
+		"monaco-editor": "^0.17.0",
 		"pretty-bytes": "^5.1.0",
 		"react": "^16.8.4",
 		"react-ace": "^6.4.0",
