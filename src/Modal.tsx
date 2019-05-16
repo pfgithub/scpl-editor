@@ -1,6 +1,26 @@
 export const _ = class {};
 
 /*
+<div className="modal dialog" id="import-shortcut">
+  <div
+    className="cancel-btn"
+    id="close-import"
+  >
+    Cancel
+  </div>
+  <h1>Import from iCloud</h1>
+  <div className="input-label">iCloud URL</div>
+  <input
+    type="text"
+    placeholder="icloud.com/shortcut/..."
+    id="new-folder"
+    autoFocus
+  />
+  <div className="large-btn" id="close-import">
+    Import Shortcut
+  </div>
+</div>
+
 	<div className="modal dialog" id="rename-folder">
 		<div
 			className="cancel-btn"
