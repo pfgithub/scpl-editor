@@ -95,13 +95,21 @@
 		position: relative !important;
 		margin: 0 !important;
 	}
+	.jump-error {
+		padding: 0 !important;
+	}
 	.e-message {
 		border-radius: 0 !important;
 		display: block;
 		border: none !important;
-		padding: 15px 0 !important;
-		padding-left: 40px !important;
+		padding: 10px !important;
 		margin: 0 !important;
+		font-size: 12px !important;
+		background-image: none !important;
+	}
+	.e-message button {
+		font-size: 13px !important;
+		padding: 8px 15px !important;
 	}
 	.search-action-results {
 		position: fixed !important;
@@ -147,6 +155,9 @@
 	}
 	.glyphs-container {
 		height: 50vh !important;
+	}
+	.too-many-actions {
+		width: 100% !important;
 	}
 	.result-pane {
 		position: fixed;
@@ -651,7 +662,7 @@ input:active {
 	font-weight: bold;
 }
 .trans-btn {
-	background: none;
+	background: none !important;
 }
 .cancel-btn {
 	font-weight: normal;
@@ -678,7 +689,7 @@ input:active {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #f8f8f8a3;
+	background: #f0f0f2;
 }
 .too-many-actions div {
 	padding: 10px;
@@ -688,6 +699,11 @@ input:active {
 }
 .too-many-actions p {
 	margin-bottom: 25px;
+}
+.render-error div {
+	background: url(img/error_grey.svg) top center / 35px no-repeat;
+	color: #a6a6aa;
+	padding-top: 30px;
 }
 /* loading indicator */
 .result-pane.loading .loading-result-progress {

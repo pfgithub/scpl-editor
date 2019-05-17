@@ -147,7 +147,7 @@ export class DownloadModal extends Component<DownloadModalProps, UploadStatus> {
 									requestUpload={() => this.uploadFile()}
 									detailsMsg={
 										<div>
-											To generate a qr code, ScPL editor
+											To generate a QR code, ScPL editor
 											will upload your shortcut to{" "}
 											<a
 												href="https://file.io"
@@ -188,7 +188,7 @@ export class DownloadModal extends Component<DownloadModalProps, UploadStatus> {
 						</div>
 					) : (
 						<div id="no-file-msg">
-							<p>Your shortcut may have some errors.</p>
+							<p>Your code seems to have some errors.</p>
 						</div>
 					)}
 					<br />

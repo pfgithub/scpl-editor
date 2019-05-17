@@ -575,11 +575,10 @@ OpenURLs`
 							</div>
 						) : null}
 						{this.state.errors.length !== 0 ? (
-							<div className="too-many-actions">
+							<div className="too-many-actions render-error">
 								<div>
 									<p>
-										There is an error and the preview cannot
-										be rendered.
+										Failed to render because of code error.
 									</p>
 								</div>
 							</div>
