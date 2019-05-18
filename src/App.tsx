@@ -8,6 +8,7 @@ import testshortcut from "./testshortcut.json";
 import ace from "brace";
 import "./ace/mode-scpl";
 import "brace/theme/chrome";
+import "brace/ext/language_tools";
 import AceEditor from "react-ace";
 
 import { FilePane } from "./FilePane";
@@ -21,6 +22,47 @@ import ShortcutPreview from "shortcut-preview";
 let timeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
+
+const langTools = ace.acequire("ace/ext/language_tools");
+
+const rhymeCompleter = {
+	getCompletions: (
+		editor: ace.Editor,
+		session: ace.IEditSession,
+		pos: ace.Position,
+		prefix: string,
+		callback: (
+			thing: null,
+			completions: {
+				name: string;
+				value: string;
+				score: number;
+				meta: string;
+			}[]
+		) => void
+	) => {
+		if (prefix.length === 0) {
+			callback(null, []);
+			return;
+		}
+		const variables = session.getValue().match(/(v|mv):([A-Za-z0-9]+)/g);
+		console.log(variables);
+		if (!variables) {
+			callback(null, []);
+			return;
+		}
+		callback(
+			null,
+			variables.map(v => ({
+				name: v,
+				value: v,
+				score: 25,
+				meta: v
+			}))
+		);
+	}
+};
+langTools.addCompleter(rhymeCompleter);
 
 const hotkey =
 	window.navigator.platform === "MacIntel" ||
@@ -209,14 +251,14 @@ OpenURLs`
 										</li>
 										<div className="menu-div" />
 										<li>
-										<a
-											href="javascript:;"
-											onClick={() =>
-												this.setState({
-													showUploadShortcutModal: true
-												})
-											}
-										>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.setState({
+														showUploadShortcutModal: true
+													})
+												}
+											>
 												Import Shortcut from iCloud
 											</a>
 										</li>
@@ -523,6 +565,8 @@ OpenURLs`
 							markers={this.state.markers}
 							ref={this.reactAceComponentRef}
 							showPrintMargin={false}
+							enableBasicAutocompletion={true}
+							enableLiveAutocompletion={true}
 						/>
 					</div>
 					<div
