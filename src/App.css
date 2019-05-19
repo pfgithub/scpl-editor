@@ -563,7 +563,7 @@ input:active {
 	left: 0;
 	bottom: 0;
 	width: 100% !important;
-	height: 95% !important;
+	height: 90% !important;
 	cursor: text;
 }
 .ace_gutter-cell.ace_error {
@@ -933,4 +933,83 @@ input:active {
 .menu-div {
 	border-top: 1px solid #5a798b30;
 	margin: 10px 15px;
+}
+/* Variables */
+.variables {
+	background: #d1d4da;
+	border-bottom: 1px solid #bbbfc4;
+	overflow: scroll;
+	white-space: nowrap;
+	padding: 3px 5px;
+}
+.code-variables, .global-variables {
+	display: inline-block;
+}
+.code-variables {
+
+}
+.global-variables {
+
+}
+.variable {
+	display: inline-block;
+	margin: 5px 3px;
+	font-size: 11px;
+	padding: 5px 13px;
+	border: 0.5px solid #b0bbd1;
+	border-radius: 20px;
+	background: linear-gradient(#d7e5f5,#cdd9ef);
+	box-shadow: 0 0.5px 1px rgba(50,50,50,.2);
+	color: #233145;
+	cursor: pointer;
+	transition: 0.2s all;
+	user-select: none;
+}
+.variable:hover {
+	box-shadow: 0 1px 1px rgba(50,50,50,.4);
+}
+.variable:active {
+	opacity: .7;
+}
+.variable > div:before {
+	content: ' ';
+	display: inline-block;
+  padding: 8px 7.5px;
+  position: relative;
+  margin-bottom: -4px;
+	margin-top: -2px;
+  margin-right: 6px;
+	background: url(img/var-sheet.png) 0px / cover no-repeat;
+}
+.global-variables .variable {
+	background: linear-gradient(to bottom, #dbf5da, #d1ebd2);
+	border-color: #b2ceb7;
+	color: #224425;
+}
+.clipboard-v > div:before {
+	background-position: 0px 0px;
+}
+.date-v > div:before {
+	background-position: -15px 0px;
+}
+.input-v > div:before {
+	background-position: -28.7px 0px;
+}
+.file-v > div:before {
+	background-position: -44px 0px;
+}
+.calc-v > div:before {
+	background-position: -58px 0px;
+}
+.gear-v > div:before {
+	background-position: -72px 0px;
+}
+.url-v > div:before {
+	background-position: -87px 0px;
+}
+.gif-v > div:before {
+	background-position: -101px 0px;
+}
+.photos-v > div:before {
+	background-position: -116px 0px;
 }

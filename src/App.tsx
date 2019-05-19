@@ -553,7 +553,23 @@ OpenURLs`
 								))}
 							</div>
 						) : null}
-
+						<div className="variables">
+							<div className="code-variables">
+								<div className="variable photos-v"><div>Photos</div></div>
+								<div className="variable gear-v"><div>Dictionary</div></div>
+								<div className="variable calc-v"><div>Count</div></div>
+								<div className="variable file-v"><div>File</div></div>
+								<div className="variable url-v"><div>URL</div></div>
+								<div className="variable gif-v"><div>GIF</div></div>
+								<div className="variable">standard variable</div>
+							</div>
+							<div className="global-variables">
+								<div className="variable">Ask When Run</div>
+								<div className="variable clipboard-v"><div>Clipboard</div></div>
+								<div className="variable date-v"><div>Current Date</div></div>
+								<div className="variable input-v"><div>Extension Input</div></div>
+							</div>
+						</div>
 						<AceEditor
 							mode="scpl"
 							theme="chrome"
