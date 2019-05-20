@@ -564,7 +564,7 @@ OpenURLs`
 							</div>
 							<div className="code-variables">
 								<div className="variable">example</div>
-								<div className="variable mv">magic</div>
+								<div className="variable mv"><div>magic</div></div>
 							</div>
 						</div>
 						</div>

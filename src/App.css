@@ -977,6 +977,8 @@ input:active {
 }
 .variable.mv {
 	background: linear-gradient(#d7d6f4,#dbceef);
+	color: #392c4f;
+	border-color: #b3a1d4;
 }
 .variable:hover {
 	box-shadow: 0 1px 0.5px rgba(50,50,50,.3);
@@ -1022,4 +1024,8 @@ input:active {
 }
 .photos-v > div:before {
 	background-position: -116px 0px;
+}
+.mv > div:before {
+	background: url(img/magic.svg) center / cover no-repeat;
+	margin-right: 3px;
 }
