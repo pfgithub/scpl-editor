@@ -537,6 +537,8 @@ OpenURLs`
 								</div>
 							))}
 						</div>
+						<div
+						className="tabs-nav">
 						{this.state.tabs.length > 1 ? (
 							<div className="file-tabs">
 								{this.state.tabs.map(tab => (
@@ -554,15 +556,17 @@ OpenURLs`
 							</div>
 						) : null}
 						<div className="variables">
-							<div className="code-variables">
-								<div className="variable">variable</div>
-							</div>
 							<div className="global-variables">
 								<div className="variable">Ask When Run</div>
 								<div className="variable clipboard-v"><div>Clipboard</div></div>
 								<div className="variable date-v"><div>Current Date</div></div>
 								<div className="variable input-v"><div>Extension Input</div></div>
 							</div>
+							<div className="code-variables">
+								<div className="variable">example</div>
+								<div className="variable mv">magic</div>
+							</div>
+						</div>
 						</div>
 						<AceEditor
 							mode="scpl"

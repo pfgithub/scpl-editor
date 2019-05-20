@@ -34,11 +34,18 @@
 		box-shadow: -1px 5px 16px rgba(0, 0, 0, 0.27) !important;
 		border: 2px solid #ccc;
 	}
+	.tab {
+		padding: 10px 15px !important;
+	}
+	.variable  {
+		font-size: 12px !important;
+	}
 }
 /* iPad Portrait */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: portrait) {
 	.code-pane {
 		border: none !important;
+		height: 85% !important;
 	}
 }
 /* iPad Landscape */
@@ -46,6 +53,10 @@
 }
 /* Phone Responsiveness */
 @media screen and (min-width: 120px) and (max-width: 767px) {
+	.tab {
+		padding: 8px 10px !important;
+		width: 30% !important;
+	}
 	.editor-title {
 		display: none !important;
 	}
@@ -183,9 +194,6 @@
 		grid-template-columns: auto !important;
 		position: static !important;
 		margin-top: 50px;
-	}
-	.code-pane {
-		height: 93vh;
 	}
 	.download-grid > div:first-child:after {
 		display: none;
@@ -949,7 +957,9 @@ input:active {
 
 }
 .global-variables {
-
+	padding-right: 10px;
+	margin-right: 10px;
+	border-right: 0.5px solid #b0bbd1;
 }
 .variable {
 	display: inline-block;
@@ -959,17 +969,17 @@ input:active {
 	border: 0.5px solid #b0bbd1;
 	border-radius: 20px;
 	background: linear-gradient(#d7e5f5,#cdd9ef);
-	box-shadow: 0 0.5px 1px rgba(50,50,50,.2);
+	box-shadow: 0 1px 1px rgba(50,50,50,0.1);
 	color: #233145;
 	cursor: pointer;
 	transition: 0.2s all;
 	user-select: none;
 }
-.variable:hover {
-	box-shadow: 0 1px 1px rgba(50,50,50,.4);
+.variable.mv {
+	background: linear-gradient(#d7d6f4,#dbceef);
 }
-.variable:active {
-	opacity: .7;
+.variable:hover {
+	box-shadow: 0 1px 0.5px rgba(50,50,50,.3);
 }
 .variable > div:before {
 	content: ' ';
