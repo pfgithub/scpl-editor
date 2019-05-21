@@ -368,6 +368,14 @@ OpenURLs`
 											<a
 												href="javascript:;"
 											>
+												Format Code
+												<span>&#8679;{hotkey}B</span>
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+											>
 												Find and Replace
 												<span>{hotkey}F</span>
 											</a>
