@@ -17,6 +17,7 @@ import { SearchActions } from "./SearchActions";
 import { DownloadModal } from "./DownloadModal";
 import { keys } from "./Key";
 import { UploadShortcutModal } from "./UploadShortcutModal";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 import ShortcutPreview from "shortcut-preview";
 
@@ -365,17 +366,13 @@ OpenURLs`
 											</a>
 										</li>
 										<li>
-											<a
-												href="javascript:;"
-											>
+											<a href="javascript:;">
 												Format Code
 												<span>&#8679;{hotkey}B</span>
 											</a>
 										</li>
 										<li>
-											<a
-												href="javascript:;"
-											>
+											<a href="javascript:;">
 												Find and Replace
 												<span>{hotkey}F</span>
 											</a>
@@ -555,38 +552,49 @@ OpenURLs`
 								</div>
 							))}
 						</div>
-						<div
-						className="tabs-nav">
-						{this.state.tabs.length > 1 ? (
-							<div className="file-tabs">
-								{this.state.tabs.map(tab => (
-									<div
-										className={`tab ${
-											tab.active ? "active-tab" : ""
-										}`}
-									>
-										<div className="tab-close">&times;</div>
-										<div className="tab-label">
-											{tab.filename}
+						<div className="tabs-nav">
+							{this.state.tabs.length > 1 ? (
+								<div className="file-tabs">
+									{this.state.tabs.map(tab => (
+										<div
+											className={`tab ${
+												tab.active ? "active-tab" : ""
+											}`}
+										>
+											<div className="tab-close">
+												&times;
+											</div>
+											<div className="tab-label">
+												{tab.filename}
+											</div>
+										</div>
+									))}
+								</div>
+							) : null}
+							<div className="variables-container">
+								<div className="variables">
+									<div className="global-variables">
+										<div className="variable">
+											Ask When Run
+										</div>
+										<div className="variable clipboard-v">
+											<div>Clipboard</div>
+										</div>
+										<div className="variable date-v">
+											<div>Current Date</div>
+										</div>
+										<div className="variable input-v">
+											<div>Extension Input</div>
 										</div>
 									</div>
-								))}
+									<div className="code-variables">
+										<div className="variable">example</div>
+										<div className="variable mv">
+											<div>magic</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						) : null}
-						<div className="variables-container">
-							<div className="variables">
-								<div className="global-variables">
-									<div className="variable">Ask When Run</div>
-									<div className="variable clipboard-v"><div>Clipboard</div></div>
-									<div className="variable date-v"><div>Current Date</div></div>
-									<div className="variable input-v"><div>Extension Input</div></div>
-								</div>
-								<div className="code-variables">
-									<div className="variable">example</div>
-									<div className="variable mv"><div>magic</div></div>
-								</div>
-						</div>
-						</div>
 						</div>
 						<AceEditor
 							mode="scpl"
@@ -622,31 +630,45 @@ OpenURLs`
 						</div>
 						{this.state.showPreview &&
 						this.state.errors.length === 0 ? (
-							<ShortcutPreview
-								onInteract={data => this.onActionSelect(data)}
-								data={this.state.shortcutData}
-							/>
+							<ErrorBoundary
+								errorDisplay={err => (
+									<div className="error-overlay too-many-actions shortcut-preview-fatal-error">
+										<p>
+											A fatal error occured in
+											shortcut-preview. The error is{" "}
+											{err.toString()}
+										</p>
+									</div>
+								)}
+							>
+								<ShortcutPreview
+									onInteract={data =>
+										this.onActionSelect(data)
+									}
+									data={this.state.shortcutData}
+								/>
+							</ErrorBoundary>
 						) : null}
 						<div className="loading-result-progress">
 							<div>
-							<div className="spinner">
-<div className="bar1"></div>
-<div className="bar2"></div>
-<div className="bar3"></div>
-<div className="bar4"></div>
-<div className="bar5"></div>
-<div className="bar6"></div>
-<div className="bar7"></div>
-<div className="bar8"></div>
-<div className="bar9"></div>
-<div className="bar10"></div>
-<div className="bar11"></div>
-<div className="bar12"></div>
-</div>
+								<div className="spinner">
+									<div className="bar1" />
+									<div className="bar2" />
+									<div className="bar3" />
+									<div className="bar4" />
+									<div className="bar5" />
+									<div className="bar6" />
+									<div className="bar7" />
+									<div className="bar8" />
+									<div className="bar9" />
+									<div className="bar10" />
+									<div className="bar11" />
+									<div className="bar12" />
+								</div>
 							</div>
 						</div>
 						{!this.state.showPreview ? (
-							<div className="too-many-actions">
+							<div className="error-overlay too-many-actions">
 								<div>
 									<p>
 										There are too many actions to render a
