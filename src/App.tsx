@@ -9,6 +9,7 @@ import ace from "brace";
 import "./ace/mode-scpl";
 import "brace/theme/chrome";
 import "brace/ext/language_tools";
+import "brace/ext/searchbox";
 import AceEditor from "react-ace";
 
 import { FilePane } from "./FilePane";
