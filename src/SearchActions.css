@@ -58,9 +58,13 @@
 .action-item {
 	padding: 15px 20px;
 	padding-top: 18px;
-	padding-left: 40px;
-	background: url(img/shortcuts_grey.png) 6px 14px / 30px no-repeat;
 	transition: 0.3s background-color;
+}
+.action-item-title:before {
+	content: ' ';
+	padding: 10px;
+	background: url(img/shortcuts_grey.png) center / 30px no-repeat;
+	margin-right: 10px;
 }
 .action-item:hover {
 	background-color: #fafafa;
