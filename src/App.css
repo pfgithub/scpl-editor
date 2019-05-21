@@ -524,7 +524,7 @@ input:active {
 	z-index: 100;
 }
 .code-pane {
-	height: 95vh;
+	height: 97vh;
 	overflow: hidden !important;
 }
 .file-pane,
@@ -571,7 +571,7 @@ input:active {
 	left: 0;
 	bottom: 0;
 	width: 100% !important;
-	height: 90% !important;
+	height: 86% !important;
 	cursor: text;
 }
 .ace_gutter-cell.ace_error {
