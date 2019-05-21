@@ -26,6 +26,7 @@ let timeout: NodeJS.Timeout;
 const Range = ace.acequire("ace/range").Range;
 
 const langTools = ace.acequire("ace/ext/language_tools");
+const findAndReplace = ace.acequire("ace/ext/searchbox");
 
 const rhymeCompleter = {
 	getCompletions: (
@@ -372,7 +373,14 @@ OpenURLs`
 											</a>
 										</li>
 										<li>
-											<a href="javascript:;">
+											<a
+												href="javascript:;"
+												onClick={() =>
+													findAndReplace.Search(
+														this.getAce()
+													)
+												}
+											>
 												Find and Replace
 												<span>{hotkey}F</span>
 											</a>
