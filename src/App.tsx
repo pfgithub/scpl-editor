@@ -292,7 +292,7 @@ OpenURLs`
 													this.getAce().undo()
 												}
 											>
-												Undo<span>&#8984;Z</span>
+												Undo<span>{hotkey}Z</span>
 											</a>
 										</li>
 										<li>
@@ -303,7 +303,7 @@ OpenURLs`
 												}
 											>
 												Redo
-												<span>&#8679;&#8984;Z</span>
+												<span>&#8679;{hotkey}Z</span>
 											</a>
 										</li>
 										<div className="menu-div" />
@@ -319,7 +319,7 @@ OpenURLs`
 													)
 												}
 											>
-												Cut<span>&#8984;X</span>
+												Cut<span>{hotkey}X</span>
 											</a>
 										</li>
 										<li>
@@ -334,7 +334,7 @@ OpenURLs`
 													)
 												}
 											>
-												Copy<span>&#8984;C</span>
+												Copy<span>{hotkey}C</span>
 											</a>
 										</li>
 										<li>
@@ -349,9 +349,10 @@ OpenURLs`
 													)
 												}
 											>
-												Paste<span>&#8984;P</span>
+												Paste<span>{hotkey}P</span>
 											</a>
 										</li>
+										<div className="menu-div" />
 										<li>
 											<a
 												href="javascript:;"
@@ -360,7 +361,15 @@ OpenURLs`
 												}
 											>
 												Select All
-												<span>&#8984;A</span>
+												<span>{hotkey}A</span>
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+											>
+												Find and Replace
+												<span>{hotkey}F</span>
 											</a>
 										</li>
 									</ul>
@@ -556,17 +565,19 @@ OpenURLs`
 								))}
 							</div>
 						) : null}
-						<div className="variables">
-							<div className="global-variables">
-								<div className="variable">Ask When Run</div>
-								<div className="variable clipboard-v"><div>Clipboard</div></div>
-								<div className="variable date-v"><div>Current Date</div></div>
-								<div className="variable input-v"><div>Extension Input</div></div>
-							</div>
-							<div className="code-variables">
-								<div className="variable">example</div>
-								<div className="variable mv"><div>magic</div></div>
-							</div>
+						<div className="variables-container">
+							<div className="variables">
+								<div className="global-variables">
+									<div className="variable">Ask When Run</div>
+									<div className="variable clipboard-v"><div>Clipboard</div></div>
+									<div className="variable date-v"><div>Current Date</div></div>
+									<div className="variable input-v"><div>Extension Input</div></div>
+								</div>
+								<div className="code-variables">
+									<div className="variable">example</div>
+									<div className="variable mv"><div>magic</div></div>
+								</div>
+						</div>
 						</div>
 						</div>
 						<AceEditor

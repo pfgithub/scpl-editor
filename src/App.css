@@ -373,7 +373,7 @@ input {
 input:active {
 	background-color: #8c99b350 !important;
 }
-.search-input {
+.search-input, .ace_search_field {
 	background: #ebebec url(img/search.svg) 8px center / 20px no-repeat !important;
 	padding-left: 35px !important;
 	margin-bottom: 5px !important;
@@ -943,10 +943,14 @@ input:active {
 	margin: 10px 15px;
 }
 /* Variables */
+.variables-container {
+	height: 40px;
+	overflow: hidden;
+}
 .variables {
 	background: #d1d4da;
 	border-bottom: 1px solid #bbbfc4;
-	overflow: scroll;
+	overflow-x: scroll;
 	white-space: nowrap;
 	padding: 3px 5px;
 }
@@ -1028,4 +1032,71 @@ input:active {
 .mv > div:before {
 	background: url(img/magic.svg) center / cover no-repeat;
 	margin-right: 3px;
+}
+/* Find and replace restyle */
+.ace_search {
+	background-color: #fff !important;
+	border-radius: 15px;
+	padding: 10px !important;
+	padding-top: 5px !important;
+	border: none !important;
+	border-top: none !important;
+	box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+}
+.ace_search_field {
+	border: none !important;
+	padding: 5px 10px !important;
+	padding-left: 35px !important;
+	margin: 8px 0 !important;
+	border-radius: 8px !important;
+}
+.ace_searchbtn, .ace_button {
+	border-radius: 5px !important;
+	font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+	border: 2px solid #eee !important;
+	background-color: #eee !important;
+	color: #007aff !important;
+	margin: 0 3px !important;
+	font-size: 14px !important;
+	transition: 0.2s all;
+}
+.ace_searchbtn:hover, .ace_button:hover {
+	background-color: #f5f5f5 !important;
+}
+.ace_searchbtn:active, .ace_button:active {
+	opacity: .7;
+}
+.ace_button.checked {
+	border: 2px solid #007aff50 !important;
+	font-weight: 500;
+}
+.ace_searchbtn {
+	padding: 1px 12px !important;
+}
+.ace_button {
+	padding: 5px 13px !important;
+}
+.ace_search_options {
+	margin-top: 15px;
+}
+.ace_search_counter {
+	padding: 2px 10px !important;
+	font-size: 15px;
+}
+[action="toggleReplace"] {
+	margin-top: -5px !important;
+}
+.ace_searchbtn_close {
+	opacity: .7;
+	user-select: none;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 2px !important;
+	background: url(img/close.svg) center / contain no-repeat !important;
+}
+.ace_searchbtn_close:hover {
+	opacity: 1;
+}
+.ace_searchbtn_close:active {
+	opacity: .5;
 }
