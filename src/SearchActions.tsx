@@ -36,7 +36,7 @@ class ActionData extends Component<{
 				className={`action-item ${
 					action._data.Category && categories[action._data.Category]
 						? categories[action._data.Category]
-						: ""
+						: "action-item-unknown"
 				}`}
 				onClick={e => {
 					e.stopPropagation();
