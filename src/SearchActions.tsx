@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import { allActions, getActionFromID } from "scpl";
 
 import { keys } from "./Key";
+import { categories } from "./data/ActionCategories";
 
 import "./SearchActions.css";
 
@@ -32,7 +33,11 @@ class ActionData extends Component<{
 			.replace(/^```\s+(.+?)\s+```$/, "$1");
 		return (
 			<div
-				className="action-item action-item-get-clipboard"
+				className={`action-item ${
+					action._data.Category && categories[action._data.Category]
+						? categories[action._data.Category]
+						: "action-item-unknown"
+				}`}
 				onClick={e => {
 					e.stopPropagation();
 					this.props.onSelect(usage);

@@ -8,18 +8,64 @@ import testshortcut from "./testshortcut.json";
 import ace from "brace";
 import "./ace/mode-scpl";
 import "brace/theme/chrome";
+import "brace/ext/language_tools";
+import "brace/ext/searchbox";
 import AceEditor from "react-ace";
 
 import { FilePane } from "./FilePane";
 import { SearchActions } from "./SearchActions";
 import { DownloadModal } from "./DownloadModal";
 import { keys } from "./Key";
+import { UploadShortcutModal } from "./UploadShortcutModal";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 import ShortcutPreview from "shortcut-preview";
 
 let timeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
+
+const langTools = ace.acequire("ace/ext/language_tools");
+const findAndReplace = ace.acequire("ace/ext/searchbox");
+
+const rhymeCompleter = {
+	getCompletions: (
+		editor: ace.Editor,
+		session: ace.IEditSession,
+		pos: ace.Position,
+		prefix: string,
+		callback: (
+			thing: null,
+			completions: {
+				name: string;
+				value: string;
+				score: number;
+				meta: string;
+			}[]
+		) => void
+	) => {
+		if (prefix.length === 0) {
+			callback(null, []);
+			return;
+		}
+		const variables = session.getValue().match(/(v|mv):([A-Za-z0-9]+)/g);
+		console.log(variables);
+		if (!variables) {
+			callback(null, []);
+			return;
+		}
+		callback(
+			null,
+			variables.map(v => ({
+				name: v,
+				value: v,
+				score: 25,
+				meta: v
+			}))
+		);
+	}
+};
+langTools.addCompleter(rhymeCompleter);
 
 const hotkey =
 	window.navigator.platform === "MacIntel" ||
@@ -64,6 +110,7 @@ class App extends Component<
 		openDownload: boolean;
 		showPreview: boolean;
 		showPreviewFullscreen: boolean;
+		showUploadShortcutModal: boolean;
 		tabs: { filename: string; active: boolean }[];
 		files: {
 			[filename: string]: string;
@@ -85,6 +132,7 @@ class App extends Component<
 			openDownload: false,
 			showPreview: false,
 			showPreviewFullscreen: false,
+			showUploadShortcutModal: false,
 			errors: [],
 			tabs: [{ filename: "download.scpl", active: true }],
 			files: {
@@ -146,6 +194,17 @@ OpenURLs`
 						file={this.state.shortcutDownload}
 					/>
 				) : null}
+				{this.state.showUploadShortcutModal ? (
+					<UploadShortcutModal
+						onCancel={() =>
+							this.setState({ showUploadShortcutModal: false })
+						}
+						onResult={result => {
+							this.setState({ showUploadShortcutModal: false });
+							this.onChange(result);
+						}}
+					/>
+				) : null}
 
 				<div className="editor-navigation">
 					<div
@@ -166,6 +225,18 @@ OpenURLs`
 								<li>
 									File
 									<ul>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													this.setState({
+														showUploadShortcutModal: true
+													})
+												}
+											>
+												Import Shortcut from iCloud
+											</a>
+										</li>
 										<li>
 											<a
 												href="javascript:;"
@@ -195,7 +266,7 @@ OpenURLs`
 													this.getAce().undo()
 												}
 											>
-												Undo<span>&#8984;Z</span>
+												Undo<span>{hotkey}Z</span>
 											</a>
 										</li>
 										<li>
@@ -206,7 +277,7 @@ OpenURLs`
 												}
 											>
 												Redo
-												<span>&#8679;&#8984;Z</span>
+												<span>&#8679;{hotkey}Z</span>
 											</a>
 										</li>
 										<div className="menu-div" />
@@ -222,7 +293,7 @@ OpenURLs`
 													)
 												}
 											>
-												Cut<span>&#8984;X</span>
+												Cut<span>{hotkey}X</span>
 											</a>
 										</li>
 										<li>
@@ -237,7 +308,7 @@ OpenURLs`
 													)
 												}
 											>
-												Copy<span>&#8984;C</span>
+												Copy<span>{hotkey}C</span>
 											</a>
 										</li>
 										<li>
@@ -252,9 +323,10 @@ OpenURLs`
 													)
 												}
 											>
-												Paste<span>&#8984;P</span>
+												Paste<span>{hotkey}P</span>
 											</a>
 										</li>
+										<div className="menu-div" />
 										<li>
 											<a
 												href="javascript:;"
@@ -263,7 +335,20 @@ OpenURLs`
 												}
 											>
 												Select All
-												<span>&#8984;A</span>
+												<span>{hotkey}A</span>
+											</a>
+										</li>
+										<li>
+											<a
+												href="javascript:;"
+												onClick={() =>
+													findAndReplace.Search(
+														this.getAce()
+													)
+												}
+											>
+												Find and Replace
+												<span>{hotkey}F</span>
 											</a>
 										</li>
 									</ul>
@@ -275,14 +360,14 @@ OpenURLs`
 								<li>
 									Help
 									<ul>
-									<li>
-										<a
-											href="https://scpl.dev/"
-											target="_blank"
-										>
-											Homepage
-										</a>
-									</li>
+										<li>
+											<a
+												href="https://scpl.dev/"
+												target="_blank"
+											>
+												Homepage
+											</a>
+										</li>
 										<li>
 											<a
 												href="https://docs.scpl.dev/gettingstarted.html"
@@ -441,23 +526,26 @@ OpenURLs`
 								</div>
 							))}
 						</div>
-						{this.state.tabs.length > 1 ? (
-							<div className="file-tabs">
-								{this.state.tabs.map(tab => (
-									<div
-										className={`tab ${
-											tab.active ? "active-tab" : ""
-										}`}
-									>
-										<div className="tab-close">&times;</div>
-										<div className="tab-label">
-											{tab.filename}
+						<div className="tabs-nav">
+							{this.state.tabs.length > 1 ? (
+								<div className="file-tabs">
+									{this.state.tabs.map(tab => (
+										<div
+											className={`tab ${
+												tab.active ? "active-tab" : ""
+											}`}
+										>
+											<div className="tab-close">
+												&times;
+											</div>
+											<div className="tab-label">
+												{tab.filename}
+											</div>
 										</div>
-									</div>
-								))}
-							</div>
-						) : null}
-
+									))}
+								</div>
+							) : null}
+						</div>
 						<AceEditor
 							mode="scpl"
 							theme="chrome"
@@ -469,6 +557,8 @@ OpenURLs`
 							markers={this.state.markers}
 							ref={this.reactAceComponentRef}
 							showPrintMargin={false}
+							enableBasicAutocompletion={true}
+							enableLiveAutocompletion={true}
 						/>
 					</div>
 					<div
@@ -490,18 +580,45 @@ OpenURLs`
 						</div>
 						{this.state.showPreview &&
 						this.state.errors.length === 0 ? (
-							<ShortcutPreview
-								onInteract={data => this.onActionSelect(data)}
-								data={this.state.shortcutData}
-							/>
+							<ErrorBoundary
+								errorDisplay={err => (
+									<div className="error-overlay too-many-actions shortcut-preview-fatal-error">
+										<p>
+											A fatal error occured in
+											shortcut-preview. The error is{" "}
+											{err.toString()}
+										</p>
+									</div>
+								)}
+							>
+								<ShortcutPreview
+									onInteract={data =>
+										this.onActionSelect(data)
+									}
+									data={this.state.shortcutData}
+								/>
+							</ErrorBoundary>
 						) : null}
 						<div className="loading-result-progress">
 							<div>
-								<div className="load" />
+								<div className="spinner">
+									<div className="bar1" />
+									<div className="bar2" />
+									<div className="bar3" />
+									<div className="bar4" />
+									<div className="bar5" />
+									<div className="bar6" />
+									<div className="bar7" />
+									<div className="bar8" />
+									<div className="bar9" />
+									<div className="bar10" />
+									<div className="bar11" />
+									<div className="bar12" />
+								</div>
 							</div>
 						</div>
 						{!this.state.showPreview ? (
-							<div className="too-many-actions">
+							<div className="error-overlay too-many-actions">
 								<div>
 									<p>
 										There are too many actions to render a
@@ -521,11 +638,10 @@ OpenURLs`
 							</div>
 						) : null}
 						{this.state.errors.length !== 0 ? (
-							<div className="too-many-actions">
+							<div className="too-many-actions render-error">
 								<div>
 									<p>
-										There is an error and the preview cannot
-										be rendered.
+										Failed to render because of code error.
 									</p>
 								</div>
 							</div>
