@@ -552,7 +552,7 @@ input:active {
 	background: #eee;
 	position: sticky;
 	top: 0;
-	padding: 10px;
+	padding: 7px 10px;
 	z-index: 5;
 	border-left: 0.5px solid #c7c7cc;
 	border-bottom: 0.5px solid #c7c7cc;
@@ -979,11 +979,12 @@ div.spinner div.bar12 {
 }
 /* Variables */
 .variables-container {
-	height: 40px;
+	height: 41px;
 	overflow: hidden;
+	border-bottom: 0.5px solid #adacac;
 }
 .variables {
-	background: #d1d4da;
+	background: #e3e4e3; /* might put this back #d1d4da */
 	border-bottom: 1px solid #bbbfc4;
 	overflow-x: scroll;
 	white-space: nowrap;
