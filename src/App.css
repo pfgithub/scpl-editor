@@ -1135,3 +1135,9 @@ div.spinner div.bar12 {
 .ace_searchbtn_close:active {
 	opacity: .5;
 }
+.ace_nomatch {
+	outline: none !important;
+}
+.ace_nomatch .ace_search_field {
+	background-color: #d74c3930 !important;
+}
