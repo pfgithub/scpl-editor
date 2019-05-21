@@ -581,7 +581,7 @@ input:active {
 	background-color: #d74c39 !important;
 }
 .ace_active-line {
-	background-color: #e8f6fe !important;
+	background-color: #007aff10 !important;
 }
 .ace_cursor {
 	color: #007aff !important;
