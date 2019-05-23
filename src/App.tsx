@@ -640,9 +640,14 @@ OpenURLs`
 						this.state.errors.length === 0 ? (
 							<ErrorBoundary
 								errorDisplay={err => (
+<<<<<<< HEAD
 									<div className="too-many-actions render-error shortcut-preview-fatal-error">
 										<div>
 										<br/>
+=======
+									<div className="error-overlay too-many-actions render-error shortcut-preview-fatal-error">
+										<p>
+>>>>>>> 9eced1ad4a1314a67d48c37caaee7d6f6229b927
 											A fatal error occured in
 											shortcut-preview. The error is{" "}
 											{err.toString()}
