@@ -568,6 +568,11 @@ OpenURLs`
 							]}
 							onActiveFileChanged={file => this.onChange(file)}
 						/>
+						<a href="https://account.scpl.dev/settings" target="_blank" rel="noopener"><div
+						className="account-settings-bar"
+						>
+							Account Settings
+						</div></a>
 					</div>
 					<div className="code-pane">
 						<div className="error-messages">

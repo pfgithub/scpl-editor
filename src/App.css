@@ -275,9 +275,6 @@ button {
 	user-select: none;
 	filter: grayscale(100%);
 }
-.no-account-overlay {
-
-}
 .upload-area {
 	user-select: none;
 	position: fixed;
@@ -432,6 +429,21 @@ input:active {
 	border-right: 0.5px solid #007aff;
 }
 /* navigation + nav elements */
+.account-settings-bar {
+	background: url(img/settings.svg) 73px center / 23px no-repeat;
+	padding: 15px 0;
+	padding-left: 37px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	z-index: 101;
+	color: #333;
+	font-weight: 500;
+	background-color: #f4f3f3;
+	left: 0;
+	width: 263px;
+	border-top: 0.5px solid #c7c7cc;
+}
 .mobile-filemenu {
 	background: url(img/menu.svg) center / 27px no-repeat;
 	padding: 20px;
