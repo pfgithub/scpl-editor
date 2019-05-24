@@ -89,7 +89,7 @@ class FolderComponent extends Component<
 				title={this.props.data.name}
 			>
 				<div>
-					<div className="item-name">{this.props.data.name}</div>
+					<div className="item-name"><div className="load"></div>{this.props.data.name}</div>
 					<ActionButtons />
 				</div>
 				<FileList
