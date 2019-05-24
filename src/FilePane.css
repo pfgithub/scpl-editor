@@ -102,7 +102,7 @@
 	display: inline-block;
 	margin-top: 3px;
 }
-.item-name .load {
+.item-name .spinner {
 	display: none;
 }
 .file-list ul li.open-folder ul li > div > .item-name {
@@ -138,13 +138,14 @@
 .file-list li.loading > div {
 	background: none;
 }
-.file-list li.loading .item-name .load {
+.file-list li.loading .item-name .spinner {
 	display: inline-block;
 	position: absolute;
-	margin-left: -25px;
-	margin-top: 2px;
-	width: 10px;
-	height: 10px;
+	margin-left: -33px;
+	margin-top: -6px;
+	width: 30px;
+	height: 30px;
+	opacity: .5;
 }
 /* Folder items */
 .list-item-folder > div {

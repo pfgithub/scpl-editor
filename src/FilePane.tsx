@@ -48,7 +48,20 @@ class FileComponent extends Component<{
 			>
 				<div>
 					<div className="item-name">
-						<div className="load small" />
+					<div className="spinner">
+						<div className="bar1" />
+						<div className="bar2" />
+						<div className="bar3" />
+						<div className="bar4" />
+						<div className="bar5" />
+						<div className="bar6" />
+						<div className="bar7" />
+						<div className="bar8" />
+						<div className="bar9" />
+						<div className="bar10" />
+						<div className="bar11" />
+						<div className="bar12" />
+					</div>
 						{this.props.data.name}
 					</div>
 					<ActionButtons />
@@ -89,7 +102,22 @@ class FolderComponent extends Component<
 				title={this.props.data.name}
 			>
 				<div>
-					<div className="item-name"><div className="load"></div>{this.props.data.name}</div>
+					<div className="item-name">
+					<div className="spinner">
+						<div className="bar1" />
+						<div className="bar2" />
+						<div className="bar3" />
+						<div className="bar4" />
+						<div className="bar5" />
+						<div className="bar6" />
+						<div className="bar7" />
+						<div className="bar8" />
+						<div className="bar9" />
+						<div className="bar10" />
+						<div className="bar11" />
+						<div className="bar12" />
+					</div>
+					{this.props.data.name}</div>
 					<ActionButtons />
 				</div>
 				<FileList
