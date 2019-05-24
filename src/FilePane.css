@@ -30,7 +30,7 @@
 }
 .file-btns {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	padding: 0 10px;
 }
 .file-btn {
@@ -44,6 +44,17 @@
 }
 .upload-btn {
 	background: #eee url(img/upload.png) center / 25px no-repeat;
+}
+.large-upload-btn {
+	background: #eee url(img/upload.png) 22% center / 25px no-repeat;
+	padding-left: 20%;
+}
+.import-btn {
+	background: #eee url(img/import.png) center / 25px no-repeat;
+}
+.large-import-btn {
+	background: #eee url(img/import.png) 22% center / 25px no-repeat;
+	padding-left: 20%;
 }
 .new-btn {
 	background: #eee url(img/new_file.png) center / 25px no-repeat;

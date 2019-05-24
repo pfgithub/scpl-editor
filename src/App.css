@@ -269,6 +269,15 @@ button {
 	cursor: pointer;
 	outline: none;
 }
+.disablethis {
+	pointer-events: none;
+	opacity: .5;
+	user-select: none;
+	filter: grayscale(100%);
+}
+.no-account-overlay {
+
+}
 .upload-area {
 	user-select: none;
 	position: fixed;
@@ -699,14 +708,30 @@ input:active {
 	align-items: center;
 	background: #f0f0f2;
 }
-.too-many-actions div {
+.no-account-btns {
+	padding: 15px;
+}
+.no-account-overlay {
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	top: 126px;
+	bottom: 0;
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #fafafa;
+}
+.too-many-actions div, .no-account-overlay div {
 	padding: 10px;
 	text-align: center;
 	font-weight: 500;
 	font-size: 15px;
 }
-.too-many-actions p {
+.too-many-actions p, .no-account-overlay p {
 	margin-bottom: 25px;
+	line-height: 22px;
 }
 .render-error div {
 	background: url(img/error_grey.svg) top center / 35px no-repeat;

@@ -495,6 +495,34 @@ OpenURLs`
 							this.state.mobileFilemenu ? " open-menu" : ""
 						}`}
 					>
+					<div className="no-account-btns">
+						<button className="btn large-upload-btn stretch-btn">
+							Upload Shortcut
+						</button>
+						<button className="btn large-import-btn stretch-btn">
+							Import Shortcut
+						</button>
+					</div>
+					<div className="no-account-overlay">
+						<div>
+						<p>
+							Sign up or login to save<br/>and manage your ScPL files.
+							<br/><br/>
+							<a
+							href="https://account.scpl.dev/sign-up"
+							className="editor-btn primary-btn btn"
+							>
+								Sign up
+							</a>
+							<a
+							href="https://account.scpl.dev/login"
+							className="editor-btn btn trans-btn"
+							>
+								Login
+							</a>
+						</p>
+						</div>
+					</div>
 						<FilePane
 							files={[
 								{

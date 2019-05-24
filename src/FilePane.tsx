@@ -207,6 +207,7 @@ export class FilePane extends Component<
 									>
 										<input {...getInputProps()} />
 									</div>
+									<button className="btn file-btn import-btn" />
 									<button
 										className="btn file-btn new-btn"
 										onClick={() =>
