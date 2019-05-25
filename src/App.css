@@ -269,6 +269,12 @@ button {
 	cursor: pointer;
 	outline: none;
 }
+.disablethis {
+	pointer-events: none;
+	opacity: .5;
+	user-select: none;
+	filter: grayscale(100%);
+}
 .upload-area {
 	user-select: none;
 	position: fixed;
@@ -423,6 +429,22 @@ input:active {
 	border-right: 0.5px solid #007aff;
 }
 /* navigation + nav elements */
+.account-settings-bar {
+	background: url(img/settings.svg) 73px center / 23px no-repeat;
+	padding: 15px 0;
+	padding-left: 37px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	z-index: 101;
+	color: #333;
+	font-weight: 500;
+	background-color: #f4f3f3;
+	left: 0;
+	width: 263px;
+	border-top: 0.5px solid #c7c7cc;
+	box-shadow: -3px -3px 10px rgba(0,0,0,.1);
+}
 .mobile-filemenu {
 	background: url(img/menu.svg) center / 27px no-repeat;
 	padding: 20px;
@@ -552,7 +574,7 @@ input:active {
 	background: #eee;
 	position: sticky;
 	top: 0;
-	padding: 10px;
+	padding: 7px 10px;
 	z-index: 5;
 	border-left: 0.5px solid #c7c7cc;
 	border-bottom: 0.5px solid #c7c7cc;
@@ -571,7 +593,7 @@ input:active {
 	left: 0;
 	bottom: 0;
 	width: 100% !important;
-	height: 86% !important;
+	height: 90% !important;
 	cursor: text;
 }
 .ace_gutter-cell.ace_error {
@@ -699,14 +721,30 @@ input:active {
 	align-items: center;
 	background: #f0f0f2;
 }
-.too-many-actions div {
+.no-account-btns {
+	padding: 15px;
+}
+.no-account-overlay {
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	top: 126px;
+	bottom: 0;
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #fafafa;
+}
+.too-many-actions div, .no-account-overlay div {
 	padding: 10px;
 	text-align: center;
 	font-weight: 500;
 	font-size: 15px;
 }
-.too-many-actions p {
+.too-many-actions p, .no-account-overlay p {
 	margin-bottom: 25px;
+	line-height: 22px;
 }
 .render-error div {
 	background: url(img/error_grey.svg) top center / 35px no-repeat;
@@ -979,11 +1017,12 @@ div.spinner div.bar12 {
 }
 /* Variables */
 .variables-container {
-	height: 40px;
+	height: 41px;
 	overflow: hidden;
+	border-bottom: 0.5px solid #adacac;
 }
 .variables {
-	background: #d1d4da;
+	background: #e3e4e3; /* might put this back #d1d4da */
 	border-bottom: 1px solid #bbbfc4;
 	overflow-x: scroll;
 	white-space: nowrap;

@@ -495,6 +495,34 @@ OpenURLs`
 							this.state.mobileFilemenu ? " open-menu" : ""
 						}`}
 					>
+					<div className="no-account-btns">
+						<button className="btn large-upload-btn stretch-btn">
+							Upload Shortcut
+						</button>
+						<button className="btn large-import-btn stretch-btn">
+							Import Shortcut
+						</button>
+					</div>
+					<div className="no-account-overlay">
+						<div>
+						<p>
+							Sign up or login to save<br/>and manage your ScPL files.
+							<br/><br/>
+							<a
+							href="https://account.scpl.dev/sign-up"
+							className="editor-btn primary-btn btn"
+							>
+								Sign up
+							</a>
+							<a
+							href="https://account.scpl.dev/login"
+							className="editor-btn btn trans-btn"
+							>
+								Login
+							</a>
+						</p>
+						</div>
+					</div>
 						<FilePane
 							files={[
 								{
@@ -540,6 +568,11 @@ OpenURLs`
 							]}
 							onActiveFileChanged={file => this.onChange(file)}
 						/>
+						<a href="https://account.scpl.dev/settings" target="_blank" rel="noopener"><div
+						className="account-settings-bar"
+						>
+							Account Settings
+						</div></a>
 					</div>
 					<div className="code-pane">
 						<div className="error-messages">
@@ -640,13 +673,13 @@ OpenURLs`
 						this.state.errors.length === 0 ? (
 							<ErrorBoundary
 								errorDisplay={err => (
-									<div className="error-overlay too-many-actions shortcut-preview-fatal-error">
+									<div className="error-overlay too-many-actions render-error shortcut-preview-fatal-error">
 										<p>
 											A fatal error occured in
 											shortcut-preview. The error is{" "}
 											{err.toString()}
 										</p>
-									</div>
+										</div>
 								)}
 							>
 								<ShortcutPreview
@@ -676,7 +709,7 @@ OpenURLs`
 							</div>
 						</div>
 						{!this.state.showPreview ? (
-							<div className="error-overlay too-many-actions">
+							<div className="error-overlay render-error too-many-actions">
 								<div>
 									<p>
 										There are too many actions to render a

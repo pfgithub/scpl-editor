@@ -30,7 +30,7 @@
 }
 .file-btns {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	padding: 0 10px;
 }
 .file-btn {
@@ -44,6 +44,17 @@
 }
 .upload-btn {
 	background: #eee url(img/upload.png) center / 25px no-repeat;
+}
+.large-upload-btn {
+	background: #eee url(img/upload.png) 22% center / 25px no-repeat;
+	padding-left: 20%;
+}
+.import-btn {
+	background: #eee url(img/import.png) center / 25px no-repeat;
+}
+.large-import-btn {
+	background: #eee url(img/import.png) 22% center / 25px no-repeat;
+	padding-left: 20%;
 }
 .new-btn {
 	background: #eee url(img/new_file.png) center / 25px no-repeat;
@@ -91,7 +102,7 @@
 	display: inline-block;
 	margin-top: 3px;
 }
-.item-name .load {
+.item-name .spinner {
 	display: none;
 }
 .file-list ul li.open-folder ul li > div > .item-name {
@@ -114,26 +125,27 @@
 .file-list li.list-item-file.active > div {
 	background-image: url(img/file_active.png);
 }
-/* uploading state */
-.list-item-file.uploading {
+/* loading state */
+.file-list li.loading {
 	background: none;
 	pointer-events: none;
 	user-select: none;
 	color: #777;
 }
-.list-item-file.uploading .action-btns {
+.file-list li.loading .action-btns {
 	opacity: 0.5;
 }
-.list-item-file.uploading > div {
+.file-list li.loading > div {
 	background: none;
 }
-.list-item-file.uploading .item-name .load {
+.file-list li.loading .item-name .spinner {
 	display: inline-block;
 	position: absolute;
-	margin-left: -25px;
-	margin-top: 2px;
-	width: 10px;
-	height: 10px;
+	margin-left: -33px;
+	margin-top: -6px;
+	width: 30px;
+	height: 30px;
+	opacity: .5;
 }
 /* Folder items */
 .list-item-folder > div {
