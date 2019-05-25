@@ -58,7 +58,6 @@ export class FileManagerClass {
 		if (!fileListEntry) {
 			throw new Error(`File with id ${id} has no list entry.`);
 		}
-		fileListEntry.name = name;
 		fileListEntry.loading = true;
 
 		const fileValueEntry = this.files[id];

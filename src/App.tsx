@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { parse, PositionedError } from "scpl";
 import "./App.css";
+import * as moment from "moment";
 // import {Helmet} from "react-helmet";
 
 import testshortcut from "./testshortcut.json";
@@ -24,6 +25,7 @@ import { FileManager } from "./FileManager";
 import ShortcutPreview from "shortcut-preview";
 
 let timeout: NodeJS.Timeout;
+let saveTimeout: NodeJS.Timeout;
 
 const Range = ace.acequire("ace/range").Range;
 
@@ -123,6 +125,7 @@ class App extends Component<
 		activeID: string | undefined;
 		lastSave: number;
 		lastChage: number;
+		saveStatus: "saved" | "unsaved" | "saving";
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -147,6 +150,7 @@ class App extends Component<
 			filesNew: [],
 			lastSave: 0,
 			lastChage: 0,
+			saveStatus: "saved",
 			files: {
 				"download.scpl": `ShowResult "Hello ScPL"
 	ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
@@ -185,8 +189,8 @@ OpenURLs`
 			});
 		};
 		FileManager.onActiveFileChanged = async (id: string | undefined) => {
-			if (this.state.lastSave < this.state.lastChage) {
-				alert("You just lost your unsaved progress");
+			if (this.state.activeID) {
+				FileManager.saveFile(this.state.activeID, this.state.fileValue);
 			}
 			if (!id) {
 				return this.setState({ activeID: undefined });
@@ -451,6 +455,34 @@ OpenURLs`
 								</li>
 							</ul>
 						</div>
+						<p className="savedstatus">
+							{this.state.saveStatus === "saved" ? (
+								"All changes saved"
+							) : this.state.saveStatus === "saving" ? (
+								"Saving..."
+							) : (
+								<a
+									className="last-saved"
+									onClick={async () => {
+										clearTimeout(saveTimeout);
+										this.state.activeID &&
+											(await FileManager.saveFile(
+												this.state.activeID,
+												this.state.fileValue
+											));
+										this.setState({
+											saveStatus: "saved",
+											lastSave: now()
+										});
+									}}
+								>
+									Last saved:{" "}
+									{moment
+										.unix(this.state.lastSave / 1000)
+										.fromNow()}
+								</a>
+							)}
+						</p>
 					</div>
 					<div className="search-container">
 						<SearchActions
@@ -807,14 +839,24 @@ OpenURLs`
 	}
 	onChange(text: string) {
 		this.setState({ lastChage: now() });
-		const willWaitFor = Math.max(this.state.took.convertedIn * 4, 100);
+		const willWaitFor = text.length < 500 ? 100 : 1000;
+		this.setState({
+			fileValue: text,
+			loading: true,
+			saveStatus: "unsaved"
+		});
 		if (!this.state.loading) {
-			this.setState({
-				showPreview: this.state.took.convertedIn < 50,
-				fileValue: text,
-				loading: true
-			});
+			this.setState({ showPreview: text.length < 500 });
 		}
+		if (saveTimeout) {
+			clearTimeout(saveTimeout);
+		}
+		saveTimeout = setTimeout(async () => {
+			this.setState({ saveStatus: "saving" });
+			this.state.activeID &&
+				(await FileManager.saveFile(this.state.activeID, text));
+			this.setState({ saveStatus: "saved", lastSave: now() });
+		}, 1000);
 		if (timeout) {
 			clearTimeout(timeout);
 		}
