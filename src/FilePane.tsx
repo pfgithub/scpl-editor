@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Dropzone, { DropEvent } from "react-dropzone";
 import { inverse } from "scpl";
 
+import { FileManager } from "./FileManager";
+
 import { CreateEditShortcut } from "./CreateEditShortcut";
 
 import "./FilePane.css";
@@ -35,12 +37,14 @@ class ActionButtons extends Component<{}> {
 }
 
 class FileComponent extends Component<{
-	data: FileData;
+	data: { id: string; name: string; loading: boolean };
 }> {
 	render() {
 		return (
 			<li
-				className="list-item-file"
+				className={`list-item-file ${
+					this.props.data.loading ? "loading" : ""
+				}`}
 				onClick={e => {
 					e.stopPropagation();
 				}}
@@ -48,20 +52,20 @@ class FileComponent extends Component<{
 			>
 				<div>
 					<div className="item-name">
-					<div className="spinner">
-						<div className="bar1" />
-						<div className="bar2" />
-						<div className="bar3" />
-						<div className="bar4" />
-						<div className="bar5" />
-						<div className="bar6" />
-						<div className="bar7" />
-						<div className="bar8" />
-						<div className="bar9" />
-						<div className="bar10" />
-						<div className="bar11" />
-						<div className="bar12" />
-					</div>
+						<div className="spinner">
+							<div className="bar1" />
+							<div className="bar2" />
+							<div className="bar3" />
+							<div className="bar4" />
+							<div className="bar5" />
+							<div className="bar6" />
+							<div className="bar7" />
+							<div className="bar8" />
+							<div className="bar9" />
+							<div className="bar10" />
+							<div className="bar11" />
+							<div className="bar12" />
+						</div>
 						{this.props.data.name}
 					</div>
 					<ActionButtons />
@@ -71,96 +75,94 @@ class FileComponent extends Component<{
 	}
 }
 
-class FolderComponent extends Component<
-	{
-		data: FolderData;
-		searchTerm: string;
-	},
-	{
-		expanded: boolean;
-	}
-> {
-	constructor(
-		props: Readonly<{
-			data: FolderData;
-			searchTerm: string;
-		}>
-	) {
-		super(props);
-		this.state = { expanded: false };
-	}
-	render() {
-		return (
-			<li
-				className={`list-item-folder ${
-					this.state.expanded ? "open-folder" : ""
-				}`}
-				onClick={e => {
-					this.setState({ expanded: !this.state.expanded });
-					e.stopPropagation();
-				}}
-				title={this.props.data.name}
-			>
-				<div>
-					<div className="item-name">
-					<div className="spinner">
-						<div className="bar1" />
-						<div className="bar2" />
-						<div className="bar3" />
-						<div className="bar4" />
-						<div className="bar5" />
-						<div className="bar6" />
-						<div className="bar7" />
-						<div className="bar8" />
-						<div className="bar9" />
-						<div className="bar10" />
-						<div className="bar11" />
-						<div className="bar12" />
-					</div>
-					{this.props.data.name}</div>
-					<ActionButtons />
-				</div>
-				<FileList
-					files={this.props.data.files}
-					searchTerm={this.props.searchTerm}
-				/>
-			</li>
-		);
-	}
-}
+// class FolderComponent extends Component<
+// 	{
+// 		data: FolderData;
+// 		searchTerm: string;
+// 	},
+// 	{
+// 		expanded: boolean;
+// 	}
+// > {
+// 	constructor(
+// 		props: Readonly<{
+// 			data: FolderData;
+// 			searchTerm: string;
+// 		}>
+// 	) {
+// 		super(props);
+// 		this.state = { expanded: false };
+// 	}
+// 	render() {
+// 		return (
+// 			<li
+// 				className={`list-item-folder ${
+// 					this.state.expanded ? "open-folder" : ""
+// 				}`}
+// 				onClick={e => {
+// 					this.setState({ expanded: !this.state.expanded });
+// 					e.stopPropagation();
+// 				}}
+// 				title={this.props.data.name}
+// 			>
+// 				<div>
+// 					<div className="item-name">
+// 						<div className="spinner">
+// 							<div className="bar1" />
+// 							<div className="bar2" />
+// 							<div className="bar3" />
+// 							<div className="bar4" />
+// 							<div className="bar5" />
+// 							<div className="bar6" />
+// 							<div className="bar7" />
+// 							<div className="bar8" />
+// 							<div className="bar9" />
+// 							<div className="bar10" />
+// 							<div className="bar11" />
+// 							<div className="bar12" />
+// 						</div>
+// 						{this.props.data.name}
+// 					</div>
+// 					<ActionButtons />
+// 				</div>
+// 				<FileList
+// 					files={this.props.data.files}
+// 					searchTerm={this.props.searchTerm}
+// 				/>
+// 			</li>
+// 		);
+// 	}
+// }
 
 // sort:
 // a.order - b.order != 0 ? a.order - b.order
 // : a.name.localeCompare(b.name, undefined, {numeric: true})
 
 class FileList extends Component<{
-	files: (FileData | FolderData)[];
+	files: { id: string; name: string; loading: boolean }[];
 	searchTerm: string;
 }> {
 	render() {
 		return (
 			<ul>
 				{this.props.files.map(file => {
-					if (file.type === "file") {
-						if (
-							file.name
-								.toLowerCase()
-								.indexOf(this.props.searchTerm.toLowerCase()) >
-							-1
-						) {
-							return (
-								<FileComponent key={file.name} data={file} />
-							);
-						}
-						return null;
+					// if (file.type === "file") {
+					if (
+						file.name
+							.toLowerCase()
+							.indexOf(this.props.searchTerm.toLowerCase()) > -1
+					) {
+						return <FileComponent key={file.name} data={file} />;
 					}
-					return (
-						<FolderComponent
-							key={file.name}
-							data={file}
-							searchTerm={this.props.searchTerm}
-						/>
-					);
+					return null;
+					// }
+					// return (
+					// 	<FolderComponent
+					// 		key={file.name}
+					// 		data={file}
+					// 		searchTerm={this.props.searchTerm}
+					// 	/>
+					// );
 				})}
 			</ul>
 		);
@@ -170,7 +172,7 @@ class FileList extends Component<{
 export class FilePane extends Component<
 	{
 		onActiveFileChanged: (fileContents: string) => void;
-		files: (FileData | FolderData)[];
+		files: { id: string; name: string; loading: boolean }[];
 	},
 	{
 		showFileModal: boolean;
@@ -180,7 +182,7 @@ export class FilePane extends Component<
 	constructor(
 		props: Readonly<{
 			onActiveFileChanged: (fileContents: string) => void;
-			files: (FileData | FolderData)[];
+			files: { id: string; name: string; loading: boolean }[];
 		}>
 	) {
 		super(props);
@@ -262,6 +264,10 @@ export class FilePane extends Component<
 						onCancel={() => this.setState({ showFileModal: false })}
 						onResult={(name, color, glyph) => {
 							this.setState({ showFileModal: false });
+							FileManager.createFile(
+								`@Color ${color}\n@Icon ${glyph}`,
+								name
+							);
 						}}
 					/>
 				) : null}

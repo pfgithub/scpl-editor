@@ -14,19 +14,25 @@ import "./CreateEditShortcut.css";
 
 type CreateEditShortcutProps = {
 	onCancel: () => void;
-	onResult: (name: string, color: undefined, glyph: undefined) => void;
+	onResult: (name: string, color: ColorName, glyph: GlyphName) => void;
 };
 
 export class CreateEditShortcut extends Component<
 	CreateEditShortcutProps,
-	{ chosenGlyph: GlyphName; chosenColor: ColorName; mode: "color" | "glyph" }
+	{
+		chosenGlyph: GlyphName;
+		chosenColor: ColorName;
+		mode: "color" | "glyph";
+		name: string;
+	}
 > {
 	constructor(props: Readonly<CreateEditShortcutProps>) {
 		super(props);
 		this.state = {
 			chosenGlyph: "magicwand",
 			chosenColor: "purple",
-			mode: "color"
+			mode: "color",
+			name: ""
 		};
 	}
 	render() {
@@ -63,12 +69,17 @@ export class CreateEditShortcut extends Component<
 								placeholder="Shortcut Name"
 								id="new-name"
 								autoFocus
+								onKeyUp={e =>
+									this.setState({
+										name: e.currentTarget.value
+									})
+								}
 							/>
 							<div
 								className="require-error"
 								id="new-name-error"
 								style={{ display: "none" }}
-								>
+							>
 								Name is required.
 							</div>
 						</div>
@@ -209,7 +220,17 @@ export class CreateEditShortcut extends Component<
 						</div>
 					</div>
 
-					<div className="btn large-btn" id="close-new">
+					<div
+						className="btn large-btn"
+						id="close-new"
+						onClick={() => {
+							this.props.onResult(
+								this.state.name,
+								this.state.chosenColor,
+								this.state.chosenGlyph
+							);
+						}}
+					>
 						Create
 					</div>
 				</div>

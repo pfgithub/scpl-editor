@@ -19,6 +19,8 @@ import { keys } from "./Key";
 import { UploadShortcutModal } from "./UploadShortcutModal";
 import { ErrorBoundary } from "./ErrorBoundary";
 
+import { FileManager } from "./FileManager";
+
 import ShortcutPreview from "shortcut-preview";
 
 let timeout: NodeJS.Timeout;
@@ -115,6 +117,7 @@ class App extends Component<
 		files: {
 			[filename: string]: string;
 		};
+		filesNew: { id: string; name: string; loading: boolean }[];
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -138,6 +141,7 @@ class App extends Component<
 				{ filename: "download.scpl", active: true },
 				{ filename: "other.scpl", active: false }
 			],
+			filesNew: [],
 			files: {
 				"download.scpl": `ShowResult "Hello ScPL"
 	ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
@@ -169,6 +173,9 @@ Case "View Documentation"
 End Menu
 OpenURLs`
 		);
+		FileManager.onFileListChange = () => {
+			this.setState({ filesNew: FileManager.fileList });
+		};
 	}
 	render() {
 		return (
@@ -495,84 +502,50 @@ OpenURLs`
 							this.state.mobileFilemenu ? " open-menu" : ""
 						}`}
 					>
-					<div className="no-account-btns">
-						<button className="btn large-upload-btn stretch-btn">
-							Upload Shortcut
-						</button>
-						<button className="btn large-import-btn stretch-btn">
-							Import Shortcut
-						</button>
-					</div>
-					<div className="no-account-overlay">
-						<div>
-						<p>
-							Sign up or login to save<br/>and manage your ScPL files.
-							<br/><br/>
-							<a
-							href="https://account.scpl.dev/sign-up"
-							className="editor-btn primary-btn btn"
-							>
-								Sign up
-							</a>
-							<a
-							href="https://account.scpl.dev/login"
-							className="editor-btn btn trans-btn"
-							>
-								Login
-							</a>
-						</p>
+						{/*<div className="no-account-btns">
+							<button className="btn large-upload-btn stretch-btn">
+								Upload Shortcut
+							</button>
+							<button className="btn large-import-btn stretch-btn">
+								Import Shortcut
+							</button>
 						</div>
-					</div>
+						<div className="no-account-overlay">
+							<div>
+								<p>
+									Sign up or login to save
+									<br />
+									and manage your ScPL files.
+									<br />
+									<br />
+									<a
+										href="https://account.scpl.dev/sign-up"
+										className="editor-btn primary-btn btn"
+									>
+										Sign up
+									</a>
+									<a
+										href="https://account.scpl.dev/login"
+										className="editor-btn btn trans-btn"
+									>
+										Login
+									</a>
+								</p>
+							</div>
+						</div>*/}
 						<FilePane
-							files={[
-								{
-									type: "file" as "file",
-									name: "My File.scpl"
-								},
-								{
-									type: "file" as "file",
-									name: "Another File.scpl"
-								},
-								{
-									type: "folder" as "folder",
-									name: "A Folder",
-									files: [
-										{
-											type: "file" as "file",
-											name: "My File.scpl"
-										},
-										{
-											type: "folder" as "folder",
-											name: "My Folder",
-											files: [
-												{
-													type: "file" as "file",
-													name: "A Shortcut.scpl"
-												}
-											]
-										},
-										{
-											type: "file" as "file",
-											name: "Look at all these files.scpl"
-										}
-									]
-								},
-								{
-									type: "file" as "file",
-									name: "My File 2.scpl"
-								},
-								{
-									type: "file" as "file",
-									name: "Another File 2.scpl"
-								}
-							]}
+							files={this.state.filesNew}
 							onActiveFileChanged={file => this.onChange(file)}
 						/>
-						<a href="https://account.scpl.dev/settings" target="_blank" rel="noopener"><div
-						className="account-settings-bar"
+						<a
+							href="https://account.scpl.dev/settings"
+							target="_blank"
+							rel="noopener"
 						>
-							Account Settings
-						</div></a>
+							<div className="account-settings-bar">
+								Account Settings
+							</div>
+						</a>
 					</div>
 					<div className="code-pane">
 						<div className="error-messages">
@@ -679,7 +652,7 @@ OpenURLs`
 											shortcut-preview. The error is{" "}
 											{err.toString()}
 										</p>
-										</div>
+									</div>
 								)}
 							>
 								<ShortcutPreview
