@@ -45,7 +45,7 @@ class ActionData extends Component<{
 			>
 				<div className="action-item-title">
 					{action.name}
-					<div className="action-item-code">{action.shortName}</div>
+					<div className="action-item-code">{action.readableName}</div>
 				</div>
 				<div className="action-item-description">
 					{this.props.canShowDetail ? (
