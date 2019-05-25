@@ -4,17 +4,22 @@ export class FileManagerClass {
 	files: { [id: string]: { cont: string; name: string } };
 	fileList: { id: string; name: string; loading: boolean }[];
 	onFileListChange: () => void;
+	onActiveFileChanged: (id: string | undefined) => void;
+	tabs: { id: string; name: string }[];
 	constructor() {
 		this.files = {};
 		this.fileList = [];
 		this.onFileListChange = () => {};
+		this.onActiveFileChanged = () => {};
+		this.tabs = [];
 	}
-	async createFile(cont: string, name: string) {
-		//
+	newID() {
 		const uintarr = new Uint8Array(20);
 		crypto.getRandomValues(uintarr);
 		const id = new Buffer(uintarr).toString("hex");
-
+		return id;
+	}
+	async createFile(cont: string, name: string, id: string) {
 		this.files[id] = { cont, name };
 		const fileListEntry = { id, name, loading: true };
 		this.fileList.push(fileListEntry);
@@ -77,6 +82,33 @@ export class FileManagerClass {
 		await delay(1000);
 
 		throw new Error(`File with id ${id} does not exist.`);
+	}
+	addTab(id: string) {
+		const existingTab = this.tabs.find(tab => tab.id === id);
+		if (!existingTab) {
+			this.tabs.push({ id, name: "..." });
+		}
+		this.tabs.forEach(tab => {
+			const fileListEntry = this.fileList.find(
+				file => file.id === tab.id
+			);
+			if (!fileListEntry) {
+				tab.name = "???";
+				return;
+			}
+			tab.name = fileListEntry.name;
+		});
+		this.onFileListChange();
+		this.onActiveFileChanged(id);
+	}
+	closeTab(id: string) {
+		const existingTab = this.tabs.findIndex(tab => tab.id === id);
+		if (existingTab <= -1) {
+			return;
+		}
+		const prevTab = this.tabs[existingTab - 1];
+		this.onFileListChange();
+		this.onActiveFileChanged(prevTab ? prevTab.id : undefined);
 	}
 }
 

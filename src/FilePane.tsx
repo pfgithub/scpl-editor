@@ -15,7 +15,9 @@ type FolderData = {
 	files: (FileData | FolderData)[];
 };
 
-class ActionButtons extends Component<{}> {
+class ActionButtons extends Component<{
+	data: { id: string; name: string; loading: boolean };
+}> {
 	render() {
 		return (
 			<div className="action-btns">
@@ -29,6 +31,14 @@ class ActionButtons extends Component<{}> {
 					className="edit-btn"
 					onClick={e => {
 						e.stopPropagation();
+						const newName = prompt(
+							"Filename",
+							this.props.data.name
+						);
+						if (!newName) {
+							return;
+						}
+						FileManager.renameFile(this.props.data.id, newName);
 					}}
 				/>
 			</div>
@@ -47,6 +57,8 @@ class FileComponent extends Component<{
 				}`}
 				onClick={e => {
 					e.stopPropagation();
+					FileManager.loadFile(this.props.data.id);
+					FileManager.addTab(this.props.data.id);
 				}}
 				title={this.props.data.name}
 			>
@@ -68,7 +80,7 @@ class FileComponent extends Component<{
 						</div>
 						{this.props.data.name}
 					</div>
-					<ActionButtons />
+					<ActionButtons data={this.props.data} />
 				</div>
 			</li>
 		);
@@ -264,10 +276,13 @@ export class FilePane extends Component<
 						onCancel={() => this.setState({ showFileModal: false })}
 						onResult={(name, color, glyph) => {
 							this.setState({ showFileModal: false });
+							const id = FileManager.newID();
 							FileManager.createFile(
 								`@Color ${color}\n@Icon ${glyph}`,
-								name
+								name,
+								id
 							);
+							FileManager.addTab(id);
 						}}
 					/>
 				) : null}

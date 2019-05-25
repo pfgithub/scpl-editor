@@ -208,7 +208,7 @@ module.exports = {
 		"prefer-template": 1, // prefer template strings
 		semi: [1, "always"], // require or disallow use of semicolons instead of ASI
 		"sort-vars": 0, // sort variables within the same declaration block (off by default)
-		"space-before-function-paren": [1, "never"], // require a space after certain keywords (off by default)
+		"space-before-function-paren": [0, "never"], // require a space after certain keywords (off by default)
 		"space-before-blocks": [1, "always"], // require or disallow space before blocks (off by default)
 		"space-in-parens": 0, // require or disallow spaces inside parentheses (off by default)
 		"space-unary-ops": 0, // Require or disallow spaces before/after unary operators (words on by default, nonwords off by default)

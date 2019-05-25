@@ -84,6 +84,8 @@ class MaybeUpdate extends Component<{ shouldUpdate: boolean }, {}> {
 	}
 }
 
+const now = () => new Date().getTime();
+
 class App extends Component<
 	{},
 	{
@@ -113,11 +115,14 @@ class App extends Component<
 		showPreview: boolean;
 		showPreviewFullscreen: boolean;
 		showUploadShortcutModal: boolean;
-		tabs: { filename: string; active: boolean }[];
+		tabs: { id: string; name: string }[];
 		files: {
 			[filename: string]: string;
 		};
 		filesNew: { id: string; name: string; loading: boolean }[];
+		activeID: string | undefined;
+		lastSave: number;
+		lastChage: number;
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -137,11 +142,11 @@ class App extends Component<
 			showPreviewFullscreen: false,
 			showUploadShortcutModal: false,
 			errors: [],
-			tabs: [
-				{ filename: "download.scpl", active: true },
-				{ filename: "other.scpl", active: false }
-			],
+			tabs: [],
+			activeID: undefined,
 			filesNew: [],
+			lastSave: 0,
+			lastChage: 0,
 			files: {
 				"download.scpl": `ShowResult "Hello ScPL"
 	ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
@@ -174,7 +179,24 @@ End Menu
 OpenURLs`
 		);
 		FileManager.onFileListChange = () => {
-			this.setState({ filesNew: FileManager.fileList });
+			this.setState({
+				filesNew: FileManager.fileList,
+				tabs: FileManager.tabs
+			});
+		};
+		FileManager.onActiveFileChanged = async (id: string | undefined) => {
+			if (this.state.lastSave < this.state.lastChage) {
+				alert("You just lost your unsaved progress");
+			}
+			if (!id) {
+				return this.setState({ activeID: undefined });
+			}
+			// get the file
+			this.setState({ activeID: undefined });
+			const file = await FileManager.loadFile(id);
+			// check last save time
+			this.setState({ activeID: id, lastSave: now() });
+			this.onChange(file);
 		};
 	}
 	render() {
@@ -572,14 +594,20 @@ OpenURLs`
 									{this.state.tabs.map(tab => (
 										<div
 											className={`tab ${
-												tab.active ? "active-tab" : ""
+												this.state.activeID === tab.id
+													? "active-tab"
+													: ""
 											}`}
+											onClick={e => {
+												e.stopPropagation();
+												FileManager.addTab(tab.id);
+											}}
 										>
 											<div className="tab-close">
 												&times;
 											</div>
 											<div className="tab-label">
-												{tab.filename}
+												{tab.name}
 											</div>
 										</div>
 									))}
@@ -610,20 +638,26 @@ OpenURLs`
 								</div>
 							</div>
 						</div>
-						<AceEditor
-							mode="scpl"
-							theme="chrome"
-							onChange={this.onChange.bind(this)}
-							name="ace_editor"
-							editorProps={{ $blockScrolling: Infinity }}
-							value={this.state.fileValue || ""}
-							annotations={this.state.annotations}
-							markers={this.state.markers}
-							ref={this.reactAceComponentRef}
-							showPrintMargin={false}
-							enableBasicAutocompletion={true}
-							enableLiveAutocompletion={true}
-						/>
+						{this.state.activeID ? (
+							<AceEditor
+								mode="scpl"
+								theme="chrome"
+								onChange={this.onChange.bind(this)}
+								name="ace_editor"
+								editorProps={{ $blockScrolling: Infinity }}
+								value={this.state.fileValue || ""}
+								annotations={this.state.annotations}
+								markers={this.state.markers}
+								ref={this.reactAceComponentRef}
+								showPrintMargin={false}
+								enableBasicAutocompletion={true}
+								enableLiveAutocompletion={true}
+							/>
+						) : (
+							<div className="editor-error no-open-files">
+								<p>No files are open.</p>
+							</div>
+						)}
 					</div>
 					<div
 						className={`result-pane${
@@ -772,6 +806,7 @@ OpenURLs`
 		);
 	}
 	onChange(text: string) {
+		this.setState({ lastChage: now() });
 		const willWaitFor = Math.max(this.state.took.convertedIn * 4, 100);
 		if (!this.state.loading) {
 			this.setState({
