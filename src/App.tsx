@@ -455,7 +455,7 @@ OpenURLs`
 								</li>
 							</ul>
 						</div>
-						<p className="savedstatus">
+						<p className="savedstatus editor-menu">
 							{this.state.saveStatus === "saved" ? (
 								"All changes saved"
 							) : this.state.saveStatus === "saving" ? (
