@@ -511,12 +511,16 @@ OpenURLs`
 							<a
 							href="https://account.scpl.dev/sign-up"
 							className="editor-btn primary-btn btn"
+							target="_blank"
+							rel="noopener"
 							>
 								Sign up
 							</a>
 							<a
 							href="https://account.scpl.dev/login"
 							className="editor-btn btn trans-btn"
+							target="_blank"
+							rel="noopener"
 							>
 								Login
 							</a>
