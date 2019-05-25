@@ -443,6 +443,7 @@ input:active {
 	left: 0;
 	width: 263px;
 	border-top: 0.5px solid #c7c7cc;
+	box-shadow: -3px -3px 10px rgba(0,0,0,.1);
 }
 .mobile-filemenu {
 	background: url(img/menu.svg) center / 27px no-repeat;
@@ -592,7 +593,7 @@ input:active {
 	left: 0;
 	bottom: 0;
 	width: 100% !important;
-	height: 86% !important;
+	height: 90% !important;
 	cursor: text;
 }
 .ace_gutter-cell.ace_error {
