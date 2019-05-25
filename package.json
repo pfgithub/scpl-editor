@@ -15,7 +15,7 @@
 		"react-markdown": "^4.0.8",
 		"react-portal": "^4.2.0",
 		"react-scripts": "2.1.8",
-		"scpl": "^1.9.3",
+		"scpl": "^1.12.1",
 		"shortcut-preview": "pfgithub/shortcut-preview",
 		"typescript": "3.3.3333"
 	},
