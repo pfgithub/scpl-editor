@@ -455,34 +455,6 @@ OpenURLs`
 								</li>
 							</ul>
 						</div>
-						<p className="savedstatus editor-menu">
-							{this.state.saveStatus === "saved" ? (
-								"All changes saved"
-							) : this.state.saveStatus === "saving" ? (
-								"Saving..."
-							) : (
-								<a
-									className="last-saved"
-									onClick={async () => {
-										clearTimeout(saveTimeout);
-										this.state.activeID &&
-											(await FileManager.saveFile(
-												this.state.activeID,
-												this.state.fileValue
-											));
-										this.setState({
-											saveStatus: "saved",
-											lastSave: now()
-										});
-									}}
-								>
-									Last saved:{" "}
-									{moment
-										.unix(this.state.lastSave / 1000)
-										.fromNow()}
-								</a>
-							)}
-						</p>
 					</div>
 					<div className="search-container">
 						<SearchActions
@@ -508,6 +480,34 @@ OpenURLs`
 						/>
 					</div>
 					<div>
+					<div className="savedstatus">
+						{this.state.saveStatus === "saved" ? (
+							"All changes saved"
+						) : this.state.saveStatus === "saving" ? (
+							"Saving..."
+						) : (
+							<a
+								className="last-saved"
+								onClick={async () => {
+									clearTimeout(saveTimeout);
+									this.state.activeID &&
+										(await FileManager.saveFile(
+											this.state.activeID,
+											this.state.fileValue
+										));
+									this.setState({
+										saveStatus: "saved",
+										lastSave: now()
+									});
+								}}
+							>
+								Last saved:{" "}
+								{moment
+									.unix(this.state.lastSave / 1000)
+									.fromNow()}
+							</a>
+						)}
+					</div>
 						<div className="result-details">
 							<div className="result-actions">
 								{
@@ -710,7 +710,10 @@ OpenURLs`
 							/>
 						) : (
 							<div className="editor-error no-open-files">
-								<p>No files are open.</p>
+								<div>
+									<h3>No files are open in the editor.</h3>
+									<p>Upload or import a shortcut, plus create and<br/>manage ScPL files in the left pane.</p>
+								</div>
 							</div>
 						)}
 					</div>

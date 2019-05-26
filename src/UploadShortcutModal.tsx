@@ -71,7 +71,7 @@ export class UploadShortcutModal extends Component<
 			<ModalContainer onCancel={() => this.props.onCancel()}>
 				<div
 					className="modal dialog"
-					id="create-edit-shortcut"
+					id="import-shortcut"
 					style={{ display: "block" }}
 				>
 				<div
