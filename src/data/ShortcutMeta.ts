@@ -527,16 +527,16 @@ export type ColorName =
 	| "orange"
 	| "yellow"
 	| "green"
-	| "seagreen"
+	| "teal"
 	| "lightblue"
 	| "blue"
 	| "darkblue"
 	| "darkpurple"
-	| "purple"
+	| "lightpurple"
 	| "pink"
-	| "black"
-	| "brown"
-	| "grey";
+	| "darkgray"
+	| "gray"
+	| "bluegrey";
 
 export const colors: ColorName[] = [
 	"red",
@@ -544,14 +544,14 @@ export const colors: ColorName[] = [
 	"orange",
 	"yellow",
 	"green",
-	"seagreen",
+	"teal",
 	"lightblue",
 	"blue",
 	"darkblue",
 	"darkpurple",
-	"purple",
+	"lightpurple",
 	"pink",
-	"black",
-	"brown",
-	"grey"
+	"darkgray",
+	"gray",
+	"bluegrey"
 ];

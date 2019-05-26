@@ -30,7 +30,7 @@ export class CreateEditShortcut extends Component<
 		super(props);
 		this.state = {
 			chosenGlyph: "magicwand",
-			chosenColor: "purple",
+			chosenColor: "lightpurple",
 			mode: "color",
 			name: ""
 		};

@@ -150,10 +150,10 @@ input[type="radio"]:checked#color-green + label:before {
 	box-shadow: 0 0 0 2px #5fca3f;
 }
 
-input[type="radio"]#color-seagreen + label:before {
+input[type="radio"]#color-teal + label:before {
 	background-image: linear-gradient(to right, #40d0b1, #00a490);
 }
-input[type="radio"]:checked#color-seagreen + label:before {
+input[type="radio"]:checked#color-teal + label:before {
 	box-shadow: 0 0 0 2px #40d0b1;
 }
 
@@ -185,10 +185,10 @@ input[type="radio"]:checked#color-darkpurple + label:before {
 	box-shadow: 0 0 0 2px #7751e3;
 }
 
-input[type="radio"]#color-purple + label:before {
+input[type="radio"]#color-lightpurple + label:before {
 	background-image: linear-gradient(to right, #b247d8, #840aad);
 }
-input[type="radio"]:checked#color-purple + label:before {
+input[type="radio"]:checked#color-lightpurple + label:before {
 	box-shadow: 0 0 0 2px #b247d8;
 }
 
@@ -199,24 +199,24 @@ input[type="radio"]:checked#color-pink + label:before {
 	box-shadow: 0 0 0 2px #ee60a6;
 }
 
-input[type="radio"]#color-black + label:before {
+input[type="radio"]#color-gray + label:before {
 	background-image: linear-gradient(to right, #78797e, #535658);
 }
-input[type="radio"]:checked#color-black + label:before {
+input[type="radio"]:checked#color-gray + label:before {
 	box-shadow: 0 0 0 2px #78797e;
 }
 
-input[type="radio"]#color-brown + label:before {
+input[type="radio"]#color-darkgray + label:before {
 	background-image: linear-gradient(to right, #9d9b92, #7f7b6b);
 }
-input[type="radio"]:checked#color-brown + label:before {
+input[type="radio"]:checked#color-darkgray + label:before {
 	box-shadow: 0 0 0 2px #9d9b92;
 }
 
-input[type="radio"]#color-grey + label:before {
+input[type="radio"]#color-bluegray + label:before {
 	background-image: linear-gradient(to right, #8f99b0, #6d768e);
 }
-input[type="radio"]:checked#color-grey + label:before {
+input[type="radio"]:checked#color-bluegray + label:before {
 	box-shadow: 0 0 0 2px #8f99b0;
 }
 
@@ -236,7 +236,7 @@ input[type="radio"]:checked#color-grey + label:before {
 .color-icon-preview#color-green {
 	background-image: linear-gradient(to bottom right, #5fca3f, #379c0f);
 }
-.color-icon-preview#color-seagreen {
+.color-icon-preview#color-teal {
 	background-image: linear-gradient(to bottom right, #40d0b1, #00a490);
 }
 .color-icon-preview#color-lightblue {
@@ -251,19 +251,19 @@ input[type="radio"]:checked#color-grey + label:before {
 .color-icon-preview#color-darkpurple {
 	background-image: linear-gradient(to bottom right, #7751e3, #4c22b8);
 }
-.color-icon-preview#color-purple {
+.color-icon-preview#color-lightpurple {
 	background-image: linear-gradient(to bottom right, #b247d8, #840aad);
 }
 .color-icon-preview#color-pink {
 	background-image: linear-gradient(to bottom right, #ee60a6, #d0287e);
 }
-.color-icon-preview#color-black {
+.color-icon-preview#color-darkgray {
 	background-image: linear-gradient(to bottom right, #78797e, #535658);
 }
-.color-icon-preview#color-brown {
+.color-icon-preview#color-gray {
 	background-image: linear-gradient(to bottom right, #9d9b92, #7f7b6b);
 }
-.color-icon-preview#color-grey {
+.color-icon-preview#color-bluegray {
 	background-image: linear-gradient(to bottom right, #8f99b0, #6d768e);
 }
 /* End Colors */
