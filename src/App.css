@@ -950,20 +950,19 @@ div.spinner div.bar12 {
 .file-tabs {
 	border-bottom: 0.5px solid #adacac;
 	background: #ccc;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10%,1fr));
 }
 .tab {
-	display: inline-block;
 	padding: 5px 10px;
-	padding-right: 20px;
 	border-right: 0.5px solid #adacac;
 	color: #3d3c3d;
 	transition: 0.1s all;
 	cursor: pointer;
-	width: 20%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	display: inline-grid;
+	grid-template-columns: 0fr 1fr;
 	margin-bottom: -3px;
+	overflow: hidden;
 }
 .tab:hover:not(.active-tab) {
 	background: #a7a8a750;
@@ -1000,9 +999,12 @@ div.spinner div.bar12 {
 }
 .tab-label {
 	font-size: 13px;
-	line-height: 15px;
-	margin-left: 10px;
+	line-height: 20px;
+	padding-left: 10px;
 	user-select: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 /* Menus */
 .savedstatus {

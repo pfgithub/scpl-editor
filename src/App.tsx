@@ -267,12 +267,12 @@ OpenURLs`
 												<span>{hotkey}N</span>
 											</a>
 										</li>
-										// <li>
-										// 	<a href="javascript:;">
-										// 		New Folder
-										// 		<span>&#8679;{hotkey}N</span>
-										// 	</a>
-										// </li>
+										<li style={{ display: "none" }}>
+											<a href="javascript:;">
+												New Folder
+												<span>&#8679;{hotkey}N</span>
+											</a>
+										</li>
 										<li>
 											<a href="javascript:;">
 												Save File
