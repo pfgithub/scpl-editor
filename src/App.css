@@ -58,7 +58,7 @@
 		width: 30% !important;
 	}
 	.savedstatus {
-		display: none; /* for now */
+		display: none !important; /* for now */
 	}
 	.editor-title {
 		display: none !important;
@@ -134,6 +134,7 @@
 		left: 0 !important;
 		right: 0 !important;
 		bottom: 0;
+		margin-left: 0 !important;
 		box-shadow: none !important;
 		border-radius: 0 !important;
 		width: auto !important;
