@@ -556,6 +556,15 @@ OpenURLs`
 							this.state.mobileFilemenu ? " open-menu" : ""
 						}`}
 					>
+					<div
+						className="no-files-overlay"
+						style={{ display: "none" }}
+					>
+						<div>
+							<h3>No files&mdash;yet.</h3>
+							<p>Add files above by creating ScPL files<br/>or by uploading or importing a shortcut.</p>
+						</div>
+					</div>
 					{/*<div className="no-account-btns">
 						<button className="btn large-upload-btn stretch-btn">
 							Upload Shortcut

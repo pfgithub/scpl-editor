@@ -60,6 +60,9 @@
 	.editor-title {
 		display: none !important;
 	}
+	.no-files-overlay {
+		width: 100% !important;
+	}
 	.file-pane input {
     width: 92% !important;
 	}
@@ -714,6 +717,7 @@ input:active {
 .cancel-btn:active {
 	opacity: 0.5;
 }
+/* Preview overlays */
 .preview-error {
 	position: absolute;
 	z-index: 100;
@@ -741,6 +745,7 @@ input:active {
 	color: #a6a6aa;
 	padding-top: 30px;
 }
+/* Code pane overlays */
 .editor-error {
 		width: stretch;
 		height: stretch;
@@ -764,33 +769,34 @@ input:active {
 		line-height: 22px;
 		font-size: 15px;
 	}
-	/* file pane overlays */
+	/* File pane overlays */
 	.no-files-overlay {
 		position: absolute;
 		z-index: 100;
 		left: 0;
-		top: 126px;
+		top: 116px;
 		bottom: 0;
 		width: 300px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		background: #fafafa;
+		color: #555;
 	}
-	.no-account-overlay {
-		position: absolute;
-		z-index: 100;
-		left: 0;
-		top: 126px;
-		bottom: 0;
-		width: 300px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: #fafafa;
+	.no-files-overlay > div {
+		text-align: center;
+		font-weight: 500;
 	}
-	.no-account-btns {
-		padding: 15px;
+	.no-files-overlay > div > h3 {
+		margin: 0;
+		margin-bottom: 10px;
+		line-height: 22px;
+		font-size: 18px;
+	}
+	.no-files-overlay > div > p {
+		margin: 5px 0;
+		line-height: 22px;
+		font-size: 13px;
 	}
 /* loading indicator */
 .result-pane.loading .loading-result-progress {
