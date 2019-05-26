@@ -29,7 +29,7 @@ export class CreateEditShortcut extends Component<
 	constructor(props: Readonly<CreateEditShortcutProps>) {
 		super(props);
 		this.state = {
-			chosenGlyph: "magicwand",
+			chosenGlyph: "wand",
 			chosenColor: "lightpurple",
 			mode: "color",
 			name: ""
