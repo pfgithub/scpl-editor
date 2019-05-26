@@ -57,6 +57,9 @@
 		padding: 8px 10px !important;
 		width: 30% !important;
 	}
+	.savedstatus {
+		display: none; /* for now */
+	}
 	.editor-title {
 		display: none !important;
 	}
@@ -466,7 +469,7 @@ input:active {
 	background-color: #fff;
 	border-bottom: 0.5px solid #c7c7cc;
 	display: grid;
-	grid-template-columns: 1fr 1fr 0.8fr;
+	grid-template-columns: 0.8fr 1fr 1fr;
 	position: fixed;
 	top: 0;
 	left: 0;
