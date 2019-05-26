@@ -714,7 +714,7 @@ input:active {
 .cancel-btn:active {
 	opacity: 0.5;
 }
-.too-many-actions {
+.preview-error {
 	position: absolute;
 	z-index: 100;
 	right: 0;
@@ -726,28 +726,13 @@ input:active {
 	align-items: center;
 	background: #f0f0f2;
 }
-.no-account-btns {
-	padding: 15px;
-}
-.no-account-overlay {
-	position: absolute;
-	z-index: 100;
-	left: 0;
-	top: 126px;
-	bottom: 0;
-	width: 300px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #fafafa;
-}
-.too-many-actions div, .no-account-overlay div {
+.preview-error div, .preview-error div {
 	padding: 10px;
 	text-align: center;
 	font-weight: 500;
 	font-size: 15px;
 }
-.too-many-actions p, .no-account-overlay p {
+.preview-error p, .preview-error p {
 	margin-bottom: 25px;
 	line-height: 22px;
 }
@@ -766,23 +751,47 @@ input:active {
 		color: #555;
 	}
 	.editor-error > div {
-		padding: 0 10px;
 		text-align: center;
 		font-weight: 500;
 	}
 	.editor-error > div > h3 {
+		margin: 0;
 		margin-bottom: 10px;
 		line-height: 22px;
 	}
 	.editor-error > div > p {
-		margin-bottom: 20px;
+		margin: 5px 0;
 		line-height: 22px;
 		font-size: 15px;
 	}
-	/* .no-open-files div {
-		background: url(img/file.svg) top center / 35px no-repeat;
-		padding-top: 30px;
-	} */
+	/* file pane overlays */
+	.no-files-overlay {
+		position: absolute;
+		z-index: 100;
+		left: 0;
+		top: 126px;
+		bottom: 0;
+		width: 300px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #fafafa;
+	}
+	.no-account-overlay {
+		position: absolute;
+		z-index: 100;
+		left: 0;
+		top: 126px;
+		bottom: 0;
+		width: 300px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #fafafa;
+	}
+	.no-account-btns {
+		padding: 15px;
+	}
 /* loading indicator */
 .result-pane.loading .loading-result-progress {
 	display: flex;
