@@ -58,7 +58,6 @@
 @media screen and (min-width: 120px) and (max-width: 767px) {
 	.tab {
 		padding: 8px 10px !important;
-		width: 30% !important;
 	}
 	.savedstatus {
 		display: none !important; /* for now */
@@ -953,9 +952,11 @@ div.spinner div.bar12 {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(10%,1fr));
 }
+.file-tabs .tab:not(:last-child) {
+	border-right: 0.5px solid #adacac;
+}
 .tab {
 	padding: 5px 10px;
-	border-right: 0.5px solid #adacac;
 	color: #3d3c3d;
 	transition: 0.1s all;
 	cursor: pointer;
