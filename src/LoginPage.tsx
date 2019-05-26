@@ -31,7 +31,8 @@ class LoginPage extends Component<
 				<div className="login-progress">
 					<div>
 						<div className="login-success"></div>
-						<p><b>You have been logged in.</b> You may now close this page.</p>
+						<h3>Login Success!</h3>
+						<p>You may now close this page.</p>
 					</div>
 				</div>
 			);
