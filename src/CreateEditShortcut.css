@@ -607,7 +607,7 @@ input[type="radio"]#glyph-tag + label:before {
 input[type="radio"]#glyph-locked + label:before {
 	background-position: -27px -299px;
 }
-input[type="radio"]#glyph-magicwand + label:before {
+input[type="radio"]#glyph-wand + label:before {
 	background-position: -57px -300px;
 }
 input[type="radio"]#glyph-pencil + label:before {
@@ -1388,7 +1388,7 @@ input[type="radio"]#glyph-nuclear + label:before {
 .icon-preview#glyph-locked {
 	background-position: -27px -299px;
 }
-.icon-preview#glyph-magicwand {
+.icon-preview#glyph-wand {
 	background-position: -57px -300px;
 }
 .icon-preview#glyph-pencil {

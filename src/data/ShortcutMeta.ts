@@ -111,7 +111,7 @@ export type GlyphName =
 	| "fish"
 	| "tag"
 	| "locked"
-	| "magicwand"
+	| "wand"
 	| "pencil"
 	| "magnify"
 	| "tool"
@@ -369,7 +369,7 @@ export const objectGlyphs: GlyphName[] = [
 	"fish",
 	"tag",
 	"locked",
-	"magicwand",
+	"wand",
 	"pencil",
 	"magnify",
 	"tool",
