@@ -1015,6 +1015,7 @@ div.spinner div.bar12 {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-align: center;
 }
 /* Menus */
 .savedstatus {
