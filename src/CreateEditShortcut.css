@@ -199,17 +199,17 @@ input[type="radio"]:checked#color-pink + label:before {
 	box-shadow: 0 0 0 2px #ee60a6;
 }
 
-input[type="radio"]#color-gray + label:before {
+input[type="radio"]#color-darkgray + label:before {
 	background-image: linear-gradient(to right, #78797e, #535658);
 }
-input[type="radio"]:checked#color-gray + label:before {
+input[type="radio"]:checked#color-darkgray + label:before {
 	box-shadow: 0 0 0 2px #78797e;
 }
 
-input[type="radio"]#color-darkgray + label:before {
+input[type="radio"]#color-gray + label:before {
 	background-image: linear-gradient(to right, #9d9b92, #7f7b6b);
 }
-input[type="radio"]:checked#color-darkgray + label:before {
+input[type="radio"]:checked#color-gray + label:before {
 	box-shadow: 0 0 0 2px #9d9b92;
 }
 

@@ -536,7 +536,7 @@ export type ColorName =
 	| "pink"
 	| "darkgray"
 	| "gray"
-	| "bluegrey";
+	| "bluegray";
 
 export const colors: ColorName[] = [
 	"red",
@@ -553,5 +553,5 @@ export const colors: ColorName[] = [
 	"pink",
 	"darkgray",
 	"gray",
-	"bluegrey"
+	"bluegray"
 ];
