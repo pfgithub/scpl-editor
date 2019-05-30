@@ -30,7 +30,7 @@
 }
 .file-btns {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;/* 1fr */
 	padding: 0 10px;
 }
 .file-btn {
@@ -60,6 +60,7 @@
 	background: #eee url(img/new_file.png) center / 25px no-repeat;
 }
 .newf-btn {
+	display: none;
 	background: #eee url(img/new_folder.png) center / 25px no-repeat;
 }
 /* File list */

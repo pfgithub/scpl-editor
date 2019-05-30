@@ -284,7 +284,7 @@ OpenURLs`
 												<span>{hotkey}N</span>
 											</a>
 										</li>
-										<li>
+										<li style={{ display: "none" }}>
 											<a href="javascript:;">
 												New Folder
 												<span>&#8679;{hotkey}N</span>

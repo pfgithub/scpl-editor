@@ -11,10 +11,10 @@
 /* iPad */
 @media screen and (min-width: 767px) and (max-width: 1260px) {
 	.search-input {
-		width: 97% !important;
+		width: 90% !important;
 	}
 	.editor-navigation {
-		grid-template-columns: 0fr 1fr 1fr 1fr !important;
+		grid-template-columns: 0fr 0.8fr 1fr 1fr !important;
 	}
 	.file-pane {
 		position: fixed;
@@ -47,6 +47,9 @@
 		border: none !important;
 		height: 85% !important;
 	}
+	.savedstatus {
+		display: none !important; /* for now */
+	}
 }
 /* iPad Landscape */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: landscape) {
@@ -55,7 +58,9 @@
 @media screen and (min-width: 120px) and (max-width: 767px) {
 	.tab {
 		padding: 8px 10px !important;
-		width: 30% !important;
+	}
+	.savedstatus {
+		display: none !important; /* for now */
 	}
 	.editor-title {
 		display: none !important;
@@ -131,6 +136,7 @@
 		left: 0 !important;
 		right: 0 !important;
 		bottom: 0;
+		margin-left: 0 !important;
 		box-shadow: none !important;
 		border-radius: 0 !important;
 		width: auto !important;
@@ -466,7 +472,7 @@ input:active {
 	background-color: #fff;
 	border-bottom: 0.5px solid #c7c7cc;
 	display: grid;
-	grid-template-columns: 1fr 1fr 0.8fr;
+	grid-template-columns: 0.8fr 1fr 1fr;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -943,20 +949,21 @@ div.spinner div.bar12 {
 .file-tabs {
 	border-bottom: 0.5px solid #adacac;
 	background: #ccc;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10%,1fr));
+}
+.file-tabs .tab:not(:last-child) {
+	border-right: 0.5px solid #adacac;
 }
 .tab {
-	display: inline-block;
 	padding: 5px 10px;
-	padding-right: 20px;
-	border-right: 0.5px solid #adacac;
 	color: #3d3c3d;
 	transition: 0.1s all;
 	cursor: pointer;
-	width: 20%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	display: inline-grid;
+	grid-template-columns: 0fr 1fr;
 	margin-bottom: -3px;
+	overflow: hidden;
 }
 .tab:hover:not(.active-tab) {
 	background: #a7a8a750;
@@ -985,17 +992,30 @@ div.spinner div.bar12 {
 .tab-close:active {
 	opacity: 0.7;
 }
+.tab.active-tab .tab-close {
+	opacity: 1;
+}
 .tab.active-tab .tab-close:hover {
 	background: #ccc;
 }
 .tab .tab-close:hover {
 	background: #aaa;
 }
+.tab .tab-close {
+	opacity: .5;
+}
+.tab:hover .tab-close {
+	opacity: 1;
+}
 .tab-label {
 	font-size: 13px;
-	line-height: 15px;
-	margin-left: 10px;
+	line-height: 20px;
+	padding-left: 5px;
 	user-select: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
 }
 /* Menus */
 .savedstatus {

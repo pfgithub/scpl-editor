@@ -111,7 +111,7 @@ export type GlyphName =
 	| "fish"
 	| "tag"
 	| "locked"
-	| "magicwand"
+	| "wand"
 	| "pencil"
 	| "magnify"
 	| "tool"
@@ -369,7 +369,7 @@ export const objectGlyphs: GlyphName[] = [
 	"fish",
 	"tag",
 	"locked",
-	"magicwand",
+	"wand",
 	"pencil",
 	"magnify",
 	"tool",
@@ -536,7 +536,7 @@ export type ColorName =
 	| "pink"
 	| "darkgray"
 	| "gray"
-	| "bluegrey";
+	| "bluegray";
 
 export const colors: ColorName[] = [
 	"red",
@@ -553,5 +553,5 @@ export const colors: ColorName[] = [
 	"pink",
 	"darkgray",
 	"gray",
-	"bluegrey"
+	"bluegray"
 ];

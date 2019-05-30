@@ -28,10 +28,36 @@ class LoginPage extends Component<
 	render() {
 		if (this.state.status === "done") {
 			return (
-				<div>You have been logged in. You can now close ths page.</div>
+				<div className="login-progress">
+					<div>
+						<div className="login-success"></div>
+						<h3>Login Success!</h3>
+						<p>You may now close this page.</p>
+					</div>
+				</div>
 			);
 		}
-		return <div>You are being logged in...</div>;
+		return (
+			<div className="login-progress">
+				<div>
+					<div className="spinner">
+						<div className="bar1" />
+						<div className="bar2" />
+						<div className="bar3" />
+						<div className="bar4" />
+						<div className="bar5" />
+						<div className="bar6" />
+						<div className="bar7" />
+						<div className="bar8" />
+						<div className="bar9" />
+						<div className="bar10" />
+						<div className="bar11" />
+						<div className="bar12" />
+					</div>
+					<p>You are being logged in...<b>Do not close this page.</b></p>
+				</div>
+			</div>
+		);
 	}
 }
 
