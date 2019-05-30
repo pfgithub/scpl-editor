@@ -593,7 +593,7 @@ input:active {
 	border-left: 0.5px solid #c7c7cc;
 	border-bottom: 0.5px solid #c7c7cc;
 }
-.styles_container__2XUEs {
+.result-pane > div:nth-child(2) {
 	padding: 20px;
 	padding-top: 0;
 }
