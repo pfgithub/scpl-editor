@@ -1093,10 +1093,10 @@ div.spinner div.bar12 {
 .variables-container {
 	height: 41px;
 	overflow: hidden;
+	border-bottom: 1px solid #bbbfc4;
 }
 .variables {
-	background: #e3e4e3; /* might put this back #d1d4da */
-	border-bottom: 1px solid #bbbfc4;
+	background: #e3e4e3;
 	overflow-x: scroll;
 	white-space: nowrap;
 	padding: 3px 5px;
