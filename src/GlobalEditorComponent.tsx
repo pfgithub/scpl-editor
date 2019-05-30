@@ -66,8 +66,8 @@ export class GlobalEditorComponent extends Component<
 		this.reactAceComponentRef = React.createRef<AceEditor>();
 	}
 	componentDidMount() {
-		GlobalEditorData.onSetText = newText => this.getAce().setValue(newText);
-		GlobalEditorData.onInsertText = newText =>
+		GlobalEditorData.doSetText = newText => this.getAce().setValue(newText);
+		GlobalEditorData.doInsertText = newText =>
 			this.getAce().insert(newText);
 	}
 	getAce(): ace.Editor {
@@ -82,7 +82,14 @@ export class GlobalEditorComponent extends Component<
 		return (
 			<div style={{ display: "content" }}>
 				<div className="code-pane">
-					<AceEditor ref={this.reactAceComponentRef} />
+					<div id="ace-mount-component" />
+					<AceEditor
+						ref={this.reactAceComponentRef}
+						onChange={text =>
+							GlobalEditorData.onTextChanged &&
+							GlobalEditorData.onTextChanged(text)
+						}
+					/>
 				</div>
 				<div className="result-pane">
 					<div className="result-text" />
