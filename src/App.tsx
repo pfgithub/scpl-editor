@@ -126,6 +126,7 @@ class App extends Component<
 		lastSave: number;
 		lastChage: number;
 		saveStatus: "saved" | "unsaved" | "saving";
+		loginstatus: "unknown" | "notloggedin" | "loggingin" | "loggedin";
 	}
 > {
 	reactAceComponentRef: React.RefObject<AceEditor>;
@@ -151,6 +152,7 @@ class App extends Component<
 			lastSave: 0,
 			lastChage: 0,
 			saveStatus: "saved",
+			loginstatus: "unknown",
 			files: {
 				"download.scpl": `ShowResult "Hello ScPL"
 	ChooseFromMenu "ScPL Editor" items=["Getting Started", "View Documentation"]
@@ -202,6 +204,21 @@ OpenURLs`
 			this.setState({ activeID: id, lastSave: now() });
 			this.onChange(file);
 		};
+		this.login();
+		document.body.onfocus = () => {
+			this.login();
+		};
+	}
+	async login() {
+		const logintoken = localStorage.getItem("logintoken");
+		this.setState({ loginstatus: "loggingin" });
+		// request to server
+		const result = true;
+		if (result) {
+			this.setState({ loginstatus: "loggedin" });
+		}
+		// else setstate(loginerr)
+		this.setState({ loginstatus: "notloggedin" });
 	}
 	render() {
 		return (
@@ -480,34 +497,34 @@ OpenURLs`
 						/>
 					</div>
 					<div>
-					<div className="savedstatus">
-						{this.state.saveStatus === "saved" ? (
-							"All changes saved"
-						) : this.state.saveStatus === "saving" ? (
-							"Saving..."
-						) : (
-							<a
-								className="last-saved"
-								onClick={async () => {
-									clearTimeout(saveTimeout);
-									this.state.activeID &&
-										(await FileManager.saveFile(
-											this.state.activeID,
-											this.state.fileValue
-										));
-									this.setState({
-										saveStatus: "saved",
-										lastSave: now()
-									});
-								}}
-							>
-								Last saved:{" "}
-								{moment
-									.unix(this.state.lastSave / 1000)
-									.fromNow()}
-							</a>
-						)}
-					</div>
+						<div className="savedstatus">
+							{this.state.saveStatus === "saved" ? (
+								"All changes saved"
+							) : this.state.saveStatus === "saving" ? (
+								"Saving..."
+							) : (
+								<a
+									className="last-saved"
+									onClick={async () => {
+										clearTimeout(saveTimeout);
+										this.state.activeID &&
+											(await FileManager.saveFile(
+												this.state.activeID,
+												this.state.fileValue
+											));
+										this.setState({
+											saveStatus: "saved",
+											lastSave: now()
+										});
+									}}
+								>
+									Last saved:{" "}
+									{moment
+										.unix(this.state.lastSave / 1000)
+										.fromNow()}
+								</a>
+							)}
+						</div>
 						<div className="result-details">
 							<div className="result-actions">
 								{
@@ -556,16 +573,20 @@ OpenURLs`
 							this.state.mobileFilemenu ? " open-menu" : ""
 						}`}
 					>
-					<div
-						className="no-files-overlay"
-						style={{ display: "none" }}
-					>
-						<div>
-							<h3>No files&mdash;yet.</h3>
-							<p>Add files above by creating ScPL files<br/>or by uploading or importing a shortcut.</p>
+						<div
+							className="no-files-overlay"
+							style={{ display: "none" }}
+						>
+							<div>
+								<h3>No files&mdash;yet.</h3>
+								<p>
+									Add files above by creating ScPL files
+									<br />
+									or by uploading or importing a shortcut.
+								</p>
+							</div>
 						</div>
-					</div>
-					{/*<div className="no-account-btns">
+						{/*<div className="no-account-btns">
 						<button className="btn large-upload-btn stretch-btn">
 							Upload Shortcut
 						</button>
@@ -721,7 +742,12 @@ OpenURLs`
 							<div className="editor-error no-open-files">
 								<div>
 									<h3>No files are open in the editor.</h3>
-									<p>Upload or import a shortcut, plus create and<br/>manage ScPL files in the left pane.</p>
+									<p>
+										Upload or import a shortcut, plus create
+										and
+										<br />
+										manage ScPL files in the left pane.
+									</p>
 								</div>
 							</div>
 						)}
