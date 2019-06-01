@@ -468,6 +468,22 @@ OpenURLs`
 												Documentation
 											</a>
 										</li>
+										<li>
+											<a
+												href="https://github.com/pfgithub/scpl-editor"
+												target="_blank"
+											>
+												Editor GitHub
+											</a>
+										</li>
+										<li>
+											<a
+												href="https://discordapp.com/invite/2qqfFKc"
+												target="_blank"
+											>
+												ScPL Discord
+											</a>
+										</li>
 									</ul>
 								</li>
 							</ul>
