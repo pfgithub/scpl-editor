@@ -593,7 +593,7 @@ input:active {
 	border-left: 0.5px solid #c7c7cc;
 	border-bottom: 0.5px solid #c7c7cc;
 }
-.result-pane > div:nth-child(2) {
+.result-pane > div:nth-child(2):not(.loading-result-progress):not(.preview-error) {
 	padding: 20px;
 	padding-top: 0;
 }
@@ -730,7 +730,7 @@ input:active {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	width: 330px;
+	width: 329px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -746,14 +746,14 @@ input:active {
 	margin-bottom: 25px;
 	line-height: 22px;
 }
-.render-error div {
+.render-error > div {
 	background: url(img/error_grey.svg) top center / 35px no-repeat;
 	color: #a6a6aa;
 	padding-top: 30px;
 }
 /* Code pane overlays */
 .editor-error {
-		width: stretch;
+		width: 100%;
 		height: stretch;
 		display: flex;
 		justify-content: center;
@@ -814,7 +814,7 @@ input:active {
 	z-index: 500;
 	right: 0;
 	top: 45%;
-	width: 355px;
+	width: 330px;
 }
 .result-pane.loading > div {
 	opacity: 0.5;
@@ -1091,7 +1091,7 @@ div.spinner div.bar12 {
 }
 /* Variables */
 .variables-container {
-	height: 41px;
+	height: 40px;
 	overflow: hidden;
 	border-bottom: 1px solid #bbbfc4;
 }
@@ -1107,7 +1107,7 @@ div.spinner div.bar12 {
 .global-variables {
 	padding-right: 10px;
 	margin-right: 10px;
-	border-right: 0.5px solid #adacac;
+	border-right: 0.5px solid #ccc;
 }
 .variable {
 	display: inline-block;

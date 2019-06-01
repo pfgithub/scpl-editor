@@ -774,11 +774,13 @@ OpenURLs`
 							<ErrorBoundary
 								errorDisplay={err => (
 									<div className="preview-error render-error shortcut-preview-fatal-error">
+										<div className="render-text">
 										<p>
 											A fatal error occured in
 											shortcut-preview. The error is{" "}
 											{err.toString()}
 										</p>
+										</div>
 									</div>
 								)}
 							>
