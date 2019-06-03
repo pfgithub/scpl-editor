@@ -456,7 +456,7 @@ input:active {
 	background-color: #f4f3f3;
 	left: 0;
 	width: 263px;
-	border-top: 0.5px solid #c7c7cc;
+	border-top: 0.5px solid #c8c7cc;
 	box-shadow: -3px -3px 10px rgba(0,0,0,.1);
 }
 .mobile-filemenu {
@@ -470,7 +470,7 @@ input:active {
 }
 .editor-navigation {
 	background-color: #fff;
-	border-bottom: 0.5px solid #c7c7cc;
+	border-bottom: 0.5px solid #c8c7cc;
 	display: grid;
 	grid-template-columns: 0.8fr 1fr 1fr;
 	position: fixed;
@@ -570,7 +570,7 @@ input:active {
 	-webkit-overflow-scrolling: touch;
 }
 .result-pane {
-	border-left: 0.5px solid #c7c7cc;
+	border-left: 0.5px solid #c8c7cc;
 	background-color: #e1e3e6;
 	box-shadow: inset 0 0 10px rgba(150, 150, 150, 0.5);
 	padding-top: 0;
@@ -590,8 +590,8 @@ input:active {
 	top: 0;
 	padding: 7px 10px;
 	z-index: 5;
-	border-left: 0.5px solid #c7c7cc;
-	border-bottom: 0.5px solid #c7c7cc;
+	border-left: 0.5px solid #c8c7cc;
+	border-bottom: 0.5px solid #c8c7cc;
 }
 .result-pane > div:nth-child(2):not(.loading-result-progress):not(.preview-error) {
 	padding: 20px;
@@ -629,7 +629,7 @@ input:active {
 #qr-result {
 	width: 150px;
 	height: 150px;
-	border: 2px solid #c7c7cc;
+	border: 2px solid #c8c7cc;
 	border-radius: 3px;
 	margin: 0 auto;
 	display: flex;
@@ -1040,7 +1040,8 @@ div.spinner div.bar12 {
 	font-size: 15px;
 }
 .editor-menu > ul:first-child:hover {
-	background: #e8f6fe90;
+	background: #007aff;
+	color: #fff;
 }
 .editor-menu ul ul {
 	margin-left: -15px;
@@ -1054,7 +1055,7 @@ div.spinner div.bar12 {
 	box-shadow: 0 3px 10px rgba(100, 100, 100, 0.3);
 	min-width: 230px;
 	display: none;
-	border: 0.5px solid #c7c7cc;
+	border: 0.5px solid #c8c7cc;
 }
 .editor-menu ul:hover ul {
 	display: block;
@@ -1064,7 +1065,7 @@ div.spinner div.bar12 {
 	padding: 8px 15px;
 	font-size: 14px;
 	text-decoration: none;
-	transition: 0.2s all;
+	transition: 0.1s all;
 	color: #1d1d1c;
 	font-weight: 500;
 	user-select: none;
@@ -1083,7 +1084,19 @@ div.spinner div.bar12 {
 	margin-top: -3px;
 }
 .editor-menu ul ul li a:hover {
-	background: #e8f6fe;
+	background: #007aff;
+	color: #fff;
+}
+.editor-menu ul ul li a:hover span {
+	float: right;
+	color: #ffffff90;
+	font-size: 14px;
+	line-height: 15px;
+	text-align: right;
+	padding: 3px 4px;
+	border-radius: 4px;
+	letter-spacing: 1px;
+	margin-top: -3px;
 }
 .menu-div {
 	border-top: 1px solid #5a798b30;
