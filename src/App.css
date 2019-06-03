@@ -469,7 +469,7 @@ input:active {
 	background-size: 20px;
 }
 .editor-navigation {
-	background-color: #fff;
+	background-color: #f6f6f8;
 	border-bottom: 0.5px solid #c8c7cc;
 	display: grid;
 	grid-template-columns: 0.8fr 1fr 1fr;
