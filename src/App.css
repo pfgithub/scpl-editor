@@ -1063,10 +1063,9 @@ div.spinner div.bar12 {
 }
 .editor-menu ul ul li a {
 	display: block;
-	padding: 8px 15px;
+	padding: 6px 15px;
 	font-size: 14px;
 	text-decoration: none;
-	transition: 0.1s all;
 	color: #1d1d1c;
 	font-weight: 500;
 	user-select: none;
