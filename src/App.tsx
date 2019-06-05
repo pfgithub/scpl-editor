@@ -783,7 +783,7 @@ OpenURLs`
 						// }}
 					>
 						<div className="result-text">
-							Converted in {this.state.took.convertedIn} ms.
+							Converted in <span id="highlight-result">{this.state.took.convertedIn} ms.</span>
 						</div>
 						{this.state.showPreview &&
 						this.state.errors.length === 0 ? (

@@ -279,6 +279,7 @@ a:focus {
 button {
 	cursor: pointer;
 	outline: none;
+	font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
 .disablethis {
 	pointer-events: none;
@@ -312,6 +313,7 @@ button {
 }
 #download-result {
 	text-align: center;
+	width: 530px;
 }
 .details-text {
 	font-size: 14px;
@@ -389,6 +391,7 @@ input {
 	min-width: 200px;
 	outline: none;
 	transition: 0.3s background-color;
+	font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
 input:active {
 	background-color: #8c99b350 !important;
@@ -585,14 +588,18 @@ input:active {
 }
 .result-text {
 	font-size: 14px;
-	color: #777;
-	background: #eee;
+	color: #636365;
+	background: #e3e4e9;
 	position: sticky;
 	top: 0;
 	padding: 7px 10px;
 	z-index: 5;
-	border-left: 0.5px solid #c8c7cc;
-	border-bottom: 0.5px solid #c8c7cc;
+	border-left: 0.5px solid #bfc0c4;
+	border-bottom: 0.5px solid #c6c7cb;
+}
+.result-text span {
+	font-weight: 600;
+	color: #1378ee;
 }
 .result-pane > div:nth-child(2):not(.loading-result-progress):not(.preview-error) {
 	padding: 20px;
@@ -704,7 +711,15 @@ input:active {
 .large-btn {
 	font-size: 18px;
 	padding: 15px 20px;
-	font-weight: bold;
+	background: #007aff;
+	color: #ffffff;
+	font-weight: 500;
+}
+.large-btn:hover {
+	background: #007aee;
+}
+.large-btn:active {
+	box-shadow: 0 0 20px rgba(50,50,50,.3);
 }
 .trans-btn {
 	background: none !important;
@@ -1089,7 +1104,7 @@ div.spinner div.bar12 {
 }
 .editor-menu ul ul li a:hover span {
 	float: right;
-	color: #ffffff90;
+	color: #ffffff;
 	font-size: 14px;
 	line-height: 15px;
 	text-align: right;
