@@ -442,6 +442,21 @@ OpenURLs`
 						<div className="editor-menu">
 							<ul>
 								<li>
+									Account
+									<ul>
+										<li><a href="https://account.scpl.dev/settings" target="_blank">Account Settings</a></li>
+										<li><a href="https://account.scpl.dev/filebrowser" target="_blank">Manage Files</a></li>
+										<li><a href="https://account.scpl.dev/shared" target="_blank">Shared with you</a></li>
+										<div className="menu-div" />
+										<li><a href="https://account.scpl.dev/login" target="_blank">Login</a></li>
+										<li><a href="https://account.scpl.dev/sign-up" target="_blank">Create Account</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div className="editor-menu">
+							<ul>
+								<li>
 									Help
 									<ul>
 										<li>

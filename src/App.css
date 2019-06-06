@@ -59,6 +59,16 @@
 	.tab {
 		padding: 8px 10px !important;
 	}
+	.account-settings-bar {
+		width: 100% !important;
+    bottom: 0 !important;
+    right: 0;
+    left: 0 !important;
+    position: fixed !important;
+    z-index: 10000 !important;
+    background-position: 30% center !important;
+    padding-left: 6% !important;
+	}
 	.savedstatus {
 		display: none !important; /* for now */
 	}
@@ -106,6 +116,7 @@
 	}
 	.code-pane {
 		border: none !important;
+		height: 93vh !important;
 	}
 	.error-messages {
 		bottom: 0;
@@ -476,7 +487,7 @@ input:active {
 	background-color: #f6f6f8;
 	border-bottom: 0.5px solid #c8c7cc;
 	display: grid;
-	grid-template-columns: 0.8fr 1fr 1fr;
+	grid-template-columns: 0.8fr 0.8fr 0.8fr;
 	position: fixed;
 	top: 0;
 	left: 0;
