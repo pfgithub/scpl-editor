@@ -1173,7 +1173,7 @@ div.spinner div.bar12 {
 .variable > div:before {
 	content: ' ';
 	display: inline-block;
-  padding: 8px 7.5px;
+  padding: 8px 7px;
   position: relative;
   margin-bottom: -4px;
 	margin-top: -2px;
@@ -1288,4 +1288,80 @@ div.spinner div.bar12 {
 }
 .ace_nomatch .ace_search_field {
 	background-color: #d74c3930 !important;
+}
+/* Dark Mode */
+.dark .editor-navigation {
+	background: #323234;
+	border-color: #444;
+}
+.dark .editor-title {
+	color: #fff;
+}
+.dark .result-details {
+	border-color: #444;
+}
+.dark .result-actions {
+	background-color: #78777d;
+	color: #eee;
+}
+.dark .editor-btn a, .dark .editor-menu  {
+	color: #367bf4;
+}
+.dark .files-header, .dark .file-pane, .dark .variables, .dark .result-text, .dark .variables-container, .dark .result-pane, .dark .preview-error,.dark .editor-error, .dark .files-error {
+	background-color: #1c1c1e;
+	border-color: #444;
+	color: #ccc;
+}
+.dark .savedstatus {
+	color: #eee;
+}
+.dark .global-variables {
+	border-color: #444;
+}
+.dark .result-pane {
+	box-shadow: 0 0 0 black;
+	border-color: #444;
+}
+.dark .file-btn {
+	background-color: #333;
+}
+.dark input {
+	color: #fff;
+}
+.dark .search-input, .dark .ace_search_field {
+	background: #444 url(img/search.svg) 8px center / 20px no-repeat !important;
+}
+.dark .large-btn {
+	background-color: #f8bc3d;
+	color: #000;
+}
+.dark .modal, .dark .download-or, .dark .editor-menu ul ul, .dark .account-settings-bar {
+	background-color: #323234;
+	color: #fff;
+	border-color: #444;
+}
+.dark .download-grid > div:first-child {
+	border-color: #444;
+}
+.dark .shortcut-filename {
+	color: #fff;
+}
+.dark .editor-menu ul ul li a {
+	color: #fff;
+}
+.dark .editor-menu ul ul li a span {
+	color: #fff;
+}
+.dark .account-settings-bar {
+	background-image: url(img/settings_w.svg) !important;
+}
+.dark .mv > div:before {
+	background-image: url(img/magic_w.svg) !important;
+}
+.dark .variable {
+	border-radius: 5px;
+	background: #94c3f224 !important;
+	color: #367bf4;
+	font-weight: 500;
+	border: none;
 }
