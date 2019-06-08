@@ -38,7 +38,7 @@ class ActionButtons extends Component<{
 						if (!newName) {
 							return;
 						}
-						FileManager.renameFile(this.props.data.id, newName);
+						// FileManager.renameFile(this.props.data.id, newName);
 					}}
 				/>
 			</div>
@@ -57,8 +57,8 @@ class FileComponent extends Component<{
 				}`}
 				onClick={e => {
 					e.stopPropagation();
-					FileManager.loadFile(this.props.data.id);
-					FileManager.addTab(this.props.data.id);
+					// FileManager.loadFile(this.props.data.id);
+					// FileManager.addTab(this.props.data.id);
 				}}
 				title={this.props.data.name}
 			>
@@ -276,13 +276,13 @@ export class FilePane extends Component<
 						onCancel={() => this.setState({ showFileModal: false })}
 						onResult={(name, color, glyph) => {
 							this.setState({ showFileModal: false });
-							const id = FileManager.newID();
-							FileManager.createFile(
-								`@Color ${color}\n@Icon ${glyph}`,
-								name,
-								id
-							);
-							FileManager.addTab(id);
+							// const id = FileManager.newID();
+							// FileManager.createFile(
+							// 	`@Color ${color}\n@Icon ${glyph}`,
+							// 	name,
+							// 	id
+							// );
+							// FileManager.addTab(id);
 						}}
 					/>
 				) : null}
