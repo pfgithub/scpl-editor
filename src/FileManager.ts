@@ -17,11 +17,21 @@ export class FilenameTakenError extends Error {
 export type TaskCompletion = {};
 
 interface Connection {
+	tasks: Task[];
+	addTask(task: Task): void;
 	executeTask(task: Task): Promise<TaskCompletion>;
 }
 
 export class FakeConnection implements Connection {
-	constructor() {}
+	tasks: Task[];
+	constructor() {
+		this.tasks = [];
+	}
+	addTask(task: Task) {
+		this.tasks.push(task);
+		// if less than 10 tasks
+		this.executeTask(task);
+	}
 	async executeTask(task: Task): Promise<TaskCompletion> {
 		await ms(1000);
 		if (Math.random() > 0.9) {
@@ -33,10 +43,12 @@ export class FakeConnection implements Connection {
 	}
 }
 
-class Task {}
+class Task<T> extends Promise<T> {}
 
 // Create a file and save it to the server
 class CreateFileTask {}
+
+class UpdateFileListTask {}
 
 //fileManager.on("taskComplete", (task, completion) => {})
 
@@ -47,6 +59,8 @@ export class FileManager {
 	constructor(connection?: Connection) {
 		this.tasks = [];
 		this.connection = connection;
+
+		this.connection && this.connection.addTask(new UpdateFileListTask());
 	}
 
 	static genID() {
@@ -59,4 +73,6 @@ export class FileManager {
 	startCreateFile(filename: string): string | FilenameTakenError {
 		return FileManager.genID();
 	}
+
+	watch(fileID: string, onStateChange: () => {}) {}
 }
