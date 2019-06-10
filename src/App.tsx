@@ -3,24 +3,16 @@ import ace from "brace";
 
 import { EditorComponent } from "./EditorComponent";
 import { TabComponent } from "./Tab";
-import { FileManager, FakeConnection } from "./FileManager";
+import { FileManager, TestConnection, File } from "./FileManager";
 
 const aceCreateEditSession = (text: string) =>
 	ace.createEditSession(text, ("ace/mode/scpl" as unknown) as ace.TextMode);
 
-export type Tab =
-	| {
-			session: ace.IEditSession;
-			selected: boolean;
-			name: undefined;
-			fileID: undefined;
-	  }
-	| {
-			session: ace.IEditSession;
-			selected: boolean;
-			name: string;
-			fileID: string;
-	  };
+export type Tab = {
+	session: ace.IEditSession;
+	selected: boolean;
+	file?: File;
+};
 
 type AppProps = {};
 class App extends Component<
@@ -36,7 +28,7 @@ class App extends Component<
 		this.state = {
 			activeTab: undefined,
 			tabs: [],
-			fileManager: new FileManager(new FakeConnection())
+			fileManager: new FileManager(new TestConnection())
 		};
 	}
 	render() {
@@ -63,8 +55,7 @@ class App extends Component<
 						this.state.tabs.push({
 							session: aceCreateEditSession("my text"),
 							selected: false,
-							name: undefined,
-							fileID: undefined
+							file: undefined
 						});
 						this.setState({ tabs: this.state.tabs });
 					}}

@@ -87,25 +87,30 @@ export class EditorComponent extends Component<EditorComponentProps, {}> {
 			throw new Error("!component");
 		}
 		this.editor = ace.edit(component);
+		this.editor.$blockScrolling = Infinity;
+		this.editor.setTheme("ace/theme/chrome");
+		this.editor.setOptions({
+			showPrintMargin: false,
+			enableBasicAutocompletion: true,
+			enableLiveAutocompletion: true
+		});
 		this.editor.commands.addCommand({
 			name: "save",
 			bindKey: { win: "Ctrl-S", mac: "Cmd-S" },
 			exec: (editor: ace.Editor) => {
-				if (this.props.tab.fileID) {
+				if (this.props.tab.file && this.props.tab.file.shouldSave) {
 				} else {
 					const name = prompt("Save as");
 					if (!name) {
 						return;
 					}
-					const id = this.props.fileManager.startCreateFile(name);
-					if (id instanceof FilenameTakenError) {
-						alert(`Filename \`${id.filename}\` already used.`);
-						return;
-					}
-					this.props.tab.name = name;
-					this.props.tab.fileID = id;
+					const file = this.props.fileManager.newFile();
+					file.create(name); // start creating the file
+					this.props.tab.file = file;
 					this.props.changeTabs();
 				}
+				console.log("should save");
+				this.props.tab.file.save(this.props.tab.session.getValue());
 				// console.log("saving", editor.session.getValue());
 			}
 		});
