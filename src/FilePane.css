@@ -91,8 +91,8 @@
 }
 .list-item-file > div,
 .list-item-folder > div {
-	padding-left: 27px;
-	font-size: 14px;
+	padding-left: 30px;
+	font-size: 13.5px;
 }
 .item-name {
 	width: 70%;
@@ -114,7 +114,7 @@
 }
 /* File items */
 .list-item-file > div {
-	background: url(img/file.png) 2px center / 18px no-repeat;
+	background: url(img/file.png) left center / 22px no-repeat;
 }
 .file-list li.list-item-file.active {
 	background-color: #007aff20;
@@ -125,39 +125,6 @@
 }
 .file-list li.list-item-file.active > div {
 	background-image: url(img/file_active.png);
-}
-/* loading state */
-.file-list li.loading {
-	background: none;
-	pointer-events: none;
-	user-select: none;
-	color: #777;
-}
-.file-list li.item-error {
-	background: #d74c3920 !important;
-	color: #d74c39;
-	font-weight: 500;
-}
-.file-list li.list-item-file.item-error > div {
-	background-image: url(img/file_error.png) !important;
-}
-.file-list li.list-item-folder.item-error > div {
-	background-image: url(img/folder_error.png) !important;
-}
-.file-list li.loading .action-btns {
-	opacity: 0.5;
-}
-.file-list li.loading > div {
-	background: none;
-}
-.file-list li.loading .item-name .spinner {
-	display: inline-block;
-	position: absolute;
-	margin-left: -33px;
-	margin-top: -6px;
-	width: 30px;
-	height: 30px;
-	opacity: .5;
 }
 /* Folder items */
 .list-item-folder > div {
@@ -191,6 +158,46 @@
 	to {
 		transform: scale(1, 1);
 	}
+}
+/* Warning state */
+.file-list li.list-item-file.item-warning > div {
+	background-image: url(img/file_warning.png) !important;
+}
+.file-list li.list-item-folder.item-warning > div {
+	background-image: url(img/folder_warning.png) !important;
+}
+/* Error state */
+.file-list li.item-error {
+	background-color: #d74c3910 !important;
+	color: #d74c39 !important;
+}
+.file-list li.list-item-file.item-error > div {
+	background-image: url(img/file_error.png) !important;
+}
+.file-list li.list-item-folder.item-error > div {
+	background-image: url(img/folder_error.png) !important;
+}
+/* Loading state */
+.file-list li.loading {
+	background: none;
+	pointer-events: none;
+	user-select: none;
+	color: #777;
+}
+.file-list li.loading .action-btns {
+	opacity: 0.5;
+}
+.file-list li.loading > div {
+	background: none;
+}
+.file-list li.loading .item-name .spinner {
+	display: inline-block;
+	position: absolute;
+	margin-left: -33px;
+	margin-top: -6px;
+	width: 30px;
+	height: 30px;
+	opacity: .5;
 }
 /* Rename and delete btns */
 .action-btns {
