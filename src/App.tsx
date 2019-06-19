@@ -464,7 +464,7 @@ OpenURLs`
 												href="https://scpl.dev/"
 												target="_blank"
 											>
-												Homepage
+												About
 											</a>
 										</li>
 										<li>
