@@ -134,10 +134,15 @@
 	color: #777;
 }
 .file-list li.item-error {
-	background: #d74c3930;
+	background: #d74c3920 !important;
+	color: #d74c39;
+	font-weight: 500;
 }
-.file-list li.item-error > div {
-	background-image: url(img/file_error.png);
+.file-list li.list-item-file.item-error > div {
+	background-image: url(img/file_error.png) !important;
+}
+.file-list li.list-item-folder.item-error > div {
+	background-image: url(img/folder_error.png) !important;
 }
 .file-list li.loading .action-btns {
 	opacity: 0.5;
