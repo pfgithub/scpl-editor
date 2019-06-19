@@ -133,6 +133,12 @@
 	user-select: none;
 	color: #777;
 }
+.file-list li.item-error {
+	background: #d74c3930;
+}
+.file-list li.item-error > div {
+	background-image: url(img/file_error.png);
+}
 .file-list li.loading .action-btns {
 	opacity: 0.5;
 }
