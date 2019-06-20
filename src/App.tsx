@@ -742,7 +742,7 @@ OpenURLs`
 											<div>Current Date</div>
 										</div>
 										<div className="variable input-v">
-											<div>Extension Input</div>
+											<div>Shortcut Input</div>
 										</div>
 									</div>
 									<div className="code-variables">
