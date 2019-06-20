@@ -180,18 +180,17 @@
 .file-list li.loading {
 	pointer-events: none;
 	user-select: none;
-	color: #777;
 }
-.file-list li.loading .action-btns {
+/* .file-list li.loading .action-btns {
 	opacity: 0.5;
-}
+} */
 .file-list li.loading > div {
 	background: none;
 }
 .file-list li.loading .item-name .spinner {
 	display: inline-block;
 	position: absolute;
-	margin-left: -33px;
+	margin-left: -35px;
 	margin-top: -6px;
 	width: 30px;
 	height: 30px;
