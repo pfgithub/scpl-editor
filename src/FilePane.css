@@ -65,7 +65,7 @@
 }
 /* File list */
 .file-list li {
-	padding: 8px 10px;
+	padding: 5px 10px;
 	padding-left: 25px;
 	cursor: pointer;
 	user-select: none;
@@ -92,7 +92,7 @@
 .list-item-file > div,
 .list-item-folder > div {
 	padding-left: 30px;
-	font-size: 13.5px;
+	font-size: 13px;
 }
 .item-name {
 	width: 70%;
@@ -101,7 +101,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: inline-block;
-	margin-top: 3px;
+	margin-top: 5px;
 }
 .item-name .spinner {
 	display: none;
@@ -137,10 +137,10 @@
 	transform: scale(1, 0);
 }
 .file-list li.list-item-folder {
-	background: url(img/right.svg) 10px 15px / 10px no-repeat;
+	background: url(img/right.svg) 10px center / 8px no-repeat;
 }
 .file-list li.list-item-folder.open-folder {
-	background: url(img/down.svg) 10px 15px / 10px no-repeat;
+	background: url(img/down.svg) 10px 14px / 8px no-repeat;
 	padding-bottom: 0;
 }
 .file-list li.list-item-folder.open-folder > ul {
@@ -168,7 +168,6 @@
 }
 /* Error state */
 .file-list li.item-error {
-	background-color: #d74c3910 !important;
 	color: #d74c39 !important;
 }
 .file-list li.list-item-file.item-error > div {
@@ -179,7 +178,6 @@
 }
 /* Loading state */
 .file-list li.loading {
-	background: none;
 	pointer-events: none;
 	user-select: none;
 	color: #777;
@@ -202,7 +200,7 @@
 /* Rename and delete btns */
 .action-btns {
 	float: right;
-	margin-top: -3px;
+	margin-top: -2px;
 }
 .file-list ul ul ul .action-btns {
 	margin-right: 3px;

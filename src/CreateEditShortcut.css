@@ -89,7 +89,7 @@ input[type="radio"]:checked + label:before {
 }
 .color-radio label:hover:before {
 	background-color: #c7c7c7;
-	border-color: #c7c7c7;
+	border-color: #fafafa;
 }
 /* Glyph radio style */
 .radio.glyph-radio label {
