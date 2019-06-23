@@ -534,9 +534,9 @@ export type ColorName =
 	| "darkpurple"
 	| "lightpurple"
 	| "pink"
+	| "bluegray"
 	| "darkgray"
-	| "gray"
-	| "bluegray";
+	| "gray";
 
 export const colors: ColorName[] = [
 	"red",
@@ -551,7 +551,7 @@ export const colors: ColorName[] = [
 	"darkpurple",
 	"lightpurple",
 	"pink",
+	"bluegray",
 	"darkgray",
-	"gray",
-	"bluegray"
+	"gray"
 ];

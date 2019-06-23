@@ -32,9 +32,9 @@ margin-left: 7px;
 	    width: 30px;
 	    height: 30px;
 	    margin-right: 25px;
-	    border-radius: 8px;
+	    border-radius: 5px;
 	    background-image: linear-gradient(to bottom right, #6d768e, #8f99b0);
-	    /* box-shadow: 0 0 10px rgba(150, 150, 150, 0.5); */
+	    box-shadow: 0 0 10px rgba(150, 150, 150, 0.5);
 	    padding: 3px;
 	    -webkit-transform: scale(1.5);
 	    transform: scale(1.5);
@@ -116,155 +116,155 @@ input[type="radio"]:checked + label:before {
 }
 /* Colors */
 input[type="radio"]#color-red + label:before {
-	background-image: linear-gradient(to right, #d56d6d, #d56d6d);
+	background-image: linear-gradient(to right, #f62544, #c50026);
 }
 input[type="radio"]#color-red:checked + label:before {
-	box-shadow: 0 0 0 2px #d56d6d;
+	box-shadow: 0 0 0 2px #f62544;
 }
 
 input[type="radio"]#color-darkorange + label:before {
-	background-image: linear-gradient(to right, #d5725a, #d5725a);
+	background-image: linear-gradient(to right, #f06b3c, #db2c00);
 }
 input[type="radio"]:checked#color-darkorange + label:before {
-	box-shadow: 0 0 0 2px #d5725a;
+	box-shadow: 0 0 0 2px #f06b3c;
 }
 
 input[type="radio"]#color-orange + label:before {
-	background-image: linear-gradient(to right, #cc7e49, #cc7e49);
+	background-image: linear-gradient(to right, #ff881e, #e25b00);
 }
 input[type="radio"]:checked#color-orange + label:before {
-	box-shadow: 0 0 0 2px #cc7e49;
+	box-shadow: 0 0 0 2px #ff881e;
 }
 
 input[type="radio"]#color-yellow + label:before {
-	background-image: linear-gradient(to right, #c89741, #c89741);
+	background-image: linear-gradient(to right, #f0b500, #e78600);
 }
 input[type="radio"]:checked#color-yellow + label:before {
-	box-shadow: 0 0 0 2px #c89741;
+	box-shadow: 0 0 0 2px #f0b500;
 }
 
 input[type="radio"]#color-green + label:before {
-	background-image: linear-gradient(to right, #75a056, #75a056);
+	background-image: linear-gradient(to right, #5fca3f, #379c0f);
 }
 input[type="radio"]:checked#color-green + label:before {
-	box-shadow: 0 0 0 2px #75a056;
+	box-shadow: 0 0 0 2px #5fca3f;
 }
 
 input[type="radio"]#color-teal + label:before {
-	background-image: linear-gradient(to right, #659d88, #659d88);
+	background-image: linear-gradient(to right, #40d0b1, #00a490);
 }
 input[type="radio"]:checked#color-teal + label:before {
-	box-shadow: 0 0 0 2px #659d88;
+	box-shadow: 0 0 0 2px #40d0b1;
 }
 
 input[type="radio"]#color-lightblue + label:before {
-	background-image: linear-gradient(to right, #6895a7, #6895a7);
+	background-image: linear-gradient(to right, #39cdd5, #009cc4);
 }
 input[type="radio"]:checked#color-lightblue + label:before {
-	box-shadow: 0 0 0 2px #6895a7;
+	box-shadow: 0 0 0 2px #39cdd5;
 }
 
 input[type="radio"]#color-blue + label:before {
-	background-image: linear-gradient(to right, #6d89b9, #6d89b9);
+	background-image: linear-gradient(to right, #4ba8f0, #0079e1);
 }
 input[type="radio"]:checked#color-blue + label:before {
-	box-shadow: 0 0 0 2px #6d89b9;
+	box-shadow: 0 0 0 2px #4ba8f0;
 }
 
 input[type="radio"]#color-darkblue + label:before {
-	background-image: linear-gradient(to right, #6d76b9, #6d76b9);
+	background-image: linear-gradient(to right, #2c75dd, #0047bb);
 }
 input[type="radio"]:checked#color-darkblue + label:before {
-	box-shadow: 0 0 0 2px #6d76b9;
+	box-shadow: 0 0 0 2px #2c75dd;
 }
 
 input[type="radio"]#color-darkpurple + label:before {
-	background-image: linear-gradient(to right, #846fb4, #846fb4);
+	background-image: linear-gradient(to right, #7751e3, #4c22b8);
 }
 input[type="radio"]:checked#color-darkpurple + label:before {
-	box-shadow: 0 0 0 2px #846fb4;
+	box-shadow: 0 0 0 2px #7751e3;
 }
 
 input[type="radio"]#color-lightpurple + label:before {
-	background-image: linear-gradient(to right, #af76b8, #af76b8);
+	background-image: linear-gradient(to right, #b247d8, #840aad);
 }
 input[type="radio"]:checked#color-lightpurple + label:before {
-	box-shadow: 0 0 0 2px #af76b8;
+	box-shadow: 0 0 0 2px #b247d8;
 }
 
 input[type="radio"]#color-pink + label:before {
-	background-image: linear-gradient(to right, #cc738a, #cc738a);
+	background-image: linear-gradient(to right, #ee60a6, #d0287e);
 }
 input[type="radio"]:checked#color-pink + label:before {
-	box-shadow: 0 0 0 2px #cc738a;
-}
-
-input[type="radio"]#color-bluegray + label:before {
-	background-image: linear-gradient(to right, #828b95, #828b95);
-}
-input[type="radio"]:checked#color-bluegray + label:before {
-	box-shadow: 0 0 0 2px #828b95;
+	box-shadow: 0 0 0 2px #ee60a6;
 }
 
 input[type="radio"]#color-darkgray + label:before {
-	background-image: linear-gradient(to right, #868b86, #868b86);
+	background-image: linear-gradient(to right, #78797e, #535658);
 }
 input[type="radio"]:checked#color-darkgray + label:before {
-	box-shadow: 0 0 0 2px #868b86;
+	box-shadow: 0 0 0 2px #78797e;
 }
 
 input[type="radio"]#color-gray + label:before {
-	background-image: linear-gradient(to right, #928783, #928783);
+	background-image: linear-gradient(to right, #9d9b92, #7f7b6b);
 }
 input[type="radio"]:checked#color-gray + label:before {
-	box-shadow: 0 0 0 2px #928783;
+	box-shadow: 0 0 0 2px #9d9b92;
+}
+
+input[type="radio"]#color-bluegray + label:before {
+	background-image: linear-gradient(to right, #8f99b0, #6d768e);
+}
+input[type="radio"]:checked#color-bluegray + label:before {
+	box-shadow: 0 0 0 2px #8f99b0;
 }
 
 /* Preview Colors */
 .color-icon-preview#color-red {
-	background-image: linear-gradient(to bottom right, #d66e6f, #d16363);
+	background-image: linear-gradient(to bottom right, #f62544, #c50026);
 }
 .color-icon-preview#color-darkorange {
-	background-image: linear-gradient(to bottom right, #d5745b, #d5745b);
+	background-image: linear-gradient(to bottom right, #f06b3c, #db2c00);
 }
 .color-icon-preview#color-orange {
-	background-image: linear-gradient(to bottom right, #cc7f4a, #cc7f4a);
+	background-image: linear-gradient(to bottom right, #ff881e, #e25b00);
 }
 .color-icon-preview#color-yellow {
-	background-image: linear-gradient(to bottom right, #ca9a43, #ca9a43);
+	background-image: linear-gradient(to bottom right, #f0b500, #e78600);
 }
 .color-icon-preview#color-green {
-	background-image: linear-gradient(to bottom right, #739d54, #739d54);
+	background-image: linear-gradient(to bottom right, #5fca3f, #379c0f);
 }
 .color-icon-preview#color-teal {
-	background-image: linear-gradient(to bottom right, #669e89, #669e89);
+	background-image: linear-gradient(to bottom right, #40d0b1, #00a490);
 }
 .color-icon-preview#color-lightblue {
-	background-image: linear-gradient(to bottom right, #6c88b8, #6c88b8);
+	background-image: linear-gradient(to bottom right, #39cdd5, #009cc4);
 }
 .color-icon-preview#color-blue {
-	background-image: linear-gradient(to bottom right, #6c75b9, #6c75b9);
+	background-image: linear-gradient(to bottom right, #4ba8f0, #0079e1);
 }
 .color-icon-preview#color-darkblue {
-	background-image: linear-gradient(to bottom right, #6d76ba, #6d76ba);
+	background-image: linear-gradient(to bottom right, #2c75dd, #0047bb);
 }
 .color-icon-preview#color-darkpurple {
-	background-image: linear-gradient(to bottom right, #836eb3, #836eb3);
+	background-image: linear-gradient(to bottom right, #7751e3, #4c22b8);
 }
 .color-icon-preview#color-lightpurple {
-	background-image: linear-gradient(to bottom right, #ad74b7, #ad74b7);
+	background-image: linear-gradient(to bottom right, #b247d8, #840aad);
 }
 .color-icon-preview#color-pink {
-	background-image: linear-gradient(to bottom right, #cb7189, #cb7189);
-}
-.color-icon-preview#color-bluegray {
-	background-image: linear-gradient(to bottom right, #818a94, #818a94);
+	background-image: linear-gradient(to bottom right, #ee60a6, #d0287e);
 }
 .color-icon-preview#color-darkgray {
-	background-image: linear-gradient(to bottom right, #8a8f8a, #8a8f8a);
+	background-image: linear-gradient(to bottom right, #78797e, #535658);
 }
 .color-icon-preview#color-gray {
-	background-image: linear-gradient(to bottom right, #938984, #938984);
+	background-image: linear-gradient(to bottom right, #9d9b92, #7f7b6b);
+}
+.color-icon-preview#color-bluegray {
+	background-image: linear-gradient(to bottom right, #8f99b0, #6d768e);
 }
 /* End Colors */
 

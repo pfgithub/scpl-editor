@@ -423,7 +423,7 @@ input:active {
 	font-size: 14px;
 }
 /* ios tabs */
-.ios-tabs {
+/* .ios-tabs {
 	display: grid;
 	grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 	margin: 5px 0;
@@ -455,7 +455,37 @@ input:active {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-right: 0.5px solid #007aff;
+} */
+
+.ios-tabs {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10%,1fr));
+	margin: 5px 0;
+	background-color: #eeeeee;
+	padding: 3px;
+	border-radius: 10px;
+	cursor: pointer;
 }
+.ios-tabs button {
+	background: none;
+	border-radius: 8px;
+	border: none;
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	color: #000;
+	padding: 8px 0;
+	user-select: none;
+	transition: 0.3s all;
+}
+.ios-tabs button.active-itab {
+	background-color: #fefefe;
+	box-shadow: 0 3px 5px #d2d2d2;
+	font-weight: 500;
+}
+
 /* navigation + nav elements */
 .account-settings-bar {
 	background: url(img/settings.svg) 73px center / 22px no-repeat;
@@ -1152,7 +1182,9 @@ div.spinner div.bar12 {
 	display: inline-block;
 	margin: 5px 3px;
 	font-size: 11px;
-	padding: 5px 13px;
+	padding: 4px 12px;
+	padding-bottom: 6px;
+	font-weight: 500;
 	border: 0.5px solid #b0bbd1;
 	border-radius: 20px;
 	background: linear-gradient(#d7e5f5,#cdd9ef);
