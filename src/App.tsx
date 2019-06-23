@@ -485,10 +485,10 @@ OpenURLs`
 										</li>
 										<li>
 											<a
-												href="https://github.com/pfgithub/scpl-editor"
+												href="https://github.com/pfgithub/scpl"
 												target="_blank"
 											>
-												Editor GitHub
+												GitHub
 											</a>
 										</li>
 										<li>
@@ -496,7 +496,15 @@ OpenURLs`
 												href="https://discordapp.com/invite/2qqfFKc"
 												target="_blank"
 											>
-												ScPL Discord
+												Discord
+											</a>
+										</li>
+										<li>
+											<a
+												href="https://www.reddit.com/r/scpl"
+												target="_blank"
+											>
+												Subreddit
 											</a>
 										</li>
 									</ul>
@@ -742,7 +750,7 @@ OpenURLs`
 											<div>Current Date</div>
 										</div>
 										<div className="variable input-v">
-											<div>Extension Input</div>
+											<div>Shortcut Input</div>
 										</div>
 									</div>
 									<div className="code-variables">
