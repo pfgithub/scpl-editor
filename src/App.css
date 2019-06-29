@@ -52,7 +52,7 @@
 /* iPad Landscape */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1260px) and (orientation: landscape) {
 	.editor-navigation {
-		grid-template-columns: 3fr 1fr 2fr !important;
+		grid-template-columns: 2.2fr 1fr 2fr !important;
 	}
 }
 /* Phone Responsiveness */
