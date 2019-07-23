@@ -1,1 +1,0 @@
-{"ast":null,"code":"/**\n * Check if QR Code version is valid\n *\n * @param  {Number}  version QR Code version\n * @return {Boolean}         true if valid version, false otherwise\n */\nexports.isValid = function isValid(version) {\n  return !isNaN(version) && version >= 1 && version <= 40;\n};","map":null,"metadata":{},"sourceType":"script"}
