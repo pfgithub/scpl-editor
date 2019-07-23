@@ -582,7 +582,7 @@ OpenURLs`
 						this.state.errors.length === 0 ? (
 							<ErrorBoundary
 								errorDisplay={err => (
-									<div className="render-error too-many-actions shortcut-preview-fatal-error">
+									<div className="render-error preview-error shortcut-preview-fatal-error">
 										<p>
 											A fatal error occured in
 											shortcut-preview. The error is{" "}
@@ -618,7 +618,7 @@ OpenURLs`
 							</div>
 						</div>
 						{!this.state.showPreview ? (
-							<div className="render-error too-many-actions">
+							<div className="render-error preview-error">
 								<div>
 									<p>
 										There are too many actions to render a
