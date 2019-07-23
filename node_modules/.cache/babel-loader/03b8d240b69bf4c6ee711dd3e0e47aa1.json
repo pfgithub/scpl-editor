@@ -1,0 +1,1 @@
+{"ast":null,"code":"'use strict';\n\nvar toString = Object.prototype.toString;\n\nmodule.exports = function (x) {\n  var prototype;\n  return toString.call(x) === '[object Object]' && (prototype = Object.getPrototypeOf(x), prototype === null || prototype === Object.getPrototypeOf({}));\n};","map":null,"metadata":{},"sourceType":"script"}
