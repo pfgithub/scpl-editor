@@ -708,6 +708,10 @@ OpenURLs`
 		);
 	}
 	onChange(text: string) {
+		// Enable navigation prompt
+		window.onbeforeunload = () => {
+			return true;
+		};
 		const willWaitFor = Math.max(this.state.took.convertedIn * 4, 100);
 		if (!this.state.loading) {
 			this.setState({
