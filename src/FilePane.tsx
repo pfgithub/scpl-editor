@@ -190,22 +190,15 @@ export class FilePane extends Component<
 					{({ getRootProps, getInputProps }) => (
 						<div>
 							<div className="files-header">
-								<p
-									style={{
-										paddingLeft: "10px",
-										paddingRight: "10px",
-										margin: "10px"
-									}}
-								>
-									Upload a shortcut
-								</p>
 								<div className="file-btns">
 									<div
-										className="btn file-btn upload-btn"
+										className="btn file-btn large-upload-btn upload-btn"
 										style={{ gridColumn: "1/4" }}
 										{...getRootProps()}
 									>
+									Upload Shortcut
 										<input {...getInputProps()} />
+
 									</div>
 								</div>
 							</div>

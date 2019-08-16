@@ -17,7 +17,8 @@
 		"react-scripts": "2.1.8",
 		"scpl": "^1.9.3",
 		"shortcut-preview": "pfgithub/shortcut-preview",
-		"typescript": "3.3.3333"
+		"typescript": "3.3.3333",
+		"yarn": "^1.17.3"
 	},
 	"scripts": {
 		"start": "react-scripts start",
