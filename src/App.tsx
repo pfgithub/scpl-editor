@@ -415,12 +415,12 @@ OpenURLs`
 					<div>
 						<div className="result-details">
 							<div className="result-actions">
-								{
+								{this.state.shortcutData &&
 									this.state.shortcutData[0].WFWorkflowActions
-										.length
-								}{" "}
+										.length}{" "}
 								action
-								{this.state.shortcutData[0].WFWorkflowActions
+								{this.state.shortcutData &&
+								this.state.shortcutData[0].WFWorkflowActions
 									.length === 1
 									? ""
 									: "s"}
@@ -578,8 +578,7 @@ OpenURLs`
 						<div className="result-text">
 							Converted in {this.state.took.convertedIn} ms.
 						</div>
-						{this.state.showPreview &&
-						this.state.errors.length === 0 ? (
+						{this.state.showPreview && this.state.shortcutData ? (
 							<ErrorBoundary
 								errorDisplay={err => (
 									<div className="error-overlay too-many-actions shortcut-preview-fatal-error">
@@ -637,7 +636,7 @@ OpenURLs`
 								</div>
 							</div>
 						) : null}
-						{this.state.errors.length !== 0 ? (
+						{!this.state.shortcutData ? (
 							<div className="too-many-actions render-error">
 								<div>
 									<p>
@@ -730,10 +729,51 @@ OpenURLs`
 	}
 	onChangeLimited(text: string, waitedFor: number) {
 		// parse
-		let output: { shortcutjson: any; shortcutplist: Buffer };
+		let output: {
+			shortcutjson: any;
+			shortcutplist: Buffer;
+			warnings: PositionedError[];
+		};
+		const annotationFromError = (
+			err: PositionedError,
+			isWarning: boolean
+		) => {
+			return {
+				row: err.start[0] - 1,
+				column: err.start[1] - 1,
+				text: err.message, // Or the Json reply from the parser
+				type: isWarning ? "warning" : "error"
+			};
+		};
+		const markerFromError = (er: PositionedError, isWarning: boolean) => {
+			return {
+				startRow: er.start[0] - 1,
+				endRow: er.end[0] - 1,
+				startCol: er.start[1] - 1,
+				endCol: er.end[1] - 1,
+				className: `ace_active-line ${isWarning ? "warning" : "error"}`,
+				type: "background"
+			};
+		};
+		const errorBannerFromError = (
+			er: PositionedError,
+			isWarning: boolean
+		) => {
+			return {
+				startRow: er.start[0],
+				endRow: er.end[0],
+				startCol: er.start[1],
+				endCol: er.end[1],
+				message: er.message,
+				type: isWarning ? "warning" : "error"
+			};
+		};
 		const startTime = new Date().getTime();
 		try {
-			output = parse(text, { make: ["shortcutjson", "shortcutplist"] });
+			output = parse(text, {
+				make: ["shortcutjson", "shortcutplist"],
+				useWarnings: true
+			});
 		} catch (er) {
 			console.log(er.message); //eslint-disable-line no-console
 			if (!(er instanceof PositionedError)) {
@@ -743,37 +783,14 @@ OpenURLs`
 				fileValue: text,
 				loading: false,
 				shortcutDownload: undefined,
+				shortcutData: undefined,
 				took: {
 					waitedFor: waitedFor,
 					convertedIn: new Date().getTime() - startTime
 				},
-				annotations: [
-					{
-						row: er.start[0] - 1,
-						column: er.start[1] - 1,
-						text: er.message, // Or the Json reply from the parser
-						type: "error" // also warning and information
-					}
-				],
-				markers: [
-					{
-						startRow: er.start[0] - 1,
-						endRow: er.end[0] - 1,
-						startCol: er.start[1] - 1,
-						endCol: er.end[1] - 1,
-						className: "ace_active-line error",
-						type: "background"
-					}
-				],
-				errors: [
-					{
-						startRow: er.start[0],
-						endRow: er.end[0],
-						startCol: er.start[1],
-						endCol: er.end[1],
-						message: er.message
-					}
-				]
+				annotations: [annotationFromError(er, false)],
+				markers: [markerFromError(er, false)],
+				errors: [errorBannerFromError(er, false)]
 			});
 			return;
 		}
@@ -786,9 +803,17 @@ OpenURLs`
 			},
 			loading: false,
 			shortcutData: shortcutjson,
-			annotations: [],
-			markers: [],
-			errors: [],
+			annotations: [
+				...output.warnings.map(warn => annotationFromError(warn, false))
+			],
+			markers: [
+				...output.warnings.map(warn => markerFromError(warn, false))
+			],
+			errors: [
+				...output.warnings.map(warn =>
+					errorBannerFromError(warn, false)
+				)
+			],
 			shortcutDownload: shortcutplist
 		});
 	}
