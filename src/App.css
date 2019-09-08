@@ -224,10 +224,6 @@
 		border-radius: 0;
 		border: none !important;
 		height: 95vh !important;
-		& > div:nth-child(2) {
-			overflow: scroll;
-			height: calc(100vh - 85px);
-		}
 	}
 	.result-text {
 		border-left: none !important;
@@ -659,6 +655,8 @@ input:active {
 .result-pane > div:nth-child(2):not(.loading-result-progress):not(.preview-error) {
 	padding: 20px;
 	padding-top: 0;
+	overflow: scroll;
+	height: calc(100vh - 85px);
 }
 #run-preview {
 	display: none;
