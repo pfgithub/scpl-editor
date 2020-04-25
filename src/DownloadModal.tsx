@@ -147,6 +147,17 @@ export class DownloadModal extends Component<DownloadModalProps, UploadStatus> {
 									requestUpload={() => this.uploadFile()}
 									detailsMsg={
 										<div>
+											<b>QR codes must be
+											scanned using{" "}
+											<a
+												href="https://www.icloud.com/shortcuts/eb304f320ee94bef9cba24d2201a91d7"
+												target="_blank"
+												rel="noopener"
+											>
+												This Shortcut
+											</a></b>
+											{" "}due to new security
+											restrictions in iOS 13.{" "}
 											To generate a QR code, ScPL editor
 											will upload your shortcut to{" "}
 											<a
